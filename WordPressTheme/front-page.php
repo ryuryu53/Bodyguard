@@ -101,20 +101,6 @@
 
               // サブループ開始   while文：投稿がある限り、このループで8件のキャンペーン情報を1件ずつ表示
               if ( $latest_campaign_query->have_posts() ) : while ( $latest_campaign_query->have_posts() ) : $latest_campaign_query->the_post();
-
-              // ここで投稿データを適切にセット
-              setup_postdata($post);
-
-              // 投稿IDの取得
-              $post_id = get_the_ID();
-
-              // ACFフィールドの取得
-              $campaign_1 = get_field('campaign_1');
-              $campaign_2 = get_field('campaign_2');
-              
-              // フィールドのデバッグ
-              var_dump($campaign_1);
-              var_dump($campaign_2);
             ?>
               <li class="swiper-slide campaign-cards__item campaign-card">
                 <?php
@@ -127,8 +113,8 @@
                 <?php endforeach; endif; ?>
                   <picture class="campaign-card__img">
                     <?php if ( get_the_post_thumbnail() ) : ?>
-                    <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                      <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
+                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else : ?>
                       <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
                     <?php endif; ?>
@@ -143,26 +129,18 @@
                     <?php endif; ?>
                     <h3 class="campaign-card__title text--medium"><?php the_title(); ?></h3>
                     <p class="campaign-card__text text--small-sp">お一人様</p>
+                    <!-- ご提供プランの価格 -->
                     <div class="campaign-card__price">
                       <?php
-                        // カスタム投稿のIDを取得
-                        $post_id = get_the_ID();
-                        var_dump($post_id); // 投稿IDが正しく取得されているか確認
-
-                        // ACFのデータをget_post_meta()で取得
-                        $campaign_1 = get_post_meta($post_id, 'campaign_1', true); // campaign_1フィールドを取得
-                        $campaign_2 = get_post_meta($post_id, 'campaign_2', true); // campaign_2フィールドを取得
-
-                        var_dump($campaign_1); // データが何か確認できる
-                        var_dump($campaign_2);
+                        $campaign_price = get_field('campaign_price');  // グループフィールドからデータを取得
+                        $price_before = $campaign_price['campaign_1'];  // サブフィールドから日契約の価格を取得
+                        $price_after = $campaign_price['campaign_2']; // サブフィールドから月契約の価格を取得
                       ?>
-                      <?php if ( get_field('campaign_1') ) : ?>
-                        <span class="campaign-card__price-before">&yen;<?php echo esc_html(number_format(intval(get_field('campaign_1')))); ?></span>
-                        <!-- <span class="campaign-card__price-before">&yen;<?php the_field('campaign_1'); ?></span> -->
-                        <?php endif; ?>
-                      <?php if ( get_field('campaign_2') ) : ?>
-                        <span class="campaign-card__price-after">&yen;<?php echo esc_html(number_format(intval(get_field('campaign_2')))); ?></span>
-                        <!-- <span class="campaign-card__price-after">&yen;<?php the_field('campaign_2'); ?></span> -->
+                      <?php if ( $price_before ) : ?>
+                        <span class="campaign-card__price-before">&yen;<?php echo esc_html(number_format(intval($price_before))); ?>/日</span>
+                      <?php endif; ?>
+                      <?php if ( $price_after ) : ?>
+                        <span class="campaign-card__price-after">&yen;<?php echo esc_html(number_format(intval($price_after))); ?>/月</span>
                       <?php endif; ?>
                     </div>
                   </div>
@@ -330,7 +308,20 @@
               <div class="voice-card__head">
                 <div class="voice-card__meta">
                   <div class="voice-card__label">
-                    <span class="voice-card__age"><?php echo esc_html(get_post_meta(get_the_ID(), 'voice_1', true)); ?>(<?php echo esc_html(get_post_meta(get_the_ID(), 'voice_2', true)); ?>)</span>
+                    <!-- 年代（性別） -->
+                    <span class="voice-card__age">
+                      <?php
+                        $voice_age_and_gender = get_field('voice_age_and_gender');  // グループフィールドからデータを取得
+                        $voice_age = $voice_age_and_gender['voice_1'];  // サブフィールドから年代を取得
+                        $voice_gender = $voice_age_and_gender['voice_2']; // サブフィールドから性別を取得
+                      ?>
+                      <?php if ( $voice_age ) : ?>
+                        <?php echo esc_html($voice_age); ?>
+                      <?php endif; ?>
+                      <?php if ( $voice_gender ) : ?>
+                        (<?php echo esc_html($voice_gender); ?>)
+                      <?php endif; ?>
+                    </span>
                     <?php
                       // カスタムタクソノミー「voice_category」の取得
                       $terms = get_the_terms(get_the_ID(), 'voice_category');
@@ -352,7 +343,9 @@
                   </picture>
                 </div>
               </div>
-              <p class="voice-card__text text--black-sp">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+              <?php if ( get_field('voice_3') ) : ?>
+                <p class="voice-card__text text--black-sp"><?php the_field('voice_3'); ?></p>
+              <?php endif; ?>
             </a>
           </article>
         <?php endwhile; endif; wp_reset_postdata(); ?>

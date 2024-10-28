@@ -17,25 +17,14 @@
         <!-- タクソノミーのタブを生成 -->
         <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="campaign-category__link <?php if ( !is_tax() ) echo 'is-active'; ?>">All</a>
         <?php
-        // 表示したい順番のスラッグを指定（FB：並び替え不要）
-        // $custom_order = array('license', 'fun-diving', 'experience-diving');
+          $terms = get_terms(array(
+            'taxonomy' => 'voice_category',
+            'hide_empty' => true,
+          ));
 
-        $terms = get_terms(array(
-          'taxonomy' => 'voice_category',
-          'hide_empty' => true,
-        ));
-
-        // スラッグ順にタームを並び替える（FB：並び替え不要）
-        if ( !empty($terms) ) :
-        //   usort($terms, function($a, $b) use ($custom_order) {
-        //     $pos_a = array_search($a->slug, $custom_order);
-        //     $pos_b = array_search($b->slug, $custom_order);
-        //     return $pos_a - $pos_b;
-        //   });
-
-          // 並び替え後にリンクを生成（FB：並び替え不要）
-          foreach ($terms as $term) :
-            $term_link = get_term_link($term);
+          if ( !empty($terms) ) :
+            foreach ($terms as $term) :
+              $term_link = get_term_link($term);
         ?>
         <a href="<?php echo esc_url($term_link); ?>" class="campaign-category__link <?php echo (is_tax('voice_category', $term->slug) ? 'is-active' : ''); ?>">
           <?php echo esc_html($term->name); ?>
@@ -51,11 +40,11 @@
                   <div class="voice-card__label">
                     <!-- 年代（性別） -->
                     <span class="voice-card__age">
-                    <?php
-                      $voice_age_and_gender = get_field('voice_age_and_gender');  // グループフィールドからデータを取得
-                      $voice_age = $voice_age_and_gender['voice_1'];  // サブフィールドから年代を取得
-                      $voice_gender = $voice_age_and_gender['voice_2']; // サブフィールドから性別を取得
-                    ?>
+                      <?php
+                        $voice_age_and_gender = get_field('voice_age_and_gender');  // グループフィールドからデータを取得
+                        $voice_age = $voice_age_and_gender['voice_1'];  // サブフィールドから年代を取得
+                        $voice_gender = $voice_age_and_gender['voice_2']; // サブフィールドから性別を取得
+                      ?>
                       <?php if ( $voice_age ) : ?>
                         <?php echo esc_html($voice_age); ?>
                       <?php endif; ?>
