@@ -42,7 +42,7 @@
   font-weight: $normal;
   line-height: 1.3;
   color: $white;
-  letter-spacing: 0.53em;
+  letter-spacing: 0.3em;
   text-indent: 0.5em;
   text-transform: uppercase;
 
@@ -57,12 +57,10 @@
   font-size: rem(20);
   font-weight: $normal;
   color: $white;
-  // text-indent: -0.15em;
   position: relative;
   right: rem(1);
 
   @include mq(md) {
-    // text-indent: -0.25em;
     right: rem(2);
   }
 }
@@ -76,6 +74,7 @@
 
 .mv__img-left, .mv__img-right {
   position: absolute;
+  top: 0;
   width: 50%;
   height: 100%;
   background-image: url('../images/common/mv_1.jpg');
@@ -90,14 +89,12 @@
 }
 
 .mv__img-left {
-  top: 0;
   left: 0;
   background-position: left center; /* 画像の左半分を表示 */
   transform: translateY(100%); /* 初期位置を画面外下部に */
 }
 
 .mv__img-right {
-  top: 0;
   right: 0;
   background-position: right center; /* 画像の右半分を表示 */
   transform: translateY(calc(100% + 80px));

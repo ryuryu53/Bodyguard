@@ -14,7 +14,7 @@
   font-family: $third-font-family;
   font-size: rem(16);
   font-weight: $bold;
-	color: $greenaccent;
+	color: $blueaccent;
 	background-color: $white;
 	border: solid rem(1) currentColor;
   transition: 0.3s ease;
@@ -62,7 +62,7 @@
 
 .wp-pagenavi a:hover{
   color:$white;
-  background-color:$greenaccent;
+  background-color:$blueaccent;
   border-color:transparent;
   opacity: 1;
 }
@@ -80,7 +80,7 @@
 
 .wp-pagenavi span.current{
 	color: $white;
-	background-color: $greenaccent;
+	background-color: $blueaccent;
 	border-color: transparent;
 }
 

@@ -68,7 +68,7 @@
   width: fit-content; // 動画レビュー：追加
   font-size: rem(12);
   font-weight: $normal;
-  color: $greenaccent;
+  color: $blueaccent;
   padding: rem(5) rem(11);
   border: rem(1) solid currentColor;
 
@@ -79,7 +79,7 @@
 
 .campaign-card__title {
   flex-grow: 1; // 動画レビュー：追加
-  border-bottom: rem(1) solid $greenaccent;
+  border-bottom: rem(1) solid $blueaccent;
   margin-top: rem(4);
   padding-bottom: rem(8);
 }
@@ -188,20 +188,20 @@
   }
 }
 
-.campaign-card__price-before::before {
-  content: "";
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: rem(76);
-  height: rem(3);
-  background-color: $red;
+// .campaign-card__price-before::before {
+//   content: "";
+//   position: absolute;
+//   top: 45%;
+//   left: 0;
+//   width: rem(76);
+//   height: rem(3);
+//   background-color: $red;
 
-  @include mq(md) {
-    top: 48%;
-    width: rem(91);
-  }
-}
+//   @include mq(md) {
+//     top: 48%;
+//     width: rem(91);
+//   }
+// }
 
 .campaign-card__price-before.campaign-card__price-before--blog-page::before {
   @include mq(md) {
@@ -214,7 +214,7 @@
   position: relative;
   left: rem(1);
   font-size: rem(32);
-  color: $greenaccent;
+  color: $blueaccent;
   margin-left: rem(17);
 
   @include mq(md) {
@@ -250,14 +250,14 @@
   flex-grow: 1;
   font-size: rem(16);
   font-weight: $normal;
-  color: $green;
+  color: $blue;
 }
 
 .campaign-card__information-period {
   font-family: $third-font-family;
   font-size: rem(16);
   font-weight: $bold;
-  color: $greenaccent;
+  color: $blueaccent;
   letter-spacing: 0.02em;
   text-align: center;
   margin-top: rem(29);
@@ -267,7 +267,7 @@
 .campaign-card__information-inquiry {
   font-size: rem(14);
   font-weight: $normal;
-  color: $greenaccent;
+  color: $blueaccent;
   text-align: center;
   margin-top: rem(3);
 }

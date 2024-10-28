@@ -67,7 +67,7 @@ textarea {
 	width: 100%;
   // max-width: rem(300);
 	background: $back-cr;
-	border: 1px solid $greenaccent;
+	border: 1px solid $blueaccent;
 	// border-radius: $border-r;
 	/*↓↓↓↓不要ならコメントアウト or 削除 */
 	// &:hover {  //ホバーしたときの色
@@ -89,7 +89,7 @@ button,
 	margin: 0;
 	display: inline-block;
 	text-decoration: none;
-	border: rem(1) solid $greenaccent;
+	border: rem(1) solid $blueaccent;
 	border-radius: 0;
 	/*↓カスタム */
 	padding: rem(15) rem(57) rem(15) 0;
@@ -104,7 +104,7 @@ button,
 }
 
 .form__btn-submit:hover [type="submit"] {	// 送信ボタン
-	color: $greenaccent;
+	color: $blueaccent;
 }
 
 [type="radio"] {
@@ -177,7 +177,7 @@ button,
 			left: 0;
 			transform: translateY(-50%);
 			background: $check-bg-cr;
-			border: 1px solid $greenaccent;
+			border: 1px solid $blueaccent;
 			width: rem(14);
 			height: rem(14);
 			display: block;
@@ -227,7 +227,7 @@ select {
 	font-size: $fz;
 	padding: rem(10) rem(7);
 	background-color: $back-cr;
-  border: 1px solid $greenaccent;
+  border: 1px solid $blueaccent;
   // border-radius: $border-r;
 	/*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
 	// appearance: auto;
@@ -267,7 +267,7 @@ textarea {
 }
 
 ::placeholder {
-	color: $green2;
+	color: $blue2;
 	font-size: rem(16);
 	font-weight: $normal;
 }
@@ -306,7 +306,7 @@ textarea {
 .form__item {
 	font-size: rem(16);
 	font-weight: $bold;
-	border-bottom: rem(1) dashed $greenaccent;
+	border-bottom: rem(1) dashed $blueaccent;
 	padding-bottom: rem(24);
 	@include mq(md) {
 		display: flex;
@@ -420,7 +420,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	padding-left: calc(rem(26) + $check-space);	// $check-space:5
 	@include mq(md) {
 		padding-left: rem(38);
-		color: $green;
+		color: $blue;
 	}
 }
 
@@ -471,12 +471,12 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
   position: relative;
 	z-index: 1;
 	display: inline-block;
-	background-color: $greenaccent;
+	background-color: $blueaccent;
 	color: $white;
 }
 
 .form__btn-submit:hover {
-	color: $greenaccent;
+	color: $blueaccent;
 }
 
 .form__btn-submit::before {
@@ -488,7 +488,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
   width: rem(202);
   height: calc(rem(1) * 2 + rem(15) * 2 + rem(14) * (22 / 14));
   background-color: transparent;
-  border: rem(1) solid $greenaccent;
+  border: rem(1) solid $blueaccent;
 }
 
 .form__btn-submit::after {

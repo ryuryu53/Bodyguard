@@ -18,8 +18,8 @@
   <!-- ローディング最初の画面 -->
   <div class="loading js-load">
     <div class="loading__header">
-      <div class="loading__title">diving</div>
-      <div class="loading__subtitle">into&nbsp;the&nbsp;ocean</div>
+      <div class="loading__title">STAY&nbsp;SAFE</div>
+      <div class="loading__subtitle">with&nbsp;professional&nbsp;security</div>
     </div>
   </div>
 
@@ -71,18 +71,18 @@
         </div>
       </div>
       <div class="mv__header">
-        <h2 class="mv__title">diving</h2>
-        <p class="mv__subtitle">into&nbsp;the&nbsp;ocean</p>
+        <h2 class="mv__title">STAY&nbsp;SAFE</h2>
+        <p class="mv__subtitle">with&nbsp;professional&nbsp;security</p>
       </div>
     </div>
   </section>
 
-  <!-- Campaign -->
+  <!-- Plans -->
   <section class="top-campaign campaign">
     <div class="campaign__inner inner">
       <div class="campaign__title section-header">
-        <p class="section-header__engtitle">Campaign</p>
-        <h2 class="section-header__jatitle">キャンペーン</h2>
+        <p class="section-header__engtitle">Plans</p>
+        <h2 class="section-header__jatitle">ご提供プラン</h2>
       </div>
       <div class="campaign__swiper">
         <div class="swiper js-campaign-swiper">
@@ -93,13 +93,28 @@
                 'post_type' => 'campaign', // カスタム投稿タイプ「campaign」の指定
                 'posts_per_page' => 8, // 最新の8件を表示
                 'orderby' => 'date', // 日付順にソート
-                'order' => 'DESC' // 新しいものを先頭に･･･降順（DESC）
+                'order' => 'DESC', // 新しいものを先頭に･･･降順（DESC）
+                'post_status' => 'publish' // 公開済みの投稿のみ取得
               );
               // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからキャンペーン投稿を取得
               $latest_campaign_query = new WP_Query($latest_campaign_args);
 
               // サブループ開始   while文：投稿がある限り、このループで8件のキャンペーン情報を1件ずつ表示
               if ( $latest_campaign_query->have_posts() ) : while ( $latest_campaign_query->have_posts() ) : $latest_campaign_query->the_post();
+
+              // ここで投稿データを適切にセット
+              setup_postdata($post);
+
+              // 投稿IDの取得
+              $post_id = get_the_ID();
+
+              // ACFフィールドの取得
+              $campaign_1 = get_field('campaign_1');
+              $campaign_2 = get_field('campaign_2');
+              
+              // フィールドのデバッグ
+              var_dump($campaign_1);
+              var_dump($campaign_2);
             ?>
               <li class="swiper-slide campaign-cards__item campaign-card">
                 <?php
@@ -127,13 +142,27 @@
                       <p class="campaign-card__category"><?php echo esc_html($terms[0]->name); ?></p>
                     <?php endif; ?>
                     <h3 class="campaign-card__title text--medium"><?php the_title(); ?></h3>
-                    <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                    <p class="campaign-card__text text--small-sp">お一人様</p>
                     <div class="campaign-card__price">
+                      <?php
+                        // カスタム投稿のIDを取得
+                        $post_id = get_the_ID();
+                        var_dump($post_id); // 投稿IDが正しく取得されているか確認
+
+                        // ACFのデータをget_post_meta()で取得
+                        $campaign_1 = get_post_meta($post_id, 'campaign_1', true); // campaign_1フィールドを取得
+                        $campaign_2 = get_post_meta($post_id, 'campaign_2', true); // campaign_2フィールドを取得
+
+                        var_dump($campaign_1); // データが何か確認できる
+                        var_dump($campaign_2);
+                      ?>
                       <?php if ( get_field('campaign_1') ) : ?>
                         <span class="campaign-card__price-before">&yen;<?php echo esc_html(number_format(intval(get_field('campaign_1')))); ?></span>
-                      <?php endif; ?>
+                        <!-- <span class="campaign-card__price-before">&yen;<?php the_field('campaign_1'); ?></span> -->
+                        <?php endif; ?>
                       <?php if ( get_field('campaign_2') ) : ?>
                         <span class="campaign-card__price-after">&yen;<?php echo esc_html(number_format(intval(get_field('campaign_2')))); ?></span>
+                        <!-- <span class="campaign-card__price-after">&yen;<?php the_field('campaign_2'); ?></span> -->
                       <?php endif; ?>
                     </div>
                   </div>
@@ -171,10 +200,10 @@
         </picture>
       </div>
       <div class="about__text-body">
-        <h3 class="about__subtitle">Dive&nbsp;into<br>the&nbsp;Ocean</h3>
+        <h3 class="about__subtitle">Your&nbsp;Safety,<br>Our&nbsp;Priority</h3>
         <div class="about__text-block">
           <p class="about__text text--white-pc">
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト<!-- PC版だとこの後さらに「が入ります。」が続く -->
+          「株式会社Bodyguard」は、身辺警護に特化した警備会社です。私たちの使命は、お客様の安全を第一に考え、どんな状況でも確実に守ることです。<br>経験豊富なスタッフが、あらゆるリスクに備え、安心して日常を過ごせる環境を提供します。
           </p>
           <div class="about__btn">
             <a href="<?php echo $about; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
@@ -189,7 +218,7 @@
     <div class="information__inner inner">
       <div class="information__title section-header">
         <p class="section-header__engtitle">Information</p>
-        <h2 class="section-header__jatitle">ダイビング情報</h2>
+        <h2 class="section-header__jatitle">身辺警護についての情報</h2>
       </div>
       <div class="information__content">
         <div class="colorbox js-colorbox">
@@ -238,7 +267,24 @@
               <div class="blog-card__body">
                 <time datetime="<?php the_time('c'); ?>" class="blog-card__date"><?php the_time('Y.m.d'); ?></time>
                 <h3 class="blog-card__title text--medium"><?php the_title(); ?></h3>
-                <p class="blog-card__text text--black-pc">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                <p class="blog-card__text text--black-pc">
+                  <?php
+                    // 投稿本文を取得
+                    $content = $post->post_content;
+
+                    // 文字数を制限
+                    if (mb_strlen($content, 'UTF-8') > 110) {
+                      // 110文字で切り取る
+                      $content = mb_substr($content, 0, 110, 'UTF-8');
+                    }
+
+                    // コメントや不要なタグを削除
+                      $content = strip_tags($content);
+
+                    // 整形したコンテンツを出力
+                    echo $content;
+                  ?>
+                </p>
               </div>
             </a>
           </article>
@@ -330,7 +376,7 @@
             <source media="(min-width: 768px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-pc.webp" type="image/webp">
             <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-sp.webp" type="image/webp">
             <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-sp.jpg">
-            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-pc.jpg" alt="サンゴの周りを多くの赤い小さな熱帯魚が泳いでいる様子">
+            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-pc.jpg" alt="">
           </picture>
         </div>
         <div class="price__table price-table">

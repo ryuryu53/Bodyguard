@@ -18,13 +18,12 @@
 }
 
 .campaign-category__link {
-  position: relative; // これがないとボタンの上に魚のロゴが来てしまう
   max-width: rem(162);
   width: 100%;
   font-size: rem(14);
   font-weight: $normal;
   line-height: 1.571;
-  color: $greenaccent;
+  color: $blueaccent;
   text-align: center;
   text-transform: uppercase;
   padding: rem(6) rem(4) rem(4);
@@ -37,12 +36,12 @@
 .campaign-category__link.is-active {
   color: $white;
   border-color: transparent;
-  background-color: $greenaccent;
+  background-color: $blueaccent;
 }
 
 .campaign-category__link:hover {
   color: $white;
   border-color: transparent;
-  background-color: $greenaccent;
+  background-color: $blueaccent;
   opacity: 1;
 }

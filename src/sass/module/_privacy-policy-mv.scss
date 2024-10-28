@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.privacy-policy-mv {
+  position: relative;
+  height: rem(460);
+  background-image: url(../images/common/privacy-policy-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include mq(md) {
+    height: rem(548);
+  }
+}

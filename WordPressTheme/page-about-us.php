@@ -24,10 +24,10 @@
         </picture>
       </div>
       <div class="page-about__text-body">
-        <h3 class="page-about__subtitle">Dive&nbsp;into<br>the&nbsp;Ocean</h3>
+        <h3 class="page-about__subtitle">Your&nbsp;Safety,<br>Our&nbsp;Priority</h3>
         <div class="page-about__text-block">
           <p class="page-about__text text--white-pc">
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+          「株式会社Bodyguard」は、身辺警護に特化した警備会社です。私たちの使命は、お客様の安全を第一に考え、どんな状況でも確実に守ることです。<br>経験豊富なスタッフが、あらゆるリスクに備え、安心して日常を過ごせる環境を提供します。
           </p>
         </div>
       </div>
@@ -61,7 +61,7 @@
       <div class="gallery__inner inner">
         <div class="gallery__title section-header">
           <p class="section-header__engtitle"> Gallery</p>
-          <h2 class="section-header__jatitle">フォト</h2>
+          <h2 class="section-header__jatitle">活躍するボディーガードたち</h2>
         </div>
         <div class="gallery__items-wrap gallery-photo">
           <div class="gallery-photo__items">

@@ -70,7 +70,7 @@
                   <p class="campaign-card__category"><?php echo esc_html($terms[0]->name); ?></p>
                 <?php endif; ?>
                 <h3 class="campaign-card__title campaign-card__title--sub-page text--medium-large"><?php the_title(); ?></h3>
-                <p class="campaign-card__text campaign-card__text--sub-page text--small-sp">全部コミコミ(お一人様)</p>
+                <p class="campaign-card__text campaign-card__text--sub-page text--small-sp">お一人様</p>
                 <!-- キャンペーン価格 -->
                 <div class="campaign-card__price campaign-card__price--sub-page">
                 <?php

@@ -16,10 +16,10 @@
   font-size: rem(14);
   font-weight: $normal;
   line-height: 1.44;
-  color: $greenaccent;
+  color: $blueaccent;
   text-align: center;
   text-transform: uppercase;
-  background-color: $green2;
+  background-color: $blue2;
   border: none;
   padding: rem(10) 0;
   box-shadow: rem(2) rem(2) rem(4) rgba($color: $black, $alpha: 25%);
@@ -40,7 +40,7 @@
 
 .tab__item:hover {
   color: $white;
-  background-color: $greenaccent;
+  background-color: $blueaccent;
 }
 
 .tab__item::before {
@@ -99,7 +99,7 @@
 .tab__item.is-active {
   color: $white;
   border-color: transparent;
-  background-color: $greenaccent;
+  background-color: $blueaccent;
 }
 
 .tab__item:first-child.is-active::before {

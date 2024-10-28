@@ -9,7 +9,7 @@
   position: relative;
   padding: rem(16) rem(44) rem(15) rem(16);
   cursor: pointer;
-  background-color: $greenaccent;
+  background-color: $blueaccent;
   width: 100%;
   @include mq(md) {
     padding: rem(26) rem(72) rem(24) rem(40);
@@ -61,7 +61,7 @@
 
 .accordion__content {
   padding: rem(23) rem(15);
-  border: rem(1) solid $greenaccent;
+  border: rem(1) solid $blueaccent;
   @include mq(md) {
     margin-top: rem(16);
     padding: rem(39);

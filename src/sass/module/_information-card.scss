@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .information-card {
-  border: rem(1) solid $greenaccent;
+  border: rem(1) solid $blueaccent;
   padding: rem(23) rem(24) rem(24);
   @include mq(md) {
     padding-bottom: rem(23);
@@ -28,7 +28,7 @@
   font-size: rem(24);
   font-weight: $bold;
   line-height: 1;
-  border-bottom: rem(1) solid $greenaccent;
+  border-bottom: rem(1) solid $blueaccent;
   padding-bottom: rem(8);
 }
 

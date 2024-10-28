@@ -7,7 +7,7 @@
   z-index: 1000;
   width: 100%;
   height: rem(80);
-  background-color: rgba($color: $green, $alpha: 68%);
+  background-color: rgba($color: $blue, $alpha: 68%);
 
   @include mq(md) {
     height: rem(90);
@@ -15,7 +15,7 @@
 }
 
 .header.is-active {
-  background-color: $greenaccent; // 動画レビュー：追加
+  background-color: $blueaccent; // 動画レビュー：追加
 }
 
 .header__inner {
@@ -48,13 +48,13 @@
 
 .header__logo-link {
   display: block;
-  aspect-ratio: 102 / 38;
-  width: rem(102);
+  aspect-ratio: 160 / 40;
+  width: rem(160);
   overflow: hidden;
 
   @include mq(md) {
-    aspect-ratio: 141 / 58; // 133/50 → 141/58 に修正：カンプは133×50だがその通り指定すると、デベロッパーツールで組み込みサイズ141×58(レンダリングは133×50)と表示され、VSCodeのsvgファイルには「width="141" height="58"」とある
-    width: rem(141);
+    aspect-ratio: 200 / 50;
+    width: rem(200);
   }
 }
 

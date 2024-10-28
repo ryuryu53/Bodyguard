@@ -5,7 +5,7 @@
   position: relative;
   font-size: rem(24);
   font-weight: $normal;
-  color: $greenaccent;
+  color: $blueaccent;
   padding-left: rem(32);
   cursor: pointer;
 }
@@ -19,7 +19,7 @@
   border-style: solid;
   border-top: rem(11) solid transparent;
   border-bottom: rem(11) solid transparent;
-  border-left: rem(18) solid $greenaccent;
+  border-left: rem(18) solid $blueaccent;
   border-right: 0;
   transition: 0.3s transform;
 }

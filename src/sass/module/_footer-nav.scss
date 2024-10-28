@@ -88,7 +88,7 @@
 
 .footer-nav__left-item--green,
 .footer-nav__right-item--green {
-  color: $green;
+  color: $blue;
 }
 
 // コード_FB：ほとんど数値変わらないのでpadding統一してOK。連番は使わない
@@ -126,7 +126,7 @@
   display: inline-block;
   width: rem(18);
   height: rem(18);
-  background-image: url(../images/common/starfish.svg);
+  background-image: url(../images/common/transceiver.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -134,7 +134,7 @@
 
 .footer-nav__left-link--icon-green::before,
 .footer-nav__right-link--icon-green::before {
-  background-image: url(../images/common/starfish-green-real.svg);
+  background-image: url(../images/common/transceiver-blue.svg);
 }
 
 .footer-nav__right-items:nth-child(2) .footer-nav__right-item:nth-child(2) .footer-nav__right-link::before {

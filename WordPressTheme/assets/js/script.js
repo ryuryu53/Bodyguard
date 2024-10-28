@@ -1,5 +1,6 @@
 "use strict";
 
+// 宣言を jQuery(function ($) {}); の外側でする
 var mv_swiper;
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
@@ -378,9 +379,6 @@ jQuery(window).on("load", function () {
 
       // 2秒後にスワイパーの自動再生を開始
       // autoplayオプションを追加・設定して開始
-      // mv_swiper.params.autoplay = {  // この書き方だとスワイパーが止まってしまう！よって、以下の通り1行に書いた
-      //   delay: 3000,
-      // };
       mv_swiper.params.autoplay.delay = 3000; // 3秒ごとにスライド(3秒後にスライドが変わっていく)
       mv_swiper.autoplay.start(); // 自動再生を開始
     }, 2000);

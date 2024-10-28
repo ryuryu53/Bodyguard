@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
   <!-- 下層ページのメインビュー -->
-  <section class="site-map-mv sub-mv">
+  <section class="terms-of-service-mv sub-mv">
     <div class="sub-mv__header">
       <h1 class="sub-mv__title">Terms&nbsp;of&nbsp;Service</h1>
     </div>

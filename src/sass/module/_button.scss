@@ -6,7 +6,7 @@
   display: inline-block;
   width: rem(202);
   padding: rem(15) 0;
-  background-color: $greenaccent;
+  background-color: $blueaccent;
   border: rem(1) solid transparent;
   font-family: $second-font-family;
   font-size: rem(14);
@@ -19,7 +19,7 @@
 
 .button--reverse {
   background-color: $white;
-  color: $greenaccent;
+  color: $blueaccent;
 }
 
 .button::before {
@@ -31,7 +31,7 @@
   width: rem(202);
   height: calc(rem(1) * 2 + rem(15) * 2 + rem(14) * (22 / 14));
   background-color: transparent;
-  border: rem(1) solid $greenaccent;
+  border: rem(1) solid $blueaccent;
 }
 
 .button--reverse::before {
@@ -53,11 +53,11 @@
 }
 
 .button--reverse::after {
-  background-color: $greenaccent;
+  background-color: $blueaccent;
 }
 
 .button:hover {
-  color: $greenaccent;
+  color: $blueaccent;
   opacity: 1;
 }
 

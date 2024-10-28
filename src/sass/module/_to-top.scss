@@ -38,7 +38,7 @@
   z-index: 30;
   border-radius: 50%;
   overflow: hidden;
-  border: rem(1) solid $greenaccent;
+  border: rem(1) solid $blueaccent;
   transition: opacity 0.3s;
 
   @include mq(md) {
@@ -72,8 +72,8 @@
   content: "";
   width: rem(6);
   height: rem(28);
-  border-top: rem(1) solid $greenaccent;
-  border-right: rem(1) solid $greenaccent;
+  border-top: rem(1) solid $blueaccent;
+  border-right: rem(1) solid $blueaccent;
   transform: skewY(135deg);
 
   @include mq(md) {

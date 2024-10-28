@@ -2,7 +2,7 @@
 
 .information {
   position: relative;
-  background-color: $green2;
+  background-color: $blue2;
 }
 
 .information__title {
@@ -55,7 +55,7 @@
 .information__subtitle {
   font-size: rem(20);
   font-weight: $bold;
-  border-bottom: rem(1) solid $greenaccent;
+  border-bottom: rem(1) solid $blueaccent;
   padding-bottom: 0;
 
   @include mq(md) {

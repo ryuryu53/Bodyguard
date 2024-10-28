@@ -8,7 +8,6 @@
   background-position: center;
   background-size: cover;
   @include mq(md) {
-    background-image: url(../images/common/price-mv-pc.webp);
     height: rem(548);
   }
 }

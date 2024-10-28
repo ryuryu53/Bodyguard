@@ -3,14 +3,14 @@
 <!-- 下層ページのメインビュー -->
   <section class="campaign-mv sub-mv">
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title">Campaign</h1>
+      <h1 class="sub-mv__title">Plans</h1>
     </div>
   </section>
 
   <!-- パンくず -->
   <?php get_template_part('parts/breadcrumbs'); ?>
 
-  <!-- キャンペーン -->
+  <!-- ご提供プラン -->
   <section class="top-page-campaign page-campaign">
     <div class="page-campaign__inner inner">
       <div class="page-campaign__category campaign-category">
@@ -71,20 +71,20 @@
                   <p class="campaign-card__category"><?php echo esc_html($terms[0]->name); ?></p>
                 <?php endif; ?>
                 <h3 class="campaign-card__title campaign-card__title--sub-page text--medium-large"><?php the_title(); ?></h3>
-                <p class="campaign-card__text campaign-card__text--sub-page text--small-sp">全部コミコミ(お一人様)</p>
-                <!-- キャンペーン価格 -->
+                <p class="campaign-card__text campaign-card__text--sub-page text--small-sp">お一人様</p>
+                <!-- ご提供プランの価格 -->
                 <div class="campaign-card__price campaign-card__price--sub-page">
                 <?php
                   $campaign_price = get_field('campaign_price');  // グループフィールドからデータを取得
-                  $price_before = $campaign_price['campaign_1'];  // サブフィールドから通常価格を取得
-                  $price_after = $campaign_price['campaign_2']; // サブフィールドから割引価格を取得
+                  $price_before = $campaign_price['campaign_1'];  // サブフィールドから日契約の価格を取得
+                  $price_after = $campaign_price['campaign_2']; // サブフィールドから月契約の価格を取得
                 ?>
                   <?php if ( $price_before ) : ?>
                     <!-- number_formatだけだと非推奨の警告、intvalで数値として扱う -->
-                    <span class="campaign-card__price-before campaign-card__price-before--sub-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?></span>
+                    <span class="campaign-card__price-before campaign-card__price-before--sub-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?>/日</span>
                   <?php endif; ?>
                   <?php if ( $price_after ) : ?>
-                    <span class="campaign-card__price-after campaign-card__price-after--sub-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?></span>
+                    <span class="campaign-card__price-after campaign-card__price-after--sub-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?>/月</span>
                   <?php endif; ?>
                 </div>
                 <div class="campaign-card__information">
@@ -124,7 +124,7 @@
                   </div>
                   <p class="campaign-card__information-inquiry">ご予約・お問い合わせはコチラ</p>
                   <div class="campaign-card__btn campaign-card__btn--sub-page u-desktop">
-                    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
+                    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><span class="button__text">Contact&nbsp;us</span></a>
                   </div>
                 </div>
               </div>

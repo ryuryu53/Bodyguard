@@ -64,14 +64,14 @@
     flex-direction: column;
     justify-content: center;
     width: 46.74%;
-    border-left: rem(1) solid $greenaccent;
+    border-left: rem(1) solid $blueaccent;
     margin-top: 0;
     padding-left: rem(29);
   }
 }
 
 .contact__logo {
-  border-bottom: rem(1) solid $greenaccent;
+  border-bottom: rem(1) solid $blueaccent;
   padding-bottom: rem(6);
 
   @include mq(md) {
@@ -132,7 +132,7 @@
 .contact__text {
   font-size: rem(14);
   font-weight: $normal;
-  color: $greenaccent;
+  color: $blueaccent;
   text-align: center;
   margin-top: rem(7);
   padding-left: rem(1);

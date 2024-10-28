@@ -79,7 +79,7 @@
         <div class="footer__img">
           <div class="footer__logo">
             <a href="<?php echo $home; ?>" class="footer__logo-link">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/footer-logo.svg" alt="CodeUps">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/hf-logo.svg" alt="CodeUps">
             </a>
           </div>
           <div class="footer__sns">

@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   gap: rem(8);
-  background-color: $greenaccent;
+  background-color: $blueaccent;
   font-size: rem(16);
   font-weight: $bold;
   color: $white;
@@ -61,7 +61,7 @@
 
 .page-price-table__item {
   display: flex;
-  border: rem(1) solid $greenaccent;
+  border: rem(1) solid $blueaccent;
   border-top: none;
   @include mq(md) {
     border-left: none;
@@ -70,7 +70,7 @@
 
 .page-price-table__item:first-child {
   @include mq(md) {
-    border-top: rem(1) solid $greenaccent;
+    border-top: rem(1) solid $blueaccent;
   }
 }
 
@@ -118,7 +118,7 @@
 
 .page-price-table__item dd {
   width: 30.5%;
-  border-left: rem(1) solid $greenaccent;
+  border-left: rem(1) solid $blueaccent;
   text-align: right;
   padding-top: rem(18);
   padding-right: rem(15);
