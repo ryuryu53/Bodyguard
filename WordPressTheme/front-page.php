@@ -80,10 +80,10 @@
   <!-- Plans -->
   <section class="top-campaign campaign">
     <div class="campaign__inner inner">
-      <div class="campaign__title section-header">
-        <p class="section-header__engtitle">Plans</p>
-        <h2 class="section-header__jatitle">ご提供プラン</h2>
-      </div>
+      <h2 class="campaign__title section-header">
+        <span class="section-header__engtitle">Plans</span>
+        <span class="section-header__jatitle">ご提供プラン</span>
+      </h2>
       <div class="campaign__swiper">
         <div class="swiper js-campaign-swiper">
           <ul class="swiper-wrapper campaign__items campaign-cards">
@@ -163,10 +163,10 @@
   <!-- About -->
   <section class="top-about about">
     <div class="about__inner inner">
-      <div class="about__title section-header">
-        <p class="section-header__engtitle">About&nbsp;us</p>
-        <h2 class="section-header__jatitle about__title-jp">私たちについて</h2>
-      </div>
+      <h2 class="about__title section-header">
+        <span class="section-header__engtitle">About&nbsp;us</span>
+        <span class="section-header__jatitle about__title-jp">私たちについて</span>
+      </h2>
       <div class="about__img-box">
         <picture class="about__img-left">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
@@ -194,10 +194,10 @@
   <!-- Information -->
   <section class="top-information information">
     <div class="information__inner inner">
-      <div class="information__title section-header">
-        <p class="section-header__engtitle">Information</p>
-        <h2 class="section-header__jatitle">身辺警護についての情報</h2>
-      </div>
+      <h2 class="information__title section-header">
+        <span class="section-header__engtitle">Information</span>
+        <span class="section-header__jatitle">身辺警護についての情報</span>
+      </h2>
       <div class="information__content">
         <div class="colorbox js-colorbox">
           <picture class="information__img">
@@ -206,8 +206,8 @@
           </picture>
         </div>
         <div class="information__text-body">
-          <h3 class="information__subtitle">ライセンス講習</h3>
-          <p class="information__text text--black-pc">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
+          <h3 class="information__subtitle">身体を守る防護壁<br class="u-mobile">&nbsp;-&nbsp;株式会社Bodyguard</h3>
+          <p class="information__text text--black-pc">株式会社Bodyguardは、実際の危険からあなたの体を守るプロフェッショナルです。万が一、誰かが襲ってきたり、危険な場所へ行かねばならないときも、訓練を受けた警護員が物理的にあなたを守ります。迫り来る危険に素早く対応し、安全な場所へ誘導しながら、安心して過ごせる環境を提供いたします。</p>
           <div class="information__btn">
             <a href="<?php echo $information; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
           </div>
@@ -219,10 +219,10 @@
   <!-- Blog -->
   <section class="top-blog blog">
     <div class="blog__inner inner">
-      <div class="blog__title section-header">
-        <p class="section-header__engtitle section-header__engtitle--white-pc">Blog</p>
-        <h2 class="section-header__jatitle section-header__jatitle--white-pc">ブログ</h2>
-      </div>
+      <h2 class="blog__title section-header">
+        <span class="section-header__engtitle section-header__engtitle--white-pc">Blog</span>
+        <span class="section-header__jatitle section-header__jatitle--white-pc">ブログ</span>
+      </h2>
       <div class="blog__items blog-cards">
         <?php
           $posts_args = array(
@@ -277,10 +277,10 @@
   <!-- Voice -->
   <section class="top-voice voice">
     <div class="voice__inner inner">
-      <div class="voice__title section-header">
-        <p class="section-header__engtitle voice__title-en">Voice</p>
-        <h2 class="section-header__jatitle voice__title-jp">お客様の声</h2>
-      </div>
+      <h2 class="voice__title section-header">
+        <span class="section-header__engtitle voice__title-en">Voice</span>
+        <span class="section-header__jatitle voice__title-jp">お客様の声</span>
+      </h2>
       <div class="voice__items voice-cards">
         <?php
           // 最新のカスタム投稿（voice）の2件を取得するクエリ
@@ -359,10 +359,10 @@
   <!-- Price -->
   <section class="top-price price">
     <div class="price__inner inner">
-      <div class="price__title section-header">
-        <p class="section-header__engtitle">Price</p>
-        <h2 class="section-header__jatitle">料金一覧</h2>
-      </div>
+      <h2 class="price__title section-header">
+        <span class="section-header__engtitle">Price</span>
+        <span class="section-header__jatitle">料金一覧</span>
+      </h2>
       <div class="price__contents">
         <div class="price__img colorbox js-colorbox">
           <picture>
@@ -374,40 +374,63 @@
         </div>
         <div class="price__table price-table">
           <?php
-            // 4つの料金表に対応するフィールド名を設定
+            // 料金表のフィールド名をリスト化
             $price_tables = [
               'table_prices1',
               'table_prices2',
               'table_prices3',
               'table_prices4'
             ];
+
+            // コースデータの有効性をチェックする関数
+            function is_valid_course($price, $key_suffix) {
+              return !empty($price["course_name{$key_suffix}"]) && !empty($price["course_price{$key_suffix}"]);
+          }
+
             // 各料金表について処理
             foreach ( $price_tables as $price_table_key ) :
               // PriceページのID
-              $page_price_id = 12;
+              $page_price_id = 35;
               // テーブルタイトルと料金表情報を取得
-              $table_title = SCF::get('table_title' . substr($price_table_key, -1), $page_price_id);
+              $key_suffix = substr($price_table_key, -1); // キーの末尾番号を取得
+              $table_title = SCF::get("table_title{$key_suffix}", $page_price_id);  // ここではSCF::getメソッドに$page_price_id引数が必要
               $table_prices = SCF::get($price_table_key, $page_price_id);
+
               // テーブルタイトルと料金表情報が存在するか確認
-            if ( !empty($table_title) && !empty($table_prices) ) :
+              if ( !empty($table_title) && !empty($table_prices) && is_array($table_prices) ) :
+                // 各項目が空でないことを確認
+                $has_valid_price = false;
+                foreach ( $table_prices as $price ) {
+                  if ( is_valid_course($price, $key_suffix) ) {
+                    $has_valid_price = true;
+                    break;
+                  }
+                }
+              // 有効な料金情報が存在する場合のみ表示
+              if ( $has_valid_price ) :
           ?>
               <div class="price-table__content">
                 <h3 class="price-table__title text--bold"><?php echo esc_html($table_title); ?></h3>
                 <dl class="price-table__items text--small-sp">
                   <?php foreach ( $table_prices as $price ) : ?>
+                    <?php
+                      // コース名と価格が空でないことを確認
+                      if ( is_valid_course($price, $key_suffix) ) :
+                    ?>
                     <div class="price-table__item">
                       <dt>
                         <?php
-                          $course_name = $price['course_name' . substr($price_table_key, -1)];
-                          $course_name_escaped = esc_html($course_name);
-                          echo $course_name_escaped;  // トップページではSP版でも改行しない、HTMLエスケープのみ
+                          $course_name = esc_html($price["course_name{$key_suffix}"]);
+                          echo $course_name;  // トップページではSP版でも改行しない、HTMLエスケープのみ
                         ?>
                       </dt>
-                      <dd>&yen;<?php echo esc_html(number_format($price['course_price' . substr($price_table_key, -1)])); ?></dd>
+                      <dd>&yen;<?php echo esc_html(number_format(intval($price["course_price{$key_suffix}"]))); ?></dd>
                     </div>
+                    <?php endif; ?>
                   <?php endforeach; ?>
                 </dl>
               </div>
+              <?php endif; ?>
             <?php endif; ?>
           <?php endforeach; ?>
         </div>

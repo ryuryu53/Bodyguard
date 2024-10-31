@@ -1,23 +1,8 @@
 @use "global" as *;
 
 .price {
-  position: relative;
+  position: relative;  // ローディング最初の画面が出ないようにするため
   background-color: $blue2;
-}
-
-.price::before {
-  @include mq(md) {
-    content: "";
-    background-image: url(../images/common/price-goldfish.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: absolute;
-    bottom: rem(60);
-    left: calc(50% - min(48%, rem(620)));
-    width: rem(437);
-    height: rem(201);
-  }
 }
 
 .price__title {
@@ -66,7 +51,6 @@
 .price__btn {
   text-align: center;
   margin-top: rem(41);
-  // padding-right: rem(4);  動画レビュー：完全に中央に寄せてOK → 削除
 
   @include mq(md) {
     margin-top: rem(79);

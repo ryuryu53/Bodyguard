@@ -3,13 +3,12 @@
 .sp-nav {
   display: none;
   position: absolute;
-  top: rem(80); // 動画レビュー：追加
+  top: rem(80);
   left: 0;
   right: 0;
   width: 100%;
   height: 100vh;
   background-color: $blueaccent;
-  // overflow-y: auto; // FB：追加 ⇒ 動画レビュー：.sp-nav__inner へ移動
 }
 
 .sp-nav__inner {
@@ -20,12 +19,10 @@
 
 .sp-nav__container {
   display: flex;
-  // align-items: center; FB：スマホを横にしたときメニューの上部が見切れてしまう
   width: 100%;
   max-width: rem(600);
-  // height: calc(100vh - rem(80));  // 動画レビュー：inherit から修正 ⇒ .sp-nav__innerへ移動
   margin: auto;
-  padding: rem(5) rem(15) 0; // FB：rem(85) 追加 ⇒ 動画レビュー：85 → 5 に修正
+  padding: rem(5) rem(15) 0;
 }
 
 .sp-nav__left-content {
@@ -34,7 +31,7 @@
 }
 
 .sp-nav__right-content {
-  width: 49.8%; // 46.7 → 49.8 left-contentと合わせて100にした
+  width: 49.8%;
   padding-bottom: rem(8);
 }
 
@@ -61,18 +58,12 @@
   margin-top: 2px;
 }
 
-// 最終_FB：.sp-nav__left-link, .sp-nav__right-link → .sp-nav__linkにまとめた
 .sp-nav__link {
   position: relative;
   display: block;
   font-weight: $bold;
-  // text-indent: rem(-18); コード_FB：マイナス系のものはあまり使わない方がよい ⇒ absoluteで対応
   padding: rem(16) 0 rem(15) rem(22);
 }
-
-// .sp-nav__left-link-1 { // コード_FB：ほとんど数値変わらないのでpadding統一してOK。連番は使わない
-//   padding: rem(16) 0 rem(15) rem(22);
-// }
 
 .sp-nav__right-items:nth-child(2) .sp-nav__right-item:nth-child(2) .sp-nav__link {
   line-height: 1.1;
@@ -89,7 +80,7 @@
 
 .sp-nav__link::before {
   content: "";
-  position: absolute; // コード_FB：アイコンの位置調整はabsoluteで行う
+  position: absolute;
   top: rem(19);
   left: 0;
   display: inline-block;
@@ -112,11 +103,6 @@
 .sp-nav__left-detail-item,
 .sp-nav__right-detail-item {
   font-weight: $normal;
-}
-
-.sp-nav__left-detail-item:nth-child(4),
-.sp-nav__right-detail-item:nth-child(4) {
-  font-size: 0.94rem;
 }
 
 .sp-nav__left-detail-link,

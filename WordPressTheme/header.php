@@ -17,9 +17,9 @@
   <?php
     $home = esc_url( home_url('/') );
     $campaign = esc_url( home_url('/campaign/') );
-    $campaign_fun_diving = esc_url( home_url('/campaign_category/fun-diving/') );
-    $campaign_license = esc_url( home_url('/campaign_category/license/') );
-    $campaign_experience_diving = esc_url( home_url('/campaign_category/experience-diving/') );
+    $campaign_fun_diving = esc_url( home_url('/campaign_category/entry-guard/') );
+    $campaign_license = esc_url( home_url('/campaign_category/safe-security/') );
+    $campaign_experience_diving = esc_url( home_url('/campaign_category/protect-plus/') );
     $about = esc_url( home_url('/about-us/') );
     $information = esc_url( home_url('/information/') );
     $blog = esc_url( home_url('/blog/') );
@@ -54,8 +54,8 @@
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="<?php echo $campaign; ?>" class="pc-nav__link">
-                <span class="pc-nav__engtext">Campaign</span>
-                <span class="pc-nav__jatext">キャンペーン</span>
+                <span class="pc-nav__engtext">Plans</span>
+                <span class="pc-nav__jatext">ご提供プラン</span>
               </a>
             </li>
             <li class="pc-nav__item">
@@ -67,7 +67,7 @@
             <li class="pc-nav__item">
               <a href="<?php echo $information; ?>" class="pc-nav__link">
                 <span class="pc-nav__engtext">Information</span>
-                <span class="pc-nav__jatext">ダイビング情報</span>
+                <span class="pc-nav__jatext">身辺警護についての情報</span>
               </a>
             </li>
             <li class="pc-nav__item">
@@ -97,7 +97,7 @@
             <li class="pc-nav__item">
               <a href="<?php echo $contact; ?>" class="pc-nav__link">
                 <span class="pc-nav__engtext">Contact</span>
-                <span class="pc-nav__jatext">お問合せ</span>
+                <span class="pc-nav__jatext">お問い合わせ</span>
               </a>
             </li>
           </ul>
@@ -108,19 +108,16 @@
               <div class="sp-nav__left-content">
                 <ul class="sp-nav__left-items">
                   <li class="sp-nav__left-item">
-                    <a href="<?php echo $campaign; ?>" class="sp-nav__link">キャンペーン</a>
+                    <a href="<?php echo $campaign; ?>" class="sp-nav__link">ご提供プラン</a>
                     <ul class="sp-nav__left-detail-items">
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_license; ?>" class="sp-nav__left-detail-link">ライセンス取得</a>
+                        <a href="<?php echo $campaign_fun_diving; ?>" class="sp-nav__left-detail-link">エントリーガード</a>
                       </li>
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_experience_diving; ?>" class="sp-nav__left-detail-link">貸切体験ダイビング</a>
+                        <a href="<?php echo $campaign_license; ?>" class="sp-nav__left-detail-link">セーフセキュリティ</a>
                       </li>
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_experience_diving; ?>" class="sp-nav__left-detail-link">ナイトダイビング</a>
-                      </li>
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_fun_diving; ?>" class="sp-nav__left-detail-link">貸切ファンダイビング</a>
+                        <a href="<?php echo $campaign_experience_diving; ?>" class="sp-nav__left-detail-link">プロテクトプラス</a>
                       </li>
                     </ul>
                   </li>
@@ -130,16 +127,16 @@
                 </ul>
                 <ul class="sp-nav__left-items">
                   <li class="sp-nav__left-item">
-                    <a href="<?php echo $information; ?>" class="sp-nav__link">ダイビング情報</a>
+                    <a href="<?php echo $information; ?>" class="sp-nav__link">身辺警護についての<br>情報</a>
                     <ul class="sp-nav__left-detail-items">
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $information; ?>#tab1" class="sp-nav__left-detail-link">ライセンス講習</a>
+                        <a href="<?php echo $information; ?>#tab1" class="sp-nav__left-detail-link">身体を守る防護壁</a>
                       </li>
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $information; ?>#tab3" class="sp-nav__left-detail-link">体験ダイビング</a>
+                        <a href="<?php echo $information; ?>#tab2" class="sp-nav__left-detail-link">安心感のサポート</a>
                       </li>
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $information; ?>#tab2" class="sp-nav__left-detail-link">ファンダイビング</a>
+                        <a href="<?php echo $information; ?>#tab3" class="sp-nav__left-detail-link">危険察知と回避</a>
                       </li>
                     </ul>
                   </li>
@@ -157,16 +154,13 @@
                     <a href="<?php echo $amount; ?>" class="sp-nav__link">料金一覧</a>
                     <ul class="sp-nav__right-detail-items">
                       <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title1" class="sp-nav__right-detail-link">ライセンス講習</a>
+                        <a href="<?php echo $amount; ?>#title1" class="sp-nav__right-detail-link">エントリーガード</a>
                       </li>
                       <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title2" class="sp-nav__right-detail-link">体験ダイビング</a>
+                        <a href="<?php echo $amount; ?>#title2" class="sp-nav__right-detail-link">セーフセキュリティ</a>
                       </li>
                       <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title3" class="sp-nav__right-detail-link">ファンダイビング</a>
-                      </li>
-                      <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title4" class="sp-nav__right-detail-link">スペシャルダイビング</a>
+                        <a href="<?php echo $amount; ?>#title3" class="sp-nav__right-detail-link">プロテクトプラス</a>
                       </li>
                     </ul>
                   </li>
@@ -176,7 +170,7 @@
                     <a href="<?php echo $faq; ?>" class="sp-nav__link">よくある質問</a>
                   </li>
                   <li class="sp-nav__right-item">
-                    <a href="<?php echo $privacy; ?>" class="sp-nav__link">プライバシー<br class="u-mobile">ポリシー</a>
+                    <a href="<?php echo $privacy; ?>" class="sp-nav__link">プライバシー<br>ポリシー</a>
                   </li>
                   <li class="sp-nav__right-item">
                     <a href="<?php echo $terms; ?>" class="sp-nav__link">利用規約</a>

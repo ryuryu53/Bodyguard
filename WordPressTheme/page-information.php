@@ -15,44 +15,44 @@
     <div class="page-information__inner inner">
       <div class="page-information__container tab">
         <ul class="tab__list">
-          <li id="tab1" class="tab__item js-tab-item"><span>ライセンス<br class="u-mobile">講習</span></li>
-          <li id="tab2" class="tab__item js-tab-item"><span>ファン<br class="u-mobile">ダイビング</span></li>
-          <li id="tab3" class="tab__item js-tab-item"><span>体験<br class="u-mobile">ダイビング</span></li>
+          <li id="tab1" class="tab__item js-tab-item"><span>身体を守る<br class="u-mobile">防護壁</span></li>
+          <li id="tab2" class="tab__item js-tab-item"><span>安心感の<br class="u-mobile">サポート</span></li>
+          <li id="tab3" class="tab__item js-tab-item"><span>危険察知と<br class="u-mobile">回避</span></li>
         </ul>
         <ul class="page-information__items information-cards">
           <li id="tab1-content" class="information-cards__item information-card js-tab-content">
             <div class="information-card__content">
               <div class="information-card__body">
-                <h2 class="information-card__title">ライセンス講習</h2>
-                <p class="information-card__text">泳げない人も、ちょっと水が苦手な人も、ダイビングを「安全に」楽しんでいただけるよう、スタッフがサポートいたします&#65281;スキューバダイビングを楽しむためには最低限の知識とスキルが要求されます。知識やスキルと言ってもそんなに難しい事ではなく、安全に楽しむ事を目的としたものです。プロダイバーの指導のもと知識とスキルを習得しCカードを取得して、ダイバーになろう&#65281;</p>
+                <h2 class="information-card__title">身体を守る防護壁</h2>
+                <p class="information-card__text">これは、実際に危険な状況から体を守るための警護です。たとえば、誰かが襲ってきたり、危険な場所に行く必要があるとき、警護員がその人を物理的に守ります。警備員は訓練を受けているので、危険が迫っているときに素早く対応し、安全な場所に移動させたり、危険を未然に防いでくれます。<br>例: 有名な人がファンに囲まれたとき、警備員が間に入ってその人を守る。</p>
               </div>
               <picture class="information-card__img">
-                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-license.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-license.jpg" alt="5人の人がエメラルドグリーンの海でスキューバダイビングを楽しんでいる様子">
+                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.webp" type="image/webp">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.jpg" alt="黒いスーツを着た筋肉質のボディーガードが高級ビルの前に立っている">
               </picture>
             </div>
           </li>
           <li id="tab2-content" class="information-cards__item information-card js-tab-content">
             <div class="information-card__content">
               <div class="information-card__body">
-                <h2 class="information-card__title">ファンダイビング</h2>
-                <p class="information-card__text">ブランクダイバー、ライセンスを取り立ての方も安心&#65281;沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意&#65281;</p>
+                <h2 class="information-card__title">安心感のサポート</h2>
+                <p class="information-card__text">これは、危険がないときでも「守られている」と感じられるようにするための警護です。常に警備員がそばにいることで、安心して生活や仕事ができるようになります。特に、ストーカーや脅迫を受けている人にとって、警備員がそばにいると気持ちが楽になり、安心して過ごせるようになります。<br>例: 警備員が付き添っていることで、怖い思いをせずに買い物に行ける。</p>
               </div>
               <picture class="information-card__img">
-                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-fundiving.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-fundiving.jpg" alt="薄いピンク色の多くの熱帯魚が泳いでいる様子">
+                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.webp" type="image/webp">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.jpg" alt="桜の木の下でシニア女性たちと微笑むボディーガード">
               </picture>
             </div>
           </li>
           <li id="tab3-content" class="information-cards__item information-card js-tab-content">
             <div class="information-card__content">
               <div class="information-card__body">
-                <h2 class="information-card__title">体験ダイビング</h2>
-                <p class="information-card__text">ブランクダイバー、ライセンスを取り立ての方も安心&#65281;沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意&#65281;</p>
+                <h2 class="information-card__title">危険察知と回避</h2>
+                <p class="information-card__text">これは、危険が起きる前にそれを見つけて防ぐための警護です。警備員は周囲の状況を常にチェックし、怪しい動きや不審な人物がいないかを確認します。もし危険がありそうだと感じたら、すぐに行動を起こして、危険が大きくなる前に対処します。たとえば、警備員が事前に場所をチェックして安全を確認したり、日常生活の中でのリスクを減らすためのアドバイスをしてくれます。<br>例: イベント前に警備員が会場を確認し、安全対策を整える。</p>
               </div>
               <picture class="information-card__img">
-                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-diving.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-diving.jpg" alt="白とオレンジ色のツートンカラーの2匹の熱帯魚が泳いでいる様子">
+                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.webp" type="image/webp">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.jpg" alt="和室で少年を見守るボディーガード">
               </picture>
             </div>
           </li>

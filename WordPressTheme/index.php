@@ -46,13 +46,13 @@
     </div>
   </section>
 
-  <!-- Campaign -->
+  <!-- Plans -->
   <section class="top-campaign campaign">
     <div class="campaign__inner inner">
-      <div class="campaign__title section-header">
-        <p class="section-header__engtitle">Campaign</p>
-        <h2 class="section-header__jatitle">キャンペーン</h2>
-      </div>
+      <h2 class="campaign__title section-header">
+        <span class="section-header__engtitle">Campaign</span>
+        <span class="section-header__jatitle">キャンペーン</span>
+      </h2>
       <div class="campaign__swiper">
         <div class="swiper js-campaign-swiper">
           <ul class="swiper-wrapper campaign__items campaign-cards">
@@ -200,10 +200,10 @@
   <!-- About -->
   <section class="top-about about">
     <div class="about__inner inner">
-      <div class="about__title section-header">
-        <p class="section-header__engtitle">About&nbsp;us</p>
-        <h2 class="section-header__jatitle about__title-jp">私たちについて</h2>
-      </div>
+      <h2 class="about__title section-header">
+        <span class="section-header__engtitle">About&nbsp;us</span>
+        <span class="section-header__jatitle about__title-jp">私たちについて</span>
+      </h2>
       <div class="about__img-box">
         <picture class="about__img-left">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
@@ -231,10 +231,10 @@
   <!-- Information -->
   <section class="top-information information">
     <div class="information__inner inner">
-      <div class="information__title section-header">
-        <p class="section-header__engtitle">Information</p>
-        <h2 class="section-header__jatitle">ダイビング情報</h2>
-      </div>
+      <h2 class="information__title section-header">
+        <span class="section-header__engtitle">Information</span>
+        <span class="section-header__jatitle">ダイビング情報</span>
+      </h2>
       <div class="information__content">
         <div class="colorbox js-colorbox">
           <picture class="information__img">
@@ -256,10 +256,10 @@
   <!-- Blog -->
   <section class="top-blog blog">
     <div class="blog__inner inner">
-      <div class="blog__title section-header">
-        <p class="section-header__engtitle section-header__engtitle--white-pc">Blog</p>
-        <h2 class="section-header__jatitle section-header__jatitle--white-pc">ブログ</h2>
-      </div>
+      <h2 class="blog__title section-header">
+        <span class="section-header__engtitle section-header__engtitle--white-pc">Blog</span>
+        <span class="section-header__jatitle section-header__jatitle--white-pc">ブログ</span>
+      </h2>
       <div class="blog__items blog-cards">
         <article class="blog-cards__item blog-card">
           <a href="#" class="blog-card__link">
@@ -310,10 +310,10 @@
   <!-- Voice -->
   <section class="top-voice voice">
     <div class="voice__inner inner">
-      <div class="voice__title section-header">
-        <p class="section-header__engtitle voice__title-en">Voice</p>
-        <h2 class="section-header__jatitle voice__title-jp">お客様の声</h2>
-      </div>
+      <h2 class="voice__title section-header">
+        <span class="section-header__engtitle voice__title-en">Voice</span>
+        <span class="section-header__jatitle voice__title-jp">お客様の声</span>
+      </h2>
       <div class="voice__items voice-cards">
         <article class="voice-cards__item voice-card">
           <a href="#" class="voice-card__link">
@@ -365,10 +365,10 @@
   <!-- Price -->
   <section class="top-price price">
     <div class="price__inner inner">
-      <div class="price__title section-header">
-        <p class="section-header__engtitle">Price</p>
-        <h2 class="section-header__jatitle">料金一覧</h2>
-      </div>
+      <h2 class="price__title section-header">
+        <span class="section-header__engtitle">Price</span>
+        <span class="section-header__jatitle">料金一覧</span>
+      </h2>
       <div class="price__contents">
         <div class="price__img colorbox js-colorbox">
           <picture>

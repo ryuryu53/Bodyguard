@@ -22,7 +22,7 @@
 }
 
 .single-body__img {
-  display: block; // コード_FB：クラス名をpictureタグへ移したためblockにした
+  display: block;
   aspect-ratio: 345 / 231;
   overflow: hidden;
   margin-top: rem(23);
@@ -47,7 +47,7 @@
   }
 
   > * {
-    margin-top: 0 !important; // gridで管理し、これを使えばpとulを囲っていたdivをなくせる
+    margin-top: 0 !important;
   }
 
   p {
@@ -69,23 +69,6 @@
       aspect-ratio: 700 / 468;
     }
   }
-
-  // WP化したとき管理画面で指定の画像ではpicture要素を使っていない
-  // picture {
-  //   display: block;
-  //   aspect-ratio: 345 / 231;
-  //   overflow: hidden;
-  //   margin-top: rem(24);
-  //   @include mq(md) {
-  //     aspect-ratio: 700 / 468;
-  //     margin-top: rem(40);
-  //   }
-    
-  //   & img {
-  //     height: 100%;
-  //     object-fit: cover;
-  //   }
-  // }
 
   ul {
     margin-top: rem(24);
@@ -114,7 +97,7 @@
         left: 0;
         width: rem(18);
         height: rem(18);
-        background-image: url(../images/common/starfish-green.svg);
+        background-image: url(../images/common/transceiver-blue.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;

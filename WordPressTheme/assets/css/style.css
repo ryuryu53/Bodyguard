@@ -145,10 +145,6 @@ a {
 	transition: opacity 0.3s;
 }
 
-a:hover {
-	opacity: 0.7;
-}
-
 .top-about {
 	padding-bottom: 4.625rem;
 	padding-top: 5.1875rem;
@@ -362,6 +358,7 @@ a:hover {
 	cursor: pointer;
 	padding: 1rem 2.75rem 0.9375rem 1rem;
 	position: relative;
+	text-align: left;
 	width: 100%;
 }
 
@@ -824,15 +821,16 @@ a:hover {
 }
 
 .campaign-card__price-before {
+	display: block;
 	font-size: 1.25rem;
 	position: relative;
 }
 
 .campaign-card__price-after {
 	color: #3f72af;
+	display: block;
 	font-size: 2rem;
 	left: 0.0625rem;
-	margin-left: 1.0625rem;
 	position: relative;
 }
 
@@ -873,10 +871,6 @@ a:hover {
 	margin-top: 1rem;
 	padding-bottom: 0.3125rem;
 	text-align: center;
-}
-
-.campaign-card__btn--sub-page {
-	margin-top: 0.875rem;
 }
 
 .campaign-cards {
@@ -941,7 +935,7 @@ a:hover {
 }
 
 .campaign-mv {
-	background-image: url(../images/common/campaign-mv.webp);
+	background-image: url(../images/common/plans-mv.webp);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1046,7 +1040,7 @@ a:hover {
 }
 
 .column-aside__title::before {
-	background-image: url(../images/common/whale-icon-green.svg);
+	background-image: url(../images/common/agent.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -1110,7 +1104,7 @@ a:hover {
 }
 
 .contact::before {
-	background-image: url(../images/common/contact-goldfish-sp.svg);
+	background-image: url(../images/common/sunglasses.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -1119,7 +1113,7 @@ a:hover {
 	position: absolute;
 	right: 0.9375rem;
 	top: 3.375rem;
-	width: 6.8125rem;
+	width: 3.125rem;
 }
 
 .contact__inner.inner {
@@ -1308,6 +1302,7 @@ a:hover {
 
 .footer-nav__left-detail-item:not(:last-child) .footer-nav__left-detail-link,
 .footer-nav__right-detail-item:not(:last-child) .footer-nav__right-detail-link {
+	font-size: 0.95rem;
 	padding-bottom: 0.5625rem;
 }
 
@@ -1766,16 +1761,17 @@ a:hover {
 }
 
 .page-404::before {
-	background-image: url(../images/common/whale-icon-large.svg);
+	background-image: url(../images/common/agent-large.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	content: "";
-	height: 21.5625rem;
+	height: 20.3125rem;
 	left: 0.9375rem;
+	opacity: 0.7;
 	position: absolute;
-	top: -5.5rem;
-	width: 21.5625rem;
+	top: -4.375rem;
+	width: 20.3125rem;
 }
 
 .page-404__text {
@@ -1784,6 +1780,7 @@ a:hover {
 	font-size: 1rem;
 	font-weight: 400;
 	margin-top: 0.25rem;
+	position: relative;
 	text-align: center;
 }
 
@@ -1854,23 +1851,6 @@ a:hover {
 	margin-top: 2.5rem;
 }
 
-.page-contact {
-	position: relative;
-}
-
-.page-contact::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.4375rem;
-	width: 7.5rem;
-}
-
 .page-contact__inner.inner {
 	max-width: 46.875rem;
 }
@@ -1893,42 +1873,8 @@ a:hover {
 	margin-top: 2.375rem;
 }
 
-.page-faq {
-	position: relative;
-}
-
-.page-faq::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
-}
-
 .page-faq__inner.inner {
 	max-width: 46.875rem;
-}
-
-.page-information {
-	position: relative;
-}
-
-.page-information::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -5.8125rem;
-	width: 7.5rem;
 }
 
 .page-information__items {
@@ -1956,7 +1902,7 @@ a:hover {
 }
 
 .page-price-table__title::before {
-	background-image: url(../images/common/whale-icon-white.svg);
+	background-image: url(../images/common/agent-white.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -1974,25 +1920,9 @@ a:hover {
 .page-price-table__item dt {
 	font-size: 1rem;
 	font-weight: 400;
-	padding-left: 0.625rem;
-	padding-right: 0.625rem;
+	padding: 0.4375rem 0.625rem;
 	text-align: center;
 	width: 69.5%;
-}
-
-.page-price-table__item:first-child dt {
-	padding-bottom: 0.4375rem;
-	padding-top: 0.4375rem;
-}
-
-.page-price-table__item:nth-child(n+2) dt {
-	padding-bottom: 0.25rem;
-	padding-top: 0.375rem;
-}
-
-.page-price-table__content:first-child .page-price-table__item:nth-child(3) dt {
-	padding-bottom: 1rem;
-	padding-top: 1.125rem;
 }
 
 .page-price-table__item dd {
@@ -2004,59 +1934,8 @@ a:hover {
 	width: 30.5%;
 }
 
-.page-price {
-	position: relative;
-}
-
-.page-price::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
-}
-
 .page-price__table {
 	margin: auto;
-}
-
-.page-site-map {
-	position: relative;
-}
-
-.page-site-map::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -0.25rem;
-	width: 7.5rem;
-}
-
-.page-template {
-	position: relative;
-}
-
-.page-template::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
 }
 
 .page-template__inner.inner {
@@ -2388,6 +2267,7 @@ a:hover {
 }
 
 .section-header__engtitle {
+	display: block;
 	font-family: "Gotu", sans-serif;
 	font-size: 2rem;
 	font-weight: 400;
@@ -2406,6 +2286,7 @@ a:hover {
 
 .section-header__jatitle {
 	color: #3f72af;
+	display: block;
 	font-size: 0.75rem;
 	font-weight: 400;
 	margin-top: 0.5rem;
@@ -2427,6 +2308,7 @@ a:hover {
 	font-weight: 400;
 	letter-spacing: 0.5em;
 	line-height: 1;
+	position: relative;
 	text-indent: 0.47em;
 }
 
@@ -2513,7 +2395,7 @@ a:hover {
 }
 
 .single-body__content ul li::before {
-	background-image: url(../images/common/starfish-green.svg);
+	background-image: url(../images/common/transceiver-blue.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -2641,11 +2523,6 @@ a:hover {
 .sp-nav__left-detail-item,
 .sp-nav__right-detail-item {
 	font-weight: 400;
-}
-
-.sp-nav__left-detail-item:nth-child(4),
-.sp-nav__right-detail-item:nth-child(4) {
-	font-size: 0.94rem;
 }
 
 .sp-nav__left-detail-link,
@@ -2799,23 +2676,6 @@ a:hover {
 	top: 25%;
 	transform: skewY(135deg);
 	width: 0.375rem;
-}
-
-.two-column {
-	position: relative;
-}
-
-.two-column::before {
-	background-image: url(../images/common/goldfish-sp.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 3.4375rem;
-	left: 0.9375rem;
-	position: absolute;
-	top: -1.5rem;
-	width: 7.5rem;
 }
 
 .two-column__aside {
@@ -3592,7 +3452,7 @@ html {
 }
 
 .about::after {
-	background-image: url(../images/common/about-coral.svg);
+	background-image: url(../images/common/transceiver-logo.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -3600,7 +3460,7 @@ html {
 	content: "";
 	height: 11.3125rem;
 	position: absolute;
-	right: calc(50% - min(48%, 39.83rem));
+	right: calc(50% - min(48%, 42.83rem));
 	width: 12.125rem;
 }
 
@@ -3626,7 +3486,7 @@ html {
 .about__text-body {
 	display: flex;
 	margin-top: 0;
-	max-width: 52.5rem;
+	max-width: 60.5rem;
 	position: absolute;
 	right: 5.84%;
 	top: 19.125rem;
@@ -3781,13 +3641,8 @@ html {
 	padding: 0.4375rem 0.9375rem;
 }
 
-.campaign-card__title--sub-page {
-	padding-bottom: 0.1875rem;
-}
-
 .campaign-card__text {
 	margin-top: 0.9375rem;
-	padding-right: 0.9375rem;
 }
 
 .campaign-card__text--sub-page {
@@ -3797,27 +3652,11 @@ html {
 .campaign-card__text.campaign-card__text--blog-page {
 	font-size: 0.875rem;
 	margin-top: 0.5625rem;
-	padding-right: 0;
-}
-
-.campaign-card:nth-child(3) .campaign-card__text--sub-page,
-.campaign-card:nth-child(7) .campaign-card__text--sub-page {
-	padding-right: 0;
 }
 
 .campaign-card__price {
 	line-height: 1.37;
 	margin-top: 0.0625rem;
-}
-
-.campaign-card:nth-child(3) .campaign-card__price,
-.campaign-card:nth-child(7) .campaign-card__price {
-	padding-right: 1.5rem;
-}
-
-.campaign-card:nth-child(3) .campaign-card__price--sub-page,
-.campaign-card:nth-child(7) .campaign-card__price--sub-page {
-	padding-right: 0.1875rem;
 }
 
 .campaign-card__price.campaign-card__price--blog-page {
@@ -3826,16 +3665,6 @@ html {
 
 .campaign-card__price-before {
 	font-size: 1.5rem;
-}
-
-.campaign-card:nth-child(3) .campaign-card__price-before,
-.campaign-card:nth-child(7) .campaign-card__price-before {
-	padding-right: 0.125rem;
-}
-
-.campaign-card:nth-child(3) .campaign-card__price-before--sub-page,
-.campaign-card:nth-child(7) .campaign-card__price-before--sub-page {
-	padding-right: 0;
 }
 
 .campaign-card__price-before.campaign-card__price-before--blog-page {
@@ -3848,12 +3677,7 @@ html {
 }
 
 .campaign-card__price-after {
-	font-size: 2.5rem;
-	margin-left: 1.5rem;
-}
-
-.campaign-card__price-after--sub-page {
-	margin-left: 2.5625rem;
+	font-size: 2rem;
 }
 
 .campaign-card__price-after.campaign-card__price-after--blog-page {
@@ -3878,7 +3702,6 @@ html {
 }
 
 .campaign-mv {
-	background-image: url(../images/common/campaign-mv-pc.webp);
 	height: 34.25rem;
 }
 
@@ -3912,11 +3735,10 @@ html {
 }
 
 .contact::before {
-	background-image: url(../images/common/contact-goldfish-pc.svg);
 	height: 9.125rem;
-	right: calc(50% - min(48%, 42.125rem));
+	right: calc(50% - min(48%, 39rem));
 	top: 6.25rem;
-	width: 19.3125rem;
+	width: 9.125rem;
 }
 
 .contact__inner.inner {
@@ -4051,9 +3873,8 @@ html {
 }
 
 .footer__sns {
-	align-items: flex-end;
+	align-items: center;
 	margin-top: 0;
-	padding-bottom: 0.3125rem;
 }
 
 .footer__sns-link {
@@ -4254,10 +4075,10 @@ html {
 }
 
 .page-404::before {
-	height: 43.625rem;
+	height: 37.5rem;
 	left: calc(50% - min(48%, 33.75rem));
-	top: -10.1875rem;
-	width: 43.625rem;
+	top: -8.75rem;
+	width: 37.5rem;
 }
 
 .page-404__text {
@@ -4319,32 +4140,8 @@ html {
 	grid-template-columns: repeat(2, 1fr);
 }
 
-.page-contact::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -3.5625rem;
-	width: 18.8125rem;
-}
-
 .page-contact__thanks-title {
 	padding-top: 0.75rem;
-}
-
-.page-faq::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -4.375rem;
-	width: 18.8125rem;
-}
-
-.page-information::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -4.375rem;
-	width: 18.8125rem;
 }
 
 .page-information__items {
@@ -4384,25 +4181,9 @@ html {
 }
 
 .page-price-table__item dt {
-	padding-left: 0.9375rem;
-	padding-right: 0.9375rem;
+	padding: 1.0625rem 0.9375rem;
 	text-align: left;
 	width: 67.5%;
-}
-
-.page-price-table__item:first-child dt {
-	padding-bottom: 1.0625rem;
-	padding-top: 1.0625rem;
-}
-
-.page-price-table__item:nth-child(n+2) dt {
-	padding-bottom: 1.0625rem;
-	padding-top: 1.0625rem;
-}
-
-.page-price-table__content:first-child .page-price-table__item:nth-child(3) dt {
-	padding-bottom: 1.0625rem;
-	padding-top: 1.0625rem;
 }
 
 .page-price-table__item dd {
@@ -4410,36 +4191,12 @@ html {
 	width: 32.5%;
 }
 
-.page-price::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -4.375rem;
-	width: 18.8125rem;
-}
-
 .page-price__inner.inner {
 	max-width: 46.875rem;
 }
 
-.page-site-map::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -4.375rem;
-	width: 18.8125rem;
-}
-
 .page-site-map__inner.inner {
 	padding-right: 7px;
-}
-
-.page-template::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -4.375rem;
-	width: 18.8125rem;
 }
 
 .price-mv {
@@ -4466,19 +4223,6 @@ html {
 .price-table__item dd {
 	left: 0.0625rem;
 	position: relative;
-}
-
-.price::before {
-	background-image: url(../images/common/price-goldfish.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	bottom: 3.75rem;
-	content: "";
-	height: 12.5625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	position: absolute;
-	width: 27.3125rem;
 }
 
 .price__title {
@@ -4618,64 +4362,29 @@ html {
 
 .tab__item {
 	font-size: 1.5rem;
-	padding: 1.8125rem 1.875rem 1.625rem 6.375rem;
+	padding: 1.8125rem 1.25rem 1.625rem 4.6875rem;
 	position: relative;
 }
 
-.tab__item:nth-child(2) {
-	padding-left: 5.625rem;
-	padding-right: 1.125rem;
-}
-
 .tab__item::before {
+	background-image: url(../images/common/agent.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	content: "";
 	height: 4rem;
-	left: 1.875rem;
+	left: 1.25rem;
 	position: absolute;
 	top: 0.8125rem;
 	width: 4rem;
 }
 
-.tab__item:first-child::before {
-	background-image: url(../images/common/whale-icon.svg);
+.tab__item:hover::before {
+	background-image: url(../images/common/agent-white.svg);
 }
 
-.tab__item:nth-child(2)::before {
-	background-image: url(../images/common/fish-icon_1.svg);
-	height: 3.9375rem;
-	left: 1.125rem;
-	width: 3.9375rem;
-}
-
-.tab__item:nth-child(3)::before {
-	background-image: url(../images/common/fish-icon_2.svg);
-}
-
-.tab__item:first-child:hover::before {
-	background-image: url(../images/common/whale-icon-white.svg);
-}
-
-.tab__item:nth-child(2):hover::before {
-	background-image: url(../images/common/fish-icon_1-white.svg);
-}
-
-.tab__item:nth-child(3):hover::before {
-	background-image: url(../images/common/fish-icon_2-white.svg);
-}
-
-.tab__item:first-child.is-active::before {
-	background-image: url(../images/common/whale-icon-white.svg);
-}
-
-.tab__item:nth-child(2).is-active::before {
-	background-image: url(../images/common/fish-icon_1-white.svg);
-}
-
-.tab__item:nth-child(3).is-active::before {
-	background-image: url(../images/common/fish-icon_2-white.svg);
+.tab__item.is-active::before {
+	background-image: url(../images/common/agent-white.svg);
 }
 
 .terms-of-service-mv {
@@ -4718,14 +4427,6 @@ html {
 	left: 45%;
 	top: 29%;
 	width: 0.4375rem;
-}
-
-.two-column::before {
-	background-image: url(../images/common/goldfish-pc.svg);
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	top: -4.375rem;
-	width: 18.8125rem;
 }
 
 .two-column__inner {
@@ -4791,34 +4492,20 @@ html {
 }
 
 .voice-mv {
-	background-image: url(../images/common/voice-mv-pc.webp);
 	height: 34.25rem;
 }
 
-.voice::before {
-	background-image: url(../images/common/voice-goldfish.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 8.625rem;
-	left: calc(50% - min(48%, 38.75rem));
-	position: absolute;
-	top: 1.5rem;
-	width: 18.8125rem;
-}
-
 .voice::after {
-	background-image: url(../images/common/voice-seahorse.svg);
+	background-image: url(../images/common/bodyguard-logo.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	bottom: 4.5625rem;
+	bottom: 3.3125rem;
 	content: "";
 	height: 10.125rem;
 	position: absolute;
-	right: calc(50% - min(48%, 33.75rem));
-	width: 4.4375rem;
+	right: calc(50% - min(48%, 40rem));
+	width: 10.125rem;
 }
 
 .voice__items {

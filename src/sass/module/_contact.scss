@@ -16,19 +16,18 @@
   position: absolute;
   top: rem(54);
   right: rem(15);
-  width: rem(109);
+  width: rem(50);
   height: rem(50);
-  background-image: url(../images/common/contact-goldfish-sp.svg);
+  background-image: url(../images/common/sunglasses.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 
   @include mq(md) {
     top: rem(100);
-    right: calc(50% - min(48%, rem(674)));
-    width: rem(309); // カンプは301×138でその通り指定してもレンダリングサイズが309×146となりピクパチェックで一致しない → 309×146で指定した
+    right: calc(50% - min(48%, rem(624)));
+    width: rem(146);
     height: rem(146);
-    background-image: url(../images/common/contact-goldfish-pc.svg);
   }
 }
 
@@ -104,8 +103,6 @@
 
 .contact__access-map {
   aspect-ratio: 295 / 160;
-  // width: rem(295);
-  // height: rem(160);
   overflow: hidden;
   margin-top: rem(16);
 
@@ -147,9 +144,8 @@
 .contact__btn {
   text-align: center;
   margin-top: rem(38);
-  // padding-right: rem(3); CSS_ZOOM：中央寄せにする
 
   @include mq(md) {
-    padding-right: rem(14); // ここは.contact__inquiryにpadding-left: rem(29);があるので残しておく
+    padding-right: rem(14);
   }
 }

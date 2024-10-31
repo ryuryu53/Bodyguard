@@ -5,6 +5,7 @@
 }
 
 .section-header__engtitle {
+  display: block;
   font-family: $second-font-family;
   font-size: rem(32);
   font-weight: $normal;
@@ -42,6 +43,7 @@
 }
 
 .section-header__jatitle {
+  display: block;
   font-size: rem(12);
   font-weight: $normal;
   color: $blueaccent;
@@ -76,6 +78,7 @@
 }
 
 .section-header__404-title {
+  position: relative;
   font-family: $third-font-family;
   font-size: rem(80);
   font-weight: $normal;

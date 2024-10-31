@@ -16,24 +16,26 @@
 
 .page-404::before {
   content: "";
-  background-image: url(../images/common/whale-icon-large.svg);
+  background-image: url(../images/common/agent-large.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   position: absolute;
-  top: rem(-88);
+  top: rem(-70);
   left: rem(15);
-  width: rem(345);
-  height: rem(345);
+  width: rem(325);
+  height: rem(325);
+  opacity: 0.7;
   @include mq(md) {
-    top: rem(-163);
+    top: rem(-140);
     left: calc(50% - min(48%, rem(540)));
-    width: rem(698);
-    height: rem(698);
+    width: rem(600);
+    height: rem(600);
   }
 }
 
 .page-404__text {
+  position: relative;
   font-family: $third-font-family;
   font-size: rem(16);
   font-weight: $normal;

@@ -5,14 +5,12 @@
 }
 
 .campaign-card__link {
-  // display: block; // FB：追加 → 動画レビュー：コメントアウト
-  display: flex;  // 動画レビュー：追加
-  flex-direction: column; // 動画レビュー：追加
-  height: 100%; // FB：追加
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .campaign-card__img {
-  // display: block; コード_FB：クラス名をpictureタグへ移したためblockにしたが、なくても問題ない!? → flexアイテムなのでブロック扱い
   aspect-ratio: 280 / 188;
   // width: rem(280);
   overflow: hidden;
@@ -39,9 +37,9 @@
 }
 
 .campaign-card__body {
-  flex-grow: 1; // 動画レビュー：追加
-  display: flex;  // 動画レビュー：追加
-  flex-direction: column; // 動画レビュー：追加
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   padding: rem(16);
 
   @include mq(md) {
@@ -65,7 +63,7 @@
 
 .campaign-card__category {
   display: inline-block;
-  width: fit-content; // 動画レビュー：追加
+  width: fit-content;
   font-size: rem(12);
   font-weight: $normal;
   color: $blueaccent;
@@ -78,16 +76,10 @@
 }
 
 .campaign-card__title {
-  flex-grow: 1; // 動画レビュー：追加
+  flex-grow: 1;
   border-bottom: rem(1) solid $blueaccent;
   margin-top: rem(4);
   padding-bottom: rem(8);
-}
-
-.campaign-card__title--sub-page {
-  @include mq(md) {
-    padding-bottom: rem(3);
-  }
 }
 
 .campaign-card__title--blog-page {
@@ -101,7 +93,6 @@
 
   @include mq(md) {
     margin-top: rem(15);
-    padding-right: rem(15);
   }
 }
 
@@ -115,14 +106,6 @@
   @include mq(md) {
     font-size: rem(14);
     margin-top: rem(9);
-    padding-right: 0;
-  }
-}
-
-.campaign-card:nth-child(3) .campaign-card__text--sub-page,
-.campaign-card:nth-child(7) .campaign-card__text--sub-page {
-  @include mq(md) {
-    padding-right: 0;
   }
 }
 
@@ -138,21 +121,6 @@
   }
 }
 
-
-.campaign-card:nth-child(3) .campaign-card__price,
-.campaign-card:nth-child(7) .campaign-card__price {
-  @include mq(md) {
-    padding-right: rem(24);
-  }
-}
-
-.campaign-card:nth-child(3) .campaign-card__price--sub-page,
-.campaign-card:nth-child(7) .campaign-card__price--sub-page {
-  @include mq(md) {
-    padding-right: rem(3);
-  }
-}
-
 .campaign-card__price.campaign-card__price--blog-page {
   @include mq(md) {
     margin-top: rem(3);
@@ -160,6 +128,7 @@
 }
 
 .campaign-card__price-before {
+  display: block;
   position: relative;
   font-size: rem(20);
 
@@ -168,40 +137,11 @@
   }
 }
 
-.campaign-card:nth-child(3) .campaign-card__price-before,
-.campaign-card:nth-child(7) .campaign-card__price-before {
-  @include mq(md) {
-    padding-right: rem(2);
-  }
-}
-
-.campaign-card:nth-child(3) .campaign-card__price-before--sub-page,
-.campaign-card:nth-child(7) .campaign-card__price-before--sub-page {
-  @include mq(md) {
-    padding-right: 0;
-  }
-}
-
 .campaign-card__price-before.campaign-card__price-before--blog-page {
   @include mq(md) {
     font-size: rem(20);
   }
 }
-
-// .campaign-card__price-before::before {
-//   content: "";
-//   position: absolute;
-//   top: 45%;
-//   left: 0;
-//   width: rem(76);
-//   height: rem(3);
-//   background-color: $red;
-
-//   @include mq(md) {
-//     top: 48%;
-//     width: rem(91);
-//   }
-// }
 
 .campaign-card__price-before.campaign-card__price-before--blog-page::before {
   @include mq(md) {
@@ -213,19 +153,12 @@
 .campaign-card__price-after {
   position: relative;
   left: rem(1);
+  display: block;
   font-size: rem(32);
   color: $blueaccent;
-  margin-left: rem(17);
 
   @include mq(md) {
-    font-size: rem(40);
-    margin-left: rem(24);
-  }
-}
-
-.campaign-card__price-after--sub-page {
-  @include mq(md) {
-    margin-left: rem(41);
+    font-size: rem(32);
   }
 }
 
@@ -276,8 +209,4 @@
   text-align: center;
   padding-bottom: rem(5);
   margin-top: rem(16);
-}
-
-.campaign-card__btn--sub-page {
-  margin-top: rem(14);
 }

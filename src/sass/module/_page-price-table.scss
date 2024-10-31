@@ -2,10 +2,6 @@
 
 .page-price-table {
   width: 100%;
-  // 最終_FB：max-widthはinnerのレベルで抑え込む
-  // @include mq(md) {
-  //   max-width: rem(700);
-  // }
 }
 
 .page-price-table__content {
@@ -41,7 +37,7 @@
   content: "";
   width: rem(24);
   height: rem(24);
-  background-image: url(../images/common/whale-icon-white.svg);
+  background-image: url(../images/common/agent-white.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -79,42 +75,22 @@
   font-size: rem(16);
   font-weight: $normal;
   text-align: center;
-  padding-left: rem(10);
-  padding-right: rem(10);
+  padding: rem(7) rem(10);
   @include mq(md) {
     text-align: left;
     width: 67.5%;
-    padding-left: rem(15);
-    padding-right: rem(15);
+    padding: rem(17) rem(15);
   }
 }
 
-.page-price-table__item:first-child dt {
-  padding-top: rem(7);
-  padding-bottom: rem(7);
-  @include mq(md) {
-    padding-top: rem(17);
-    padding-bottom: rem(17);
-  }
-}
-
-.page-price-table__item:nth-child(n+2) dt {
-  padding-top: rem(6);
-  padding-bottom: rem(4);
-  @include mq(md) {
-    padding-top: rem(17);
-    padding-bottom: rem(17);
-  }
-}
-
-.page-price-table__content:first-child .page-price-table__item:nth-child(3) dt {
-  padding-top: rem(18);
-  padding-bottom: rem(16);
-  @include mq(md) {
-    padding-top: rem(17);
-    padding-bottom: rem(17);
-  }
-}
+// .page-price-table__content:first-child .page-price-table__item:nth-child(3) dt {
+//   padding-top: rem(18);
+//   padding-bottom: rem(16);
+//   @include mq(md) {
+//     padding-top: rem(17);
+//     padding-bottom: rem(17);
+//   }
+// }
 
 .page-price-table__item dd {
   width: 30.5%;

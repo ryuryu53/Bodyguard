@@ -1,9 +1,9 @@
       <?php
         $home = esc_url( home_url('/') );
         $campaign = esc_url( home_url('/campaign/') );
-        $campaign_fun_diving = esc_url( home_url('/campaign_category/fun-diving/') );
-        $campaign_license = esc_url( home_url('/campaign_category/license/') );
-        $campaign_experience_diving = esc_url( home_url('/campaign_category/experience-diving/') );
+        $campaign_fun_diving = esc_url( home_url('/campaign_category/entry-guard/') );
+        $campaign_license = esc_url( home_url('/campaign_category/safe-security/') );
+        $campaign_experience_diving = esc_url( home_url('/campaign_category/protect-plus/') );
         $about = esc_url( home_url('/about-us/') );
         $information = esc_url( home_url('/information/') );
         $blog = esc_url( home_url('/blog/') );
@@ -29,14 +29,14 @@
                 <div class="contact__access">
                   <div class="contact__access-details access-details">
                     <ul class="access-details__items text">
-                      <li class="access-details__item">沖縄県那覇市1-1</li>
-                      <li class="access-details__item">TEL:0120-000-0000</li>
-                      <li class="access-details__item">営業時間:8:30-19:00</li>
-                      <li class="access-details__item">定休日:毎週火曜日</li>
+                      <li class="access-details__item">静岡県静岡市1-2</li>
+                      <li class="access-details__item">TEL:0120-111-2222</li>
+                      <li class="access-details__item">営業時間:8:00-20:00</li>
+                      <li class="access-details__item">定休日:隔週月曜日</li>
                     </ul>
                   </div>
                   <div class="contact__access-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.0315670456625!2d127.67195729895639!3d26.19565138164196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569a926a083d5%3A0xf368c08083a19ad6!2z44CSOTAxLTAxNTIg5rKW57iE55yM6YKj6KaH5biC5bCP56aE77yR5LiB55uu77yR!5e0!3m2!1sja!2sjp!4v1714102427967!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1634.336472844601!2d138.39825558658367!3d34.98985601764226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a35f7f7a116cb%3A0xaae88637161587ae!2z44CSNDIwLTA4MDMg6Z2Z5bKh55yM6Z2Z5bKh5biC6JG15Yy65Y2D5Luj55Sw77yR5LiB55uu77yS!5e0!3m2!1sja!2sjp!4v1730137137161!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                 </div>
               </div>
@@ -95,19 +95,16 @@
           <div class="footer-nav__left-content">
             <ul class="footer-nav__left-items">
               <li class="footer-nav__left-item">
-                <a href="<?php echo $campaign; ?>" class="footer-nav__left-link">キャンペーン</a>
+                <a href="<?php echo $campaign; ?>" class="footer-nav__left-link">ご提供プラン</a>
                 <ul class="footer-nav__left-detail-items">
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $campaign_license; ?>" class="footer-nav__left-detail-link">ライセンス取得</a>
+                    <a href="<?php echo $campaign_fun_diving; ?>" class="footer-nav__left-detail-link">エントリーガード</a>
                   </li>
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $campaign_experience_diving; ?>" class="footer-nav__left-detail-link">貸切体験ダイビング</a>
+                    <a href="<?php echo $campaign_license; ?>" class="footer-nav__left-detail-link">セーフセキュリティ</a>
                   </li>
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $campaign_experience_diving; ?>" class="footer-nav__left-detail-link">ナイトダイビング</a>
-                  </li>
-                  <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $campaign_fun_diving; ?>" class="footer-nav__left-detail-link">貸切ファンダイビング</a>
+                    <a href="<?php echo $campaign_experience_diving; ?>" class="footer-nav__left-detail-link">プロテクトプラス</a>
                   </li>
                 </ul>
               </li>
@@ -117,16 +114,16 @@
             </ul>
             <ul class="footer-nav__left-items">
               <li class="footer-nav__left-item">
-                <a href="<?php echo $information; ?>" class="footer-nav__left-link">ダイビング情報</a>
+                <a href="<?php echo $information; ?>" class="footer-nav__left-link">身辺警護についての<br class="u-mobile">情報</a>
                 <ul class="footer-nav__left-detail-items">
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $information; ?>#tab1" class="footer-nav__left-detail-link">ライセンス講習</a>
+                    <a href="<?php echo $information; ?>#tab1" class="footer-nav__left-detail-link">身体を守る防護壁</a>
                   </li>
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $information; ?>#tab3" class="footer-nav__left-detail-link">体験ダイビング</a>
+                    <a href="<?php echo $information; ?>#tab2" class="footer-nav__left-detail-link">安心感のサポート</a>
                   </li>
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $information; ?>#tab2" class="footer-nav__left-detail-link">ファンダイビング</a>
+                    <a href="<?php echo $information; ?>#tab3" class="footer-nav__left-detail-link">危険察知と回避</a>
                   </li>
                 </ul>
               </li>
@@ -144,16 +141,13 @@
                 <a href="<?php echo $amount; ?>" class="footer-nav__right-link">料金一覧</a>
                 <ul class="footer-nav__right-detail-items">
                   <li class="footer-nav__right-detail-item">
-                    <a href="<?php echo $amount; ?>#title1" class="footer-nav__right-detail-link">ライセンス講習</a>
+                    <a href="<?php echo $amount; ?>#title1" class="footer-nav__right-detail-link">エントリーガード</a>
                   </li>
                   <li class="footer-nav__right-detail-item">
-                    <a href="<?php echo $amount; ?>#title2" class="footer-nav__right-detail-link">体験ダイビング</a>
+                    <a href="<?php echo $amount; ?>#title2" class="footer-nav__right-detail-link">セーフセキュリティ</a>
                   </li>
                   <li class="footer-nav__right-detail-item">
-                    <a href="<?php echo $amount; ?>#title3" class="footer-nav__right-detail-link">ファンダイビング</a>
-                  </li>
-                  <li class="footer-nav__right-detail-item">
-                    <a href="<?php echo $amount; ?>#title4" class="footer-nav__right-detail-link">スペシャル<br class="u-mobile">ダイビング</a>
+                    <a href="<?php echo $amount; ?>#title3" class="footer-nav__right-detail-link">プロテクトプラス</a>
                   </li>
                 </ul>
               </li>
@@ -178,7 +172,7 @@
           </div>
         </nav>
         <div class="footer__copyright">
-          <small>Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;2023&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
+          <small>&copy;&nbsp;2021&nbsp;-&nbsp;2024&nbsp;CodeUps&nbsp;LLC.</small>
         </div>
       </div>
     </footer>

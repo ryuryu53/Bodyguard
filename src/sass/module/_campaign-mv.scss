@@ -3,12 +3,11 @@
 .campaign-mv {
   position: relative;
   height: rem(460);
-  background-image: url(../images/common/campaign-mv.webp);
+  background-image: url(../images/common/plans-mv.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   @include mq(md) {
-    background-image: url(../images/common/campaign-mv-pc.webp);
     height: rem(548);
   }
 }

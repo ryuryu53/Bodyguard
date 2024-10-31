@@ -27,14 +27,7 @@
   @include mq(md) {
     position: relative;
     font-size: rem(24);
-    padding: rem(29) rem(30) rem(26) rem(102);
-  }
-}
-
-.tab__item:nth-child(2) {
-  @include mq(md) {
-    padding-right: rem(18);
-    padding-left: rem(90);
+    padding: rem(29) rem(20) rem(26) rem(75);
   }
 }
 
@@ -48,51 +41,19 @@
     content: "";
     position: absolute;
     top: rem(13);
-    left: rem(30);
+    left: rem(20);
     width: rem(64);
     height: rem(64);
+    background-image: url(../images/common/agent.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
   }
 }
 
-.tab__item:first-child::before {
+.tab__item:hover::before {
   @include mq(md) {
-    background-image: url(../images/common/whale-icon.svg);
-  }
-}
-
-.tab__item:nth-child(2)::before {
-  @include mq(md) {
-    left: rem(18);
-    width: rem(63);
-    height: rem(63);
-    background-image: url(../images/common/fish-icon_1.svg);
-  }
-}
-
-.tab__item:nth-child(3)::before {
-  @include mq(md) {
-    background-image: url(../images/common/fish-icon_2.svg);
-  }
-}
-
-.tab__item:first-child:hover::before {
-  @include mq(md) {
-    background-image: url(../images/common/whale-icon-white.svg);
-  }
-}
-
-.tab__item:nth-child(2):hover::before {
-  @include mq(md) {
-    background-image: url(../images/common/fish-icon_1-white.svg);
-  }
-}
-
-.tab__item:nth-child(3):hover::before {
-  @include mq(md) {
-    background-image: url(../images/common/fish-icon_2-white.svg);
+    background-image: url(../images/common/agent-white.svg);
   }
 }
 
@@ -102,20 +63,8 @@
   background-color: $blueaccent;
 }
 
-.tab__item:first-child.is-active::before {
+.tab__item.is-active::before {
   @include mq(md) {
-    background-image: url(../images/common/whale-icon-white.svg);
-  }
-}
-
-.tab__item:nth-child(2).is-active::before {
-  @include mq(md) {
-    background-image: url(../images/common/fish-icon_1-white.svg);
-  }
-}
-
-.tab__item:nth-child(3).is-active::before {
-  @include mq(md) {
-    background-image: url(../images/common/fish-icon_2-white.svg);
+    background-image: url(../images/common/agent-white.svg);
   }
 }

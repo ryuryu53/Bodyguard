@@ -5,32 +5,17 @@
   background-color: white;  // ローディング最初の画面が出ないようにするため
 }
 
-.voice::before {
-  @include mq(md) {
-    content: "";
-    background-image: url(../images/common/voice-goldfish.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: absolute;
-    top: rem(24);
-    left: calc(50% - min(48%, rem(620)));
-    width: rem(301);
-    height: rem(138);
-  }
-}
-
 .voice::after {
   @include mq(md) {
     content: "";
-    background-image: url(../images/common/voice-seahorse.svg);
+    background-image: url(../images/common/bodyguard-logo.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     position: absolute;
-    right: calc(50% - min(48%, rem(540)));
-    bottom: rem(73);
-    width: rem(71);
+    right: calc(50% - min(48%, rem(640)));
+    bottom: rem(53);
+    width: rem(162);
     height: rem(162);
   }
 }
@@ -54,7 +39,6 @@
 .voice__btn {
   text-align: center;
   margin-top: rem(40);
-  // padding-right: rem(4);  動画レビュー：完全に中央に寄せてOK → 削除
 
   @include mq(md) {
     margin-top: rem(80);
