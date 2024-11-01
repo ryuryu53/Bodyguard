@@ -1,11 +1,11 @@
 @use "global" as *;
 
-.campaign-cards {
+.plans-cards {
   padding-bottom: rem(10); // シャドウが見えるようにするため
   padding-left: rem(6); // 同上
 }
 
-.campaign-cards__item {
+.plans-cards__item {
   // swiper-slideにwidth100%あり
   max-width: rem(280);
   height: auto; // FB：テキストが増えてもカードの高さを揃えるため
@@ -15,7 +15,7 @@
   }
 }
 
-// .campaign-cards__item--sub-page {
+// .plans-cards__item--sub-page {
 //   width: 100%;
 //   margin: auto;
 //   @include mq(md) {
@@ -26,11 +26,11 @@
 //   }
 // }
 
-.campaign-cards__item--blog-page {
+.plans-cards__item--blog-page {
   max-width: 100%;
   width: 100%;
 }
 
-.campaign-cards__item--blog-page + .campaign-cards__item--blog-page {
+.plans-cards__item--blog-page + .plans-cards__item--blog-page {
   margin-top: rem(40);
 }

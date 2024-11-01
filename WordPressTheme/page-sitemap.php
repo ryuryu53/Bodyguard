@@ -2,10 +2,10 @@
 
   <?php
   $home = esc_url( home_url('/') );
-  $campaign = esc_url( home_url('/campaign/') );
-  $campaign_fun_diving = esc_url( home_url('/campaign_category/entry-guard/') );
-  $campaign_license = esc_url( home_url('/campaign_category/safe-security/') );
-  $campaign_experience_diving = esc_url( home_url('/campaign_category/protect-plus/') );
+  $plans = esc_url( home_url('/plans/') );
+  $plans_entry_guard = esc_url( home_url('/plans_category/entry-guard/') );
+  $plans_safe_security = esc_url( home_url('/plans_category/safe-security/') );
+  $plans_protect_plus = esc_url( home_url('/plans_category/protect-plus/') );
   $about = esc_url( home_url('/about-us/') );
   $information = esc_url( home_url('/information/') );
   $blog = esc_url( home_url('/blog/') );
@@ -35,16 +35,16 @@
         <div class="footer-nav__left-content footer-nav__left-content--width">
           <ul class="footer-nav__left-items">
             <li class="footer-nav__left-item footer-nav__left-item--green">
-              <a href="<?php echo $campaign; ?>" class="footer-nav__left-link footer-nav__left-link--icon-green">ご提供プラン</a>
+              <a href="<?php echo $plans; ?>" class="footer-nav__left-link footer-nav__left-link--icon-green">ご提供プラン</a>
               <ul class="footer-nav__left-detail-items">
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $campaign_fun_diving; ?>" class="footer-nav__left-detail-link">エントリーガード</a>
+                  <a href="<?php echo $plans_entry_guard; ?>" class="footer-nav__left-detail-link">エントリーガード</a>
                 </li>
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $campaign_license; ?>" class="footer-nav__left-detail-link">セーフセキュリティ</a>
+                  <a href="<?php echo $plans_safe_security; ?>" class="footer-nav__left-detail-link">セーフセキュリティ</a>
                 </li>
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $campaign_experience_diving; ?>" class="footer-nav__left-detail-link">プロテクトプラス</a>
+                  <a href="<?php echo $plans_protect_plus; ?>" class="footer-nav__left-detail-link">プロテクトプラス</a>
                 </li>
               </ul>
             </li>
@@ -60,10 +60,10 @@
                   <a href="<?php echo $information; ?>#tab1" class="footer-nav__left-detail-link">身体を守る防護壁</a>
                 </li>
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $information; ?>#tab3" class="footer-nav__left-detail-link">安心感のサポート</a>
+                  <a href="<?php echo $information; ?>#tab2" class="footer-nav__left-detail-link">安心感のサポート</a>
                 </li>
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $information; ?>#tab2" class="footer-nav__left-detail-link">危険察知と回避</a>
+                  <a href="<?php echo $information; ?>#tab3" class="footer-nav__left-detail-link">危険察知と回避</a>
                 </li>
               </ul>
             </li>

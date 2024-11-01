@@ -11,11 +11,11 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- お客様の声 -->
-  <div class="top-page-campaign page-campaign">
-    <div class="page-campaign__inner inner">
-      <div class="page-campaign__category campaign-category">
+  <div class="top-page-plans page-plans">
+    <div class="page-plans__inner inner">
+      <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
-        <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="campaign-category__link">All</a>
+        <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="plans-category__link">All</a>
         <?php
           $terms = get_terms(array(
             'taxonomy' => 'voice_category',
@@ -26,12 +26,12 @@
             foreach ($terms as $term) :
               $term_link = get_term_link($term);
         ?>
-        <a href="<?php echo esc_url($term_link); ?>" class="campaign-category__link <?php echo (is_tax('voice_category', $term->slug) ? 'is-active' : ''); ?>">
+        <a href="<?php echo esc_url($term_link); ?>" class="plans-category__link <?php echo (is_tax('voice_category', $term->slug) ? 'is-active' : ''); ?>">
           <?php echo esc_html($term->name); ?>
         </a>
         <?php endforeach; endif; ?>
       </div>
-      <div class="page-campaign__items voice-cards">
+      <div class="page-plans__items voice-cards">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
           <article class="voice-cards__item voice-card">
             <div class="voice-card__link">

@@ -346,6 +346,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	@include mq(md) {
 		align-items: flex-start;
 		width: calc(100% - 68.57142857142857%);
+		padding-right: rem(20);
 	}
 }
 
@@ -360,6 +361,9 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	margin-top: rem(1);
 	margin-left: rem(8);
 	padding: rem(2) rem(11) rem(1) rem(16);
+	@include mq(md) {
+		margin-left: auto;
+	}
 }
 
 .form__item dd {
@@ -388,7 +392,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	margin-top: rem(3);
 }
 
-.form__campaign {
+.form__plans {
 	font-size: rem(12);
 	font-weight: $normal;
 	color: $black;

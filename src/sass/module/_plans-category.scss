@@ -1,7 +1,7 @@
 @use "global" as *;
 
 // 最終_FB：追加
-.campaign-category {
+.plans-category {
   display: flex;
   flex-wrap: wrap;
   gap: rem(16) rem(21);
@@ -17,7 +17,7 @@
   }
 }
 
-.campaign-category__link {
+.plans-category__link {
   max-width: rem(162);
   width: 100%;
   font-size: rem(14);
@@ -33,13 +33,13 @@
   background-color: $white;
 }
 
-.campaign-category__link.is-active {
+.plans-category__link.is-active {
   color: $white;
   border-color: transparent;
   background-color: $blueaccent;
 }
 
-.campaign-category__link:hover {
+.plans-category__link:hover {
   color: $white;
   border-color: transparent;
   background-color: $blueaccent;

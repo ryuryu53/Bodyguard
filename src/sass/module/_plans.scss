@@ -1,16 +1,16 @@
 @use "global" as *;
 
-.campaign {
+.plans {
   position: relative;
   background-color: white;  // ローディング最初の画面が出ないようにするため
   overflow: hidden;
 }
 
-.campaign__inner {
+.plans__inner {
   position: relative;
 }
 
-.campaign__inner.inner {
+.plans__inner.inner {
   padding-left: rem(9);
 
   @include mq(md) {
@@ -18,7 +18,7 @@
   }
 }
 
-.campaign__title.section-header {
+.plans__title.section-header {
   padding-left: rem(6);
 
   @include mq(md) {
@@ -26,7 +26,7 @@
   }
 }
 
-.campaign__swiper {
+.plans__swiper {
   margin-top: rem(28);
   margin-right: calc(50% - 50vw);
 
@@ -35,8 +35,8 @@
   }
 }
 
-.campaign__btn-next,
-.campaign__btn-prev {
+.plans__btn-next,
+.plans__btn-prev {
   position: absolute;
   top: 23px; // rem(23)だと幅1015px以下で円の頭が切れてくる
   width: rem(80);
@@ -44,21 +44,21 @@
   transition: opacity 0.3s;
 }
 
-.campaign__btn-next {
+.plans__btn-next {
   right: 2.2%;
 }
 
-.campaign__btn-prev {
+.plans__btn-prev {
   left: 76.55%; // スワイパー側でleftに数値があり、rightはauto。rightで指定する場合、leftをautoにする必要あり
 }
 
-.campaign__btn-next:hover,
-.campaign__btn-prev:hover {
+.plans__btn-next:hover,
+.plans__btn-prev:hover {
   opacity: 0.7;
 }
 
-.campaign__btn-next::after,
-.campaign__btn-prev::after {
+.plans__btn-next::after,
+.plans__btn-prev::after {
   content: "";
   display: block;
   background-repeat: no-repeat;
@@ -68,15 +68,15 @@
   height: rem(80);
 }
 
-.campaign__btn-next::after {
+.plans__btn-next::after {
   background-image: url(../images/common/right-btn.svg);
 }
 
-.campaign__btn-prev::after {
+.plans__btn-prev::after {
   background-image: url(../images/common/left-btn.svg);
 }
 
-.campaign__btn {
+.plans__btn {
   text-align: center;
   margin-top: rem(30);
   padding-bottom: rem(5);

@@ -44,8 +44,8 @@ jQuery(function ($) {
     autoplay: false // 最初は自動再生をしない
   });
 
-  // campaignスワイパー
-  var campaign_swiper = new Swiper('.js-campaign-swiper', {
+  // plansスワイパー
+  var plans_swiper = new Swiper('.js-plans-swiper', {
     slidesPerView: 'auto',
     loop: true,
     speed: 1000,

@@ -47,139 +47,139 @@
   </section>
 
   <!-- Plans -->
-  <section class="top-campaign campaign">
-    <div class="campaign__inner inner">
-      <h2 class="campaign__title section-header">
-        <span class="section-header__engtitle">Campaign</span>
+  <section class="top-plans plans">
+    <div class="plans__inner inner">
+      <h2 class="plans__title section-header">
+        <span class="section-header__engtitle">plans</span>
         <span class="section-header__jatitle">キャンペーン</span>
       </h2>
-      <div class="campaign__swiper">
-        <div class="swiper js-campaign-swiper">
-          <ul class="swiper-wrapper campaign__items campaign-cards">
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_1.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_1.jpg" alt="いろいろな色の魚が海で泳いでいる様子">
+      <div class="plans__swiper">
+        <div class="swiper js-plans-swiper">
+          <ul class="swiper-wrapper plans__items plans-cards">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.jpg" alt="いろいろな色の魚が海で泳いでいる様子">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">ライセンス講習</p>
-                  <h3 class="campaign-card__title text--medium">ライセンス取得</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;56&#44;000</span><span class="campaign-card__price-after">&yen;46&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">ライセンス講習</p>
+                  <h3 class="plans-card__title text--medium">ライセンス取得</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;56&#44;000</span><span class="plans-card__price-after">&yen;46&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_2.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_2.jpg" alt="2隻の白いボートが浮かぶエメラルドグリーン浜辺">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.jpg" alt="2隻の白いボートが浮かぶエメラルドグリーン浜辺">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">体験ダイビング</p>
-                  <h3 class="campaign-card__title text--medium">貸切体験ダイビング</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;24&#44;000</span><span class="campaign-card__price-after">&yen;18&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">体験ダイビング</p>
+                  <h3 class="plans-card__title text--medium">貸切体験ダイビング</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;24&#44;000</span><span class="plans-card__price-after">&yen;18&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_3.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_3.jpg" alt="海の中を漂う光るクラゲ">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.jpg" alt="海の中を漂う光るクラゲ">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">体験ダイビング</p>
-                  <h3 class="campaign-card__title text--medium">ナイトダイビング</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;10&#44;000</span><span class="campaign-card__price-after">&yen;8&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">体験ダイビング</p>
+                  <h3 class="plans-card__title text--medium">ナイトダイビング</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;10&#44;000</span><span class="plans-card__price-after">&yen;8&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_4.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_4.jpg" alt="ダイビングを楽しむ4人の人たちが水面で合図を交わしている様子">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.jpg" alt="ダイビングを楽しむ4人の人たちが水面で合図を交わしている様子">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">ファンダイビング</p>
-                  <h3 class="campaign-card__title text--medium">貸切ファンダイビング</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;20&#44;000</span><span class="campaign-card__price-after">&yen;16&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">ファンダイビング</p>
+                  <h3 class="plans-card__title text--medium">貸切ファンダイビング</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;20&#44;000</span><span class="plans-card__price-after">&yen;16&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_1.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_1.jpg" alt="いろいろな色の魚が海で泳いでいる様子">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.jpg" alt="いろいろな色の魚が海で泳いでいる様子">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">ライセンス講習</p>
-                  <h3 class="campaign-card__title text--medium">ライセンス取得</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;56&#44;000</span><span class="campaign-card__price-after">&yen;46&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">ライセンス講習</p>
+                  <h3 class="plans-card__title text--medium">ライセンス取得</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;56&#44;000</span><span class="plans-card__price-after">&yen;46&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_2.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_2.jpg" alt="2隻の白いボートが浮かぶエメラルドグリーン浜辺">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.jpg" alt="2隻の白いボートが浮かぶエメラルドグリーン浜辺">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">体験ダイビング</p>
-                  <h3 class="campaign-card__title text--medium">貸切体験ダイビング</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;24&#44;000</span><span class="campaign-card__price-after">&yen;18&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">体験ダイビング</p>
+                  <h3 class="plans-card__title text--medium">貸切体験ダイビング</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;24&#44;000</span><span class="plans-card__price-after">&yen;18&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_3.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_3.jpg" alt="海の中を漂う光るクラゲ">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.jpg" alt="海の中を漂う光るクラゲ">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">体験ダイビング</p>
-                  <h3 class="campaign-card__title text--medium">ナイトダイビング</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;10&#44;000</span><span class="campaign-card__price-after">&yen;8&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">体験ダイビング</p>
+                  <h3 class="plans-card__title text--medium">ナイトダイビング</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;10&#44;000</span><span class="plans-card__price-after">&yen;8&#44;000</span>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="swiper-slide campaign-cards__item campaign-card">
-              <a href="#" class="campaign-card__link">
-                <picture class="campaign-card__img">
-                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_4.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/campaign_4.jpg" alt="ダイビングを楽しむ4人の人たちが水面で合図を交わしている様子">
+            <li class="swiper-slide plans-cards__item plans-card">
+              <a href="#" class="plans-card__link">
+                <picture class="plans-card__img">
+                  <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.webp" type="image/webp">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.jpg" alt="ダイビングを楽しむ4人の人たちが水面で合図を交わしている様子">
                 </picture>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__category">ファンダイビング</p>
-                  <h3 class="campaign-card__title text--medium">貸切ファンダイビング</h3>
-                  <p class="campaign-card__text text--small-sp">全部コミコミ(お一人様)</p>
-                  <div class="campaign-card__price">
-                    <span class="campaign-card__price-before">&yen;20&#44;000</span><span class="campaign-card__price-after">&yen;16&#44;000</span>
+                <div class="plans-card__body">
+                  <p class="plans-card__category">ファンダイビング</p>
+                  <h3 class="plans-card__title text--medium">貸切ファンダイビング</h3>
+                  <p class="plans-card__text text--small-sp">全部コミコミ(お一人様)</p>
+                  <div class="plans-card__price">
+                    <span class="plans-card__price-before">&yen;20&#44;000</span><span class="plans-card__price-after">&yen;16&#44;000</span>
                   </div>
                 </div>
               </a>
@@ -187,12 +187,12 @@
           </ul>
         </div>
       </div>
-      <div class="campaign__swiper-btn">
-        <div class="swiper-button-next campaign__btn-next u-desktop"></div>
-        <div class="swiper-button-prev campaign__btn-prev u-desktop"></div>
+      <div class="plans__swiper-btn">
+        <div class="swiper-button-next plans__btn-next u-desktop"></div>
+        <div class="swiper-button-prev plans__btn-prev u-desktop"></div>
       </div>
-      <div class="campaign__btn">
-        <a href="./page-campaign.html" class="button"><span class="button__text">View&nbsp;more</span></a>
+      <div class="plans__btn">
+        <a href="./page-plans.html" class="button"><span class="button__text">View&nbsp;more</span></a>
       </div>
     </div>
   </section>

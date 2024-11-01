@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 <!-- 下層ページのメインビュー -->
-  <section class="campaign-mv sub-mv">
+  <section class="plans-mv sub-mv">
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title">Campaign</h1>
+      <h1 class="sub-mv__title">plans</h1>
     </div>
   </section>
 
@@ -11,33 +11,33 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- ご提供プラン -->
-  <section class="top-page-campaign page-campaign">
-    <div class="page-campaign__inner inner">
-      <div class="page-campaign__category campaign-category">
+  <section class="top-page-plans page-plans">
+    <div class="page-plans__inner inner">
+      <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
-        <!-- get_post_type_archive_link('campaign') →「キャンペーン」というカスタム投稿タイプのアーカイブページ（一覧ページ）のリンクを取得 -->
-        <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="campaign-category__link">All</a>
+        <!-- get_post_type_archive_link('plans') →「キャンペーン」というカスタム投稿タイプのアーカイブページ（一覧ページ）のリンクを取得 -->
+        <a href="<?php echo esc_url(get_post_type_archive_link('plans')); ?>" class="plans-category__link">All</a>
         <?php
-          $terms = get_terms(array( // get_terms：特定のタクソノミー（campaign_category）のカテゴリ情報を取得する関数
-            'taxonomy' => 'campaign_category',
+          $terms = get_terms(array( // get_terms：特定のタクソノミー（plans_category）のカテゴリ情報を取得する関数
+            'taxonomy' => 'plans_category',
             'hide_empty' => true, // 投稿が1つもないカテゴリを表示しないようにする
           ));
 
           if ( !empty($terms) ) :
             foreach ($terms as $term) :
               $term_link = get_term_link($term);  // 各カテゴリ（タクソノミー）のリンク先URLを取得
-              // is_tax('campaign_category', $term->slug)：「今表示しているページが、このループで処理しているカテゴリ（$term->slug）かどうか？」を判定
+              // is_tax('plans_category', $term->slug)：「今表示しているページが、このループで処理しているカテゴリ（$term->slug）かどうか？」を判定
         ?>
-        <a href="<?php echo esc_url($term_link); ?>" class="campaign-category__link <?php echo (is_tax('campaign_category', $term->slug) ? 'is-active' : ''); ?>">
+        <a href="<?php echo esc_url($term_link); ?>" class="plans-category__link <?php echo (is_tax('plans_category', $term->slug) ? 'is-active' : ''); ?>">
           <?php echo esc_html($term->name); ?>
         </a>
         <?php endforeach; endif; ?>
       </div>
-      <ul class="page-campaign__items campaign-list">
+      <ul class="page-plans__items plans-list">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-          <li class="campaign-list__item campaign-card">
-            <div class="campaign-card__link">
-              <picture class="campaign-card__img campaign-card__img--sub-page">
+          <li class="plans-list__item plans-card">
+            <div class="plans-card__link">
+              <picture class="plans-card__img plans-card__img--sub-page">
                 <?php if ( (get_the_post_thumbnail()) ) : ?>
                   <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
                   <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
@@ -45,42 +45,42 @@
                   <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
                 <?php endif; ?>
               </picture>
-              <div class="campaign-card__body campaign-card__body--sub-page">
+              <div class="plans-card__body plans-card__body--sub-page">
                 <!-- get_the_terms()：投稿に関連するタクソノミー（分類）を取得するための関数、get_the_ID()：現在表示されている投稿のID（個別の識別番号）を取得 -->
                 <?php
-                  // カスタムタクソノミー「campaign_category」の取得
-                  $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                  // カスタムタクソノミー「plans_category」の取得
+                  $terms = get_the_terms(get_the_ID(), 'plans_category');
                   if ( $terms && !is_wp_error($terms) ) :
                 ?>
-                  <p class="campaign-card__category"><?php echo esc_html($terms[0]->name); ?></p>
+                  <p class="plans-card__category"><?php echo esc_html($terms[0]->name); ?></p>
                 <?php endif; ?>
-                <h3 class="campaign-card__title campaign-card__title--sub-page text--medium-large"><?php the_title(); ?></h3>
-                <p class="campaign-card__text campaign-card__text--sub-page text--small-sp">お一人様</p>
+                <h3 class="plans-card__title plans-card__title--sub-page text--medium-large"><?php the_title(); ?></h3>
+                <p class="plans-card__text plans-card__text--sub-page text--small-sp">お一人様</p>
                 <!-- ご提供プランの価格 -->
-                <div class="campaign-card__price campaign-card__price--sub-page">
+                <div class="plans-card__price plans-card__price--sub-page">
                 <?php
-                  $campaign_price = get_field('campaign_price');  // グループフィールドからデータを取得
-                  $price_before = $campaign_price['campaign_1'];  // サブフィールドから通常価格を取得
-                  $price_after = $campaign_price['campaign_2']; // サブフィールドから割引価格を取得
+                  $plans_price = get_field('plans_price');  // グループフィールドからデータを取得
+                  $price_before = $plans_price['plans_1'];  // サブフィールドから通常価格を取得
+                  $price_after = $plans_price['plans_2']; // サブフィールドから割引価格を取得
                 ?>
                   <?php if ( $price_before ) : ?>
                     <!-- number_formatだけだと非推奨の警告、intvalで数値として扱う -->
-                    <span class="campaign-card__price-before campaign-card__price-before--sub-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?></span>
+                    <span class="plans-card__price-before plans-card__price-before--sub-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?></span>
                   <?php endif; ?>
                   <?php if ( $price_after ) : ?>
-                    <span class="campaign-card__price-after campaign-card__price-after--sub-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?></span>
+                    <span class="plans-card__price-after plans-card__price-after--sub-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?></span>
                   <?php endif; ?>
                 </div>
-                <div class="campaign-card__information">
-                  <?php if ( get_field('campaign_3') ) : ?>
-                    <p class="campaign-card__information-text"><?php the_field('campaign_3'); ?></p>
+                <div class="plans-card__information">
+                  <?php if ( get_field('plans_3') ) : ?>
+                    <p class="plans-card__information-text"><?php the_field('plans_3'); ?></p>
                   <?php endif; ?>
                   <!-- キャンペーン期間 -->
-                  <div class="campaign-card__information-period">
+                  <div class="plans-card__information-period">
                     <?php
-                      $campaign_period = get_field('campaign_period');  // グループフィールドからデータを取得
-                      $start_date = $campaign_period['campaign_4']; // 開始日(フォーマット済み: Y/n/j)を取得
-                      $end_date = $campaign_period['campaign_5']; // 終了日(フォーマット済み: Y/n/j)を取得
+                      $plans_period = get_field('plans_period');  // グループフィールドからデータを取得
+                      $start_date = $plans_period['plans_4']; // 開始日(フォーマット済み: Y/n/j)を取得
+                      $end_date = $plans_period['plans_5']; // 終了日(フォーマット済み: Y/n/j)を取得
                       // 開始日と終了日の年を抽出
                       $start_year = substr($start_date, 0, 4); // 先頭4文字を取得して年を抽出
                       $end_year = substr($end_date, 0, 4);     // 同じく終了日の年を抽出
@@ -106,8 +106,8 @@
                       </time>
                     <?php endif; ?>
                   </div>
-                  <p class="campaign-card__information-inquiry">ご予約・お問い合わせはコチラ</p>
-                  <div class="campaign-card__btn campaign-card__btn--sub-page u-desktop">
+                  <p class="plans-card__information-inquiry">ご予約・お問い合わせはコチラ</p>
+                  <div class="plans-card__btn plans-card__btn--sub-page u-desktop">
                     <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
                   </div>
                 </div>

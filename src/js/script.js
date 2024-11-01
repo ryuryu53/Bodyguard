@@ -42,8 +42,8 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     autoplay: false // 最初は自動再生をしない
   });
 
-  // campaignスワイパー
-  const campaign_swiper = new Swiper('.js-campaign-swiper', {
+  // plansスワイパー
+  const plans_swiper = new Swiper('.js-plans-swiper', {
     slidesPerView: 'auto',
     loop: true,
     speed: 1000,

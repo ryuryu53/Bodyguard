@@ -16,10 +16,10 @@
 
   <?php
     $home = esc_url( home_url('/') );
-    $campaign = esc_url( home_url('/campaign/') );
-    $campaign_fun_diving = esc_url( home_url('/campaign_category/entry-guard/') );
-    $campaign_license = esc_url( home_url('/campaign_category/safe-security/') );
-    $campaign_experience_diving = esc_url( home_url('/campaign_category/protect-plus/') );
+    $plans = esc_url( home_url('/plans/') );
+    $plans_fun_diving = esc_url( home_url('/plans_category/entry-guard/') );
+    $plans_license = esc_url( home_url('/plans_category/safe-security/') );
+    $plans_experience_diving = esc_url( home_url('/plans_category/protect-plus/') );
     $about = esc_url( home_url('/about-us/') );
     $information = esc_url( home_url('/information/') );
     $blog = esc_url( home_url('/blog/') );
@@ -53,7 +53,7 @@
         <nav class="header__pc-nav pc-nav">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
-              <a href="<?php echo $campaign; ?>" class="pc-nav__link">
+              <a href="<?php echo $plans; ?>" class="pc-nav__link">
                 <span class="pc-nav__engtext">Plans</span>
                 <span class="pc-nav__jatext">ご提供プラン</span>
               </a>
@@ -108,16 +108,16 @@
               <div class="sp-nav__left-content">
                 <ul class="sp-nav__left-items">
                   <li class="sp-nav__left-item">
-                    <a href="<?php echo $campaign; ?>" class="sp-nav__link">ご提供プラン</a>
+                    <a href="<?php echo $plans; ?>" class="sp-nav__link">ご提供プラン</a>
                     <ul class="sp-nav__left-detail-items">
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_fun_diving; ?>" class="sp-nav__left-detail-link">エントリーガード</a>
+                        <a href="<?php echo $plans_fun_diving; ?>" class="sp-nav__left-detail-link">エントリーガード</a>
                       </li>
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_license; ?>" class="sp-nav__left-detail-link">セーフセキュリティ</a>
+                        <a href="<?php echo $plans_license; ?>" class="sp-nav__left-detail-link">セーフセキュリティ</a>
                       </li>
                       <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $campaign_experience_diving; ?>" class="sp-nav__left-detail-link">プロテクトプラス</a>
+                        <a href="<?php echo $plans_experience_diving; ?>" class="sp-nav__left-detail-link">プロテクトプラス</a>
                       </li>
                     </ul>
                   </li>

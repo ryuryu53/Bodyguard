@@ -87,31 +87,31 @@
           </a>
         </div>
       </div>
-      <div class="column-aside__campaign">
-        <h2 class="column-aside__title">キャンペーン</h2>
-        <ul class="column-aside__items campaign-cards">
+      <div class="column-aside__plans">
+        <h2 class="column-aside__title">ご提供プラン</h2>
+        <ul class="column-aside__items plans-cards">
           <?php
-            // 最新のカスタム投稿（campaign）の2件を取得するクエリ
-            $latest_campaign_args = array(  // $latest_campaign_args：WP_Queryに渡すための条件を設定
-              'post_type' => 'campaign', // カスタム投稿タイプ「campaign」の指定
+            // 最新のカスタム投稿（plans）の2件を取得するクエリ
+            $latest_plans_args = array(  // $latest_plans_args：WP_Queryに渡すための条件を設定
+              'post_type' => 'plans', // カスタム投稿タイプ「plans」の指定
               'posts_per_page' => 2, // 最新の2件を表示
               'orderby' => 'date', // 日付順にソート
               'order' => 'DESC' // 新しいものを先頭に･･･降順（DESC）
             );
             // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからキャンペーン投稿を取得
-            $latest_campaign_query = new WP_Query($latest_campaign_args);
+            $latest_plans_query = new WP_Query($latest_plans_args);
             // サブループ開始   while文：投稿がある限り、このループで2件のキャンペーン情報を1件ずつ表示
-            if ( $latest_campaign_query->have_posts() ) : while ( $latest_campaign_query->have_posts() ) : $latest_campaign_query->the_post(); ?>
-            <li class="campaign-cards__item campaign-card campaign-cards__item--blog-page">
+            if ( $latest_plans_query->have_posts() ) : while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post(); ?>
+            <li class="plans-cards__item plans-card plans-cards__item--blog-page">
               <?php
-                $terms = get_the_terms(get_the_ID(), 'campaign_category'); // 現在の投稿に紐付いた'term'を取得
+                $terms = get_the_terms(get_the_ID(), 'plans_category'); // 現在の投稿に紐付いた'term'を取得
                 if ( $terms && !is_wp_error($terms) ) : // タームが存在し、エラーがない場合のみ処理を実行
                   foreach ($terms as $term) : // 各タームについて繰り返し処理
                     $term_link = get_term_link($term); // タームのリンクを取得
               ?>
-                <a href="<?php echo esc_url($term_link); ?>" class="campaign-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
+                <a href="<?php echo esc_url($term_link); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
               <?php endforeach; endif; ?>
-                <picture class="campaign-card__img campaign-card__img--blog-page">
+                <picture class="plans-card__img plans-card__img--blog-page">
                   <?php if ( get_the_post_thumbnail() ) : ?>
                     <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
                     <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
@@ -119,21 +119,21 @@
                     <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
                   <?php endif; ?>
                 </picture>
-                <div class="campaign-card__body campaign-card__body--blog-page">
-                  <h3 class="campaign-card__title campaign-card__title--blog-page text--medium"><?php the_title(); ?></h3>
-                  <p class="campaign-card__text campaign-card__text--blog-page text--small-sp">お一人様</p>
+                <div class="plans-card__body plans-card__body--blog-page">
+                  <h3 class="plans-card__title plans-card__title--blog-page text--medium"><?php the_title(); ?></h3>
+                  <p class="plans-card__text plans-card__text--blog-page text--small-sp">お一人様</p>
                   <!-- ご提供プランの価格 -->
-                  <div class="campaign-card__price campaign-card__price--blog-page">
+                  <div class="plans-card__price plans-card__price--blog-page">
                     <?php
-                      $campaign_price = get_field('campaign_price');  // グループフィールドからデータを取得
-                      $price_before = $campaign_price['campaign_1'];  // サブフィールドから通常価格を取得
-                      $price_after = $campaign_price['campaign_2']; // サブフィールドから割引価格を取得
+                      $plans_price = get_field('plans_price');  // グループフィールドからデータを取得
+                      $price_before = $plans_price['plans_1'];  // サブフィールドから通常価格を取得
+                      $price_after = $plans_price['plans_2']; // サブフィールドから割引価格を取得
                     ?>
                     <?php if ( $price_before ) : ?>
-                      <span class="campaign-card__price-before campaign-card__price-before--blog-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?></span>
+                      <span class="plans-card__price-before plans-card__price-before--blog-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?></span>
                     <?php endif; ?>
                     <?php if ( $price_after ) : ?>
-                      <span class="campaign-card__price-after campaign-card__price-after--blog-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?></span>
+                      <span class="plans-card__price-after plans-card__price-after--blog-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?></span>
                     <?php endif; ?>
                   </div>
                 </div>
@@ -142,8 +142,8 @@
           <?php endwhile; endif; wp_reset_postdata(); ?>
         </ul>
         <div class="column-aside__btn-2">
-          <!-- get_post_type_archive_link()：キャンペーンのカスタム投稿タイプ（campaign）のアーカイブページ（一覧ページ）へのリンクを生成 -->
-          <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
+          <!-- get_post_type_archive_link()：キャンペーンのカスタム投稿タイプ（plans）のアーカイブページ（一覧ページ）へのリンクを生成 -->
+          <a href="<?php echo esc_url(get_post_type_archive_link('plans')); ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
         </div>
       </div>
       <div class="column-aside__archive">

@@ -105,8 +105,8 @@ function change_posts_per_page($query) {
   if ( is_admin() || ! $query->is_main_query() )
       return;
 
-  // カスタム投稿タイプ「campaign」のアーカイブページの場合、4件に設定(カスタムタクソノミーのアーカイブページも同様)
-  if ( $query->is_post_type_archive('campaign') || is_tax('campaign_category') ) { //カスタム投稿タイプまたはカスタムタクソノミーを指定
+  // カスタム投稿タイプ「plans」のアーカイブページの場合、4件に設定(カスタムタクソノミーのアーカイブページも同様)
+  if ( $query->is_post_type_archive('plans') || is_tax('plans_category') ) { //カスタム投稿タイプまたはカスタムタクソノミーを指定
       $query->set( 'posts_per_page', '4' ); //表示件数を指定
   }
   // カスタム投稿タイプ「voice」のアーカイブページの場合、6件に設定(カスタムタクソノミーのアーカイブページも同様)
@@ -116,8 +116,8 @@ function change_posts_per_page($query) {
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
-// カスタム投稿タイプ「campaign」のリライトルールを空にして、詳細ページを生成しない
-add_filter('campaign_rewrite_rules', '__return_empty_array');
+// カスタム投稿タイプ「plans」のリライトルールを空にして、詳細ページを生成しない
+add_filter('plans_rewrite_rules', '__return_empty_array');
 
 // カスタム投稿タイプ「voice」のリライトルールを空にして、詳細ページを生成しない
 add_filter('voice_rewrite_rules', '__return_empty_array');
@@ -196,7 +196,7 @@ function customize_views_column($columns) {
     return $reordered_columns;
   }
 
-  return $columns; // 'post'以外（例えばcampaignやvoiceなど）の時はそのままカラムを返す
+  return $columns; // 'post'以外（例えばplansやvoiceなど）の時はそのままカラムを返す
 }
 // manage_posts_columnsというフィルターに、このcustomize_views_column関数を登録 → 投稿一覧画面のカラムが変更される
 add_filter('manage_posts_columns', 'customize_views_column');
@@ -264,7 +264,7 @@ function custom_wpcf7_scripts() {
     // 'wpcf7mailsent'：Contact Form 7 でフォームが正常に送信されたことを示すイベント
     document.addEventListener( 'wpcf7mailsent', function( event ) {
       // location.href は「ブラウザのURLを変更する」ためのもの → http:～ というURLにリダイレクト（ページ移動）する
-      location.href = 'http://codeupsforwordpress3.local/thanks/';
+      location.href = 'http://bodyguard.local/thanks/';
     }, false ); // false はイベントがバブリング（親要素に伝わる）しないようにする設定
     </script>
     <?php
@@ -282,7 +282,7 @@ function remove_wysiwyg_for_post_type($post_type) {
 
 add_action('init', function() {
   // エディターを無効にする投稿タイプのリスト
-  $post_types = ['campaign', 'voice'];
+  $post_types = ['plans', 'voice'];
 
   // 各投稿タイプに対してエディターを削除
   foreach ($post_types as $post_type) {
@@ -290,7 +290,7 @@ add_action('init', function() {
   }
 });
 
-// 管理画面にカスタムCSSを追加する（Campaignページ、説明文の文字を赤くする）
+// 管理画面にカスタムCSSを追加する（plansページ、説明文の文字を赤くする）
 function my_acf_admin_styles() {
   echo '
   <style>
@@ -303,21 +303,21 @@ function my_acf_admin_styles() {
 }
 add_action('admin_head', 'my_acf_admin_styles');
 
-// 管理画面にカスタムCSSを追加する（Campaign、Voiceページ、サンプル画像を挿入）
+// 管理画面にカスタムCSSを追加する（plans、Voiceページ、サンプル画像を挿入）
 function my_custom_admin_styles() {
   echo '
     <style>
       /* ACFグループの右側にサンプル画像を挿入 */
-      /* Campaignページ */
-      #acf-group_66f03c54687bd .acf-fields.-top {
-        background-image: url(' . get_template_directory_uri() . '/assets/images/common/campaign-sample.webp);
+      /* plansページ */
+      #acf-group_671d0c79e28ca .acf-fields.-top {
+        background-image: url(' . get_template_directory_uri() . '/assets/images/common/plans-sample.webp);
         background-position: top right 8px;
         background-size: contain;
         background-repeat: no-repeat;
       }
 
       /* Voiceページ */
-      #acf-group_66f123ca28191 .acf-fields.-top {
+      #acf-group_671e7d31a1c41 .acf-fields.-top {
         background-image: url(' . get_template_directory_uri() . '/assets/images/common/voice-sample.webp);
         background-position: top 24px right 8px;
         background-size: 320px;
@@ -332,23 +332,23 @@ add_action('admin_head', 'my_custom_admin_styles');
 function custom_editor_styles_for_specific_page() {
   // 現在の画面情報を取得
   $screen = get_current_screen();
-  
-  // エディタ画面かつ特定の固定ページIDが12（料金一覧）または16（よくある質問）の場合にスタイルを適用
-  if ( 'post' === $screen->base && get_the_ID() === 12 || get_the_ID() === 16 ) {
+
+  // エディタ画面かつ特定の固定ページIDが35（料金一覧）または31（よくある質問）の場合にスタイルを適用
+  if ( 'post' === $screen->base && get_the_ID() === 35 || get_the_ID() === 31 ) {
     echo '<style>
       .editor-visual-editor {
         height: 80%;
       }
     </style>';
-    // エディタ画面かつ特定の固定ページIDが8（私たちについて）の場合にスタイルを適用
-  // } elseif ( 'post' === $screen->base && get_the_ID() === 8 ) {
+    // エディタ画面かつ特定の固定ページIDが38（私たちについて）の場合にスタイルを適用
+  // } elseif ( 'post' === $screen->base && get_the_ID() === 38 ) {
   //   echo '<style>
   //     .editor-visual-editor {
   //       height: 30%;
   //     }
   //   </style>';
-  //   // エディタ画面かつ特定の固定ページIDが25（トップページ）の場合にスタイルを適用
-  // } elseif ( 'post' === $screen->base && get_the_ID() === 25 ) {
+  //   // エディタ画面かつ特定の固定ページIDが7（トップページ）の場合にスタイルを適用
+  // } elseif ( 'post' === $screen->base && get_the_ID() === 7 ) {
   //   echo '<style>
   //     .editor-visual-editor {
   //       height: 30%;
@@ -373,10 +373,10 @@ add_action('admin_head', 'my_scf_admin_styles');
 function my_custom_dashboard_widget() {
   // ウィジェット内に表示する内容をリスト化（CSSクラスを使う）
   echo '<ul class="custom-dashboard-links">'; // クラスを割り当て
-  echo '<li><span class="dashicons dashicons-admin-home custom-icon"></span><a href="' . get_edit_post_link(25) . '">トップページ</a></li>';
-  echo '<li><span class="dashicons dashicons-format-gallery custom-icon"></span><a href="' . get_edit_post_link(8) . '">ギャラリー</a></li>';
-  echo '<li><span class="dashicons dashicons-money-alt custom-icon"></span><a href="' . get_edit_post_link(12) . '">料金一覧</a></li>';
-  echo '<li><span class="dashicons dashicons-editor-help custom-icon"></span><a href="' . get_edit_post_link(16) . '">よくある質問</a></li>';
+  echo '<li><span class="dashicons dashicons-admin-home custom-icon"></span><a href="' . get_edit_post_link(7) . '">トップページ</a></li>';
+  echo '<li><span class="dashicons dashicons-format-gallery custom-icon"></span><a href="' . get_edit_post_link(38) . '">ギャラリー</a></li>';
+  echo '<li><span class="dashicons dashicons-money-alt custom-icon"></span><a href="' . get_edit_post_link(35) . '">料金一覧</a></li>';
+  echo '<li><span class="dashicons dashicons-editor-help custom-icon"></span><a href="' . get_edit_post_link(31) . '">よくある質問</a></li>';
   echo '</ul>';
 }
 
@@ -419,56 +419,56 @@ add_action('wp_dashboard_setup', 'add_my_custom_dashboard_widget');
 // }
 // add_action( 'init' , 'my_remove_post_editor_support' );
 
-// これでもOK！
-// 「料金一覧」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（1）
+// 「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（1）
 // 固定ページに対してブロックエディタを使用するかどうかを制御するフィルターフック
 // $use_block_editor（エディタを使うかどうかのブール値）と$post（現在の投稿情報）を引数として受け取る
-// add_filter('use_block_editor_for_post', function($use_block_editor, $post) {
-//   // 投稿のタイプが「固定ページ」であるかどうかをチェックする
-//   if ( $post->post_type === 'page' ) {
-//     // 表示するページスラッグのリスト
-//     $allowed_pages = ['price', 'faq', 'privacy-policy', 'terms-of-service'];
+add_filter('use_block_editor_for_post', function($use_block_editor, $post) {
+  // 投稿のタイプが「固定ページ」であるかどうかをチェックする
+  if ( $post->post_type === 'page' ) {
+    // 表示するページスラッグのリスト
+    $allowed_pages = ['price', 'faq', 'privacy-policy', 'terms-of-service'];
 
-//     // スラッグがリストに含まれていなければエディタを非表示にする
-//     // in_array()関数：指定した値が配列に含まれているかどうかを確認
-//     // ページスラッグが許可されたリストに含まれていない場合にtrueを返す
-//     if ( !in_array($post->post_name, $allowed_pages) ) {  // post_nameはページのスラッグを指す
-//       // 特定の投稿タイプからエディタのサポートを削除する
-//       remove_post_type_support('page', 'editor'); // エディタを非表示
-//       return false; // ブロックエディタを無効化
-//     }
-//   }
-//   // 条件に該当しない場合は、もともとのブロックエディタの設定を保持するために、この値をそのまま返す
-//   return $use_block_editor; // それ以外の場合はエディタを使用
-// }, 10, 2);
-
-// 「料金一覧」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（2）
-function my_remove_post_editor_support() {
-  // 現在の画面が管理画面であり、編集しているのが固定ページの場合のみ処理を続ける
-  // 今表示している画面の情報を$screenという変数に保存
-  $screen = get_current_screen();
-  // その画面で編集している投稿タイプ（$screen->post_type）が固定ページ（page）、かつ現在の管理画面の「画面タイプ」（$screen->base）が編集画面（post）ならば
-  if ( $screen->post_type === 'page' && $screen->base === 'post' ) {
-    // 編集しているページのIDを取得（現在のページIDを取得（$_GET['post']）し、存在していればそれを整数値に変換して$post_idに保存し、IDがない場合は0を代入）
-    $post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
-
-    // IDに基づいてページのスラッグを取得し、特定のページならエディタ削除をしない
-    $exclude_slugs = array('price', 'faq', 'privacy-policy', 'terms-of-service');
-    // get_current_screen()：指定した投稿IDに関連する特定のフィールド（ここではpost_name、すなわちスラッグ）を取得するための関数
-    $post_slug = get_post_field( 'post_name', $post_id );
-
-    // 除外リストにある場合はエディタ削除を行わない
-    if ( in_array( $post_slug, $exclude_slugs ) ) {
-      return;
+    // スラッグがリストに含まれていなければエディタを非表示にする
+    // in_array()関数：指定した値が配列に含まれているかどうかを確認
+    // ページスラッグが許可されたリストに含まれていない場合にtrueを返す
+    if ( !in_array($post->post_name, $allowed_pages) ) {  // post_nameはページのスラッグを指す
+      // 特定の投稿タイプからエディタのサポートを削除する
+      remove_post_type_support('page', 'editor'); // エディタを非表示
+      return false; // ブロックエディタを無効化
     }
-
-    // 条件に合わない場合はエディタを削除
-    // 固定ページからエディター（editor）機能を削除
-    remove_post_type_support( 'page', 'editor' );
   }
-}
-// current_screen：現在の管理画面の画面情報が利用可能になるタイミングでフックされるアクションフック
-add_action( 'current_screen', 'my_remove_post_editor_support' );
+  // 条件に該当しない場合は、もともとのブロックエディタの設定を保持するために、この値をそのまま返す
+  return $use_block_editor; // それ以外の場合はエディタを使用
+}, 10, 2);
+
+// これでもOK！
+// 「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（2）
+// function my_remove_post_editor_support() {
+//   // 現在の画面が管理画面であり、編集しているのが固定ページの場合のみ処理を続ける
+//   // 今表示している画面の情報を$screenという変数に保存
+//   $screen = get_current_screen();
+//   // その画面で編集している投稿タイプ（$screen->post_type）が固定ページ（page）、かつ現在の管理画面の「画面タイプ」（$screen->base）が編集画面（post）ならば
+//   if ( $screen->post_type === 'page' && $screen->base === 'post' ) {
+//     // 編集しているページのIDを取得（現在のページIDを取得（$_GET['post']）し、存在していればそれを整数値に変換して$post_idに保存し、IDがない場合は0を代入）
+//     $post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
+
+//     // IDに基づいてページのスラッグを取得し、特定のページならエディタ削除をしない
+//     $exclude_slugs = array('price', 'faq', 'privacy-policy', 'terms-of-service');
+//     // get_post_field()：指定した投稿IDに関連する特定のフィールド（ここではpost_name、すなわちスラッグ）を取得するための関数
+//     $post_slug = get_post_field( 'post_name', $post_id );
+
+//     // 除外リストにある場合はエディタ削除を行わない
+//     if ( in_array( $post_slug, $exclude_slugs ) ) {
+//       return;
+//     }
+
+//     // 条件に合わない場合はエディタを削除
+//     // 固定ページからエディター（editor）機能を削除
+//     remove_post_type_support( 'page', 'editor' );
+//   }
+// }
+// // current_screen：現在の管理画面の画面情報が利用可能になるタイミングでフックされるアクションフック
+// add_action( 'current_screen', 'my_remove_post_editor_support' );
 
 // 繰り返しフィールドの「＋」「×」ボタンにラベル追加
 function add_custom_button_labels() {

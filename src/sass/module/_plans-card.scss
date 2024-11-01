@@ -1,16 +1,16 @@
 @use "global" as *;
 
-.campaign-card {
+.plans-card {
   box-shadow: rem(2) rem(2) rem(10) 0 rgba($color: $black, $alpha: 25%);
 }
 
-.campaign-card__link {
+.plans-card__link {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.campaign-card__img {
+.plans-card__img {
   aspect-ratio: 280 / 188;
   // width: rem(280);
   overflow: hidden;
@@ -21,22 +21,22 @@
   }
 }
 
-.campaign-card__img--sub-page {
+.plans-card__img--sub-page {
   @include mq(md) {
     aspect-ratio: 520 / 347;
   }
 }
 
-.campaign-card__img.campaign-card__img--blog-page {
+.plans-card__img.plans-card__img--blog-page {
   aspect-ratio: 294 / 188;
 }
 
-.campaign-card__img img {
+.plans-card__img img {
   height: 100%;
   object-fit: cover;
 }
 
-.campaign-card__body {
+.plans-card__body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -47,13 +47,13 @@
   }
 }
 
-.campaign-card__body--sub-page {
+.plans-card__body--sub-page {
   @include mq(md) {
     padding: rem(24) rem(24) 0;
   }
 }
 
-.campaign-card__body.campaign-card__body--blog-page {
+.plans-card__body.plans-card__body--blog-page {
   padding: rem(15) rem(23) rem(16);
   @include mq(md) {
     padding-top: rem(16);
@@ -61,7 +61,7 @@
   }
 }
 
-.campaign-card__category {
+.plans-card__category {
   display: inline-block;
   width: fit-content;
   font-size: rem(12);
@@ -75,19 +75,19 @@
   }
 }
 
-.campaign-card__title {
+.plans-card__title {
   flex-grow: 1;
   border-bottom: rem(1) solid $blueaccent;
   margin-top: rem(4);
   padding-bottom: rem(8);
 }
 
-.campaign-card__title--blog-page {
+.plans-card__title--blog-page {
   margin-top: 0;
   text-align: center;
 }
 
-.campaign-card__text {
+.plans-card__text {
   text-align: center;
   margin-top: rem(9);
 
@@ -96,20 +96,20 @@
   }
 }
 
-.campaign-card__text--sub-page {
+.plans-card__text--sub-page {
   @include mq(md) {
     margin-top: rem(23);
   }
 }
 
-.campaign-card__text.campaign-card__text--blog-page {
+.plans-card__text.plans-card__text--blog-page {
   @include mq(md) {
     font-size: rem(14);
     margin-top: rem(9);
   }
 }
 
-.campaign-card__price {
+.plans-card__price {
   font-family: $third-font-family;
   font-weight: $bold;
   text-align: center;
@@ -121,13 +121,13 @@
   }
 }
 
-.campaign-card__price.campaign-card__price--blog-page {
+.plans-card__price.plans-card__price--blog-page {
   @include mq(md) {
     margin-top: rem(3);
   }
 }
 
-.campaign-card__price-before {
+.plans-card__price-before {
   display: block;
   position: relative;
   font-size: rem(20);
@@ -137,20 +137,20 @@
   }
 }
 
-.campaign-card__price-before.campaign-card__price-before--blog-page {
+.plans-card__price-before.plans-card__price-before--blog-page {
   @include mq(md) {
     font-size: rem(20);
   }
 }
 
-.campaign-card__price-before.campaign-card__price-before--blog-page::before {
+.plans-card__price-before.plans-card__price-before--blog-page::before {
   @include mq(md) {
     top: 45%;
     width: rem(76);
   }
 }
 
-.campaign-card__price-after {
+.plans-card__price-after {
   position: relative;
   left: rem(1);
   display: block;
@@ -162,14 +162,14 @@
   }
 }
 
-.campaign-card__price-after.campaign-card__price-after--blog-page {
+.plans-card__price-after.plans-card__price-after--blog-page {
   @include mq(md) {
     font-size: rem(32);
     margin-left: rem(17);
   }
 }
 
-.campaign-card__information {
+.plans-card__information {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -179,14 +179,14 @@
   }
 }
 
-.campaign-card__information-text {
+.plans-card__information-text {
   flex-grow: 1;
   font-size: rem(16);
   font-weight: $normal;
   color: $blue;
 }
 
-.campaign-card__information-period {
+.plans-card__information-period {
   font-family: $third-font-family;
   font-size: rem(16);
   font-weight: $bold;
@@ -197,7 +197,7 @@
   padding-right: rem(15);
 }
 
-.campaign-card__information-inquiry {
+.plans-card__information-inquiry {
   font-size: rem(14);
   font-weight: $normal;
   color: $blueaccent;
@@ -205,7 +205,7 @@
   margin-top: rem(3);
 }
 
-.campaign-card__btn {
+.plans-card__btn {
   text-align: center;
   padding-bottom: rem(5);
   margin-top: rem(16);
