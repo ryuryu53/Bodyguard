@@ -10,7 +10,7 @@
               <source media="(min-width: 768px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_1.webp" type="image/webp" width="1440" height="768">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_1.webp" type="image/webp" width="375" height="667">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_1.jpg" width="375" height="667">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_1.jpg" alt="海水面のすぐ下で泳いでいる海亀" width="1440" height="768">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_1.jpg" alt="" width="1440" height="768">
             </picture>
           </div>
           <div class="swiper-slide">
@@ -18,7 +18,7 @@
               <source media="(min-width: 768px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_2.webp" type="image/webp" width="1440" height="768">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_2.webp" type="image/webp" width="375" height="667">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_2.jpg" width="375" height="667">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_2.jpg" alt="海亀と2人のダイバーが海中で向き合っている様子" width="1440" height="768">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_2.jpg" alt="" width="1440" height="768">
             </picture>
           </div>
           <div class="swiper-slide">
@@ -26,7 +26,7 @@
               <source media="(min-width: 768px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_3.webp" type="image/webp" width="1440" height="768">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_3.webp" type="image/webp" width="375" height="667">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_3.jpg" width="375" height="667">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_3.jpg" alt="晴れた日の海岸近くの海とそこに浮かぶ白い船" width="1440" height="768">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_3.jpg" alt="" width="1440" height="768">
             </picture>
           </div>
           <div class="swiper-slide">
@@ -34,7 +34,7 @@
               <source media="(min-width: 768px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_4.webp" type="image/webp" width="1440" height="768">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_4.webp" type="image/webp" width="375" height="667">
               <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv_4.jpg" width="375" height="667">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_4.jpg" alt="人影もまばらな砂浜の前に広がるエメラルドグリーンの海" width="1440" height="768">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/mv-pc_4.jpg" alt="" width="1440" height="768">
             </picture>
           </div>
         </div>
@@ -60,7 +60,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.jpg" alt="いろいろな色の魚が海で泳いでいる様子">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">ライセンス講習</p>
@@ -76,7 +76,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.jpg" alt="2隻の白いボートが浮かぶエメラルドグリーン浜辺">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_2.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">体験ダイビング</p>
@@ -92,7 +92,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.jpg" alt="海の中を漂う光るクラゲ">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">体験ダイビング</p>
@@ -108,7 +108,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.jpg" alt="ダイビングを楽しむ4人の人たちが水面で合図を交わしている様子">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">ファンダイビング</p>
@@ -124,7 +124,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.jpg" alt="いろいろな色の魚が海で泳いでいる様子">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_1.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">ライセンス講習</p>
@@ -156,7 +156,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.jpg" alt="海の中を漂う光るクラゲ">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_3.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">体験ダイビング</p>
@@ -172,7 +172,7 @@
               <a href="#" class="plans-card__link">
                 <picture class="plans-card__img">
                   <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.webp" type="image/webp">
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.jpg" alt="ダイビングを楽しむ4人の人たちが水面で合図を交わしている様子">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/plans_4.jpg" alt="">
                 </picture>
                 <div class="plans-card__body">
                   <p class="plans-card__category">ファンダイビング</p>
