@@ -23,18 +23,12 @@
   }
 }
 
-.sub-mv__title--space-pc {
+.sub-mv__title--date {
+  font-size: rem(32);
+
   @include mq(md) {
-    letter-spacing: 0.006em;
+    font-size: rem(64);
   }
-}
-
-.sub-mv__title--space {
-  letter-spacing: -0.006em;
-}
-
-.sub-mv__title--space2 {
-  letter-spacing: -0.005em;
 }
 
 .sub-mv__title span {

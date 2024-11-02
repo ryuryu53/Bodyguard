@@ -3,7 +3,7 @@
   <!-- 下層ページのメインビュー -->
   <section class="price-mv sub-mv">
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title sub-mv__title--space2">Price</h1>
+      <h1 class="sub-mv__title">Price</h1>
     </div>
   </section>
 

@@ -3,7 +3,7 @@
   <!-- 下層ページのメインビュー -->
   <section class="about-mv sub-mv">
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title sub-mv__title--space-pc">About&nbsp;us</h1>
+      <h1 class="sub-mv__title">About&nbsp;us</h1>
     </div>
   </section>
 

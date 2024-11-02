@@ -2565,12 +2565,8 @@ a {
 	font-weight: 400;
 }
 
-.sub-mv__title--space {
-	letter-spacing: -0.006em;
-}
-
-.sub-mv__title--space2 {
-	letter-spacing: -0.005em;
+.sub-mv__title--date {
+	font-size: 2rem;
 }
 
 .sub-mv__title span {
@@ -4358,8 +4354,8 @@ html {
 	font-size: 5rem;
 }
 
-.sub-mv__title--space-pc {
-	letter-spacing: 0.006em;
+.sub-mv__title--date {
+	font-size: 4rem;
 }
 
 .tab__list {

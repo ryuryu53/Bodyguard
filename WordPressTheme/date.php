@@ -4,7 +4,7 @@
   <section class="blog-mv sub-mv">
     <div class="sub-mv__header">
       <!-- 日付アーカイブのタイトルを表示 -->
-      <h1 class="sub-mv__title"><?php the_archive_title(); ?></h1>
+      <h1 class="sub-mv__title sub-mv__title--date"><?php the_archive_title(); ?></h1>
     </div>
   </section>
 
