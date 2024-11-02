@@ -223,7 +223,7 @@
         <span class="section-header__engtitle section-header__engtitle--white-pc">Blog</span>
         <span class="section-header__jatitle section-header__jatitle--white-pc">ブログ</span>
       </h2>
-      <div class="blog__items blog-cards">
+      <div class="blog__items blog-cards js-blog-cards">
         <?php
           $posts_args = array(
           'post_type' => 'post',
@@ -232,7 +232,7 @@
           $posts_query = new WP_Query($posts_args);
           if ( $posts_query->have_posts() ) : while ( $posts_query->have_posts() ) : $posts_query->the_post();
         ?>
-          <article class="blog-cards__item blog-card">
+          <article class="blog-cards__item blog-card blog-card--js js-fadeInUp">
             <a href="<?php the_permalink(); ?>" class="blog-card__link">
               <picture class="blog-card__img">
                 <?php if ( get_the_post_thumbnail() ) : ?>

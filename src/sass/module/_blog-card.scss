@@ -1,19 +1,28 @@
 @use "global" as *;
 
 .blog-card {
-  // padding: rem(16) rem(16) rem(24);  FB：コメントアウト
   box-shadow: rem(2) rem(2) rem(10) rgba($color: $black, $alpha: 25%);
   background-color: $white;
 }
 
-// aタグはカード全体がその領域になっているようにする。カードの縁も含む
-.blog-card__link { // FB：追加
+.blog-card--js {
+  opacity: 0;
+  transform: translateY(rem(300));
+  transition-duration: 2s
+}
+
+.blog-card--js.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-card__link {
   display: block;
   padding: rem(16) rem(16) rem(24);
 }
 
 .blog-card__img {
-  display: block; // コード_FB：クラス名をpictureタグへ移したためblockにした
+  display: block;
   aspect-ratio: 301 / 201;
   overflow: hidden;
 }

@@ -522,6 +522,17 @@ a {
 	box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.25);
 }
 
+.blog-card--js {
+	opacity: 0;
+	transform: translateY(18.75rem);
+	transition-duration: 2s;
+}
+
+.blog-card--js.is-active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 .blog-card__link {
 	display: block;
 	padding: 1rem 1rem 1.5rem;
@@ -1038,7 +1049,6 @@ a {
 
 .footer-nav__left-detail-item:not(:last-child) .footer-nav__left-detail-link,
 .footer-nav__right-detail-item:not(:last-child) .footer-nav__right-detail-link {
-	font-size: 0.95rem;
 	padding-bottom: 0.5625rem;
 }
 
@@ -2948,7 +2958,7 @@ button,
 select {
 	background-color: #fff; /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/ /*↓デフォルトではないアイコンを使う場合は入力する*/
 	background-image: url(../images/common/triangle.svg);
-	background-position: right 0.4375rem top 38%;
+	background-position: right 0.4375rem top 50%;
 	background-repeat: no-repeat;
 	border: none;
 	border: 1px solid #3f72af; /*↓リセットCSS */
@@ -4360,7 +4370,7 @@ html {
 
 .tab__item {
 	font-size: 1.5rem;
-	padding: 1.8125rem 1.25rem 1.625rem 4.6875rem;
+	padding: 1.8125rem 0 1.625rem 4.6875rem;
 	position: relative;
 }
 
@@ -4618,9 +4628,12 @@ html {
 	padding-right: 1.5625rem;
 }
 
-.footer-nav__left-detail-item:nth-child(4),
-.footer-nav__right-detail-item:nth-child(3) {
-	font-size: 0.94rem;
+.footer-nav__right-detail-item {
+	font-size: 0.96rem;
+}
+
+.footer-nav__right-detail-item:nth-child(2) {
+	font-size: 0.88rem;
 }
 
 .page-contact__thanks-text {

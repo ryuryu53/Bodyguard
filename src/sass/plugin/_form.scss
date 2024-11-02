@@ -233,7 +233,7 @@ select {
 	// appearance: auto;
 	/*↓デフォルトではないアイコンを使う場合は入力する*/
 	background-image: url(../images/common/triangle.svg);
-	background-position: right rem(7) top 38%;
+	background-position: right rem(7) top 50%;
 	background-repeat: no-repeat;
 	&:focus {
 		border: 1px solid $border-cr;

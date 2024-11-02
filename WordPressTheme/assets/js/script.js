@@ -360,6 +360,33 @@ jQuery(function ($) {
       }, 500); // 少し遅延させることで、エラーメッセージの生成を待つ
     }
   });
+
+  // 3つのblogカードを左から順に時間差で下から上にフェードイン
+  var posi_top, wih_half, current_view;
+  $(window).scroll(function () {
+    // ブラウザの表示領域をスクロールした時、{}内の処理が実行される
+    var wih = window.innerHeight; // ブラウザの表示領域の高さを取得し、その値を変数「wih」に代入
+    wih_half = wih / 2;
+    current_view = $(this).scrollTop() + wih_half; // $(this).scrollTop()：ブラウザの表示領域をスクロールした時の位置を取得したもの（$(this)はスクロールイベントが発生した要素だから、$(window)のこと）
+    set_posi();
+  });
+  function set_posi() {
+    $('.js-blog-cards').each(function () {
+      var posi = $(this).offset();
+      posi_top = posi.top;
+      if (current_view > posi_top) {
+        $(".js-fadeInUp:first-child").addClass("is-active");
+        setTimeout(function () {
+          // 「$(".fadeInUp:nth-child(2)").addClass("is-active");」の実行タイミングを300ミリ秒（0.3秒）遅らせる
+          $(".js-fadeInUp:nth-child(2)").addClass("is-active");
+          setTimeout(function () {
+            // 「$(".fadeInUp:nth-child(3)").addClass("is-active");」の実行タイミングを600ミリ秒（0.6秒）遅らせる
+            $(".js-fadeInUp:nth-child(3)").addClass("is-active");
+          }, 600);
+        }, 300);
+      } // アニメーションの時間は「transition-duration: 2s;」で指定。「下からふわっと」はtransform: translateY()を使う
+    });
+  }
 });
 
 // ローディングアニメーション

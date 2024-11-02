@@ -3,7 +3,7 @@
 <!-- 下層ページのメインビュー -->
   <section class="plans-mv sub-mv">
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title">plans</h1>
+      <h1 class="sub-mv__title">Plans</h1>
     </div>
   </section>
 
