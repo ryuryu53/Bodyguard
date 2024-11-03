@@ -181,7 +181,7 @@
         <h3 class="about__subtitle">Your&nbsp;Safety,<br>Our&nbsp;Priority</h3>
         <div class="about__text-block">
           <p class="about__text text--white-pc">
-          「株式会社Bodyguard」は、身辺警護に特化した警備会社です。私たちの使命は、お客様の安全を第一に考え、どんな状況でも確実に守ることです。<br>経験豊富なスタッフが、あらゆるリスクに備え、安心して日常を過ごせる環境を提供します。
+          「株式会社Bodyguard」は、身辺警護に特化した警備会社です。私たちの使命は、お客様の安全を第一に考え、どんな状況でも確実に守ることです。<br>経験豊富なスタッフが、あらゆるリスクに備え、安心して日常を過ごせる環境を提供いたします。
           </p>
           <div class="about__btn">
             <a href="<?php echo $about; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
