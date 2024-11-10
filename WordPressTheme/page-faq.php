@@ -14,25 +14,25 @@
   <div class="top-page-faq page-faq">
     <div class="page-faq__inner inner">
       <div class="faq__accordion accordion">
-      <div class="accordion__container">
+        <div class="accordion__container">
           <?php
             $q_and_a = SCF::get('q_and_a');
             if ( !empty($q_and_a) ) :
-            foreach ( $q_and_a as $fields ) :
+              foreach ( $q_and_a as $fields ) :
           ?>
             <div class="accordion__item">
               <?php if ( !empty($fields['question']) && !empty($fields['answer']) ) : ?>
                 <button class="accordion__title js-accordion-title">
                   <p class="accordion__title-text">
                     <?php
-                    echo nl2br(esc_html($fields['question']));
+                      echo nl2br(esc_html($fields['question']));
                     ?>
                   </p>
                 </button>
                 <div class="accordion__content js-accordion-content">
                   <p class="accordion__text">
                     <?php
-                    echo nl2br(esc_html($fields['answer']));
+                      echo nl2br(esc_html($fields['answer']));
                     ?>
                   </p>
                 </div>
