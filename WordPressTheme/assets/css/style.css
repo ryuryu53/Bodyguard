@@ -859,7 +859,7 @@ a {
 	height: 3.125rem;
 	position: absolute;
 	right: 0.9375rem;
-	top: 3.375rem;
+	top: 0.5rem;
 	width: 3.125rem;
 }
 
@@ -950,7 +950,7 @@ a {
 .footer-nav__left-item,
 .footer-nav__right-item {
 	color: #fff;
-	font-size: 1rem;
+	font-size: 0.875rem;
 }
 
 .footer-nav__right-items:first-child .footer-nav__right-item:nth-child(2) {
@@ -3455,19 +3455,6 @@ html {
 	height: 34.25rem;
 }
 
-.about::after {
-	background-image: url(../images/common/transceiver-logo.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	bottom: 4.625rem;
-	content: "";
-	height: 11.3125rem;
-	position: absolute;
-	right: calc(50% - min(48%, 42.83rem));
-	width: 12.125rem;
-}
-
 .about__img-box {
 	margin-top: 2.5rem;
 	padding-top: 5rem;
@@ -3748,6 +3735,11 @@ html {
 
 .footer-nav__right-items--width:nth-child(2) {
 	width: 41.2%;
+}
+
+.footer-nav__left-item,
+.footer-nav__right-item {
+	font-size: 1rem;
 }
 
 .footer-nav__left-link,
@@ -4499,19 +4491,6 @@ html {
 	height: 34.25rem;
 }
 
-.voice::after {
-	background-image: url(../images/common/bodyguard-logo.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	bottom: 3.3125rem;
-	content: "";
-	height: 10.125rem;
-	position: absolute;
-	right: calc(50% - min(48%, 40rem));
-	width: 10.125rem;
-}
-
 .voice__items {
 	margin-top: 1.875rem;
 }
@@ -4622,14 +4601,6 @@ html {
 .column-aside__container {
 	padding-left: 1.5625rem;
 	padding-right: 1.5625rem;
-}
-
-.footer-nav__right-detail-item {
-	font-size: 0.96rem;
-}
-
-.footer-nav__right-detail-item:nth-child(2) {
-	font-size: 0.88rem;
 }
 
 .page-contact__thanks-text {

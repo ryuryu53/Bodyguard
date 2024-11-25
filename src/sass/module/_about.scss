@@ -5,21 +5,6 @@
   background-color: white;  // ローディング最初の画面が出ないようにするため
 }
 
-.about::after {
-  @include mq(md) {
-    content: "";
-    position: absolute;
-    right: calc(50% - min(48%, 42.83rem));
-    bottom: rem(74);
-    width: rem(194);
-    height: rem(181);
-    background-image: url(../images/common/transceiver-logo.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-}
-
 .about__inner {
   position: relative;
 }

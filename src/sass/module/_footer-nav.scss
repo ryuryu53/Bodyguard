@@ -78,8 +78,11 @@
 
 .footer-nav__left-item,
 .footer-nav__right-item {
-  font-size: rem(16);
+  font-size: rem(14);
   color: $white;
+  @include mq(md) {
+    font-size: rem(16);
+  }
 }
 
 .footer-nav__right-items:first-child .footer-nav__right-item:nth-child(2) {
@@ -158,18 +161,6 @@
 .footer-nav__left-detail-item,
 .footer-nav__right-detail-item {
   font-weight: $normal;
-}
-
-.footer-nav__right-detail-item {
-  @media (max-width: 767px) {
-    font-size: 0.96rem;
-  }
-}
-
-.footer-nav__right-detail-item:nth-child(2) {
-  @media (max-width: 767px) {
-    font-size: 0.88rem;
-  }
 }
 
 .footer-nav__left-detail-link,
