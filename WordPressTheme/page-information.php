@@ -28,7 +28,7 @@
               </div>
               <picture class="information-card__img">
                 <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.jpg" alt="黒いスーツを着た筋肉質のボディーガードが高級ビルの前に立っている">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.jpg" alt="">
               </picture>
             </div>
           </li>
@@ -40,7 +40,7 @@
               </div>
               <picture class="information-card__img">
                 <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.jpg" alt="桜の木の下でシニア女性たちと微笑むボディーガード">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.jpg" alt="">
               </picture>
             </div>
           </li>
@@ -52,7 +52,7 @@
               </div>
               <picture class="information-card__img">
                 <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.jpg" alt="和室で少年を見守るボディーガード">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.jpg" alt="">
               </picture>
             </div>
           </li>

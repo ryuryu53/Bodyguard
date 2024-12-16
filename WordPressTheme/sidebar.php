@@ -23,7 +23,7 @@
               <picture class="article-card__img">
                 <?php if ( get_the_post_thumbnail() ) : ?>
                   <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                  <img src="<?php the_post_thumbnail_url('full'); ?>" class="article-card__image" alt="<?php the_title(); ?>のアイキャッチ画像">
+                  <img src="<?php the_post_thumbnail_url('full'); ?>" class="article-card__image" alt="">
                 <?php else : ?>
                   <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
                 <?php endif; ?>
@@ -56,7 +56,7 @@
             <picture class="review-card__img">
               <?php if ( get_the_post_thumbnail() ) : ?>
                 <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
               <?php else : ?>
                 <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
               <?php endif; ?>
@@ -114,7 +114,7 @@
                 <picture class="plans-card__img plans-card__img--blog-page">
                   <?php if ( get_the_post_thumbnail() ) : ?>
                     <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
                   <?php else : ?>
                     <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
                   <?php endif; ?>
