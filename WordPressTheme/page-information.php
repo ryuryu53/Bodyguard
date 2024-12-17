@@ -39,8 +39,8 @@
                 <p class="information-card__text">これは、危険がないときでも「守られている」と感じられるようにするための警護です。常に警備員がそばにいることで、安心して生活や仕事ができるようになります。特に、ストーカーや脅迫を受けている人にとって、警備員がそばにいると気持ちが楽になり、安心して過ごせるようになります。<br>例: 警備員が付き添っていることで、怖い思いをせずに買い物に行ける。</p>
               </div>
               <picture class="information-card__img">
-                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-peace.jpg" alt="">
+                <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-support.webp" type="image/webp">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-support.jpg" alt="">
               </picture>
             </div>
           </li>
