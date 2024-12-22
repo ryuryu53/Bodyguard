@@ -2445,65 +2445,21 @@ a {
 	padding-bottom: 2rem;
 }
 
-.sp-nav__container {
-	display: flex;
-	margin: auto;
-	max-width: 37.5rem;
-	padding: 0.3125rem 0.9375rem 0;
-	width: 100%;
+.sp-nav__items {
+	padding: 0 0.9375rem;
+	text-align: center;
 }
 
-.sp-nav__left-content {
-	padding-bottom: 1rem;
-	width: 50.2%;
-}
-
-.sp-nav__right-content {
-	padding-bottom: 0.5rem;
-	width: 49.8%;
-}
-
-.sp-nav__left-items:first-child {
-	padding-bottom: 0.125rem;
-}
-
-.sp-nav__right-items:nth-child(2) {
-	margin-top: 8px;
-}
-
-.sp-nav__left-item,
-.sp-nav__right-item {
+.sp-nav__item {
 	color: #fff;
 	font-size: 1rem;
-	padding-bottom: 0.0625rem;
-}
-
-.sp-nav__left-item:nth-child(2) {
-	margin-top: 8px;
-}
-
-.sp-nav__right-item:nth-child(2) {
-	margin-top: 2px;
 }
 
 .sp-nav__link {
-	display: block;
+	display: inline-block;
 	font-weight: 700;
-	padding: 1rem 0 0.9375rem 1.375rem;
+	padding: 0.75rem 0 0.75rem 1.375rem;
 	position: relative;
-}
-
-.sp-nav__right-items:nth-child(2) .sp-nav__right-item:nth-child(2) .sp-nav__link {
-	line-height: 1.1;
-	padding-top: 1.25rem;
-}
-
-.sp-nav__right-items:nth-child(2) .sp-nav__right-item:nth-child(3) .sp-nav__link {
-	padding-top: 1.3125rem;
-}
-
-.sp-nav__right-items:nth-child(2) .sp-nav__right-item:nth-child(4) .sp-nav__link {
-	padding-top: 1.125rem;
 }
 
 .sp-nav__link::before {
@@ -2516,38 +2472,8 @@ a {
 	height: 1.125rem;
 	left: 0;
 	position: absolute;
-	top: 1.1875rem;
+	top: 0.875rem;
 	width: 1.125rem;
-}
-
-.sp-nav__right-items:nth-child(2) .sp-nav__right-item:nth-child(3) .sp-nav__link::before {
-	top: 1.5rem;
-}
-
-.sp-nav__right-items:nth-child(2) .sp-nav__right-item:nth-child(4) .sp-nav__link::before {
-	top: 1.3125rem;
-}
-
-.sp-nav__left-detail-item,
-.sp-nav__right-detail-item {
-	font-weight: 400;
-}
-
-.sp-nav__left-detail-link,
-.sp-nav__right-detail-link {
-	display: block;
-	padding-bottom: 0.5625rem;
-	padding-left: 1.375rem;
-}
-
-.sp-nav__left-detail-item:first-child .sp-nav__left-detail-link,
-.sp-nav__right-detail-item:first-child .sp-nav__right-detail-link {
-	padding-top: 0.1875rem;
-}
-
-.sp-nav__left-detail-item:not(:first-child) .sp-nav__left-detail-link,
-.sp-nav__right-detail-item:not(:first-child) .sp-nav__right-detail-link {
-	padding-top: 0.5625rem;
 }
 
 .sub-mv__header {

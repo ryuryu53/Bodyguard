@@ -104,86 +104,41 @@
         </nav>
         <nav class="header__sp-nav sp-nav js-sp-nav">
           <div class="sp-nav__inner">
-            <div class="sp-nav__container">
-              <div class="sp-nav__left-content">
-                <ul class="sp-nav__left-items">
-                  <li class="sp-nav__left-item">
-                    <a href="<?php echo $plans; ?>" class="sp-nav__link">ご提供プラン</a>
-                    <ul class="sp-nav__left-detail-items">
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $plans_fun_diving; ?>" class="sp-nav__left-detail-link">エントリーガード</a>
-                      </li>
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $plans_license; ?>" class="sp-nav__left-detail-link">セーフセキュリティ</a>
-                      </li>
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $plans_experience_diving; ?>" class="sp-nav__left-detail-link">プロテクトプラス</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="sp-nav__left-item">
-                    <a href="<?php echo $about; ?>" class="sp-nav__link">私たちについて</a>
-                  </li>
-                </ul>
-                <ul class="sp-nav__left-items">
-                  <li class="sp-nav__left-item">
-                    <a href="<?php echo $information; ?>" class="sp-nav__link">身辺警護についての<br>情報</a>
-                    <ul class="sp-nav__left-detail-items">
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $information; ?>#tab1" class="sp-nav__left-detail-link">身体を守る防護壁</a>
-                      </li>
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $information; ?>#tab2" class="sp-nav__left-detail-link">安心感のサポート</a>
-                      </li>
-                      <li class="sp-nav__left-detail-item">
-                        <a href="<?php echo $information; ?>#tab3" class="sp-nav__left-detail-link">危険察知と回避</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="sp-nav__left-item">
-                    <a href="<?php echo $blog; ?>" class="sp-nav__link">ブログ</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="sp-nav__right-content">
-                <ul class="sp-nav__right-items">
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $voice; ?>" class="sp-nav__link">お客様の声</a>
-                  </li>
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $amount; ?>" class="sp-nav__link">料金一覧</a>
-                    <ul class="sp-nav__right-detail-items">
-                      <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title1" class="sp-nav__right-detail-link">エントリーガード</a>
-                      </li>
-                      <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title2" class="sp-nav__right-detail-link">セーフセキュリティ</a>
-                      </li>
-                      <li class="sp-nav__right-detail-item">
-                        <a href="<?php echo $amount; ?>#title3" class="sp-nav__right-detail-link">プロテクトプラス</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul class="sp-nav__right-items">
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $faq; ?>" class="sp-nav__link">よくある質問</a>
-                  </li>
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $privacy; ?>" class="sp-nav__link">プライバシー<br>ポリシー</a>
-                  </li>
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $terms; ?>" class="sp-nav__link">利用規約</a>
-                  </li>
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $contact; ?>" class="sp-nav__link">お問い合わせ</a>
-                  </li>
-                  <li class="sp-nav__right-item">
-                    <a href="<?php echo $sitemap; ?>" class="sp-nav__link">サイトマップ</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <ul class="sp-nav__items">
+              <li class="sp-nav__item">
+                <a href="<?php echo $plans; ?>" class="sp-nav__link">ご提供プラン</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $about; ?>" class="sp-nav__link">私たちについて</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $information; ?>" class="sp-nav__link">身辺警護についての情報</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $blog; ?>" class="sp-nav__link">ブログ</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $voice; ?>" class="sp-nav__link">お客様の声</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $amount; ?>" class="sp-nav__link">料金一覧</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $faq; ?>" class="sp-nav__link">よくある質問</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $privacy; ?>" class="sp-nav__link">プライバシーポリシー</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $terms; ?>" class="sp-nav__link">利用規約</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $contact; ?>" class="sp-nav__link">お問い合わせ</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $sitemap; ?>" class="sp-nav__link">サイトマップ</a>
+              </li>
+            </ul>
           </div>
         </nav>
       </div>
