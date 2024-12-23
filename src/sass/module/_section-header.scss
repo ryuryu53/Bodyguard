@@ -33,12 +33,12 @@
 }
 
 .section-header__engtitle--large {
-  font-size: rem(80);
+  font-size: rem(64);
   letter-spacing: 0.003em;
   margin-left: rem(-9);
 
   @include mq(md) {
-    font-size: rem(80);
+    font-size: rem(64);
   }
 }
 

@@ -45,7 +45,7 @@
                   <p class="section-header__engtitle section-header__engtitle--large">Contact</p>
                   <h2 class="section-header__jatitle section-header__jatitle--up"><span class="u-mobile">お問合せ</span><span class="u-desktop">お問い合わせ</span></h2>
                 </div>
-                <p class="contact__text">ご予約・お問い合わせはコチラ</p>
+                <p class="contact__text">お気軽にご相談ください</p>
                 <div class="contact__btn">
                   <a href="<?php echo $contact; ?>" class="button"><span class="button__text">Contact&nbsp;us</span></a>
                 </div>
