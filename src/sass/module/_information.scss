@@ -56,16 +56,15 @@
   font-size: rem(20);
   font-weight: $bold;
   border-bottom: rem(1) solid $blueaccent;
-  padding-bottom: 0;
+  padding-bottom: rem(4);
 
   @include mq(md) {
     font-size: rem(24);
-    padding-bottom: rem(2);
   }
 }
 
 .information__text {
-  margin-top: rem(7);
+  margin-top: rem(16);
 }
 
 .information__btn {

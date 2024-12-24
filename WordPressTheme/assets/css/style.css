@@ -1312,11 +1312,11 @@ a {
 	border-bottom: 0.0625rem solid #3f72af;
 	font-size: 1.25rem;
 	font-weight: 700;
-	padding-bottom: 0;
+	padding-bottom: 0.25rem;
 }
 
 .information__text {
-	margin-top: 0.4375rem;
+	margin-top: 1rem;
 }
 
 .information__btn {
@@ -3832,7 +3832,6 @@ html {
 
 .information__subtitle {
 	font-size: 1.5rem;
-	padding-bottom: 0.125rem;
 }
 
 .inner {
