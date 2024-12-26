@@ -2155,11 +2155,11 @@ a {
 }
 
 .plans__btn-next::after {
-	background-image: url(../images/common/right-btn.svg);
+	background-image: url(../images/common/next-btn.svg);
 }
 
 .plans__btn-prev::after {
-	background-image: url(../images/common/left-btn.svg);
+	background-image: url(../images/common/prev-btn.svg);
 }
 
 .plans__btn {
