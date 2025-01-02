@@ -1063,9 +1063,15 @@ a {
 }
 
 .footer__logo {
-	aspect-ratio: 120/45;
+	aspect-ratio: 160/40;
 	overflow: hidden;
-	width: 7.5rem;
+	width: 10rem;
+}
+
+.footer__logo-link img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
 }
 
 .footer__sns {
@@ -1078,6 +1084,12 @@ a {
 	aspect-ratio: 24/24;
 	overflow: hidden;
 	width: 1.5rem;
+}
+
+.footer__sns-link img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
 }
 
 .footer__nav {
@@ -3684,7 +3696,7 @@ html {
 }
 
 .footer__logo {
-	aspect-ratio: 200/75;
+	aspect-ratio: 200/50;
 	width: 12.5rem;
 }
 
