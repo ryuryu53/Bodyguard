@@ -2586,7 +2586,7 @@ a {
 }
 
 .to-top {
-	border: 0.0625rem solid #3f72af;
+	border: 0.125rem solid #3f72af;
 	border-radius: 50%;
 	bottom: 1rem;
 	overflow: hidden;
@@ -2609,15 +2609,15 @@ a {
 }
 
 .to-top__link::after {
-	border-right: 0.0625rem solid #3f72af;
-	border-top: 0.0625rem solid #3f72af;
+	border-right: 0.125rem solid #3f72af;
+	border-top: 0.125rem solid #3f72af;
 	content: "";
-	height: 1.75rem;
-	left: 39%;
+	height: 1.25rem;
+	left: 50%;
 	position: absolute;
-	top: 25%;
-	transform: skewY(135deg);
-	width: 0.375rem;
+	top: 50%;
+	transform: translate(-50%, calc(-50% + 0.25em)) rotate(-45deg);
+	width: 1.25rem;
 }
 
 .two-column__aside {
@@ -4356,10 +4356,9 @@ html {
 }
 
 .to-top__link::after {
-	height: 2.5625rem;
-	left: 45%;
-	top: 29%;
-	width: 0.4375rem;
+	height: 1.875rem;
+	transform: translate(-50%, calc(-50% + 0.35em)) rotate(-45deg);
+	width: 1.875rem;
 }
 
 .two-column__inner {
