@@ -91,8 +91,14 @@
   @include mq(md) {
     width: 52.38%;
     font-size: rem(80);
-    line-height: 1.25;
+    line-height: 1.68;
     color: $white;
+  }
+}
+
+.about__subtitle span {
+  @include mq(md) {
+    background-image: radial-gradient(rgba($color: $blue, $alpha: 50%), rgba($color: $blue, $alpha: 20%));
   }
 }
 
@@ -102,6 +108,7 @@
   @include mq(md) {
     width: 47.62%;
     margin-top: 0;
+    padding-top: rem(256);
   }
 }
 
@@ -111,16 +118,15 @@
 
   @include mq(md) {
     right: 0;
+    background-image: radial-gradient(rgba($color: $blue, $alpha: 50%), rgba($color: $blue, $alpha: 20%));
   }
 }
 
 .about__btn {
   text-align: center;
   margin-top: rem(50);
-  // padding-right: rem(17);  CSS_ZOOM後の質問：rem(17)と値は大きいが中央寄せにする。実務では確認取ればOK
 
   @include mq(md) {
-    margin-top: rem(40);
-    // padding-right: rem(4); CSS_ZOOM：中央寄せにする
+    margin-top: rem(56);
   }
 }

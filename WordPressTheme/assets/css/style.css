@@ -3279,7 +3279,7 @@ html {
 }
 
 .top-about {
-	padding-bottom: 10.25rem;
+	padding-bottom: 9rem;
 	padding-top: 8.6875rem;
 }
 
@@ -3426,21 +3426,27 @@ html {
 .about__subtitle {
 	color: #fff;
 	font-size: 5rem;
-	line-height: 1.25;
+	line-height: 1.68;
 	width: 52.38%;
+}
+
+.about__subtitle span {
+	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
 }
 
 .about__text-block {
 	margin-top: 0;
+	padding-top: 16rem;
 	width: 47.62%;
 }
 
 .about__text {
+	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
 	right: 0;
 }
 
 .about__btn {
-	margin-top: 2.5rem;
+	margin-top: 3.5rem;
 }
 
 .access-details {
