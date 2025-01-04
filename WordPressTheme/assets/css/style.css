@@ -273,10 +273,6 @@ a {
 	position: relative;
 }
 
-.about__title-jp {
-	padding-right: 0.0625rem;
-}
-
 .about__img-box {
 	margin-top: 1.75rem;
 	padding-top: 1.625rem;
@@ -316,16 +312,10 @@ a {
 	font-family: "Gotu", sans-serif;
 	font-size: 2.5rem;
 	font-weight: 400;
-	line-height: 1;
 }
 
 .about__text-block {
 	margin-top: 1rem;
-}
-
-.about__text {
-	position: relative;
-	right: 0.0625rem;
 }
 
 .about__btn {
@@ -1552,6 +1542,7 @@ a {
 }
 
 .page-about__img-box {
+	padding-top: 1.625rem;
 	position: relative;
 }
 
@@ -1565,10 +1556,11 @@ a {
 }
 
 .page-about__img-right {
-	aspect-ratio: 345/228;
+	aspect-ratio: 281/186;
 	display: block;
+	margin-left: auto;
 	overflow: hidden;
-	width: 100%;
+	width: 81.45%;
 }
 
 .page-about__img-left img,
@@ -1585,21 +1577,20 @@ a {
 .page-about__subtitle {
 	color: #fff;
 	font-family: "Gotu", sans-serif;
-	font-size: 2.5rem;
+	font-size: 1.875rem;
 	font-weight: 400;
-	left: 2.4375rem;
-	line-height: 1;
+	left: 1.5rem;
+	line-height: 1.68;
 	position: absolute;
-	top: 1.5rem;
+	top: 3.5rem;
+}
+
+.page-about__subtitle span {
+	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
 }
 
 .page-about__text-block {
 	margin-top: 2.5rem;
-}
-
-.page-about__text {
-	position: relative;
-	right: 0.0625rem;
 }
 
 .page-contact__inner.inner {
@@ -3400,15 +3391,12 @@ html {
 
 .about__img-left {
 	aspect-ratio: 400/606;
-	left: 0.0625rem;
 	width: 37.04%;
 	z-index: 5;
 }
 
 .about__img-right {
 	aspect-ratio: 880/581;
-	left: 0.0625rem;
-	position: relative;
 	width: 81.48%;
 }
 
@@ -3442,7 +3430,6 @@ html {
 
 .about__text {
 	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
-	right: 0;
 }
 
 .about__btn {
@@ -3928,22 +3915,18 @@ html {
 
 .page-about__img-left {
 	aspect-ratio: 400/606;
-	left: 0.0625rem;
 	width: 37.04%;
 	z-index: 5;
 }
 
 .page-about__img-right {
 	aspect-ratio: 880/581;
-	left: 0.0625rem;
-	margin-left: auto;
-	position: relative;
 	width: 81.48%;
 }
 
 .page-about__text-body {
 	display: flex;
-	max-width: 52.5rem;
+	max-width: 60.5rem;
 	position: absolute;
 	right: 5.84%;
 	top: 12.5rem;
@@ -3953,19 +3936,18 @@ html {
 
 .page-about__subtitle {
 	font-size: 5rem;
-	line-height: 1.25;
 	position: static;
 	width: 52.38%;
 }
 
 .page-about__text-block {
 	margin-top: 0;
-	padding-top: 1.625rem;
+	padding-top: 16rem;
 	width: 47.62%;
 }
 
 .page-about__text {
-	right: 0;
+	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
 }
 
 .page-contact__thanks-title {

@@ -9,16 +9,8 @@
   position: relative;
 }
 
-.about__title-jp {
-  padding-right: rem(1);
-}
-
 .about__img-box {
   position: relative;
-  // CSS_ZOOM：この位置調整不要。ピクパーのためにinnerの外へ数pxずらすのはやらなくてよい。
-  // 本来の位置とは違うところに見た目があることになってしまう。innerの中に納まっているべき。
-  // ピクパー調整には柔軟性を持たせる
-  // right: rem(1);
   margin-top: rem(28);
   padding-top: rem(26);
 
@@ -37,24 +29,20 @@
   overflow: hidden;
 
   @include mq(md) {
-    left: rem(1);
     aspect-ratio: 400 / 606;
     width: 37.04%;
-    z-index: 5; // CSS_ZOOM：z-indexをプラスにするためにここに追加
+    z-index: 5;
   }
 }
 
 .about__img-right {
-  display: block; // コード_FB：クラス名をpictureタグへ移したためblockにした。ここはSwiperと違い必要！
+  display: block;
   aspect-ratio: 281 / 186;
   width: 81.45%;
   overflow: hidden;
   margin-left: auto;
 
   @include mq(md) {
-    position: relative;
-    left: rem(1);
-    // z-index: -5; CSS_ZOOM：z-indexはプラスにする ↑↓ ⇒ 要素の検証しやすくなる
     aspect-ratio: 880 / 581;
     width: 81.48%;
   }
@@ -85,7 +73,6 @@
   font-family: $second-font-family;
   font-size: rem(40);
   font-weight: $normal;
-  line-height: 1;
   color: $blueaccent;
 
   @include mq(md) {
@@ -113,11 +100,7 @@
 }
 
 .about__text {
-  position: relative;
-  right: rem(1);
-
   @include mq(md) {
-    right: 0;
     background-image: radial-gradient(rgba($color: $blue, $alpha: 50%), rgba($color: $blue, $alpha: 20%));
   }
 }

@@ -165,7 +165,7 @@
     <div class="about__inner inner">
       <h2 class="about__title section-header">
         <span class="section-header__engtitle">About&nbsp;us</span>
-        <span class="section-header__jatitle about__title-jp">私たちについて</span>
+        <span class="section-header__jatitle">私たちについて</span>
       </h2>
       <div class="about__img-box">
         <picture class="about__img-left">
