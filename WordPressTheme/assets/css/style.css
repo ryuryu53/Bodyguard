@@ -1194,6 +1194,10 @@ a {
 	z-index: 1000;
 }
 
+.header.is-color {
+	background-color: #112d4e;
+}
+
 .header.is-active {
 	background-color: #3f72af;
 }
