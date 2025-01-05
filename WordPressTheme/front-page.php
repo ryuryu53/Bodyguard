@@ -202,7 +202,7 @@
         <div class="colorbox js-colorbox">
           <picture class="information__img">
             <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/information.webp" type="image/webp">
-            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/information.jpg" alt="黒いスーツの身辺警護員が通学中の子どもたちを見守りながら歩いている場面">
+            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/information.jpg" alt="">
           </picture>
         </div>
         <div class="information__text-body">
