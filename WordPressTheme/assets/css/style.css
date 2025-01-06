@@ -4189,7 +4189,12 @@ html {
 }
 
 .section-header__engtitle--white-pc {
+	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
+	border-radius: 0.75rem 0.75rem 0 0;
 	color: #fff;
+	margin: auto;
+	padding-top: 0.5rem;
+	width: 6rem;
 }
 
 .section-header__engtitle--white-pc::first-letter {
@@ -4210,7 +4215,12 @@ html {
 }
 
 .section-header__jatitle--white-pc {
+	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
+	border-radius: 0 0 0.75rem 0.75rem;
 	color: #fff;
+	margin: auto;
+	padding-top: 0.5rem;
+	width: 6rem;
 }
 
 .section-header__title {
