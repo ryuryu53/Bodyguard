@@ -278,8 +278,8 @@
   <section class="top-voice voice">
     <div class="voice__inner inner">
       <h2 class="voice__title section-header">
-        <span class="section-header__engtitle voice__title-en">Voice</span>
-        <span class="section-header__jatitle voice__title-jp">お客様の声</span>
+        <span class="section-header__engtitle">Voice</span>
+        <span class="section-header__jatitle">お客様の声</span>
       </h2>
       <div class="voice__items voice-cards">
         <?php
