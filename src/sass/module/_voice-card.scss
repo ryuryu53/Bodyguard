@@ -1,19 +1,14 @@
 @use "global" as *;
 
 .voice-card {
-  // padding: rem(10) rem(16) rem(24);  FB：コメントアウト
-  // ↓ SP版：1番目と2番目でbox-shadowが違う。1番目だとカードの上に影が出ない！2番目で統一
-  // box-shadow: 0 rem(4) rem(4) rgba($color: $black, $alpha: 25%);
   box-shadow: rem(2) rem(2) rem(10) rgba($color: $black, $alpha: 25%);
 
   @include mq(md) {
-    // padding: rem(24);  FB：コメントアウト
     box-shadow: rem(2) rem(2) rem(10) rgba($color: $black, $alpha: 25%);
   }
 }
 
-// aタグはカード全体がその領域になっているようにする。カードの縁も含む
-.voice-card__link { // FB：追加
+.voice-card__link {
   display: block;
   padding: rem(10) rem(16) rem(24);
   @include mq(md) {
@@ -24,7 +19,6 @@
 .voice-card__head {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
 }
 
 .voice-card__meta {
@@ -57,11 +51,13 @@
   font-weight: $normal;
   color: $blueaccent;
   border: rem(1) solid currentColor;
+  margin-top: 3%; // これで767pxでの文字の配置が多少マシになる
   padding: rem(5) rem(11) rem(5);
 
   @include mq(md) {
     top: 0;
-    margin-left: auto;  // CSS_ZOOM：追加 ⇒ justify-content: space-between;でなくこちらで対応
+    margin-top: 0;
+    margin-left: auto;
     padding: rem(7) rem(15);
   }
 }
@@ -71,7 +67,7 @@
   font-weight: $medium;
   line-height: 1.4;
   border-bottom: rem(1) solid $blueaccent;
-  margin-top: rem(4);
+  margin-top: 5%; // rem(4)よりは767pxでの文字の配置がマシになる
   padding-bottom: rem(5);
 
   @include mq(md) {
@@ -88,6 +84,7 @@
   aspect-ratio: 151 / 117;
   width: 48.24%;
   overflow: hidden;
+  margin-left: auto;
 
   @include mq(md) {
     aspect-ratio: 180 / 140;
@@ -95,7 +92,7 @@
   }
 }
 
-.voice-card__img img {  // FB：blog-card__img → voice-card__img に修正
+.voice-card__img img {
   height: 100%;
   object-fit: cover;
 }

@@ -2631,7 +2631,6 @@ a {
 .voice-card__head {
 	align-items: flex-end;
 	display: flex;
-	justify-content: space-between;
 }
 
 .voice-card__meta {
@@ -2648,6 +2647,7 @@ a {
 	color: #3f72af;
 	font-size: 0.75rem;
 	font-weight: 400;
+	margin-top: 3%;
 	padding: 0.3125rem 0.6875rem 0.3125rem;
 	position: relative;
 	top: -0.0625rem;
@@ -2660,12 +2660,13 @@ a {
 	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.4;
-	margin-top: 0.25rem;
+	margin-top: 5%;
 	padding-bottom: 0.3125rem;
 }
 
 .voice-card__img {
 	aspect-ratio: 151/117;
+	margin-left: auto;
 	overflow: hidden;
 	width: 48.24%;
 }
@@ -4389,6 +4390,7 @@ html {
 
 .voice-card__category {
 	margin-left: auto;
+	margin-top: 0;
 	padding: 0.4375rem 0.9375rem;
 	top: 0;
 }
