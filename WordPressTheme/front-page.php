@@ -281,7 +281,7 @@
         <span class="section-header__engtitle">Voice</span>
         <span class="section-header__jatitle">お客様の声</span>
       </h2>
-      <div class="voice__items voice-cards">
+      <div class="voice__items voice-cards js-voice-cards">
         <?php
           // 最新のカスタム投稿（voice）の2件を取得するクエリ
           $latest_voice_args = array( // $latest_voice_args：WP_Queryに渡すための条件を設定
@@ -296,7 +296,7 @@
           // サブループ開始   while文：投稿がある限り、このループで1件ずつ口コミの情報を表示。今回は最新の2件なので2回だけ実行される
           if ( $latest_voice_query->have_posts() ) : while ( $latest_voice_query->have_posts() ) : $latest_voice_query->the_post();
         ?>
-          <article class="voice-cards__item voice-card">
+          <article class="voice-cards__item voice-card voice-card--js js-fadeInUp-v">
             <?php
               $terms = get_the_terms(get_the_ID(), 'voice_category'); // 現在の投稿に紐付いた'term'を取得
               if ( $terms && !is_wp_error($terms) ) : // タームが存在し、エラーがない場合のみ処理を実行

@@ -8,6 +8,17 @@
   }
 }
 
+.voice-card--js {
+  opacity: 0;
+  transform: translateY(rem(300));
+  transition-duration: 2s
+}
+
+.voice-card--js.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .voice-card__link {
   display: block;
   padding: rem(10) rem(16) rem(24);
