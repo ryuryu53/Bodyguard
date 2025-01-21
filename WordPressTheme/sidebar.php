@@ -23,7 +23,7 @@
               <picture class="article-card__img">
                 <?php if ( get_the_post_thumbnail() ) : ?>
                   <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                  <img src="<?php the_post_thumbnail_url('full'); ?>" class="article-card__image" alt="">
+                  <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
                 <?php else : ?>
                   <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
                 <?php endif; ?>
