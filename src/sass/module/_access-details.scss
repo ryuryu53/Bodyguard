@@ -2,10 +2,6 @@
 
 .access-details {
   text-align: center;
-
-  @include mq(md) {
-    text-align: left;
-  }
 }
 
 .access-details__items {

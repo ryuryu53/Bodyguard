@@ -95,8 +95,6 @@
   margin-top: rem(15);
 
   @include mq(md) {
-    display: flex;
-    gap: rem(22);
     margin-top: rem(23);
   }
 }
@@ -108,9 +106,6 @@
 
   @include mq(md) {
     aspect-ratio: 273 / 148;
-    width: rem(273);
-    height: rem(148); // これがないと地図の大きさは変わらないが、下の領域が少し下へズレる
-    margin-top: 0;
   }
 }
 
