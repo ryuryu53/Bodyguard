@@ -107,9 +107,8 @@
                       </time>
                     <?php endif; ?>
                   </div>
-                  <p class="plans-card__information-inquiry">ご予約・お問い合わせはコチラ</p>
                   <div class="plans-card__btn u-desktop">
-                    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><span class="button__text">Contact&nbsp;us</span></a>
+                    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><span class="button__text button__text--noto-sans">このプランを予約</span></a>
                   </div>
                 </div>
               </div>
