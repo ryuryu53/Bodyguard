@@ -40,20 +40,55 @@
   @include mq(md) {
     content: "";
     position: absolute;
-    top: rem(13);
     left: rem(20);
-    width: rem(64);
-    height: rem(64);
-    background-image: url(../images/common/agent.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
   }
 }
 
-.tab__item:hover::before {
+.tab__item:first-child::before {
+  @include mq(md) {
+    background-image: url(../images/common/agent.svg);
+    top: rem(19);
+    width: rem(56);
+    height: rem(56);
+  }
+}
+
+.tab__item:nth-child(2)::before {
+  @include mq(md) {
+    background-image: url(../images/common/transceiver-logo.svg);
+    top: rem(11);
+    width: rem(64);
+    height: rem(64);
+  }
+}
+
+.tab__item:nth-child(3)::before {
+  @include mq(md) {
+    background-image: url(../images/common/bodyguard-logo.svg);
+    top: rem(11);
+    width: rem(72);
+    height: rem(72);
+  }
+}
+
+.tab__item:first-child:hover::before {
   @include mq(md) {
     background-image: url(../images/common/agent-white.svg);
+  }
+}
+
+.tab__item:nth-child(2):hover::before {
+  @include mq(md) {
+    background-image: url(../images/common/transceiver-logo-white.svg);
+  }
+}
+
+.tab__item:nth-child(3):hover::before {
+  @include mq(md) {
+    background-image: url(../images/common/bodyguard-logo-white.svg);
   }
 }
 
@@ -63,8 +98,20 @@
   background-color: $blueaccent;
 }
 
-.tab__item.is-active::before {
+.tab__item:first-child.is-active::before {
   @include mq(md) {
     background-image: url(../images/common/agent-white.svg);
+  }
+}
+
+.tab__item:nth-child(2).is-active::before {
+  @include mq(md) {
+    background-image: url(../images/common/transceiver-logo-white.svg);
+  }
+}
+
+.tab__item:nth-child(3).is-active::before {
+  @include mq(md) {
+    background-image: url(../images/common/bodyguard-logo-white.svg);
   }
 }

@@ -29,7 +29,7 @@
   font-weight: $bold;
   line-height: 1;
   border-bottom: rem(1) solid $blueaccent;
-  padding-bottom: rem(8);
+  padding-bottom: rem(12);
 }
 
 .information-card__text {
@@ -37,7 +37,7 @@
   font-weight: $normal;
   color: $black;
   line-break: strict;
-  margin-top: rem(7);
+  margin-top: rem(16);
 }
 
 .information-card__img {

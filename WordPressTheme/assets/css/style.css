@@ -214,7 +214,7 @@ a {
 }
 
 .top-page-information {
-	margin-top: 7.5rem;
+	margin-top: 3.1875rem;
 }
 
 .top-page-plans {
@@ -410,7 +410,7 @@ a {
 .archive-toggle__month-title {
 	color: #3f72af;
 	cursor: pointer;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: 400;
 	padding-left: 2rem;
 	position: relative;
@@ -418,11 +418,11 @@ a {
 
 .archive-toggle__year-title::before,
 .archive-toggle__month-title::before {
-	border-bottom: 0.6875rem solid transparent;
-	border-left: 1.125rem solid #3f72af;
+	border-bottom: 0.625rem solid transparent;
+	border-left: 1rem solid #3f72af;
 	border-right: 0;
 	border-style: solid;
-	border-top: 0.6875rem solid transparent;
+	border-top: 0.625rem solid transparent;
 	content: "";
 	height: 0;
 	position: absolute;
@@ -1250,7 +1250,7 @@ a {
 	font-size: 1.5rem;
 	font-weight: 700;
 	line-height: 1;
-	padding-bottom: 0.5rem;
+	padding-bottom: 0.75rem;
 }
 
 .information-card__text {
@@ -1258,7 +1258,7 @@ a {
 	font-size: 1rem;
 	font-weight: 400;
 	line-break: strict;
-	margin-top: 0.4375rem;
+	margin-top: 1rem;
 }
 
 .information-card__img {
@@ -4304,24 +4304,57 @@ html {
 }
 
 .tab__item::before {
-	background-image: url(../images/common/agent.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	content: "";
-	height: 4rem;
 	left: 1.25rem;
 	position: absolute;
-	top: 0.8125rem;
+}
+
+.tab__item:first-child::before {
+	background-image: url(../images/common/agent.svg);
+	height: 3.5rem;
+	top: 1.1875rem;
+	width: 3.5rem;
+}
+
+.tab__item:nth-child(2)::before {
+	background-image: url(../images/common/transceiver-logo.svg);
+	height: 4rem;
+	top: 0.6875rem;
 	width: 4rem;
 }
 
-.tab__item:hover::before {
+.tab__item:nth-child(3)::before {
+	background-image: url(../images/common/bodyguard-logo.svg);
+	height: 4.5rem;
+	top: 0.6875rem;
+	width: 4.5rem;
+}
+
+.tab__item:first-child:hover::before {
 	background-image: url(../images/common/agent-white.svg);
 }
 
-.tab__item.is-active::before {
+.tab__item:nth-child(2):hover::before {
+	background-image: url(../images/common/transceiver-logo-white.svg);
+}
+
+.tab__item:nth-child(3):hover::before {
+	background-image: url(../images/common/bodyguard-logo-white.svg);
+}
+
+.tab__item:first-child.is-active::before {
 	background-image: url(../images/common/agent-white.svg);
+}
+
+.tab__item:nth-child(2).is-active::before {
+	background-image: url(../images/common/transceiver-logo-white.svg);
+}
+
+.tab__item:nth-child(3).is-active::before {
+	background-image: url(../images/common/bodyguard-logo-white.svg);
 }
 
 .terms-of-service-mv {

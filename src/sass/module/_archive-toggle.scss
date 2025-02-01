@@ -3,7 +3,7 @@
 .archive-toggle__year-title,
 .archive-toggle__month-title {
   position: relative;
-  font-size: rem(24);
+  font-size: rem(20);
   font-weight: $normal;
   color: $blueaccent;
   padding-left: rem(32);
@@ -17,9 +17,9 @@
   width: 0;
   height: 0;
   border-style: solid;
-  border-top: rem(11) solid transparent;
-  border-bottom: rem(11) solid transparent;
-  border-left: rem(18) solid $blueaccent;
+  border-top: rem(10) solid transparent;
+  border-bottom: rem(10) solid transparent;
+  border-left: rem(16) solid $blueaccent;
   border-right: 0;
   transition: 0.3s transform;
 }
