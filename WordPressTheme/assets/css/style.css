@@ -1106,6 +1106,7 @@ a {
 	grid-gap: 0.5rem;
 	display: grid;
 	gap: 0.5rem;
+	grid-template-columns: 1fr 1fr;
 }
 
 .gallery-photo__img {
@@ -1115,17 +1116,16 @@ a {
 	overflow: hidden;
 }
 
-.gallery-photo__item:nth-child(6n+1) .gallery-photo__img,
-.gallery-photo__item:nth-child(6n+6) .gallery-photo__img {
-	aspect-ratio: 345/523;
-	display: block;
-	overflow: hidden;
-}
-
 .gallery-photo__img img {
 	-o-object-fit: cover;
 	height: 100%;
 	object-fit: cover;
+}
+
+.gallery-photo__item:nth-child(6n+1) .gallery-photo__img img,
+.gallery-photo__item:nth-child(6n+6) .gallery-photo__img img {
+	-o-object-position: left top;
+	object-position: left top;
 }
 
 .gallery {
@@ -1406,12 +1406,22 @@ a {
 }
 
 .modal__img {
+	aspect-ratio: 345/219;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 37.5rem;
+	overflow: hidden;
 	padding-left: 15px;
 	padding-right: 15px;
 	width: 100%;
+}
+
+.modal__img img {
+	-o-object-fit: cover;
+	-o-object-position: left top;
+	height: 100%;
+	object-fit: cover;
+	object-position: left top;
 }
 
 .mv {
@@ -3730,6 +3740,12 @@ html {
 	aspect-ratio: 492/746;
 }
 
+.gallery-photo__item:nth-child(6n+1) .gallery-photo__img img,
+.gallery-photo__item:nth-child(6n+6) .gallery-photo__img img {
+	-o-object-position: 50% 50%;
+	object-position: 50% 50%;
+}
+
 .gallery::before {
 	background-image: url(../images/common/contact-goldfish-pc.svg);
 	background-position: center;
@@ -3856,8 +3872,9 @@ html {
 
 .modal__img img {
 	-o-object-fit: contain;
-	height: 100%;
+	-o-object-position: 50% 50%;
 	object-fit: contain;
+	object-position: 50% 50%;
 }
 
 .mv__header {

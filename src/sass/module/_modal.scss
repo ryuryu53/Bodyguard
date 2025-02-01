@@ -29,6 +29,8 @@
   margin-right: auto;
   margin-left: auto;
   max-width: rem(600);
+  aspect-ratio: 345 / 219;  // PC版ではボックス（modal__img）のサイズが幅も高さも自動サイズでないため、aspect-ratioは影響しない
+  overflow: hidden;
 
   @include mq("md") {
     max-width: rem(970);
@@ -39,8 +41,11 @@
 }
 
 .modal__img img {
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
   @include mq(md) {
-    height: 100%;
     object-fit: contain;
+    object-position: 50% 50%;
   }
 }

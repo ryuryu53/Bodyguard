@@ -3,6 +3,7 @@
 // Galleryは6枚1セットで考え、画像が挿入されて7枚目が入ってきたら、1番目が繰り返される
 .gallery-photo {
   display: grid;
+  grid-template-columns: 1fr 1fr; // SP版では画像のサイズを同じにする（優劣をつけない）
   gap: rem(8);
   @include mq(md) {
     grid-template-columns:492fr 80fr 492fr;
@@ -38,9 +39,7 @@
 
 .gallery-photo__item:nth-child(6n+1) .gallery-photo__img,
 .gallery-photo__item:nth-child(6n+6) .gallery-photo__img {
-  display: block;
-  aspect-ratio: 345 / 523;
-  overflow: hidden;
+  // aspect-ratio: 345 / 523; // SP版では画像のサイズを同じにする（優劣をつけない）
   @include mq(md) {
     aspect-ratio: 492 / 746;
   }
@@ -49,4 +48,12 @@
 .gallery-photo__img img {
   height: 100%;
   object-fit: cover;
+}
+
+.gallery-photo__item:nth-child(6n+1) .gallery-photo__img img,
+.gallery-photo__item:nth-child(6n+6) .gallery-photo__img img {
+  object-position: left top;
+  @include mq(md) {
+    object-position: 50% 50%;
+  }
 }
