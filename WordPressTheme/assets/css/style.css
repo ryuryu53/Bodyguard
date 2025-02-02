@@ -1635,9 +1635,6 @@ a {
 }
 
 .page-plans__items {
-	grid-gap: 2.5rem;
-	display: grid;
-	gap: 2.5rem;
 	margin-top: 2.5rem;
 }
 
@@ -2089,6 +2086,12 @@ a {
 	border-color: transparent;
 	color: #fff;
 	opacity: 1;
+}
+
+.plans-list {
+	grid-gap: 2.5rem;
+	display: grid;
+	gap: 2.5rem;
 }
 
 .plans-list__item {
@@ -3964,11 +3967,6 @@ html {
 	margin-top: 1.5rem;
 }
 
-.page-plans__items {
-	gap: 5rem 2.5rem;
-	grid-template-columns: repeat(2, 1fr);
-}
-
 .page-price-table__content {
 	display: flex;
 }
@@ -4096,6 +4094,11 @@ html {
 .plans-category {
 	gap: 1rem 2rem;
 	width: 100%;
+}
+
+.plans-list {
+	gap: 5rem 2.5rem;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .plans-list__item {
