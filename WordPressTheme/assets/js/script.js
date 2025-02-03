@@ -29,7 +29,6 @@ jQuery(function ($) {
     } else {
       $(".js-hamburger").addClass("is-active");
       $('body, html').css('overflow', 'hidden'); // 動画レビュー：ドロワーを開いたときは後ろがスクロールしないようにする
-      $('.js-header').addClass('is-active'); // 動画レビュー：ロゴとメニューの文字が被らないように背景色を指定
       $(".js-sp-nav").fadeIn(300);
     }
   });

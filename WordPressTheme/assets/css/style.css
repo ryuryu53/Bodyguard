@@ -1192,17 +1192,13 @@ a {
 	left: 0;
 	position: fixed;
 	top: 0;
-	transition: opacity 2s ease;
+	transition: opacity 2s, background-color 0.3s;
 	width: 100%;
 	z-index: 1000;
 }
 
 .header.is-color {
 	background-color: #112d4e;
-}
-
-.header.is-active {
-	background-color: #3f72af;
 }
 
 .header__inner {
@@ -2444,9 +2440,10 @@ a {
 	display: none;
 	height: 100vh;
 	left: 0;
+	padding-top: 5rem;
 	position: absolute;
 	right: 0;
-	top: 5rem;
+	top: 0;
 	width: 100%;
 }
 
