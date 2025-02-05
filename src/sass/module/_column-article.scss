@@ -3,3 +3,8 @@
 .column-article__wp-pagenavi {
   margin-top: rem(80);
 }
+
+.column-article__wp-pagenavi .wp-pagenavi {
+	display: flex;
+  justify-content: center;
+}

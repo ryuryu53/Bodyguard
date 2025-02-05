@@ -1,7 +1,7 @@
 @use "global" as *;
 
-.wp-pagenavi {
-	display: flex;
+.wp-pagenavi__flex {
+  display: flex;
   justify-content: center;
 }
 
@@ -60,7 +60,7 @@
   background-image: url(../images/common/next-vector.svg);
 }
 
-.wp-pagenavi a:hover{
+.wp-pagenavi a:hover {
   color:$white;
   background-color:$blueaccent;
   border-color:transparent;
@@ -88,4 +88,9 @@
   @media (max-width: 767px) {
     display: none;
   }
+}
+
+.wp-pagenavi__archive {
+  text-align: center;
+  margin-top: rem(40);
 }

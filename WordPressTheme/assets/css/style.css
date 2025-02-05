@@ -770,6 +770,11 @@ a {
 	margin-top: 5rem;
 }
 
+.column-article__wp-pagenavi .wp-pagenavi {
+	display: flex;
+	justify-content: center;
+}
+
 .column-aside__title {
 	border-left: 0.5rem solid #3f72af;
 	font-size: 1.5rem;
@@ -2339,6 +2344,10 @@ a {
 	margin-left: 2.5625rem;
 }
 
+.single-article__wp-pagenavi .wp-pagenavi a {
+	font-family: "Noto Sans JP", sans-serif;
+}
+
 .single-body__date {
 	color: #112d4e;
 	font-family: "Gotu", sans-serif;
@@ -3182,7 +3191,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	top: -3rem;
 }
 
-.wp-pagenavi {
+.wp-pagenavi__flex {
 	display: flex;
 	justify-content: center;
 }
@@ -3265,6 +3274,11 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	background-color: #3f72af;
 	border-color: transparent;
 	color: #fff;
+}
+
+.wp-pagenavi__archive {
+	margin-top: 2.5rem;
+	text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -4236,10 +4250,6 @@ html {
 
 .single-article__wp-pagenavi {
 	margin-top: 5rem;
-}
-
-.single-article__wp-pagenavi .wp-pagenavi {
-	padding-right: 2.0625rem;
 }
 
 .single-body__title {

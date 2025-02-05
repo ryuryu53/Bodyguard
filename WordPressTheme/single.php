@@ -48,12 +48,17 @@
             }
           ?>
           <div class="wp-pagenavi">
-            <?php if ( !empty($prev) ) : ?>
-              <a class="previouspostslink" rel="prev" href="<?php echo $prev_url; ?>"></a>
-            <?php endif; ?>
-            <?php if ( !empty($next) ) : ?>
-              <a class="nextpostslink" rel="next" href="<?php echo $next_url; ?>"></a>
-            <?php endif; ?>
+            <div class="wp-pagenavi__flex">
+              <?php if ( !empty($prev) ) : ?>
+                <a class="previouspostslink" rel="prev" href="<?php echo $prev_url; ?>"></a>
+              <?php endif; ?>
+              <?php if ( !empty($next) ) : ?>
+                <a class="nextpostslink" rel="next" href="<?php echo $next_url; ?>"></a>
+              <?php endif; ?>
+            </div>
+            <div class="wp-pagenavi__archive">
+              <a href="<?php echo esc_url(home_url('/blog/')); ?>">一覧へ戻る</a>
+            </div>
           </div>
         </div>
       </div>
