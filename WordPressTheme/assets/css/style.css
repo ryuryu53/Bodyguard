@@ -1059,8 +1059,9 @@ a {
 	position: relative;
 }
 
-.footer__logo {
+.footer__logo-link {
 	aspect-ratio: 160/40;
+	display: block;
 	overflow: hidden;
 	width: 10rem;
 }
@@ -3701,7 +3702,7 @@ html {
 	gap: 2.5rem;
 }
 
-.footer__logo {
+.footer__logo-link {
 	aspect-ratio: 200/50;
 	width: 12.5rem;
 }

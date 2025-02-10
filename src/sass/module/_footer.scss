@@ -12,7 +12,8 @@
   }
 }
 
-.footer__logo {
+.footer__logo-link {
+  display: block;
   aspect-ratio: 160 / 40;
   width: rem(160);
   overflow: hidden;
