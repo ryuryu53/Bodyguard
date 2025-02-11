@@ -901,7 +901,6 @@ a {
 	font-size: 0.875rem;
 	font-weight: 400;
 	margin-top: 0.4375rem;
-	padding-left: 0.0625rem;
 	text-align: center;
 }
 
@@ -2299,10 +2298,9 @@ a {
 	color: #3f72af;
 }
 
-.section-header__engtitle--large {
+.section-header__engtitle.section-header__engtitle--large {
 	font-size: 4rem;
 	letter-spacing: 0.003em;
-	margin-left: -0.5625rem;
 }
 
 .section-header__jatitle {
@@ -2311,11 +2309,6 @@ a {
 	font-size: 0.75rem;
 	font-weight: 400;
 	margin-top: 0.5rem;
-}
-
-.section-header__jatitle--up {
-	margin-top: -0.375rem;
-	padding-right: 0.0625rem;
 }
 
 .section-header__title {
@@ -3623,17 +3616,6 @@ html {
 	aspect-ratio: 273/148;
 }
 
-.contact__title {
-	position: relative;
-	top: -0.1875rem;
-}
-
-.contact__text {
-	margin-top: 0.25rem;
-	padding-left: 0;
-	padding-right: 0.5625rem;
-}
-
 .contact__btn {
 	padding-right: 0.875rem;
 }
@@ -4216,19 +4198,6 @@ html {
 
 .section-header__engtitle--white-pc::first-letter {
 	color: #dbe2ef;
-}
-
-.section-header__engtitle--large {
-	font-size: 4rem;
-}
-
-.section-header__jatitle {
-	margin-top: 0.5rem;
-}
-
-.section-header__jatitle--up {
-	margin-top: -0.375rem;
-	padding-right: 0.6875rem;
 }
 
 .section-header__jatitle--white-pc {

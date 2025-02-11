@@ -50,10 +50,10 @@
                 </div>
               </div>
               <div class="contact__inquiry">
-                <div class="contact__title section-header">
-                  <p class="section-header__engtitle section-header__engtitle--large">Contact</p>
-                  <h2 class="section-header__jatitle section-header__jatitle--up"><span class="u-mobile">お問合せ</span><span class="u-desktop">お問い合わせ</span></h2>
-                </div>
+                <h2 class="contact__title section-header">
+                  <span class="section-header__engtitle section-header__engtitle--large">Contact</span>
+                  <span class="section-header__jatitle">お問い合わせ</span>
+                </h2>
                 <p class="contact__text">お気軽にご相談ください</p>
                 <div class="contact__btn">
                   <a href="<?php echo $contact; ?>" class="button"><span class="button__text">Contact&nbsp;us</span></a>

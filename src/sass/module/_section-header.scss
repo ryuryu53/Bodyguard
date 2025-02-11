@@ -37,14 +37,9 @@
   }
 }
 
-.section-header__engtitle--large {
+.section-header__engtitle.section-header__engtitle--large {
   font-size: rem(64);
   letter-spacing: 0.003em;
-  margin-left: rem(-9);
-
-  @include mq(md) {
-    font-size: rem(64);
-  }
 }
 
 .section-header__jatitle {
@@ -53,20 +48,6 @@
   font-weight: $normal;
   color: $blueaccent;
   margin-top: rem(8);
-
-  @include mq(md) {
-    margin-top: rem(8);
-  }
-}
-
-.section-header__jatitle--up {
-  margin-top: rem(-6);
-  padding-right: rem(1);
-
-  @include mq(md) {
-    margin-top: rem(-6);
-    padding-right: rem(11);
-  }
 }
 
 .section-header__jatitle--white-pc {
