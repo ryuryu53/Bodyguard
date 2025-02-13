@@ -33,19 +33,45 @@
   }
 }
 
+.page-price-table__content:first-child .page-price-table__title {
+  gap: rem(14);
+  padding: rem(12);
+}
+
 .page-price-table__title::before {
   content: "";
-  width: rem(24);
-  height: rem(24);
-  background-image: url(../images/common/agent-white.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.page-price-table__content:first-child .page-price-table__title:before {
+  width: rem(24);
+  height: rem(24);
+  background-image: url(../images/common/agent-white.svg);
   @include mq(md) {
-    position: relative;
-    left: rem(2);
     width: rem(64);
     height: rem(64);
+  }
+}
+
+.page-price-table__content:nth-child(2) .page-price-table__title:before {
+  width: rem(32);
+  height: rem(32);
+  background-image: url(../images/common/transceiver-logo-white.svg);
+  @include mq(md) {
+    width: rem(80);
+    height: rem(80);
+  }
+}
+
+.page-price-table__content:nth-child(3) .page-price-table__title:before {
+  width: rem(32);
+  height: rem(32);
+  background-image: url(../images/common/bodyguard-logo-white.svg);
+  @include mq(md) {
+    width: rem(80);
+    height: rem(80);
   }
 }
 
@@ -74,10 +100,10 @@
   width: 69.5%;
   font-size: rem(16);
   font-weight: $normal;
-  text-align: center;
+  // text-align: center;
   padding: rem(7) rem(10);
   @include mq(md) {
-    text-align: left;
+    // text-align: left;
     width: 67.5%;
     padding: rem(17) rem(15);
   }

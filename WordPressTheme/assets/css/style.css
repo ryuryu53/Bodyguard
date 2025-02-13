@@ -1659,14 +1659,34 @@ a {
 	padding: 0.5rem;
 }
 
+.page-price-table__content:first-child .page-price-table__title {
+	gap: 0.875rem;
+	padding: 0.75rem;
+}
+
 .page-price-table__title::before {
-	background-image: url(../images/common/agent-white.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	content: "";
+}
+
+.page-price-table__content:first-child .page-price-table__title:before {
+	background-image: url(../images/common/agent-white.svg);
 	height: 1.5rem;
 	width: 1.5rem;
+}
+
+.page-price-table__content:nth-child(2) .page-price-table__title:before {
+	background-image: url(../images/common/transceiver-logo-white.svg);
+	height: 2rem;
+	width: 2rem;
+}
+
+.page-price-table__content:nth-child(3) .page-price-table__title:before {
+	background-image: url(../images/common/bodyguard-logo-white.svg);
+	height: 2rem;
+	width: 2rem;
 }
 
 .page-price-table__item {
@@ -1679,7 +1699,6 @@ a {
 	font-size: 1rem;
 	font-weight: 400;
 	padding: 0.4375rem 0.625rem;
-	text-align: center;
 	width: 69.5%;
 }
 
@@ -3974,11 +3993,19 @@ html {
 	width: 28.6%;
 }
 
-.page-price-table__title::before {
+.page-price-table__content:first-child .page-price-table__title:before {
 	height: 4rem;
-	left: 0.125rem;
-	position: relative;
 	width: 4rem;
+}
+
+.page-price-table__content:nth-child(2) .page-price-table__title:before {
+	height: 5rem;
+	width: 5rem;
+}
+
+.page-price-table__content:nth-child(3) .page-price-table__title:before {
+	height: 5rem;
+	width: 5rem;
 }
 
 .page-price-table__items {
@@ -3995,7 +4022,6 @@ html {
 
 .page-price-table__item dt {
 	padding: 1.0625rem 0.9375rem;
-	text-align: left;
 	width: 67.5%;
 }
 
