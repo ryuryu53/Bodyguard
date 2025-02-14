@@ -29,9 +29,13 @@ dd {
 }
 
 /* Set core root defaults */
-.html1 { // CSSでのスムーススクロールは「information」と「price」だけにする。モーダルのあるページにこのCSSがあるとモーダルを閉じたとき背景がスムーススクロールされてしまうから。
+html { // CSSでのスムーススクロールが必須なのは「information」と「price」
   scroll-behavior: smooth;
   scroll-padding-top: rem(90);  // 追加
+}
+
+.html1 {  // モーダルのあるページに上記CSSがあるとモーダルを閉じたとき背景がスムーススクロールされてしまう →「about」では以下の処理
+  scroll-behavior: auto;
 }
 
 /* Set core body defaults */

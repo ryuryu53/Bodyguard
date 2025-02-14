@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php if ( is_page( array('information', 'price') ) ) : ?>
+<?php if ( is_page('about-us') ) : ?>
   <html class="html1" lang="ja">
 <?php else : ?>
   <html lang="ja">
