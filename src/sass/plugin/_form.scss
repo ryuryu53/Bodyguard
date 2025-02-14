@@ -76,6 +76,7 @@ textarea {
 	/*↓↓選択されているときの色*/
 	&:focus {
 		border: 1px solid $border-cr;
+		background-color: #7fffd4;
 	}
 }
 [type="tel"] {
@@ -223,7 +224,7 @@ select {
 	cursor: pointer;
 	width: 100%;
 	/*↓カスタム */
-  margin-top: rem(10);
+  // margin-top: rem(10);
 	font-size: $fz;
 	padding: rem(10) rem(7);
 	background-color: $back-cr;
@@ -330,7 +331,7 @@ textarea {
 
 .form__item:nth-child(6) {
 	@include mq(md) {
-		margin-top: rem(38);
+		margin-top: rem(40);
 		padding-bottom: rem(40);
 	}
 }
@@ -344,9 +345,15 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	display: flex;
 	align-items: center;
 	@include mq(md) {
-		align-items: flex-start;
 		width: calc(100% - 68.57142857142857%);
 		padding-right: rem(20);
+	}
+}
+
+.form__item:nth-of-type(4) dt,
+.form__item:nth-of-type(6) dt {
+	@include mq(md) {
+		align-items: flex-start;
 	}
 }
 
@@ -398,7 +405,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	color: $black;
 	@include mq(md) {
 		background-position: right 0.4375rem top 55%;
-		margin-top: rem(-3);
+		// margin-top: rem(-3);
 		padding-top: rem(6);
 		padding-bottom: rem(4);
 	}

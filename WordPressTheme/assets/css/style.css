@@ -2791,6 +2791,7 @@ textarea {
 [type=password]:focus,
 [type=date]:focus,
 textarea:focus {
+	background-color: #7fffd4;
 	border: 1px solid #391E88;
 }
 
@@ -2924,9 +2925,8 @@ select {
 	border-radius: 0;
 	color: inherit;
 	cursor: pointer;
-	font-family: inherit;
-	font-size: 1rem; /*↓カスタム */
-	margin-top: 0.625rem;
+	font-family: inherit; /*↓カスタム */
+	font-size: 1rem;
 	padding: 0.625rem 0.4375rem;
 	width: 100%;
 }
@@ -4505,14 +4505,18 @@ html {
 }
 
 .form__item:nth-child(6) {
-	margin-top: 2.375rem;
+	margin-top: 2.5rem;
 	padding-bottom: 2.5rem;
 }
 
 .form__item dt {
-	align-items: flex-start;
 	padding-right: 1.25rem;
 	width: 31.4285714286%;
+}
+
+.form__item:nth-of-type(4) dt,
+.form__item:nth-of-type(6) dt {
+	align-items: flex-start;
 }
 
 .form__item dt span {
@@ -4534,7 +4538,6 @@ html {
 
 .form__plans {
 	background-position: right 0.4375rem top 55%;
-	margin-top: -0.1875rem;
 	padding-bottom: 0.25rem;
 	padding-top: 0.375rem;
 }
