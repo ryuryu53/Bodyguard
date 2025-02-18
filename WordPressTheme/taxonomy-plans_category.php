@@ -37,7 +37,7 @@
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
           <li class="plans-list__item plans-card">
             <div class="plans-card__link">
-              <picture class="plans-card__img plans-card__img--sub-page">
+              <picture class="plans-card__img plans-card__img--sub-page colorbox js-colorbox">
                 <?php if ( (get_the_post_thumbnail()) ) : ?>
                   <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
                   <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">

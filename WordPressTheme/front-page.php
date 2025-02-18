@@ -168,11 +168,11 @@
         <span class="section-header__jatitle">私たちについて</span>
       </h2>
       <div class="about__img-box">
-        <picture class="about__img-left">
+        <picture class="about__img-left colorbox-about js-colorbox">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
           <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.jpg" loading="lazy" alt="">
         </picture>
-        <picture class="about__img-right">
+        <picture class="about__img-right colorbox js-colorbox">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.webp" type="image/webp">
           <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.jpg" loading="lazy" alt="">
         </picture>

@@ -779,6 +779,16 @@ a {
 	z-index: 2;
 }
 
+.colorbox-about > .color {
+	background-color: #3f72af;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
 .column-article__wp-pagenavi {
 	margin-top: 5rem;
 }

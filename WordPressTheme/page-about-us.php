@@ -14,11 +14,11 @@
   <section class="top-page-about page-about">
     <div class="page-about__inner inner">
       <div class="page-about__img-box">
-        <picture class="page-about__img-left">
+        <picture class="page-about__img-left colorbox-about js-colorbox">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
           <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.jpg" loading="lazy" alt="">
         </picture>
-        <picture class="page-about__img-right">
+        <picture class="page-about__img-right colorbox js-colorbox">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.webp" type="image/webp">
           <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.jpg" loading="lazy" alt="">
         </picture>

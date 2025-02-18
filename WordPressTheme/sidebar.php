@@ -53,7 +53,7 @@
           $latest_voice_query = new WP_Query($latest_voice_args);
           // サブループ開始   while文：投稿がある限り、このループで1件ずつ口コミの情報を表示。今回は最新の1件なので1回だけ実行される
           if ( $latest_voice_query->have_posts() ) : while ( $latest_voice_query->have_posts() ) : $latest_voice_query->the_post(); ?>
-            <picture class="review-card__img">
+            <picture class="review-card__img colorbox js-colorbox">
               <?php if ( get_the_post_thumbnail() ) : ?>
                 <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
                 <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
@@ -111,7 +111,7 @@
               ?>
                 <a href="<?php echo esc_url($term_link); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
               <?php endforeach; endif; ?>
-                <picture class="plans-card__img plans-card__img--blog-page">
+                <picture class="plans-card__img plans-card__img--blog-page colorbox js-colorbox">
                   <?php if ( get_the_post_thumbnail() ) : ?>
                     <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
                     <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
