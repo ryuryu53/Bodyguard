@@ -16,11 +16,11 @@
       <div class="page-about__img-box">
         <picture class="page-about__img-left">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.jpg" alt="">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.jpg" loading="lazy" alt="">
         </picture>
         <picture class="page-about__img-right">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.webp" type="image/webp">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.jpg" alt="">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.jpg" loading="lazy" alt="">
         </picture>
       </div>
       <div class="page-about__text-body">
@@ -84,7 +84,7 @@
                 <!-- WebP画像 -->
                 <!-- <source srcset="<?php echo esc_url($image_url_webp); ?>" type="image/webp"> -->
                 <!-- 通常のJPG画像 → webpまたはjpgと分けなくてよい、1種類でOK -->
-                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>">
+                <img src="<?php echo esc_url($image_url); ?>" loading="lazy" alt="<?php echo esc_attr($image_alt); ?>">
               </picture>
             </div>
             <?php endforeach; ?>
@@ -94,7 +94,7 @@
       <!-- モーダル -->
       <div class="gallery__modal modal js-modal">
         <div class="modal__img">
-          <img src="" alt="モーダル画像">
+          <img src="" loading="lazy" alt="モーダル画像">
         </div>
       </div>
     </section>

@@ -114,9 +114,9 @@
                   <picture class="plans-card__img">
                     <?php if ( get_the_post_thumbnail() ) : ?>
                       <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
+                      <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
                     <?php else : ?>
-                      <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
+                      <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
                     <?php endif; ?>
                   </picture>
                   <div class="plans-card__body">
@@ -170,11 +170,11 @@
       <div class="about__img-box">
         <picture class="about__img-left">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.jpg" alt="">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.jpg" loading="lazy" alt="">
         </picture>
         <picture class="about__img-right">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.webp" type="image/webp">
-          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.jpg" alt="">
+          <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_2.jpg" loading="lazy" alt="">
         </picture>
       </div>
       <div class="about__text-body">
@@ -202,7 +202,7 @@
         <div class="colorbox js-colorbox">
           <picture class="information__img">
             <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/information.webp" type="image/webp">
-            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/information.jpg" alt="">
+            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/information.jpg" loading="lazy" alt="">
           </picture>
         </div>
         <div class="information__text-body">
@@ -237,9 +237,9 @@
               <picture class="blog-card__img">
                 <?php if ( get_the_post_thumbnail() ) : ?>
                   <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                  <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
+                  <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
                 <?php else : ?>
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
+                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
                 <?php endif; ?>
               </picture>
               <div class="blog-card__body">
@@ -336,9 +336,9 @@
                   <picture>
                     <?php if ( get_the_post_thumbnail() ) : ?>
                       <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
+                      <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
                     <?php else : ?>
-                      <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" alt="noimage">
+                      <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
                     <?php endif; ?>
                   </picture>
                 </div>
@@ -369,7 +369,7 @@
             <source media="(min-width: 768px)" srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-pc.webp" type="image/webp">
             <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-sp.webp" type="image/webp">
             <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-sp.jpg">
-            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-pc.jpg" alt="">
+            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/price-pc.jpg" loading="lazy" alt="">
           </picture>
         </div>
         <div class="price__table price-table">

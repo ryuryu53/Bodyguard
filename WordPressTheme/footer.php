@@ -32,7 +32,7 @@
             <div class="contact__wrapper">
               <div class="contact__info">
                 <div class="contact__logo">
-                  <a href="<?php echo $home; ?>" class="contact__logo-link"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/contact-logo.svg" alt="Bodyguard">
+                  <a href="<?php echo $home; ?>" class="contact__logo-link"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/contact-logo.svg" loading="lazy" alt="Bodyguard">
                   </a>
                 </div>
                 <div class="contact__access">
@@ -85,15 +85,15 @@
         <div class="footer__img">
           <div class="footer__logo">
             <a href="<?php echo $home; ?>" class="footer__logo-link">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/hf-logo.svg" alt="Bodyguard">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/hf-logo.svg" loading="lazy" alt="Bodyguard">
             </a>
           </div>
           <div class="footer__sns">
             <a href="https://www.facebook.com/" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/facebook-logo.svg" alt="Facebook">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/facebook-logo.svg" loading="lazy" alt="Facebook">
             </a>
             <a href="https://www.instagram.com/" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/instagram-logo.svg" alt="Instagram">
+              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/instagram-logo.svg" loading="lazy" alt="Instagram">
             </a>
           </div>
         </div>

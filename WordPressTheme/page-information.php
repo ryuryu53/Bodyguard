@@ -28,7 +28,7 @@
               </div>
               <picture class="information-card__img">
                 <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.jpg" alt="">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-body.jpg" loading="lazy" alt="">
               </picture>
             </div>
           </li>
@@ -40,7 +40,7 @@
               </div>
               <picture class="information-card__img">
                 <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-support.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-support.jpg" alt="">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-support.jpg" loading="lazy" alt="">
               </picture>
             </div>
           </li>
@@ -52,7 +52,7 @@
               </div>
               <picture class="information-card__img">
                 <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.webp" type="image/webp">
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.jpg" alt="">
+                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/info-dager.jpg" loading="lazy" alt="">
               </picture>
             </div>
           </li>
