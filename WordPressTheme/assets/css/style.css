@@ -495,10 +495,6 @@ a {
 	transition: transform 0.3s;
 }
 
-.article-card:hover .article-card__img img {
-	transform: scale(1.36);
-}
-
 .article-card__body {
 	display: flex;
 	flex-direction: column;
@@ -562,10 +558,6 @@ a {
 	height: 100%;
 	object-fit: cover;
 	transition: transform 0.3s;
-}
-
-.blog-card:hover .blog-card__img img {
-	transform: scale(1.36);
 }
 
 .blog-card__body {
@@ -721,19 +713,6 @@ a {
 
 .button--reverse::after {
 	background-color: #3f72af;
-}
-
-.button:hover {
-	color: #3f72af;
-	opacity: 1;
-}
-
-.button--reverse:hover {
-	color: #fff;
-}
-
-.button:hover::after {
-	transform: scale(1, 1);
 }
 
 .button__text {
@@ -2842,10 +2821,6 @@ button,
 	z-index: 10;
 }
 
-.form__btn-submit:hover [type=submit] {
-	color: #3f72af;
-}
-
 [type=radio] + span {
 	cursor: pointer;
 	display: inline-block;
@@ -3135,10 +3110,6 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	z-index: 1;
 }
 
-.form__btn-submit:hover {
-	color: #3f72af;
-}
-
 .form__btn-submit::before {
 	background-color: transparent;
 	border: 0.0625rem solid #3f72af;
@@ -3163,10 +3134,6 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
 	width: calc(100% - 0.125rem);
 	z-index: -1;
-}
-
-.form__btn-submit:hover::after {
-	transform: scale(1, 1);
 }
 
 .form__btn-submit input {
@@ -3315,6 +3282,43 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 .wp-pagenavi__archive {
 	margin-top: 2.5rem;
 	text-align: center;
+}
+
+@media (any-hover: hover) {
+
+.article-card:hover .article-card__img img {
+	transform: scale(1.36);
+}
+
+.blog-card:hover .blog-card__img img {
+	transform: scale(1.36);
+}
+
+.button:hover {
+	color: #3f72af;
+	opacity: 1;
+}
+
+.button--reverse:hover {
+	color: #fff;
+}
+
+.button:hover::after {
+	transform: scale(1, 1);
+}
+
+.form__btn-submit:hover [type=submit] {
+	color: #3f72af;
+}
+
+.form__btn-submit:hover {
+	color: #3f72af;
+}
+
+.form__btn-submit:hover::after {
+	transform: scale(1, 1);
+}
+
 }
 
 @media screen and (min-width: 768px) {
