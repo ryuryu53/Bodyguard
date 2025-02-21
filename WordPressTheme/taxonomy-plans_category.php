@@ -107,7 +107,14 @@
                     <?php endif; ?>
                   </div>
                   <div class="plans-card__btn plans-card__btn--sub-page u-desktop">
-                    <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><span class="button__text button__text--noto-sans">このプランを予約</span></a>
+                    <?php
+                      // カスタムタクソノミー「plans_category」の取得
+                      $terms = get_the_terms(get_the_ID(), 'plans_category');
+                      $plans_category = !empty($terms) ? $terms[0]->name : ''; // 最初のカテゴリ名を取得
+                      $plans_category_slug = !empty($terms) ? $terms[0]->slug : ''; // スラッグ（URLエンコード用）→ 今回は未使用
+                      // ↓ urlencode($plans_category)で日本語をURLで使える形に変換（エンコード）してselect_plan というGETパラメータにセット
+                    ?>
+                    <a href="<?php echo esc_url(home_url('/contact?select_plan=' . urlencode($plans_category))); ?>" class="button"><span class="button__text button__text--noto-sans">このプランを予約</span></a>
                   </div>
                 </div>
               </div>
