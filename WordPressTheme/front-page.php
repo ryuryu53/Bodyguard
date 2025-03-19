@@ -15,11 +15,19 @@
     $terms = esc_url( home_url('/terms-of-service/') );
   ?>
 
-  <!-- ローディング最初の画面 -->
-  <div class="loading js-load">
-    <div class="loading__header">
-      <div class="loading__title">STAY&nbsp;SAFE</div>
-      <div class="loading__subtitle">with&nbsp;professional&nbsp;security</div>
+  <!-- ローディングアニメーション -->
+  <div class="loading">
+    <!-- 最初の白い画面 -->
+    <div class="loading__white js-loading-white">
+      <div class="loading__header js-loading-title">
+        <div class="loading__title">stay&nbsp;safe</div>
+        <div class="loading__subtitle">with&nbsp;professional&nbsp;security</div>
+      </div>
+    </div>
+    <!-- 2つに分かれた画像 -->
+    <div class="loading__images js-loading-images">
+      <div class="loading__img-left js-loading-img-left"></div>
+      <div class="loading__img-right js-loading-img-right"></div>
     </div>
   </div>
 
@@ -33,7 +41,6 @@
             $mv_images = SCF::get('mainview', get_the_ID());
             // 画像が登録されている場合にループで表示
           if ( $mv_images ) :
-            $counter = 0; // カウンターを初期化
             foreach ( $mv_images as $image ) :
               // 画像URLとalt属性を取得
               // wp_get_attachment_image_src()：画像に関する情報を配列で返す
@@ -46,14 +53,6 @@
               $image_alt = get_post_meta($image['image_pc'], '_wp_attachment_image_alt', true);
           ?>
             <div class="swiper-slide">
-              <!-- ローディングアニメーション用 -->
-              <!-- 1つ目のスライドにのみmv__imagesを表示 -->
-              <?php if ( $counter === 0 ) : ?>
-                <div class="mv__images">
-                  <div class="mv__img-left js-mv-img-left"></div>
-                  <div class="mv__img-right js-mv-img-right"></div>
-                </div>
-              <?php endif; ?>
               <picture class="mv__img">
                 <?php if ( !empty($image['image_sp']) && !empty($image['image_pc']) ) : ?>
                   <!-- spの画像 -->
@@ -64,14 +63,13 @@
               </picture>
             </div>
           <?php
-            $counter++; // カウンターをインクリメント
             endforeach;
           endif;
           ?>
         </div>
       </div>
       <div class="mv__header js-mv-header">
-        <h2 class="mv__title">STAY&nbsp;SAFE</h2>
+        <h2 class="mv__title">stay&nbsp;safe</h2>
         <p class="mv__subtitle">with&nbsp;professional&nbsp;security</p>
       </div>
     </div>
