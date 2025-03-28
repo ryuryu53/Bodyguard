@@ -56,7 +56,7 @@
                 </h2>
                 <p class="contact__text">お気軽にご相談ください</p>
                 <div class="contact__btn">
-                  <a href="<?php echo $contact; ?>" class="button"><span class="button__text">Contact&nbsp;us</span></a>
+                  <a href="<?php echo $contact; ?>" class="button" role="button"><span class="button__text">Contact&nbsp;us</span></a>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
             </a>
           </div>
         </div>
-        <nav class="footer__nav footer-nav">
+        <nav class="footer__nav footer-nav" aria-label="フッターナビゲーション">
           <div class="footer-nav__left-content">
             <ul class="footer-nav__left-items">
               <li class="footer-nav__left-item">

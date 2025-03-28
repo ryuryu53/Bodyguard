@@ -53,7 +53,7 @@
           <span></span>
           <span></span>
         </div>
-        <nav class="header__pc-nav pc-nav">
+        <nav class="header__pc-nav pc-nav" aria-label="ヘッダーナビゲーション">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="<?php echo $plans; ?>" class="pc-nav__link">
@@ -105,7 +105,7 @@
             </li>
           </ul>
         </nav>
-        <nav class="header__sp-nav sp-nav js-sp-nav">
+        <nav class="header__sp-nav sp-nav js-sp-nav" aria-label="モバイル版ヘッダーナビゲーション">
           <div class="sp-nav__inner">
             <ul class="sp-nav__items">
               <li class="sp-nav__item">
