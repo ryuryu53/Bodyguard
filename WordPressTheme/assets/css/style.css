@@ -1140,8 +1140,10 @@ a {
 }
 
 .hamburger {
+	border: none;
 	cursor: pointer;
 	height: 2rem;
+	padding: 0;
 	position: absolute;
 	right: 0.875rem;
 	top: 1.4375rem;
@@ -1153,6 +1155,7 @@ a {
 	background-color: #fff;
 	height: 0.0625rem;
 	position: absolute;
+	right: 0;
 	transition: transform 0.3s;
 	width: inherit;
 }

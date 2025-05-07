@@ -48,11 +48,11 @@
             <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/hf-logo.svg" alt="Bodyguard">
           </a>
         </<?php echo $tag; ?>>
-        <div class="header__drawer hamburger js-hamburger">
+        <button class="header__drawer hamburger js-hamburger" aria-label="メニューを開く">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
         <nav class="header__pc-nav pc-nav" aria-label="ヘッダーナビゲーション">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
