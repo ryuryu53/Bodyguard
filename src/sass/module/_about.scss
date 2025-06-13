@@ -22,6 +22,7 @@
 
 .about__img-left {
   position: absolute;
+  z-index: 5;
   top: 0;
   left: 0;
   aspect-ratio: 128 /194;
@@ -31,7 +32,6 @@
   @include mq(md) {
     aspect-ratio: 400 / 606;
     width: 37.04%;
-    z-index: 5;
   }
 }
 
