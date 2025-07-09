@@ -13,7 +13,7 @@
 .contact::before {
   content: "";
   position: absolute;
-  top: rem(8);
+  top: rem(-72);
   right: rem(15);
   width: rem(50);
   height: rem(50);
@@ -23,7 +23,7 @@
   background-size: contain;
 
   @include mq(md) {
-    top: rem(100);
+    top: rem(-40);
     right: calc(50% - min(48%, rem(624)));
     width: rem(146);
     height: rem(146);

@@ -853,7 +853,7 @@ a {
 	height: 3.125rem;
 	position: absolute;
 	right: 0.9375rem;
-	top: 0.5rem;
+	top: -4.5rem;
 	width: 3.125rem;
 }
 
@@ -3615,7 +3615,7 @@ html {
 .contact::before {
 	height: 9.125rem;
 	right: calc(50% - min(48%, 39rem));
-	top: 6.25rem;
+	top: -2.5rem;
 	width: 9.125rem;
 }
 
