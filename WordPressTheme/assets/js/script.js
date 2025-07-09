@@ -40,8 +40,7 @@ jQuery(function ($) {
     // FB：追加 ∵iOSでは縦スクロールすると画面幅が変わったと認識してresizeイベントが作動してしまう
     if (window.matchMedia("(min-width: 768px)").matches) {
       // xマークを三マークにする（.js-hamburgerの要素にクラス名is-activeがあれば削除する）
-      // 動画レビュー：ロゴとメニューの文字が被らないようにした背景色を元に戻す
-      $('.js-hamburger, .js-header').removeClass('is-active');
+      $('.js-hamburger').removeClass('is-active');
 
       // .js-sp-navを閉じる（.js-sp-navが表示されていれば非表示にする）
       $('.js-sp-nav').fadeOut(300);

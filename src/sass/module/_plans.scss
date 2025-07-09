@@ -1,8 +1,6 @@
 @use "global" as *;
 
 .plans {
-  position: relative;
-  background-color: white;  // ローディング最初の画面が出ないようにするため
   overflow: hidden;
 }
 

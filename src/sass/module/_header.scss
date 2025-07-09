@@ -1,18 +1,8 @@
 @use "global" as *;
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  height: rem(80);
   background-color: rgba($color: $blue, $alpha: 68%);
-  transition: opacity 2s, background-color 0.3s;
-
-  @include mq(md) {
-    height: rem(90);
-  }
+  transition: background-color 0.3s;
 }
 
 .header.is-color {
