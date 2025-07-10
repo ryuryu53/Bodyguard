@@ -78,10 +78,10 @@
   <!-- Plans -->
   <section class="top-plans plans">
     <div class="plans__inner inner">
-      <h2 class="plans__title section-header">
-        <span class="section-header__engtitle">Plans</span>
-        <span class="section-header__jatitle">ご提供プラン</span>
-      </h2>
+      <hgroup class="plans__title section-header">
+        <p class="section-header__engtitle">Plans</p>
+        <h2 class="section-header__jatitle">ご提供プラン</h2>
+      </hgroup>
       <div class="plans__swiper">
         <div class="swiper js-plans-swiper">
           <ul class="swiper-wrapper plans__items plans-cards">
@@ -161,10 +161,10 @@
   <!-- About -->
   <section class="top-about about">
     <div class="about__inner inner">
-      <h2 class="about__title section-header">
-        <span class="section-header__engtitle">About&nbsp;us</span>
-        <span class="section-header__jatitle">私たちについて</span>
-      </h2>
+      <hgroup class="about__title section-header">
+        <p class="section-header__engtitle">About&nbsp;us</p>
+        <h2 class="section-header__jatitle">私たちについて</h2>
+      </hgroup>
       <div class="about__img-box">
         <picture class="about__img-left colorbox-about js-colorbox">
           <source srcset="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/about_1.webp" type="image/webp">
@@ -192,10 +192,10 @@
   <!-- Information -->
   <section class="top-information information">
     <div class="information__inner inner">
-      <h2 class="information__title section-header">
-        <span class="section-header__engtitle">Information</span>
-        <span class="section-header__jatitle">身辺警護についての情報</span>
-      </h2>
+      <hgroup class="information__title section-header">
+        <p class="section-header__engtitle">Information</p>
+        <h2 class="section-header__jatitle">身辺警護についての情報</h2>
+      </hgroup>
       <div class="information__content">
         <div class="colorbox js-colorbox">
           <picture class="information__img">
@@ -217,10 +217,10 @@
   <!-- Blog -->
   <section class="top-blog blog">
     <div class="blog__inner inner">
-      <h2 class="blog__title section-header">
-        <span class="section-header__engtitle section-header__engtitle--white-pc">Blog</span>
-        <span class="section-header__jatitle section-header__jatitle--white-pc">ブログ</span>
-      </h2>
+      <hgroup class="blog__title section-header">
+        <p class="section-header__engtitle section-header__engtitle--white-pc">Blog</p>
+        <h2 class="section-header__jatitle section-header__jatitle--white-pc">ブログ</h2>
+      </hgroup>
       <div class="blog__items blog-cards js-blog-cards">
         <?php
           $posts_args = array(
@@ -275,10 +275,10 @@
   <!-- Voice -->
   <section class="top-voice voice">
     <div class="voice__inner inner">
-      <h2 class="voice__title section-header">
-        <span class="section-header__engtitle">Voice</span>
-        <span class="section-header__jatitle">お客様の声</span>
-      </h2>
+      <hgroup class="voice__title section-header">
+        <p class="section-header__engtitle">Voice</p>
+        <h2 class="section-header__jatitle">お客様の声</h2>
+      </hgroup>
       <div class="voice__items voice-cards js-voice-cards">
         <?php
           // 最新のカスタム投稿（voice）の2件を取得するクエリ
@@ -357,10 +357,10 @@
   <!-- Price -->
   <section class="top-price price">
     <div class="price__inner inner">
-      <h2 class="price__title section-header">
-        <span class="section-header__engtitle">Price</span>
-        <span class="section-header__jatitle">料金一覧</span>
-      </h2>
+      <hgroup class="price__title section-header">
+        <p class="section-header__engtitle">Price</p>
+        <h2 class="section-header__jatitle">料金一覧</h2>
+      </hgroup>
       <div class="price__contents">
         <div class="price__img colorbox js-colorbox">
           <picture>

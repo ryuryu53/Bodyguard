@@ -59,10 +59,10 @@
   ?>
     <section class="top-gallery gallery">
       <div class="gallery__inner inner">
-        <div class="gallery__title section-header">
+        <hgroup class="gallery__title section-header">
           <p class="section-header__engtitle"> Gallery</p>
           <h2 class="section-header__jatitle">活躍するボディーガードたち</h2>
-        </div>
+        </hgroup>
         <div class="gallery__items-wrap">
           <div class="gallery__items gallery-photo">
           <?php

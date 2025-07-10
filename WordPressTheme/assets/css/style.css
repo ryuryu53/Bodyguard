@@ -618,10 +618,6 @@ a {
 	position: relative;
 }
 
-.blog__title {
-	padding-right: 0.125rem;
-}
-
 .blog__items {
 	margin-top: 1.75rem;
 }
@@ -1727,7 +1723,6 @@ a {
 }
 
 .page-template__title.section-header {
-	position: relative;
 	text-align: left;
 }
 
@@ -2148,10 +2143,6 @@ a {
 	padding-left: 0.5625rem;
 }
 
-.plans__title.section-header {
-	padding-left: 0.375rem;
-}
-
 .plans__swiper {
 	margin-right: calc(50% - 50vw);
 	margin-top: 1.75rem;
@@ -2312,7 +2303,6 @@ a {
 }
 
 .section-header__engtitle {
-	display: block;
 	font-family: "Gotu", sans-serif;
 	font-size: 2rem;
 	font-weight: 400;
@@ -2330,7 +2320,6 @@ a {
 
 .section-header__jatitle {
 	color: #3f72af;
-	display: block;
 	font-size: 0.75rem;
 	font-weight: 400;
 	margin-top: 0.5rem;
@@ -3587,7 +3576,6 @@ html {
 }
 
 .blog__title {
-	padding-right: 0.0625rem;
 	position: relative;
 	z-index: 20;
 }
@@ -3862,10 +3850,6 @@ html {
 .information {
 	padding-bottom: 4.75rem;
 	padding-top: 6.25rem;
-}
-
-.information__title {
-	padding-right: 0.5rem;
 }
 
 .information__content {
@@ -4168,10 +4152,6 @@ html {
 	padding-left: 1.1875rem;
 }
 
-.plans__title.section-header {
-	padding-left: 0.4375rem;
-}
-
 .plans__swiper {
 	margin-top: 2.5rem;
 }
@@ -4210,10 +4190,6 @@ html {
 .price {
 	padding-bottom: 6.5rem;
 	padding-top: 6.25rem;
-}
-
-.price__title {
-	padding-right: 0.375rem;
 }
 
 .price__contents {

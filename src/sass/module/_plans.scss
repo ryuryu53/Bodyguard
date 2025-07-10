@@ -16,14 +16,6 @@
   }
 }
 
-.plans__title.section-header {
-  padding-left: rem(6);
-
-  @include mq(md) {
-    padding-left: rem(7);
-  }
-}
-
 .plans__swiper {
   margin-top: rem(28);
   margin-right: calc(50% - 50vw);
