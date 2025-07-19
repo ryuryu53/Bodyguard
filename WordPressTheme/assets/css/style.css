@@ -668,7 +668,7 @@ a {
 	z-index: 1;
 }
 
-.button--reverse {
+.button.button--reverse {
 	background-color: #fff;
 	color: #3f72af;
 }
@@ -685,7 +685,7 @@ a {
 	z-index: -1;
 }
 
-.button--reverse::before {
+.button.button--reverse::before {
 	border-color: #fff;
 }
 
@@ -703,7 +703,7 @@ a {
 	z-index: -1;
 }
 
-.button--reverse::after {
+.button.button--reverse::after {
 	background-color: #3f72af;
 }
 
@@ -712,7 +712,7 @@ a {
 	position: relative;
 }
 
-.button__text--reverse {
+.button__text.button__text--reverse {
 	left: -1.75rem;
 }
 
@@ -728,11 +728,11 @@ a {
 	width: 2.5rem;
 }
 
-.button__text--reverse::after {
+.button__text.button__text--reverse::after {
 	right: -3.375rem;
 }
 
-.button__text--noto-sans {
+.button__text.button__text--noto-sans {
 	font-family: "Noto Sans JP", sans-serif;
 }
 
@@ -3291,7 +3291,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	opacity: 1;
 }
 
-.button--reverse:hover {
+.button.button--reverse:hover {
 	color: #fff;
 }
 
