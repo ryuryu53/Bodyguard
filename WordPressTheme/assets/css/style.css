@@ -1638,10 +1638,6 @@ a {
 	max-width: 46.875rem;
 }
 
-.page-information__items {
-	margin-top: 1rem;
-}
-
 .page-plans__items {
 	margin-top: 2.5rem;
 }
@@ -2562,6 +2558,10 @@ a {
 	background-color: #3f72af;
 	border-color: transparent;
 	color: #fff;
+}
+
+.tab__cards {
+	margin-top: 1rem;
 }
 
 .terms-of-service-mv {
@@ -3994,10 +3994,6 @@ html {
 	padding-top: 0.75rem;
 }
 
-.page-information__items {
-	margin-top: 1.5rem;
-}
-
 .page-price-table__content {
 	display: flex;
 }
@@ -4376,6 +4372,10 @@ html {
 
 .tab__item:nth-child(3).is-active::before {
 	background-image: url(../images/common/bodyguard-logo-white.svg);
+}
+
+.tab__cards {
+	margin-top: 1.5rem;
 }
 
 .terms-of-service-mv {

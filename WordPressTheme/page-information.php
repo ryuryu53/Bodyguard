@@ -19,7 +19,7 @@
           <li id="tab2" class="tab__item js-tab-item"><span>安心感の<br class="u-mobile">サポート</span></li>
           <li id="tab3" class="tab__item js-tab-item"><span>危険察知と<br class="u-mobile">回避</span></li>
         </ul>
-        <ul class="page-information__items information-cards">
+        <ul class="tab__cards information-cards">
           <li id="tab1-content" class="information-cards__item information-card js-tab-content">
             <div class="information-card__content">
               <div class="information-card__body">
