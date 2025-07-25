@@ -2075,7 +2075,6 @@ a {
 }
 
 .plans-category {
-	background-color: #fff;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem 1.3125rem;
@@ -2089,12 +2088,11 @@ a {
 	font-size: 0.875rem;
 	font-weight: 400;
 	line-height: 1.571;
-	max-width: 10.125rem;
 	padding: 0.375rem 0.25rem 0.25rem;
 	text-align: center;
 	text-transform: uppercase;
-	transition: 0.3s ease;
-	width: 100%;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+	width: calc((100% - 1.3125rem) / 2);
 }
 
 .plans-category__link.is-active {
@@ -4130,6 +4128,10 @@ html {
 	width: 100%;
 }
 
+.plans-category__link {
+	width: 10.125rem;
+}
+
 .plans-list {
 	gap: 5rem 2.5rem;
 	grid-template-columns: repeat(2, 1fr);
@@ -4619,15 +4621,6 @@ html {
 
 html {
 	font-size: 4.2666666667vw;
-}
-
-}
-
-@media (max-width: 374px) {
-
-.plans-category {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
 }
 
 }
