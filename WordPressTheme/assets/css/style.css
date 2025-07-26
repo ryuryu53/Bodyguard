@@ -2535,7 +2535,6 @@ a {
 
 .tab__item {
 	background-color: #dbe2ef;
-	border: none;
 	box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 	color: #3f72af;
 	cursor: pointer;
@@ -2544,7 +2543,7 @@ a {
 	line-height: 1.44;
 	padding: 0.625rem 0;
 	text-align: center;
-	text-transform: uppercase;
+	transition: background-color 0.3s;
 }
 
 .tab__item:hover {
@@ -2554,7 +2553,6 @@ a {
 
 .tab__item.is-active {
 	background-color: #3f72af;
-	border-color: transparent;
 	color: #fff;
 }
 
