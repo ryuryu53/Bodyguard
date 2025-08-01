@@ -47,7 +47,7 @@
   </section>
 
   <!-- Plans -->
-  <section class="top-plans plans">
+  <section class="layout-plans plans">
     <div class="plans__inner inner">
       <h2 class="plans__title section-header">
         <span class="section-header__engtitle">plans</span>
@@ -198,7 +198,7 @@
   </section>
 
   <!-- About -->
-  <section class="top-about about">
+  <section class="layout-about about">
     <div class="about__inner inner">
       <h2 class="about__title section-header">
         <span class="section-header__engtitle">About&nbsp;us</span>
@@ -229,7 +229,7 @@
   </section>
 
   <!-- Information -->
-  <section class="top-information information">
+  <section class="layout-information information">
     <div class="information__inner inner">
       <h2 class="information__title section-header">
         <span class="section-header__engtitle">Information</span>
@@ -254,7 +254,7 @@
   </section>
 
   <!-- Blog -->
-  <section class="top-blog blog">
+  <section class="layout-blog blog">
     <div class="blog__inner inner">
       <h2 class="blog__title section-header">
         <span class="section-header__engtitle section-header__engtitle--white-pc">Blog</span>
@@ -308,7 +308,7 @@
   </section>
 
   <!-- Voice -->
-  <section class="top-voice voice">
+  <section class="layout-voice voice">
     <div class="voice__inner inner">
       <h2 class="voice__title section-header">
         <span class="section-header__engtitle voice__title-en">Voice</span>
@@ -363,7 +363,7 @@
   </section>
 
   <!-- Price -->
-  <section class="top-price price">
+  <section class="layout-price price">
     <div class="price__inner inner">
       <h2 class="price__title section-header">
         <span class="section-header__engtitle">Price</span>

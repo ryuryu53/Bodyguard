@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- ご提供プラン -->
-  <section class="top-page-plans page-plans">
+  <section class="layout-page-plans page-plans">
     <div class="page-plans__inner inner">
       <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
@@ -125,7 +125,7 @@
     </div>
   </section>
 
-  <div class="top-pagenavi">
+  <div class="layout-pagenavi">
     <?php wp_pagenavi(); ?>
   </div>
 

@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.top-plans {
+.layout-plans {
   margin-top: rem(44);
 
   @include mq(md) {

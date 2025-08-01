@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.top-pagenavi {
+.layout-pagenavi {
   text-align: center;
   margin-top: rem(78);
   @include mq(md) {
@@ -8,7 +8,7 @@
   }
 }
 
-.top-pagenavi.top-pagenavi--voice-page {
+.layout-pagenavi.layout-pagenavi--voice-page {
   margin-top: rem(79);
   @include mq(md) {
     margin-top: rem(72);

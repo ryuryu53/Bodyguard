@@ -32,7 +32,7 @@
   </div>
 
   <!-- メインビュー -->
-  <section class="top-mv mv js-mv-height">
+  <section class="layout-mv mv js-mv-height">
     <div class="mv__inner">
       <div class="swiper mv__slider js-mv-swiper">
         <div class="swiper-wrapper">
@@ -76,7 +76,7 @@
   </section>
 
   <!-- Plans -->
-  <section class="top-plans plans">
+  <section class="layout-plans plans">
     <div class="plans__inner inner">
       <hgroup class="plans__title section-header">
         <p class="section-header__engtitle">Plans</p>
@@ -159,7 +159,7 @@
   </section>
 
   <!-- About -->
-  <section class="top-about about">
+  <section class="layout-about about">
     <div class="about__inner inner">
       <hgroup class="about__title section-header">
         <p class="section-header__engtitle">About&nbsp;us</p>
@@ -190,7 +190,7 @@
   </section>
 
   <!-- Information -->
-  <section class="top-information information">
+  <section class="layout-information information">
     <div class="information__inner inner">
       <hgroup class="information__title section-header">
         <p class="section-header__engtitle">Information</p>
@@ -215,7 +215,7 @@
   </section>
 
   <!-- Blog -->
-  <section class="top-blog blog">
+  <section class="layout-blog blog">
     <div class="blog__inner inner">
       <hgroup class="blog__title section-header">
         <p class="section-header__engtitle section-header__engtitle--white-pc">Blog</p>
@@ -273,7 +273,7 @@
   </section>
 
   <!-- Voice -->
-  <section class="top-voice voice">
+  <section class="layout-voice voice">
     <div class="voice__inner inner">
       <hgroup class="voice__title section-header">
         <p class="section-header__engtitle">Voice</p>
@@ -355,7 +355,7 @@
   </section>
 
   <!-- Price -->
-  <section class="top-price price">
+  <section class="layout-price price">
     <div class="price__inner inner">
       <hgroup class="price__title section-header">
         <p class="section-header__engtitle">Price</p>
