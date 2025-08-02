@@ -264,21 +264,16 @@ a {
 	margin-top: 5.25rem;
 }
 
+.layout-sub-mv {
+	height: 28.75rem;
+}
+
 .layout-two-column {
 	margin-top: 3.1875rem;
 }
 
 .layout-voice {
 	margin-top: 5.5rem;
-}
-
-.about-mv {
-	background-image: url(../images/common/about-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
 }
 
 .about__inner {
@@ -604,15 +599,6 @@ a {
 	z-index: 20;
 }
 
-.blog-mv {
-	background-image: url(../images/common/blog-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
-}
-
 .blog {
 	padding-top: 5.25rem;
 	position: relative;
@@ -826,15 +812,6 @@ a {
 	margin-top: 0.1875rem;
 }
 
-.contact-mv {
-	background-image: url(../images/common/contact-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
-}
-
 .contact {
 	filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
 	position: relative;
@@ -900,15 +877,6 @@ a {
 .contact__btn {
 	margin-top: 2.375rem;
 	text-align: center;
-}
-
-.faq-mv {
-	background-image: url(../images/common/faq-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
 }
 
 .footer-nav {
@@ -1276,15 +1244,6 @@ a {
 
 .information-cards__item.is-active {
 	display: block;
-}
-
-.information-mv {
-	background-image: url(../images/common/info-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
 }
 
 .information {
@@ -2120,15 +2079,6 @@ a {
 	width: 17.5rem;
 }
 
-.plans-mv {
-	background-image: url(../images/common/plans-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
-}
-
 .plans {
 	overflow: hidden;
 }
@@ -2193,15 +2143,6 @@ a {
 	text-align: center;
 }
 
-.price-mv {
-	background-image: url(../images/common/price-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
-}
-
 .price-table__content + .price-table__content {
 	margin-top: 2.5625rem;
 }
@@ -2257,15 +2198,6 @@ a {
 .price__btn {
 	margin-top: 2.5625rem;
 	text-align: center;
-}
-
-.privacy-policy-mv {
-	background-image: url(../images/common/privacy-policy-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
 }
 
 .review-card__img {
@@ -2437,19 +2369,6 @@ a {
 	width: 1.125rem;
 }
 
-.site-map-mv {
-	background-image: url(../images/common/site-map-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
-}
-
-.site-map-mv__title-text {
-	margin-left: 0.125rem;
-}
-
 .sp-nav {
 	background-color: #3f72af;
 	display: none;
@@ -2499,6 +2418,87 @@ a {
 	width: 1.125rem;
 }
 
+.sub-mv {
+	position: relative;
+}
+
+.sub-mv.sub-mv--plans {
+	background-image: url(../images/common/plans-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--about-us {
+	background-image: url(../images/common/about-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--information {
+	background-image: url(../images/common/info-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--blog {
+	background-image: url(../images/common/blog-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--voice {
+	background-image: url(../images/common/voice-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--price {
+	background-image: url(../images/common/price-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--faq {
+	background-image: url(../images/common/faq-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--contact {
+	background-image: url(../images/common/contact-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--site-map {
+	background-image: url(../images/common/site-map-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--privacy-policy {
+	background-image: url(../images/common/privacy-policy-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sub-mv.sub-mv--terms-of-service {
+	background-image: url(../images/common/terms-of-service-mv.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .sub-mv__header {
 	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
 	border-radius: 0.75rem;
@@ -2508,6 +2508,7 @@ a {
 	text-align: center;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	width: 100%;
 }
 
 .sub-mv__title {
@@ -2522,6 +2523,7 @@ a {
 }
 
 .sub-mv__title span {
+	margin-left: 0.125rem;
 	text-transform: uppercase;
 }
 
@@ -2557,15 +2559,6 @@ a {
 
 .tab__cards {
 	margin-top: 1rem;
-}
-
-.terms-of-service-mv {
-	background-image: url(../images/common/terms-of-service-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
 }
 
 .text,
@@ -2720,15 +2713,6 @@ a {
 	grid-gap: 2.5rem;
 	display: grid;
 	gap: 2.5rem;
-}
-
-.voice-mv {
-	background-image: url(../images/common/voice-mv.webp);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 28.75rem;
-	position: relative;
 }
 
 .voice {
@@ -3421,16 +3405,16 @@ html {
 	margin-top: 9rem;
 }
 
+.layout-sub-mv {
+	height: 34.25rem;
+}
+
 .layout-two-column {
 	margin-top: 9.3125rem;
 }
 
 .layout-voice {
 	margin-top: 9rem;
-}
-
-.about-mv {
-	height: 34.25rem;
 }
 
 .about__img-box {
@@ -3551,10 +3535,6 @@ html {
 	row-gap: 5rem;
 }
 
-.blog-mv {
-	height: 34.25rem;
-}
-
 .blog {
 	padding-top: 6.25rem;
 }
@@ -3587,10 +3567,6 @@ html {
 
 .column-aside__item {
 	margin-top: 1.5rem;
-}
-
-.contact-mv {
-	height: 34.25rem;
 }
 
 .contact {
@@ -3649,10 +3625,6 @@ html {
 
 .contact__btn {
 	padding-right: 0.875rem;
-}
-
-.faq-mv {
-	height: 34.25rem;
 }
 
 .footer-nav__left-content {
@@ -3838,10 +3810,6 @@ html {
 	aspect-ratio: 492/313;
 	margin-top: 0;
 	width: 47.67%;
-}
-
-.information-mv {
-	height: 34.25rem;
 }
 
 .information {
@@ -4141,10 +4109,6 @@ html {
 	width: 32.5rem;
 }
 
-.plans-mv {
-	height: 34.25rem;
-}
-
 .plans__inner.inner {
 	padding-left: 1.1875rem;
 }
@@ -4156,10 +4120,6 @@ html {
 .plans__btn {
 	margin-top: 4.375rem;
 	padding-left: 0.125rem;
-}
-
-.price-mv {
-	height: 34.25rem;
 }
 
 .price-table__content + .price-table__content {
@@ -4209,10 +4169,6 @@ html {
 
 .price__btn {
 	margin-top: 4.9375rem;
-}
-
-.privacy-policy-mv {
-	height: 34.25rem;
 }
 
 .review-card__body {
@@ -4289,10 +4245,6 @@ html {
 
 .single-body__content ul li {
 	color: #112d4e;
-}
-
-.site-map-mv {
-	height: 34.25rem;
 }
 
 .sub-mv__header {
@@ -4375,10 +4327,6 @@ html {
 
 .tab__cards {
 	margin-top: 1.5rem;
-}
-
-.terms-of-service-mv {
-	height: 34.25rem;
 }
 
 .text--white-pc {
@@ -4479,10 +4427,6 @@ html {
 .voice-cards {
 	gap: 5rem 2.5rem;
 	grid-template-columns: repeat(2, 1fr);
-}
-
-.voice-mv {
-	height: 34.25rem;
 }
 
 .voice__items {

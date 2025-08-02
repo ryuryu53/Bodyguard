@@ -1,9 +1,91 @@
 @use "global" as *;
 
+.sub-mv {
+  position: relative;
+}
+
+.sub-mv.sub-mv--plans {
+  background-image: url(../images/common/plans-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--about-us {
+  background-image: url(../images/common/about-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--information {
+  background-image: url(../images/common/info-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--blog {
+  background-image: url(../images/common/blog-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--voice {
+  background-image: url(../images/common/voice-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--price {
+  background-image: url(../images/common/price-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--faq {
+  background-image: url(../images/common/faq-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--contact {
+  background-image: url(../images/common/contact-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--site-map {
+  background-image: url(../images/common/site-map-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--privacy-policy {
+  background-image: url(../images/common/privacy-policy-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-mv.sub-mv--terms-of-service {
+  background-image: url(../images/common/terms-of-service-mv.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .sub-mv__header {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
   background-image: radial-gradient(rgba($color: $blue, $alpha: 50%), rgba($color: $blue, $alpha: 20%));
   padding: 0 rem(8);
   border-radius: rem(12);
@@ -35,5 +117,6 @@
 }
 
 .sub-mv__title span {
+  margin-left: rem(2);
   text-transform: uppercase;
 }

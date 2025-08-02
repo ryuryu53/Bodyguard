@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
   <!-- 下層ページのメインビュー -->
-  <section class="terms-of-service-mv sub-mv js-mv-height">
+  <section class="layout-sub-mv sub-mv sub-mv--terms-of-service js-mv-height">
     <div class="sub-mv__header">
       <h1 class="sub-mv__title">Terms&nbsp;of&nbsp;Service</h1>
     </div>

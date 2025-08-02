@@ -19,9 +19,9 @@
   ?>
 
   <!-- 下層ページのメインビュー -->
-  <section class="site-map-mv sub-mv js-mv-height">
+  <section class="layout-sub-mv sub-mv sub-mv--site-map js-mv-height">
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title">Site&nbsp;<span class="site-map-mv__title-text">map</span></h1>
+      <h1 class="sub-mv__title">Site&nbsp;<span>map</span></h1>
     </div>
   </section>
 
