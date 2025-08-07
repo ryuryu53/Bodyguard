@@ -346,6 +346,7 @@ a {
 }
 
 .access-details__item:first-child {
+	margin-top: 0;
 	padding-right: 0.4375rem;
 }
 
@@ -3480,7 +3481,6 @@ a[href^="tel:"] {
 }
 
 .access-details__item:first-child {
-	margin-top: 0;
 	padding-right: 0;
 }
 

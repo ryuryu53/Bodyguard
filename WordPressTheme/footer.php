@@ -39,7 +39,7 @@
                   <div class="contact__access-details access-details">
                     <ul class="access-details__items text">
                       <li class="access-details__item">静岡県静岡市1-2</li>
-                      <li class="access-details__item">TEL:0120-111-2222</li>
+                      <li class="access-details__item"><span>TEL:</span><a href="tel:01201112222>">0120-111-2222</a></li>
                       <li class="access-details__item">営業時間:8:00-20:00</li>
                       <li class="access-details__item">定休日:隔週月曜日</li>
                     </ul>
