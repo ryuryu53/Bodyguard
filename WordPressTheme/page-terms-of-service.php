@@ -11,13 +11,11 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- 利用規約 -->
-  <section class="layout-page-template page-template">
-    <div class="page-template__inner inner">
-      <div class="page-template__title section-header">
-        <h2 class="section-header__title"><?php the_title(); ?></h2>
-      </div>
+  <section class="layout-page-terms-of-service page-terms-of-service">
+    <div class="page-terms-of-service__inner inner">
+      <h2 class="page-terms-of-service__title"><?php the_title(); ?></h2>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <div class="page-template__text-block">
+        <div class="page-terms-of-service__content">
           <?php the_content(); ?>
         </div>
       <?php endwhile; endif; ?>

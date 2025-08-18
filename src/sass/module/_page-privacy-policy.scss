@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.page-privacy-policy__inner.inner {
+  max-width: rem(850);
+}
+
+.page-privacy-policy__title {
+  position: relative;
+  z-index: 10;
+  font-size: rem(24);
+
+  @include mq(md) {
+    font-size: rem(32);
+  }
+}
+
+.page-privacy-policy__content {
+  margin-top: rem(39);
+  font-size: rem(16);
+  font-weight: $normal;
+  line-height: 2;
+
+  ol:first-of-type {
+    margin-top: rem(32);
+  }
+
+  ol {
+    padding-left: rem(6);
+    counter-reset: num; /* カウンターを初期化 */
+
+    li {
+      padding-left: 1.15em;
+      text-indent: -1.15em;
+      counter-increment: num; /* 各li要素の出現で番号を増加 */
+      &::before {
+        content: counter(num) ". "; /* 番号と接尾語を表示 */
+      }
+    }
+  }
+
+  p:nth-of-type(n + 2) {
+    margin-top: rem(32);
+  }
+
+  p:nth-of-type(3) {
+    line-break: anywhere;
+  }
+
+  ol:nth-of-type(4) {
+    li {
+      line-break: strict;
+    }
+  }
+}

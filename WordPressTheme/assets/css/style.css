@@ -241,11 +241,15 @@ a {
 	margin-top: 3.1875rem;
 }
 
+.layout-page-privacy-policy {
+	margin-top: 3.1875rem;
+}
+
 .layout-page-site-map {
 	margin-top: 1.9375rem;
 }
 
-.layout-page-template {
+.layout-page-terms-of-service {
 	margin-top: 3.1875rem;
 }
 
@@ -1680,142 +1684,96 @@ a {
 	margin: auto;
 }
 
-.page-template__inner.inner {
+.page-privacy-policy__inner.inner {
 	max-width: 53.125rem;
 }
 
-.page-template__title.section-header {
-	text-align: left;
+.page-privacy-policy__title {
+	font-size: 1.5rem;
+	position: relative;
+	z-index: 10;
 }
 
-.page-template__text-block {
+.page-privacy-policy__content {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 2;
 	margin-top: 2.4375rem;
 }
 
-.page-template__head-list {
+.page-privacy-policy__content ol:first-of-type {
 	margin-top: 2rem;
+}
+
+.page-privacy-policy__content ol {
+	counter-reset: num; /* カウンターを初期化 */
 	padding-left: 0.375rem;
 }
 
-.page-template__head-item {
+.page-privacy-policy__content ol li {
+	counter-increment: num; /* 各li要素の出現で番号を増加 */
 	padding-left: 1.15em;
 	text-indent: -1.15em;
 }
 
-.page-template__middle-content {
+.page-privacy-policy__content ol li::before {
+	content: counter(num) ". "; /* 番号と接尾語を表示 */
+}
+
+.page-privacy-policy__content p:nth-of-type(n + 2) {
 	margin-top: 2rem;
 }
 
-.page-template__middle-item span {
-	display: block;
-	padding-left: calc(1.15em + 0.375rem);
-	text-indent: -1.15em;
-}
-
-.page-template__use-text {
+.page-privacy-policy__content p:nth-of-type(3) {
 	line-break: anywhere;
-	margin-top: 2rem;
 }
 
-.page-template__use-text--terms-page {
+.page-privacy-policy__content ol:nth-of-type(4) li {
 	line-break: strict;
-	margin-top: 0;
 }
 
-.page-template__provision-text {
-	margin-top: 2rem;
+.page-terms-of-service__inner.inner {
+	max-width: 53.125rem;
 }
 
-.page-template__last-list {
-	padding-left: 0.375rem;
+.page-terms-of-service__title {
+	font-size: 1.5rem;
+	position: relative;
+	z-index: 10;
 }
 
-.page-template__last-item {
-	line-break: strict;
-	padding-left: 1.15em;
-	text-indent: -1.15em;
+.page-terms-of-service__content {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 2;
+	margin-top: 2.4375rem;
 }
 
-.page-template__last-text {
-	margin-top: 2rem;
-}
-
-.page-template__text-block ol:first-of-type {
+.page-terms-of-service__content ol {
 	counter-reset: num; /* カウンターを初期化 */
 	margin-top: 2rem;
 	padding-left: 0.375rem;
 }
 
-.page-template__text-block ol:first-of-type li {
-	counter-increment: num; /* 各.list_itemの出現で番号を増加 */
+.page-terms-of-service__content ol li {
+	counter-increment: num; /* 各li要素の出現で番号を増加 */
 	padding-left: 1.15em;
 	text-indent: -1.15em;
 }
 
-.page-template__text-block ol:first-of-type li::before {
-	content: counter(num) "."; /* 番号と接尾語を表示 */
+.page-terms-of-service__content ol li::before {
+	content: counter(num) ". "; /* 番号と接尾語を表示 */
 }
 
-.page-template__text-block p:nth-of-type(2) {
+.page-terms-of-service__content p:last-of-type {
 	margin-top: 2rem;
 }
 
-.page-template__text-block ol:nth-of-type(2),
-.page-template__text-block ol:nth-of-type(3) {
-	counter-reset: num;
-}
-
-.page-template__text-block ol:nth-of-type(2) li,
-.page-template__text-block ol:nth-of-type(3) li {
-	counter-increment: num;
-	display: block;
-	padding-left: calc(1.15em + 0.375rem);
-	text-indent: -1.15em;
-}
-
-.page-template__text-block ol:nth-of-type(2) li::before,
-.page-template__text-block ol:nth-of-type(3) li::before {
-	content: counter(num) ".";
-}
-
-.page-template__text-block p:nth-of-type(3) {
-	line-break: anywhere;
-	margin-top: 2rem;
-}
-
-.page-template__text-block p:nth-of-type(4),
-.page-template__text-block p:nth-of-type(5) {
-	margin-top: 2rem;
-}
-
-.page-template__text-block ol:nth-of-type(4) {
-	counter-reset: num;
-	padding-left: 0.375rem;
-}
-
-.page-template__text-block ol:nth-of-type(4) li {
-	counter-increment: num;
+.page-terms-of-service__content p:nth-of-type(2) {
 	line-break: strict;
-	padding-left: 1.15em;
-	text-indent: -1.15em;
 }
 
-.page-template__text-block ol:nth-of-type(4) li::before {
-	content: counter(num) ".";
-}
-
-.page-template__text-block .page-template__use-text--terms-page:nth-of-type(2) {
-	margin-top: 0;
-}
-
-.page-template__terms-list {
-	margin-top: 2rem;
-}
-
-.page-template__terms-list li {
+.page-terms-of-service__content ol:nth-of-type(2) li {
 	line-break: strict;
 }
 
@@ -3389,11 +3347,15 @@ a[href^="tel:"] {
 	margin-top: 9.3125rem;
 }
 
+.layout-page-privacy-policy {
+	margin-top: 9.3125rem;
+}
+
 .layout-page-site-map {
 	margin-top: 8.0625rem;
 }
 
-.layout-page-template {
+.layout-page-terms-of-service {
 	margin-top: 9.3125rem;
 }
 
@@ -4018,8 +3980,16 @@ a[href^="tel:"] {
 	max-width: 46.875rem;
 }
 
+.page-privacy-policy__title {
+	font-size: 2rem;
+}
+
 .page-site-map__inner.inner {
 	padding-right: 7px;
+}
+
+.page-terms-of-service__title {
+	font-size: 2rem;
 }
 
 .plans-card__img {

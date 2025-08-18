@@ -11,13 +11,11 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- プライバシーポリシー -->
-  <section class="layout-page-template page-template">
-    <div class="page-template__inner inner">
-      <div class="page-template__title section-header">
-        <h2 class="section-header__title"><?php the_title(); ?></h2>
-      </div>
+  <section class="layout-page-privacy-policy page-privacy-policy">
+    <div class="page-privacy-policy__inner inner">
+      <h2 class="page-privacy-policy__title"><?php the_title(); ?></h2>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <div class="page-template__text-block">
+        <div class="page-privacy-policy__content">
           <?php the_content(); ?>
         </div>
       <?php endwhile; endif; ?>
