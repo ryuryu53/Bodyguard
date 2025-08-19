@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.layout-page-privacy-policy {
+.layout-lower-head {
   margin-top: rem(51);
 
   @include mq(md) {

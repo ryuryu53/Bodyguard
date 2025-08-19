@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- 利用規約 -->
-  <section class="layout-page-terms-of-service page-terms-of-service">
+  <section class="layout-lower-head page-terms-of-service">
     <div class="page-terms-of-service__inner inner">
       <h2 class="page-terms-of-service__title"><?php the_title(); ?></h2>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

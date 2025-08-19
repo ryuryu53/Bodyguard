@@ -25,13 +25,3 @@
     margin-top: rem(120);
   }
 }
-
-.layout-contact.layout-contact--privacy-page,
-.layout-contact.layout-contact--terms-page {
-  filter: none;
-  margin-top: rem(106);
-
-  @include mq(md) {
-    margin-top: rem(139);
-  }
-}

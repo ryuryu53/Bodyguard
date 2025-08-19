@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- ダイビング情報 -->
-  <section class="layout-page-information page-information">
+  <section class="layout-lower-head page-information">
     <div class="page-information__inner inner">
       <div class="page-information__container tab">
         <ul class="tab__list">

@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- プライバシーポリシー -->
-  <section class="layout-page-privacy-policy page-privacy-policy">
+  <section class="layout-lower-head page-privacy-policy">
     <div class="page-privacy-policy__inner inner">
       <h2 class="page-privacy-policy__title"><?php the_title(); ?></h2>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

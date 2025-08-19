@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- ブログ一覧 -->
-  <div class="layout-two-column two-column">
+  <div class="layout-lower-head two-column">
     <div class="two-column__inner inner">
       <div class="two-column__article column-article">
         <?php if ( have_posts() ) : ?>

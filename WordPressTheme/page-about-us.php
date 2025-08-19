@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- 私たちについて -->
-  <section class="layout-page-about page-about">
+  <section class="layout-lower-head page-about">
     <div class="page-about__inner inner">
       <div class="page-about__img-box">
         <picture class="page-about__img-left colorbox-about js-colorbox">

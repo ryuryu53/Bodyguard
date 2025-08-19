@@ -19,14 +19,10 @@
       <!-- Contact -->
       <?php if ( !is_page(array('contact', 'thanks')) && !is_404() ) : ?>
         <section class="layout-contact<?php
-          if ( !is_front_page() && !is_page(array('sitemap', 'privacy-policy', 'terms-of-service')) ) {
+          if ( !is_front_page() && !is_page(array('sitemap')) ) {
             echo ' layout-contact--sub-page';
           } elseif ( is_page('sitemap')) {
             echo ' layout-contact--site-map-page';
-          } elseif ( is_page('privacy-policy')) {
-            echo ' layout-contact--privacy-page';
-          } elseif ( is_page('terms-of-service')) {
-            echo ' layout-contact--terms-page';
           } ?> contact">
           <div class="contact__inner inner">
             <div class="contact__wrapper">

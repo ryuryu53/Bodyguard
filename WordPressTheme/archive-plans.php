@@ -11,7 +11,7 @@
   <?php get_template_part('parts/breadcrumbs'); ?>
 
   <!-- ご提供プラン -->
-  <section class="layout-page-plans page-plans">
+  <section class="layout-lower-head page-plans">
     <div class="page-plans__inner inner">
       <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
