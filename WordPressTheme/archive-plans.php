@@ -73,7 +73,7 @@
                       <span class="plans-card__price-after">&yen;<?php echo esc_html(number_format(intval($price_after))); ?>/月</span>
                     <?php endif; ?>
                   </div>
-                  <div class="plans-card__information">
+                  <div class="plans-card__information u-desktop">
                     <?php if ( get_field('plans_3') ) : ?>
                       <p class="plans-card__information-text"><?php the_field('plans_3'); ?></p>
                     <?php endif; ?>
@@ -108,7 +108,7 @@
                         </time>
                       <?php endif; ?>
                     </div>
-                    <div class="plans-card__btn u-desktop">
+                    <div class="plans-card__btn">
                       <?php
                         // カスタムタクソノミー「plans_category」の取得
                         $terms = get_the_terms(get_the_ID(), 'plans_category');

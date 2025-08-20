@@ -1568,6 +1568,7 @@ a {
 
 .page-plans__items {
 	margin-top: 2.5rem;
+	padding: 0 2rem 0 2.0625rem;
 }
 
 .page-price-table {
@@ -1875,7 +1876,7 @@ a {
 	padding-bottom: 0.5rem;
 }
 
-.plans-card__title--blog-page {
+.plans-card__title.plans-card__title--blog-page {
 	margin-top: 0;
 	text-align: center;
 }
@@ -1904,13 +1905,6 @@ a {
 	font-size: 2rem;
 	left: 0.0625rem;
 	position: relative;
-}
-
-.plans-card__information {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	margin-top: 1rem;
 }
 
 .plans-card__information-text {
@@ -1998,8 +1992,6 @@ a {
 
 .plans-list__item {
 	height: auto;
-	margin: auto;
-	width: 17.5rem;
 }
 
 .plans {
@@ -3851,6 +3843,10 @@ a[href^="tel:"] {
 	padding-top: 0.75rem;
 }
 
+.page-plans__items {
+	padding: 0;
+}
+
 .page-price-table__content {
 	display: flex;
 }
@@ -3921,7 +3917,7 @@ a[href^="tel:"] {
 	aspect-ratio: 333/223;
 }
 
-.plans-card__img--sub-page {
+.plans-card__img.plans-card__img--sub-page {
 	aspect-ratio: 520/347;
 }
 
@@ -3929,8 +3925,8 @@ a[href^="tel:"] {
 	padding: 1.5rem 1rem 2rem;
 }
 
-.plans-card__body--sub-page {
-	padding: 1.5rem 1.5rem 0;
+.plans-card__body.plans-card__body--sub-page {
+	padding: 1.5rem 1.5rem 2.4375rem;
 }
 
 .plans-card__body.plans-card__body--blog-page {
@@ -3946,7 +3942,7 @@ a[href^="tel:"] {
 	margin-top: 0.9375rem;
 }
 
-.plans-card__text--sub-page {
+.plans-card__text.plans-card__text--sub-page {
 	margin-top: 1.4375rem;
 }
 
@@ -3986,6 +3982,13 @@ a[href^="tel:"] {
 	margin-left: 1.0625rem;
 }
 
+.plans-card__information {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin-top: 1rem;
+}
+
 .plans-cards__item {
 	max-width: 20.8125rem;
 }
@@ -4007,8 +4010,6 @@ a[href^="tel:"] {
 .plans-list__item {
 	display: grid;
 	grid-template-rows: subgrid;
-	padding-bottom: 2.4375rem;
-	width: 32.5rem;
 }
 
 .plans__inner.inner {
@@ -4448,10 +4449,6 @@ html {
 
 .page-contact__thanks-text {
 	font-size: 0.98rem;
-}
-
-.plans-card__information {
-	display: none;
 }
 
 .wp-pagenavi .page.larger.u-desktop {

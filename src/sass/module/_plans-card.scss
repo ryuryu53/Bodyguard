@@ -21,7 +21,7 @@
   }
 }
 
-.plans-card__img--sub-page {
+.plans-card__img.plans-card__img--sub-page {
   @include mq(md) {
     aspect-ratio: 520 / 347;
   }
@@ -47,14 +47,15 @@
   }
 }
 
-.plans-card__body--sub-page {
+.plans-card__body.plans-card__body--sub-page {
   @include mq(md) {
-    padding: rem(24) rem(24) 0;
+    padding: rem(24) rem(24) rem(39);
   }
 }
 
 .plans-card__body.plans-card__body--blog-page {
   padding: rem(15) rem(23) rem(16);
+
   @include mq(md) {
     padding-top: rem(16);
     padding-bottom: rem(18);
@@ -82,7 +83,7 @@
   padding-bottom: rem(8);
 }
 
-.plans-card__title--blog-page {
+.plans-card__title.plans-card__title--blog-page {
   margin-top: 0;
   text-align: center;
 }
@@ -96,7 +97,7 @@
   }
 }
 
-.plans-card__text--sub-page {
+.plans-card__text.plans-card__text--sub-page {
   @include mq(md) {
     margin-top: rem(23);
   }
@@ -170,12 +171,11 @@
 }
 
 .plans-card__information {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-top: rem(16);
-  @media (max-width: 767px) {
-    display: none;
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: rem(16);
   }
 }
 
