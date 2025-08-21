@@ -35,6 +35,10 @@
   @include mq(md) {
     position: relative;
     z-index: 20;
+    width: fit-content;
+    margin-inline: auto;
+    background-image: radial-gradient(rgba($color: $blue, $alpha: 50%), rgba($color: $blue, $alpha: 20%));
+    border-radius: rem(12);
   }
 }
 
@@ -49,10 +53,8 @@
 .blog__btn {
   text-align: center;
   margin-top: rem(40);
-  // padding-right: rem(4);  動画レビュー：完全に中央に寄せてOK → 削除
 
   @include mq(md) {
     margin-top: rem(80);
-    // padding-right: rem(6);  動画レビュー：完全に中央に寄せてOK → 削除
   }
 }
