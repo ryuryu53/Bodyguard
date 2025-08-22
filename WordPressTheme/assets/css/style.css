@@ -1522,6 +1522,10 @@ a {
 	object-fit: cover;
 }
 
+.page-about__text-body {
+	margin-top: 2.5rem;
+}
+
 .page-about__subtitle {
 	color: #fff;
 	font-family: "Gotu", sans-serif;
@@ -1536,10 +1540,6 @@ a {
 
 .page-about__subtitle span {
 	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
-}
-
-.page-about__text-block {
-	margin-top: 2.5rem;
 }
 
 .page-contact__inner.inner {
@@ -3821,6 +3821,7 @@ a[href^="tel:"] {
 
 .page-about__text-body {
 	display: flex;
+	margin-top: 0;
 	max-width: 60.5rem;
 	position: absolute;
 	right: 5.84%;
@@ -3836,7 +3837,6 @@ a[href^="tel:"] {
 }
 
 .page-about__text-block {
-	margin-top: 0;
 	padding-top: 16rem;
 	width: 47.62%;
 }
