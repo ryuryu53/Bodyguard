@@ -16,6 +16,7 @@
 
 .two-column__aside {
   margin-top: rem(80);
+
   @include mq(md) {
     width: 27.22%;
     margin-top: 0;
