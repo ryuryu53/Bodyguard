@@ -32,7 +32,7 @@
         <?php endforeach; endif; ?>
       </div>
       <?php if ( have_posts() ) : ?>
-        <div class="page-plans__items voice-cards">
+        <div class="page-plans__items page-plans__items--voice-page voice-cards">
           <?php while ( have_posts() ) : the_post(); ?>
             <article class="voice-cards__item voice-card">
               <div class="voice-card__link">
