@@ -1626,15 +1626,12 @@ a {
 
 .page-price-table__item dd {
 	border-left: 0.0625rem solid #3f72af;
+	padding-bottom: 1rem;
 	padding-left: 0.9375rem;
 	padding-right: 0.9375rem;
 	padding-top: 1.125rem;
 	text-align: right;
 	width: 30.5%;
-}
-
-.page-price__table {
-	margin: auto;
 }
 
 .page-privacy-policy__inner.inner {
@@ -3849,7 +3846,7 @@ a[href^="tel:"] {
 
 .page-price-table__title {
 	flex-direction: column-reverse;
-	width: 28.6%;
+	width: 28.5714285714%;
 }
 
 .page-price-table__content:first-child .page-price-table__title:before {
@@ -3868,7 +3865,7 @@ a[href^="tel:"] {
 }
 
 .page-price-table__items {
-	width: 71.50997151%;
+	width: 71.4285714286%;
 }
 
 .page-price-table__item {
