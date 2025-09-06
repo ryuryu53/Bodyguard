@@ -1434,7 +1434,7 @@ a {
 	right: 0.0625rem;
 }
 
-.page-404__wrapper {
+.page-404-area {
 	background-color: #3f72af;
 	padding-bottom: 2.75rem;
 	padding-top: 5rem;
@@ -3771,7 +3771,7 @@ a[href^="tel:"] {
 	right: 0.125rem;
 }
 
-.page-404__wrapper {
+.page-404-area {
 	padding-bottom: 9.5rem;
 	padding-top: 5.625rem;
 }
