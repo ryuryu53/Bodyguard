@@ -119,13 +119,13 @@
                 <a href="<?php echo $information; ?>" class="footer-nav__left-link">身辺警護についての<br class="u-mobile">情報</a>
                 <ul class="footer-nav__left-detail-items">
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $information; ?>#tab1" class="footer-nav__left-detail-link">身体を守る防護壁</a>
+                    <a href="<?php echo $information; ?>?tab=tab1" class="footer-nav__left-detail-link">身体を守る防護壁</a>
                   </li>
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $information; ?>#tab2" class="footer-nav__left-detail-link">安心感のサポート</a>
+                    <a href="<?php echo $information; ?>?tab=tab2" class="footer-nav__left-detail-link">安心感のサポート</a>
                   </li>
                   <li class="footer-nav__left-detail-item">
-                    <a href="<?php echo $information; ?>#tab3" class="footer-nav__left-detail-link">危険察知と回避</a>
+                    <a href="<?php echo $information; ?>?tab=tab3" class="footer-nav__left-detail-link">危険察知と回避</a>
                   </li>
                 </ul>
               </li>
