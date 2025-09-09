@@ -153,7 +153,7 @@
         <div class="swiper-button-prev plans__btn-prev u-desktop"></div>
       </div>
       <div class="plans__btn">
-        <a href="<?php echo $plans; ?>" class="button" role="button"><span class="button__text">View&nbsp;more</span></a>
+        <a href="<?php echo $plans; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
       </div>
     </div>
   </section>
@@ -184,7 +184,7 @@
         </div>
       </div>
       <div class="about__btn">
-        <a href="<?php echo $about; ?>" class="button" role="button"><span class="button__text">View&nbsp;more</span></a>
+        <a href="<?php echo $about; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
       </div>
     </div>
   </section>
@@ -207,7 +207,7 @@
           <h3 class="information__subtitle">身体を守る防護壁<br class="u-mobile">&nbsp;-&nbsp;株式会社Bodyguard</h3>
           <p class="information__text text--black-pc">株式会社Bodyguardは、実際の危険からあなたの体を守るプロフェッショナルです。万が一、誰かが襲ってきたり、危険な場所へ行かねばならないときも、訓練を受けた警護員が物理的にあなたを守ります。迫り来る危険に素早く対応し、安全な場所へ誘導しながら、安心して過ごせる環境を提供いたします。</p>
           <div class="information__btn">
-            <a href="<?php echo $information; ?>" class="button" role="button"><span class="button__text">View&nbsp;more</span></a>
+            <a href="<?php echo $information; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
           </div>
         </div>
       </div>
@@ -267,7 +267,7 @@
         <?php endwhile; endif; wp_reset_postdata(); ?>
       </div>
       <div class="blog__btn">
-        <a href="<?php echo $blog; ?>" class="button" role="button"><span class="button__text">View&nbsp;more</span></a>
+        <a href="<?php echo $blog; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
       </div>
     </div>
   </section>
@@ -349,7 +349,7 @@
         <?php endwhile; endif; wp_reset_postdata(); ?>
       </div>
       <div class="voice__btn">
-        <a href="<?php echo $voice; ?>" class="button" role="button"><span class="button__text">View&nbsp;more</span></a>
+        <a href="<?php echo $voice; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
       </div>
     </div>
   </section>
@@ -434,7 +434,7 @@
         </div>
       </div>
       <div class="price__btn">
-        <a href="<?php echo $amount; ?>" class="button" role="button"><span class="button__text">View&nbsp;more</span></a>
+        <a href="<?php echo $amount; ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
       </div>
     </div>
   </section>

@@ -52,7 +52,7 @@
                 </hgroup>
                 <p class="contact__text">お気軽にご相談ください</p>
                 <div class="contact__btn">
-                  <a href="<?php echo $contact; ?>" class="button" role="button"><span class="button__text">Contact&nbsp;us</span></a>
+                  <a href="<?php echo $contact; ?>" class="button"><span class="button__text">Contact&nbsp;us</span></a>
                 </div>
               </div>
             </div>
