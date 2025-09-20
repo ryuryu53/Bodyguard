@@ -19,3 +19,11 @@
 .single-article__wp-pagenavi .wp-pagenavi a {
   font-family: $base-font-family;
 }
+
+.single-article__page-link {
+  margin-top: rem(40);
+
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

@@ -1,10 +1,5 @@
 @use "global" as *;
 
-.wp-pagenavi__flex {
-  display: flex;
-  justify-content: center;
-}
-
 .wp-pagenavi a, .wp-pagenavi span {
   display: inline-flex;
   align-items: center;
@@ -88,9 +83,4 @@
   @include mq("md") {
     display: inline-flex;
   }
-}
-
-.wp-pagenavi__archive {
-  text-align: center;
-  margin-top: rem(40);
 }

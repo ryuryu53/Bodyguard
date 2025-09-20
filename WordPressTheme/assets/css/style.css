@@ -1550,6 +1550,84 @@ a {
 	max-width: 46.875rem;
 }
 
+.page-link__flex {
+	display: flex;
+	justify-content: center;
+}
+
+.page-link__prev,
+.page-link__next,
+.page-link__back {
+	align-items: center;
+	background-color: #fff;
+	border: solid 0.0625rem currentColor;
+	color: #3f72af;
+	display: inline-flex;
+	font-size: 1rem;
+	font-weight: 700;
+	height: 2.375rem;
+	justify-content: center;
+	min-width: 2.375rem;
+	padding: 0 0.25rem;
+	position: relative;
+	transition: 0.3s ease;
+}
+
+.page-link__prev {
+	margin-left: 0;
+	margin-right: 2.5625rem;
+}
+
+.page-link__next {
+	margin-left: 2.5625rem;
+	margin-right: 0;
+}
+
+.page-link__prev::before,
+.page-link__next::before {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	height: 1rem;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 0.5rem;
+}
+
+.page-link__prev::before {
+	background-image: url(../images/common/prev-vector.svg);
+}
+
+.page-link__next::before {
+	background-image: url(../images/common/next-vector.svg);
+}
+
+.page-link__prev:hover,
+.page-link__next:hover,
+.page-link__back:hover {
+	background-color: #3f72af;
+	border-color: transparent;
+	color: #fff;
+	opacity: 1;
+}
+
+.page-link__prev:hover::before {
+	background-image: url(../images/common/prev-vector-white.svg);
+}
+
+.page-link__next:hover::before {
+	background-image: url(../images/common/prev-vector-white.svg);
+	transform: translate(-50%, -50%) scale(-1, 1);
+}
+
+.page-link__archive {
+	margin-top: 2.5rem;
+	text-align: center;
+}
+
 .page-plans__items {
 	margin-top: 2.5rem;
 	padding: 0 2rem 0 2.0625rem;
@@ -2184,6 +2262,10 @@ a {
 
 .single-article__wp-pagenavi .wp-pagenavi a {
 	font-family: "Noto Sans JP", sans-serif;
+}
+
+.single-article__page-link {
+	margin-top: 2.5rem;
 }
 
 .single-body__date {
@@ -3074,11 +3156,6 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	top: -3rem;
 }
 
-.wp-pagenavi__flex {
-	display: flex;
-	justify-content: center;
-}
-
 .wp-pagenavi a,
 .wp-pagenavi span {
 	align-items: center;
@@ -3159,11 +3236,6 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 
 .wp-pagenavi .page.larger.u-desktop {
 	display: none;
-}
-
-.wp-pagenavi__archive {
-	margin-top: 2.5rem;
-	text-align: center;
 }
 
 @media (any-hover: hover) {
@@ -4097,6 +4169,10 @@ a[href^="tel:"] {
 }
 
 .single-article__wp-pagenavi {
+	margin-top: 5rem;
+}
+
+.single-article__page-link {
 	margin-top: 5rem;
 }
 

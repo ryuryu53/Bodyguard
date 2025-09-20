@@ -17,15 +17,15 @@
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
           <article class="single-article__item single-body">
             <div class="single-body__meta">
-              <time datetime="<?php the_time('c'); ?>" class="single-body__date"><?php the_time('Y.m.d'); ?></time>
+              <time datetime="<?php the_time( 'c' ); ?>" class="single-body__date"><?php the_time( 'Y.m.d' ); ?></time>
               <h1 class="single-body__title"><?php the_title(); ?></h1>
             </div>
             <picture class="single-body__img">
-              <?php if ( (get_the_post_thumbnail()) ) : ?>
-                <source srcset="<?php the_post_thumbnail_url('full'); ?>">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
+              <?php if ( get_the_post_thumbnail() ) : ?>
+                <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
+                <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
               <?php else : ?>
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
               <?php endif; ?>
             </picture>
             <!-- これ以下はWP化したときにクラス名がつけられない。クラス名をつけてCSSを当ててはいけない -->
@@ -35,29 +35,29 @@
           </article>
         <?php endwhile; endif; ?>
 
-        <div class="single-article__wp-pagenavi">
+        <div class="single-article__page-link">
           <?php
             $prev = get_previous_post();
-            if ( !empty($prev) ) {
-              $prev_url = esc_url(get_permalink($prev->ID));
+            if ( ! empty( $prev ) ) {
+              $prev_url = esc_url( get_permalink( $prev->ID ) );
             }
 
             $next = get_next_post();
-            if ( !empty($next) ) {
-              $next_url = esc_url(get_permalink($next->ID));
+            if ( ! empty( $next ) ) {
+              $next_url = esc_url( get_permalink( $next->ID ) );
             }
           ?>
-          <div class="wp-pagenavi">
-            <div class="wp-pagenavi__flex">
-              <?php if ( !empty($prev) ) : ?>
-                <a class="previouspostslink" rel="prev" href="<?php echo $prev_url; ?>"></a>
+          <div class="page-link">
+            <div class="page-link__flex">
+              <?php if ( ! empty( $prev ) ) : ?>
+                <a class="page-link__prev" rel="prev" href="<?php echo $prev_url; ?>"></a>
               <?php endif; ?>
-              <?php if ( !empty($next) ) : ?>
-                <a class="nextpostslink" rel="next" href="<?php echo $next_url; ?>"></a>
+              <?php if ( ! empty( $next ) ) : ?>
+                <a class="page-link__next" rel="next" href="<?php echo $next_url; ?>"></a>
               <?php endif; ?>
             </div>
-            <div class="wp-pagenavi__archive">
-              <a href="<?php echo esc_url(home_url('/blog/')); ?>">一覧へ戻る</a>
+            <div class="page-link__archive">
+              <a class="page-link__back" href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">一覧へ戻る</a>
             </div>
           </div>
         </div>
