@@ -605,6 +605,10 @@ a {
 	z-index: 1;
 }
 
+.button.button--noto-sans {
+	font-family: "Noto Sans JP", sans-serif;
+}
+
 .button.button--reverse {
 	background-color: #fff;
 	color: #3f72af;
@@ -667,10 +671,6 @@ a {
 
 .button__text.button__text--reverse::after {
 	right: -3.375rem;
-}
-
-.button__text.button__text--noto-sans {
-	font-family: "Noto Sans JP", sans-serif;
 }
 
 .colorbox {

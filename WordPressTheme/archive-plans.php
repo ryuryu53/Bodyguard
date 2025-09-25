@@ -61,48 +61,56 @@
                   <!-- ご提供プランの価格 -->
                   <div class="plans-card__price">
                     <?php
-                      $plans_price = get_field('plans_price');  // グループフィールドからデータを取得
-                      $price_before = $plans_price['plans_1'];  // サブフィールドから日契約の価格を取得
-                      $price_after = $plans_price['plans_2']; // サブフィールドから月契約の価格を取得
+                      $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
+                      $price_before = $plans_price[ 'plans_1' ];  // サブフィールドから日契約の価格を取得
+                      $price_after = $plans_price[ 'plans_2' ]; // サブフィールドから月契約の価格を取得
                     ?>
                     <?php if ( $price_before ) : ?>
                       <!-- number_formatだけだと非推奨の警告、intvalで数値として扱う -->
-                      <span class="plans-card__price-before">&yen;<?php echo esc_html(number_format(intval($price_before))); ?>/日</span>
+                      <span class="plans-card__price-before">&yen;<?php echo esc_html( number_format( intval( $price_before ) ) ); ?>/日</span>
                     <?php endif; ?>
                     <?php if ( $price_after ) : ?>
-                      <span class="plans-card__price-after">&yen;<?php echo esc_html(number_format(intval($price_after))); ?>/月</span>
+                      <span class="plans-card__price-after">&yen;<?php echo esc_html( number_format( intval( $price_after ) ) ); ?>/月</span>
                     <?php endif; ?>
                   </div>
                   <div class="plans-card__information u-desktop">
-                    <?php if ( get_field('plans_3') ) : ?>
-                      <p class="plans-card__information-text"><?php the_field('plans_3'); ?></p>
+                    <?php if ( get_field( 'plans_3' ) ) : ?>
+                      <p class="plans-card__information-text"><?php the_field( 'plans_3' ); ?></p>
                     <?php endif; ?>
                     <!-- キャンペーン期間 -->
                     <div class="plans-card__information-period">
                       <?php
-                        $plans_period = get_field('plans_period');  // グループフィールドからデータを取得
-                        $start_date = $plans_period['plans_4']; // 開始日(フォーマット済み: Y/n/j)を取得
-                        $end_date = $plans_period['plans_5']; // 終了日(フォーマット済み: Y/n/j)を取得
-                        // 開始日と終了日の年を抽出
-                        $start_year = substr($start_date, 0, 4); // 先頭4文字を取得して年を抽出
-                        $end_year = substr($end_date, 0, 4);     // 同じく終了日の年を抽出
+                        $plans_period = get_field( 'plans_period' );  // グループフィールドからデータを取得
+                        $start_date = $plans_period[ 'plans_4' ] ?? null; // 開始日(フォーマット済み: Y/n/j)を取得
+                        $end_date = $plans_period[ 'plans_5' ] ?? null; // 終了日(フォーマット済み: Y/n/j)を取得
+                        // ACF戻り値の形式に合わせてDateTimeオブジェクトに変換
+                        $start_dt = $start_date ? DateTime::createFromFormat( 'Y/n/j', $start_date ) : false;
+                        $end_dt = $end_date ? DateTime::createFromFormat( 'Y/n/j', $end_date ) : false;
+                        // datetime属性用（ISO 8601形式）
+                        $start_datetime_attr = $start_dt ? $start_dt->format( 'Y-m-d' ) : '';
+                        $end_datetime_attr = $end_dt ? $end_dt->format( 'Y-m-d' ) : '';
+                        // 年だけ取得
+                        $start_year = $start_dt ? $start_dt->format( 'Y' ) : '';
+                        $end_year = $end_dt ? $end_dt->format( 'Y' ) : '';
+                        // 終了日の年を省略したものを取得
+                        $end_day = $end_dt ? $end_dt->format( 'n/j' ) : '';
                       ?>
-                      <?php if ( $start_date ) : ?>
-                        <time datetime="<?php echo esc_attr($start_date); ?>">
-                          <?php echo esc_html($start_date); ?>
+                      <?php if ( $start_dt ) : ?>
+                        <time datetime="<?php echo esc_attr( $start_datetime_attr ); ?>">
+                          <?php echo esc_html( $start_date ); ?>
                         </time>
                       <?php endif; ?>
-                      <?php if ( $end_date ) : ?>
-                        <?php if ( $start_date ) : ?>
+                      <?php if ( $end_dt ) : ?>
+                        <?php if ( $start_dt ) : ?>
                         -
                         <?php endif; ?>
-                        <time datetime="<?php echo esc_attr($end_date); ?>">
+                        <time datetime="<?php echo esc_attr( $end_datetime_attr ); ?>">
                           <?php
                             // 開始日と終了日の年が同じ場合は終了日の年を省略
-                            if ( $start_year === $end_year ) {
-                              echo esc_html(substr($end_date, 5)); // 「Y/n/j」の先頭5文字を飛ばして「n/j」を表示
+                            if ( $start_year && $end_year && $start_year === $end_year ) {
+                              echo esc_html( $end_day ); //「n/j」だけ表示
                             } else {
-                              echo esc_html($end_date); // 年が異なる場合はフルの日付「Y/n/j」を表示
+                              echo esc_html( $end_date ); // 年が異なる場合はフルの日付「Y/n/j」を表示
                             }
                           ?>
                         </time>
@@ -116,7 +124,7 @@
                         $plans_category_slug = !empty($terms) ? $terms[0]->slug : ''; // スラッグ（URLエンコード用）→ 今回は未使用
                         // ↓ urlencode($plans_category)で日本語をURLで使える形に変換（エンコード）してselect_plan というGETパラメータにセット
                       ?>
-                      <a href="<?php echo esc_url(home_url('/contact?select_plan=' . urlencode($plans_category))); ?>" class="button"><span class="button__text button__text--noto-sans">このプランを予約</span></a>
+                      <a href="<?php echo esc_url( home_url( '/contact?select_plan=' . urlencode( $plans_category ) ) ); ?>" class="button button--noto-sans"><span class="button__text">このプランを予約</span></a>
                     </div>
                   </div>
                 </div>

@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.button.button--noto-sans {
+  font-family: $base-font-family;
+}
+
 .button.button--reverse {
   background-color: $white;
   color: $blueaccent;
@@ -97,9 +101,9 @@
   right: rem(-54);
 }
 
-.button__text.button__text--noto-sans {
-  font-family: $base-font-family;
-}
+// .button__text.button__text--noto-sans {
+//   font-family: $base-font-family;
+// }
 
 // .button__text--arrow-up-sp::after {  コード_FB：削除
 //   top: 28%;
