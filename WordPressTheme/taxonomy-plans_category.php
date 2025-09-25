@@ -99,10 +99,10 @@
                           <?php echo esc_html( $start_date ); ?>
                         </time>
                       <?php endif; ?>
+                      <?php if ( $start_dt ) : ?>
+                      -
+                      <?php endif; ?>
                       <?php if ( $end_dt ) : ?>
-                        <?php if ( $start_dt ) : ?>
-                        -
-                        <?php endif; ?>
                         <time datetime="<?php echo esc_attr( $end_datetime_attr ); ?>">
                           <?php
                             // 開始日と終了日の年が同じ場合は終了日の年を省略
@@ -114,7 +114,7 @@
                           ?>
                         </time>
                       <?php else : ?>
-                        <span style="font-family: 'Noto Sans JP', sans-serif;">- 未定</span>
+                        <span style="font-family: 'Noto Sans JP', sans-serif;">未定</span>
                       <?php endif; ?>
                     </div>
                     <div class="plans-card__btn">
