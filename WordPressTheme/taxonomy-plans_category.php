@@ -113,6 +113,8 @@
                             }
                           ?>
                         </time>
+                      <?php else : ?>
+                        <span style="font-family: 'Noto Sans JP', sans-serif;">- 未定</span>
                       <?php endif; ?>
                     </div>
                     <div class="plans-card__btn">
