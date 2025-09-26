@@ -57,7 +57,7 @@
                   <?php endif; ?>
                   <h3 class="plans-card__title plans-card__title--sub-page text--medium-large"><?php the_title(); ?></h3>
                   <p class="plans-card__text plans-card__text--sub-page text--small-sp">お一人様</p>
-                  <!-- ご提供プランの価格 -->
+                  <!-- プランの価格 -->
                   <div class="plans-card__price plans-card__price--sub-page">
                   <?php
                     $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
@@ -73,10 +73,11 @@
                     <?php endif; ?>
                   </div>
                   <div class="plans-card__information u-desktop">
+                    <!-- プランの内容 -->
                     <?php if ( get_field( 'plans_3' ) ) : ?>
                       <p class="plans-card__information-text"><?php the_field( 'plans_3' ); ?></p>
                     <?php endif; ?>
-                    <!-- キャンペーン期間 -->
+                    <!-- プランの適用期間 -->
                     <div class="plans-card__information-period">
                       <?php
                         $plans_period = get_field( 'plans_period' );  // グループフィールドからデータを取得
