@@ -1,34 +1,34 @@
       <?php
-        $home = esc_url( home_url('/') );
-        $plans = esc_url( home_url('/plans/') );
-        $plans_fun_diving = esc_url( home_url('/plans_category/entry-guard/') );
-        $plans_license = esc_url( home_url('/plans_category/safe-security/') );
-        $plans_experience_diving = esc_url( home_url('/plans_category/protect-plus/') );
-        $about = esc_url( home_url('/about-us/') );
-        $information = esc_url( home_url('/information/') );
-        $blog = esc_url( home_url('/blog/') );
-        $voice = esc_url( home_url('/voice/') );
-        $amount = esc_url( home_url('/price/') );
-        $faq = esc_url( home_url('/faq/') );
-        $contact = esc_url( home_url('/contact/') );
-        $sitemap = esc_url( home_url('/sitemap/') );
-        $privacy = esc_url( home_url('/privacy-policy/') );
-        $terms = esc_url( home_url('/terms-of-service/') );
+        $home = esc_url( home_url( '/' ) );
+        $plans = esc_url( home_url( '/plans/' ) );
+        $plans_fun_diving = esc_url( home_url( '/plans_category/entry-guard/' ) );
+        $plans_license = esc_url( home_url( '/plans_category/safe-security/' ) );
+        $plans_experience_diving = esc_url( home_url( '/plans_category/protect-plus/' ) );
+        $about = esc_url( home_url( '/about-us/' ) );
+        $information = esc_url( home_url( '/information/' ) );
+        $blog = esc_url( home_url( '/blog/' ) );
+        $voice = esc_url( home_url( '/voice/' ) );
+        $amount = esc_url( home_url( '/price/' ) );
+        $faq = esc_url( home_url( '/faq/' ) );
+        $contact = esc_url( home_url( '/contact/' ) );
+        $sitemap = esc_url( home_url( '/sitemap/' ) );
+        $privacy = esc_url( home_url( '/privacy-policy/' ) );
+        $terms = esc_url( home_url( '/terms-of-service/' ) );
       ?>
 
       <!-- Contact -->
-      <?php if ( !is_page(array('contact', 'thanks')) && !is_404() ) : ?>
+      <?php if ( !is_page( array( 'contact', 'thanks' ) ) && !is_404() ) : ?>
         <section class="layout-contact<?php
-          if ( !is_front_page() && !is_page(array('sitemap')) ) {
+          if ( !is_front_page() && !is_page( array( 'sitemap' ) ) ) {
             echo ' layout-contact--sub-page';
-          } elseif ( is_page('sitemap')) {
+          } elseif ( is_page( 'sitemap' ) ) {
             echo ' layout-contact--site-map-page';
           } ?> contact">
           <div class="contact__inner inner">
             <div class="contact__wrapper">
               <div class="contact__info">
                 <div class="contact__logo">
-                  <a href="<?php echo $home; ?>" class="contact__logo-link"><img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/contact-logo.svg" loading="lazy" alt="Bodyguard">
+                  <a href="<?php echo $home; ?>" class="contact__logo-link"><img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/contact-logo.svg" loading="lazy" alt="Bodyguard">
                   </a>
                 </div>
                 <div class="contact__access">
@@ -72,24 +72,24 @@
     <footer class="layout-footer<?php
       if ( is_404() ) {
         echo ' layout-footer--404-page';
-      } elseif ( is_page('contact') ) {
+      } elseif ( is_page( 'contact' ) ) {
         echo ' layout-footer--contact-page';
-      } elseif ( is_page('thanks') ) {
+      } elseif ( is_page( 'thanks' ) ) {
         echo ' layout-footer--thanks-page';
       } ?> footer js-footer">
       <div class="footer__inner inner">
         <div class="footer__img">
           <div class="footer__logo">
             <a href="<?php echo $home; ?>" class="footer__logo-link">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/hf-logo.svg" loading="lazy" alt="Bodyguard">
+              <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/hf-logo.svg" loading="lazy" alt="Bodyguard">
             </a>
           </div>
           <div class="footer__sns">
             <a href="https://www.facebook.com/" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/facebook-logo.svg" loading="lazy" alt="Facebook">
+              <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/facebook-logo.svg" loading="lazy" alt="Facebook">
             </a>
             <a href="https://www.instagram.com/" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
-              <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/instagram-logo.svg" loading="lazy" alt="Instagram">
+              <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/instagram-logo.svg" loading="lazy" alt="Instagram">
             </a>
           </div>
         </div>

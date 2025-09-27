@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php if ( is_page('about-us') ) : ?>
+<?php if ( is_page( 'about-us' ) ) : ?>
   <html class="html1" lang="ja">
 <?php else : ?>
   <html lang="ja">
@@ -15,21 +15,21 @@
   </head>
 
   <?php
-    $home = esc_url( home_url('/') );
-    $plans = esc_url( home_url('/plans/') );
-    $plans_fun_diving = esc_url( home_url('/plans_category/entry-guard/') );
-    $plans_license = esc_url( home_url('/plans_category/safe-security/') );
-    $plans_experience_diving = esc_url( home_url('/plans_category/protect-plus/') );
-    $about = esc_url( home_url('/about-us/') );
-    $information = esc_url( home_url('/information/') );
-    $blog = esc_url( home_url('/blog/') );
-    $voice = esc_url( home_url('/voice/') );
-    $amount = esc_url( home_url('/price/') );
-    $faq = esc_url( home_url('/faq/') );
-    $contact = esc_url( home_url('/contact/') );
-    $sitemap = esc_url( home_url('/sitemap/') );
-    $privacy = esc_url( home_url('/privacy-policy/') );
-    $terms = esc_url( home_url('/terms-of-service/') );
+    $home = esc_url( home_url( '/' ) );
+    $plans = esc_url( home_url( '/plans/' ) );
+    $plans_fun_diving = esc_url( home_url( '/plans_category/entry-guard/' ) );
+    $plans_license = esc_url( home_url( '/plans_category/safe-security/' ) );
+    $plans_experience_diving = esc_url( home_url( '/plans_category/protect-plus/' ) );
+    $about = esc_url( home_url( '/about-us/' ) );
+    $information = esc_url( home_url( '/information/' ) );
+    $blog = esc_url( home_url( '/blog/' ) );
+    $voice = esc_url( home_url( '/voice/' ) );
+    $amount = esc_url( home_url( '/price/' ) );
+    $faq = esc_url( home_url( '/faq/' ) );
+    $contact = esc_url( home_url( '/contact/' ) );
+    $sitemap = esc_url( home_url( '/sitemap/' ) );
+    $privacy = esc_url( home_url( '/privacy-policy/' ) );
+    $terms = esc_url( home_url( '/terms-of-service/' ) );
   ?>
 
   <body>
@@ -42,7 +42,7 @@
         ?>
         <<?php echo $tag; ?> class="header__logo">
           <a href="<?php echo $home; ?>" class="header__logo-link">
-            <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/hf-logo.svg" alt="Bodyguard">
+            <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/hf-logo.svg" alt="Bodyguard">
           </a>
         </<?php echo $tag; ?>>
         <button class="header__drawer hamburger js-hamburger" aria-label="メニューを開く">
