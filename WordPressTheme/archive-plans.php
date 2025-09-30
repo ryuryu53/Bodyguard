@@ -8,7 +8,7 @@
   </section>
 
   <!-- パンくず -->
-  <?php get_template_part('parts/breadcrumbs'); ?>
+  <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- ご提供プラン -->
   <section class="layout-lower-head page-plans">
@@ -17,20 +17,20 @@
         <!-- タクソノミーのタブを生成 -->
         <!-- get_post_type_archive_link('plans') →「キャンペーン」というカスタム投稿タイプのアーカイブページ（一覧ページ）のリンクを取得 -->
         <!-- if ( !is_tax() ) echo 'is-active' → 今表示されているページが特定のカテゴリ（タクソノミー）に属していない場合、is-activeというクラスを付与 -->
-        <a href="<?php echo esc_url(get_post_type_archive_link('plans')); ?>" class="plans-category__link <?php if ( !is_tax() ) echo 'is-active'; ?>">All</a>
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="plans-category__link <?php if ( ! is_tax() ) echo 'is-active'; ?>">All</a>
         <?php
-          $terms = get_terms(array( // get_terms：特定のタクソノミー（plans_category）のカテゴリ情報を取得する関数
+          $terms = get_terms( array( // get_terms：特定のタクソノミー（plans_category）のカテゴリ情報を取得する関数
             'taxonomy' => 'plans_category',
             'hide_empty' => true, // 投稿が1つもないカテゴリを表示しないようにする
-          ));
+          ) );
 
-        if ( !empty($terms) ) :
-          foreach ($terms as $term) :
-            $term_link = get_term_link($term);  // 各カテゴリ（タクソノミー）のリンク先URLを取得
+        if ( ! empty( $terms ) ) :
+          foreach ( $terms as $term ) :
+            $term_link = get_term_link( $term );  // 各カテゴリ（タクソノミー）のリンク先URLを取得
             // is_tax('plans_category', $term->slug)：「今表示しているページが、このループで処理しているカテゴリ（$term->slug）かどうか？」を判定
         ?>
-        <a href="<?php echo esc_url($term_link); ?>" class="plans-category__link <?php echo (is_tax('plans_category', $term->slug) ? 'is-active' : ''); ?>">
-          <?php echo esc_html($term->name); ?>
+        <a href="<?php echo esc_url( $term_link ); ?>" class="plans-category__link <?php echo ( is_tax( 'plans_category', $term->slug ) ? 'is-active' : '' ); ?>">
+          <?php echo esc_html( $term->name ); ?>
         </a>
         <?php endforeach; endif; ?>
       </div>
@@ -40,21 +40,21 @@
             <li class="plans-list__item plans-card">
               <div class="plans-card__link">
                 <picture class="plans-card__img plans-card__img--sub-page colorbox js-colorbox">
-                  <?php if ( (get_the_post_thumbnail()) ) : ?>
-                    <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
+                  <?php if ( ( get_the_post_thumbnail() ) ) : ?>
+                    <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>" type="image/webp">
+                    <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
                   <?php else : ?>
-                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                    <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
                   <?php endif; ?>
                 </picture>
                 <div class="plans-card__body plans-card__body--sub-page">
                   <!-- get_the_terms()：投稿に関連するタクソノミー（分類）を取得するための関数、get_the_ID()：現在表示されている投稿のID（個別の識別番号）を取得 -->
                   <?php
                     // カスタムタクソノミー「plans_category」の取得
-                    $terms = get_the_terms(get_the_ID(), 'plans_category');
-                    if ( $terms && !is_wp_error($terms) ) :
+                    $terms = get_the_terms( get_the_ID(), 'plans_category' );
+                    if ( $terms && ! is_wp_error( $terms ) ) :
                   ?>
-                    <p class="plans-card__category"><?php echo esc_html($terms[0]->name); ?></p>
+                    <p class="plans-card__category"><?php echo esc_html( $terms[0]->name ); ?></p>
                   <?php endif; ?>
                   <h3 class="plans-card__title text--medium-large"><?php the_title(); ?></h3>
                   <p class="plans-card__text plans-card__text--sub-page text--small-sp">お一人様</p>
@@ -62,8 +62,8 @@
                   <div class="plans-card__price">
                     <?php
                       $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
-                      $price_before = $plans_price[ 'plans_1' ];  // サブフィールドから日契約の価格を取得
-                      $price_after = $plans_price[ 'plans_2' ]; // サブフィールドから月契約の価格を取得
+                      $price_before = $plans_price['plans_1'];  // サブフィールドから日契約の価格を取得
+                      $price_after = $plans_price['plans_2']; // サブフィールドから月契約の価格を取得
                     ?>
                     <?php if ( $price_before ) : ?>
                       <!-- number_formatだけだと非推奨の警告、intvalで数値として扱う -->
@@ -82,8 +82,8 @@
                     <div class="plans-card__information-period">
                       <?php
                         $plans_period = get_field( 'plans_period' );  // グループフィールドからデータを取得
-                        $start_date = $plans_period[ 'plans_4' ] ?? null; // 開始日(フォーマット済み: Y/n/j)を取得
-                        $end_date = $plans_period[ 'plans_5' ] ?? null; // 終了日(フォーマット済み: Y/n/j)を取得
+                        $start_date = $plans_period['plans_4'] ?? null; // 開始日(フォーマット済み: Y/n/j)を取得
+                        $end_date = $plans_period['plans_5'] ?? null; // 終了日(フォーマット済み: Y/n/j)を取得
                         // ACF戻り値の形式に合わせてDateTimeオブジェクトに変換
                         $start_dt = $start_date ? DateTime::createFromFormat( 'Y/n/j', $start_date ) : false;
                         $end_dt = $end_date ? DateTime::createFromFormat( 'Y/n/j', $end_date ) : false;
@@ -122,9 +122,9 @@
                     <div class="plans-card__btn">
                       <?php
                         // カスタムタクソノミー「plans_category」の取得
-                        $terms = get_the_terms(get_the_ID(), 'plans_category');
-                        $plans_category = !empty($terms) ? $terms[0]->name : ''; // 最初のカテゴリ名を取得
-                        $plans_category_slug = !empty($terms) ? $terms[0]->slug : ''; // スラッグ（URLエンコード用）→ 今回は未使用
+                        $terms = get_the_terms( get_the_ID(), 'plans_category' );
+                        $plans_category = ! empty( $terms ) ? $terms[0]->name : ''; // 最初のカテゴリ名を取得
+                        $plans_category_slug = ! empty( $terms ) ? $terms[0]->slug : ''; // スラッグ（URLエンコード用）→ 今回は未使用
                         // ↓ urlencode($plans_category)で日本語をURLで使える形に変換（エンコード）してselect_plan というGETパラメータにセット
                       ?>
                       <a href="<?php echo esc_url( home_url( '/contact?select_plan=' . urlencode( $plans_category ) ) ); ?>" class="button button--noto-sans"><span class="button__text">このプランを予約</span></a>

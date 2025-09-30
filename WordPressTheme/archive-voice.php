@@ -8,26 +8,26 @@
   </section>
 
   <!-- パンくず -->
-  <?php get_template_part('parts/breadcrumbs'); ?>
+  <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- お客様の声 -->
   <div class="layout-lower-head page-plans">
     <div class="page-plans__inner inner">
       <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
-        <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="plans-category__link <?php if ( !is_tax() ) echo 'is-active'; ?>">All</a>
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="plans-category__link <?php if ( ! is_tax() ) echo 'is-active'; ?>">All</a>
         <?php
-          $terms = get_terms(array(
+          $terms = get_terms( array(
             'taxonomy' => 'voice_category',
             'hide_empty' => true,
-          ));
+          ) );
 
-          if ( !empty($terms) ) :
-            foreach ($terms as $term) :
-              $term_link = get_term_link($term);
+          if ( ! empty( $terms ) ) :
+            foreach ( $terms as $term ) :
+              $term_link = get_term_link( $term );
         ?>
-        <a href="<?php echo esc_url($term_link); ?>" class="plans-category__link <?php echo (is_tax('voice_category', $term->slug) ? 'is-active' : ''); ?>">
-          <?php echo esc_html($term->name); ?>
+        <a href="<?php echo esc_url( $term_link ); ?>" class="plans-category__link <?php echo ( is_tax( 'voice_category', $term->slug ) ? 'is-active' : '' ); ?>">
+          <?php echo esc_html( $term->name ); ?>
         </a>
         <?php endforeach; endif; ?>
       </div>
@@ -43,8 +43,8 @@
                       <span class="voice-card__age">
                         <?php
                           $voice_age_and_gender = get_field( 'voice_age_and_gender' );  // グループフィールドからデータを取得
-                          $voice_age = $voice_age_and_gender[ 'voice_1' ];  // サブフィールドから年代を取得
-                          $voice_gender = $voice_age_and_gender[ 'voice_2' ]; // サブフィールドから性別を取得
+                          $voice_age = $voice_age_and_gender['voice_1'];  // サブフィールドから年代を取得
+                          $voice_gender = $voice_age_and_gender['voice_2']; // サブフィールドから性別を取得
                         ?>
                         <?php if ( $voice_age ) : ?>
                           <?php echo esc_html( $voice_age ); ?>
@@ -55,10 +55,10 @@
                       </span>
                       <?php
                         // カスタムタクソノミー「voice_category」の取得
-                        $terms = get_the_terms(get_the_ID(), 'voice_category');
-                        if ( $terms && !is_wp_error($terms) ) :
+                        $terms = get_the_terms( get_the_ID(), 'voice_category' );
+                        if ( $terms && ! is_wp_error( $terms ) ) :
                       ?>
-                        <p class="voice-card__category"><?php echo esc_html($terms[0]->name); ?></p>
+                        <p class="voice-card__category"><?php echo esc_html( $terms[0]->name ); ?></p>
                       <?php endif; ?>
                     </div>
                     <h3 class="voice-card__title"><?php the_title(); ?></h3>
