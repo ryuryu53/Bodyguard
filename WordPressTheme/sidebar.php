@@ -1,208 +1,221 @@
-  <div class="column-aside">  <!-- sidebar.phpは単体で利用できるようにblockから始める -->
-    <div class="column-aside__container">
-      <div class="column-aside__article">
-        <h2 class="column-aside__title">人気記事</h2>
-        <div class="column-aside__items article-cards">
-          <?php
-          // 人気記事を取得するクエリ
-          // 人気記事を取得するための条件を設定する配列。この変数に条件をまとめて、後でクエリに使う
-          $popular_posts_args = array(
-            'posts_per_page' => 3, // 表示する記事数
-            'meta_key' => 'post_views_count', // 閲覧数のカスタムフィールド（「post_views_count」はカスタムフィールド（特別なデータの保存場所）の名前）
-            // orderby：並び替えの基準を指定。meta_value_num、つまりpost_views_count（閲覧数）という数値を基準にして並び替える
-            'orderby' => 'meta_value_num', // 数値順にソート
-            'order' => 'DESC', // 降順（閲覧数が多い順に記事を並び替える）
-          );
-          // $popular_posts_query：WP_QueryというWPのクエリ機能を使って、先ほど設定した条件（閲覧数順に3件の記事を取得する）でデータベースから記事を取得
-          $popular_posts_query = new WP_Query($popular_posts_args);
-          // サブループ開始
-          // if文：人気記事がデータベースから取得できたかを確認（have_posts()で記事があるかどうかをチェック）
-          // while文：記事がある限りループを繰り返して、1つずつ記事を処理  the_post()：次の記事を準備して表示
-          if ( $popular_posts_query->have_posts() ) : while ( $popular_posts_query->have_posts() ) : $popular_posts_query->the_post(); ?>
-            <a href="<?php the_permalink(); ?>" class="article-cards__item article-card">
-              <picture class="article-card__img">
-                <?php if ( get_the_post_thumbnail() ) : ?>
-                  <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                  <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
-                <?php else : ?>
-                  <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
-                <?php endif; ?>
-              </picture>
-              <div class="article-card__body">
-                <time datetime="<?php the_time('c'); ?>" class="article-card__date"><?php the_time('Y.m.d') ?></time>
-                <h3 class="article-card__title"><?php the_title(); ?></h3>
-              </div>
-            </a>
-          <!-- wp_reset_postdata()：ループで使用された投稿データをリセットして、WordPressの通常の投稿データに戻す
-           （サブループで使った投稿データは破棄され、メインクエリの投稿データが復元される） -->
-          <?php endwhile; endif; wp_reset_postdata(); ?>
-        </div>
-      </div>
-      <div class="column-aside__review">
-        <h2 class="column-aside__title">口コミ</h2>
-        <div class="column-aside__item review-card">
+<div class="column-aside">  <!-- sidebar.phpは単体で利用できるようにblockから始める -->
+  <div class="column-aside__container">
+    <div class="column-aside__article">
+      <h2 class="column-aside__title">人気記事</h2>
+      <div class="column-aside__items article-cards">
         <?php
-          // 最新のカスタム投稿（voice）の1件を取得するクエリ
-          $latest_voice_args = array( // $latest_voice_args：WP_Queryに渡すための条件を設定
-            'post_type' => 'voice', // カスタム投稿タイプ「voice」の指定
-            'posts_per_page' => 1, // 最新の1件だけ表示
-            'orderby' => 'date', // 日付順にソート
-            'order' => 'DESC' // 新しいものを先頭に
-          );
-          // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースから「口コミ」の投稿を取得
-          $latest_voice_query = new WP_Query($latest_voice_args);
-          // サブループ開始   while文：投稿がある限り、このループで1件ずつ口コミの情報を表示。今回は最新の1件なので1回だけ実行される
-          if ( $latest_voice_query->have_posts() ) : while ( $latest_voice_query->have_posts() ) : $latest_voice_query->the_post(); ?>
-            <picture class="review-card__img colorbox js-colorbox">
+        // 人気記事を取得するクエリ
+        // 人気記事を取得するための条件を設定する配列。この変数に条件をまとめて、後でクエリに使う
+        $popular_posts_args = [
+          'posts_per_page' => 3, // 表示する記事数
+          'meta_key' => 'post_views_count', // 閲覧数のカスタムフィールド（「post_views_count」はカスタムフィールド（特別なデータの保存場所）の名前）
+          // orderby：並び替えの基準を指定。meta_value_num、つまりpost_views_count（閲覧数）という数値を基準にして並び替える
+          'orderby' => 'meta_value_num', // 数値順にソート
+          'order' => 'DESC', // 降順（閲覧数が多い順に記事を並び替える）
+        ];
+        // $popular_posts_query：WP_QueryというWPのクエリ機能を使って、先ほど設定した条件（閲覧数順に3件の記事を取得する）でデータベースから記事を取得
+        $popular_posts_query = new WP_Query( $popular_posts_args );
+        // サブループ開始
+        // if文：人気記事がデータベースから取得できたかを確認（have_posts()で記事があるかどうかをチェック）
+        // while文：記事がある限りループを繰り返して、1つずつ記事を処理  the_post()：次の記事を準備して表示
+        if ( $popular_posts_query->have_posts() ) : while ( $popular_posts_query->have_posts() ) : $popular_posts_query->the_post(); ?>
+          <a href="<?php the_permalink(); ?>" class="article-cards__item article-card">
+            <picture class="article-card__img">
               <?php if ( get_the_post_thumbnail() ) : ?>
-                <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
+                <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
+                <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
               <?php else : ?>
-                <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
               <?php endif; ?>
             </picture>
-            <div class="review-card__body">
-              <!-- 年代（性別） -->
-              <span class="review-card__age">
-                <?php
-                  $voice_age_and_gender = get_field('voice_age_and_gender');  // グループフィールドからデータを取得
-                  $voice_age = $voice_age_and_gender['voice_1'];  // サブフィールドから年代を取得
-                  $voice_gender = $voice_age_and_gender['voice_2']; // サブフィールドから性別を取得
-                ?>
-                <?php if ( $voice_age ) : ?>
-                  <?php echo esc_html($voice_age); ?>
-                <?php endif; ?>
-                <?php if ( $voice_gender ) : ?>
-                  (<?php echo esc_html($voice_gender); ?>)
-                <?php endif; ?>
-              </span>
-              <h3 class="review-card__title"><?php the_title(); ?></h3>
+            <div class="article-card__body">
+              <time datetime="<?php the_time( 'c' ); ?>" class="article-card__date"><?php the_time( 'Y.m.d' ); ?></time>
+              <h3 class="article-card__title"><?php the_title(); ?></h3>
             </div>
-          <?php endwhile; endif; wp_reset_postdata(); ?>
-        </div>
-        <div class="column-aside__btn">
-          <!-- get_post_type_archive_link()：voiceというカスタム投稿タイプのアーカイブページ（口コミの一覧ページ）へのリンクを作成 -->
-          <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="button">
-            <span class="button__text">View&nbsp;more</span>
           </a>
-        </div>
+        <!-- wp_reset_postdata()：ループで使用された投稿データをリセットして、WordPressの通常の投稿データに戻す（サブループで使った投稿データは破棄され、メインクエリの投稿データが復元される） -->
+        <?php endwhile; endif; wp_reset_postdata(); ?>
       </div>
-      <div class="column-aside__plans">
-        <h2 class="column-aside__title">ご提供プラン</h2>
-        <ul class="column-aside__items plans-cards">
-          <?php
-            // 最新のカスタム投稿（plans）の2件を取得するクエリ
-            $latest_plans_args = array(  // $latest_plans_args：WP_Queryに渡すための条件を設定
-              'post_type' => 'plans', // カスタム投稿タイプ「plans」の指定
-              'posts_per_page' => 2, // 最新の2件を表示
-              'orderby' => 'date', // 日付順にソート
-              'order' => 'DESC' // 新しいものを先頭に･･･降順（DESC）
-            );
-            // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからキャンペーン投稿を取得
-            $latest_plans_query = new WP_Query($latest_plans_args);
-            // サブループ開始   while文：投稿がある限り、このループで2件のキャンペーン情報を1件ずつ表示
-            if ( $latest_plans_query->have_posts() ) : while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post(); ?>
-            <li class="plans-cards__item plans-card plans-cards__item--blog-page">
+    </div>
+
+    <div class="column-aside__review">
+      <h2 class="column-aside__title">口コミ</h2>
+      <div class="column-aside__item review-card">
+        <?php
+        // 最新のカスタム投稿（voice）の1件を取得するクエリ
+        $latest_voice_args = [ // $latest_voice_args：WP_Queryに渡すための条件を設定
+          'post_type' => 'voice', // カスタム投稿タイプ「voice」の指定
+          'posts_per_page' => 1, // 最新の1件だけ表示
+          'orderby' => 'date', // 日付順にソート
+          'order' => 'DESC' // 新しいものを先頭に
+        ];
+        // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースから「口コミ」の投稿を取得
+        $latest_voice_query = new WP_Query( $latest_voice_args );
+        // サブループ開始   while文：投稿がある限り、このループで1件ずつ口コミの情報を表示。今回は最新の1件なので1回だけ実行される
+        if ( $latest_voice_query->have_posts() ) : while ( $latest_voice_query->have_posts() ) : $latest_voice_query->the_post();
+        ?>
+          <picture class="review-card__img colorbox js-colorbox">
+            <?php if ( get_the_post_thumbnail() ) : ?>
+              <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
+              <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
+            <?php else : ?>
+              <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+            <?php endif; ?>
+          </picture>
+          <div class="review-card__body">
+            <!-- 年代（性別） -->
+            <span class="review-card__age">
               <?php
-                $terms = get_the_terms(get_the_ID(), 'plans_category'); // 現在の投稿に紐付いた'term'を取得
-                if ( $terms && !is_wp_error($terms) ) : // タームが存在し、エラーがない場合のみ処理を実行
-                  foreach ($terms as $term) : // 各タームについて繰り返し処理
-                    $term_link = get_term_link($term); // タームのリンクを取得
+              $voice_age_and_gender = get_field( 'voice_age_and_gender' );  // グループフィールドからデータを取得
+              $voice_age = $voice_age_and_gender['voice_1'];  // サブフィールドから年代を取得
+              $voice_gender = $voice_age_and_gender['voice_2']; // サブフィールドから性別を取得
               ?>
-                <a href="<?php echo esc_url($term_link); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
-              <?php endforeach; endif; ?>
-                <picture class="plans-card__img plans-card__img--blog-page colorbox js-colorbox">
-                  <?php if ( get_the_post_thumbnail() ) : ?>
-                    <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
-                  <?php else : ?>
-                    <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+              <?php if ( $voice_age ) : ?>
+                <?php echo esc_html( $voice_age ); ?>
+              <?php endif; ?>
+              <?php if ( $voice_gender ) : ?>
+                (<?php echo esc_html( $voice_gender ); ?>)
+              <?php endif; ?>
+            </span>
+            <h3 class="review-card__title"><?php the_title(); ?></h3>
+          </div>
+        <?php endwhile; endif; wp_reset_postdata(); ?>
+      </div>
+      <div class="column-aside__btn">
+        <!-- get_post_type_archive_link()：voiceというカスタム投稿タイプのアーカイブページ（口コミの一覧ページ）へのリンクを作成 -->
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="button">
+          <span class="button__text">View&nbsp;more</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="column-aside__plans">
+      <h2 class="column-aside__title">ご提供プラン</h2>
+      <ul class="column-aside__items plans-cards">
+        <?php
+        // 最新のカスタム投稿（plans）の2件を取得するクエリ
+        $latest_plans_args = [  // $latest_plans_args：WP_Queryに渡すための条件を設定
+          'post_type' => 'plans', // カスタム投稿タイプ「plans」の指定
+          'posts_per_page' => 2, // 最新の2件を表示
+          'orderby' => 'date', // 日付順にソート
+          'order' => 'DESC' // 新しいものを先頭に･･･降順（DESC）
+        ];
+        // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからご提供プラン投稿を取得
+        $latest_plans_query = new WP_Query( $latest_plans_args );
+        // サブループ開始   while文：投稿がある限り、このループで2件のご提供プラン情報を1件ずつ表示
+        if ( $latest_plans_query->have_posts() ) : while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post();
+        ?>
+          <li class="plans-cards__item plans-card plans-cards__item--blog-page">
+            <?php
+            $terms = get_the_terms( get_the_ID(), 'plans_category' ); // 現在の投稿に紐付いた'term'を取得
+            if ( $terms && !is_wp_error( $terms ) ) : // タームが存在し、エラーがない場合のみ処理を実行
+              $term = $terms[0];
+              $term_link = get_term_link( $term ); // タームのリンクを取得
+            ?>
+              <a href="<?php echo esc_url( $term_link ); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
+            <?php endif; ?>
+              <picture class="plans-card__img plans-card__img--blog-page colorbox js-colorbox">
+                <?php if ( get_the_post_thumbnail() ) : ?>
+                  <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
+                  <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
+                <?php else : ?>
+                  <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                <?php endif; ?>
+              </picture>
+              <div class="plans-card__body plans-card__body--blog-page">
+                <h3 class="plans-card__title plans-card__title--blog-page text--medium"><?php the_title(); ?></h3>
+                <p class="plans-card__text plans-card__text--blog-page text--small-sp">お一人様</p>
+                <!-- ご提供プランの価格 -->
+                <div class="plans-card__price plans-card__price--blog-page">
+                  <?php
+                  $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
+                  $price_before = $plans_price['plans_1'];  // サブフィールドから通常価格を取得
+                  $price_after = $plans_price['plans_2']; // サブフィールドから割引価格を取得
+                  ?>
+                  <?php if ( $price_before ) : ?>
+                    <span class="plans-card__price-before plans-card__price-before--blog-page">&yen;<?php echo esc_html( number_format( intval( $price_before ) ) ); ?></span>
                   <?php endif; ?>
-                </picture>
-                <div class="plans-card__body plans-card__body--blog-page">
-                  <h3 class="plans-card__title plans-card__title--blog-page text--medium"><?php the_title(); ?></h3>
-                  <p class="plans-card__text plans-card__text--blog-page text--small-sp">お一人様</p>
-                  <!-- ご提供プランの価格 -->
-                  <div class="plans-card__price plans-card__price--blog-page">
-                    <?php
-                      $plans_price = get_field('plans_price');  // グループフィールドからデータを取得
-                      $price_before = $plans_price['plans_1'];  // サブフィールドから通常価格を取得
-                      $price_after = $plans_price['plans_2']; // サブフィールドから割引価格を取得
-                    ?>
-                    <?php if ( $price_before ) : ?>
-                      <span class="plans-card__price-before plans-card__price-before--blog-page">&yen;<?php echo esc_html(number_format(intval($price_before))); ?></span>
-                    <?php endif; ?>
-                    <?php if ( $price_after ) : ?>
-                      <span class="plans-card__price-after plans-card__price-after--blog-page">&yen;<?php echo esc_html(number_format(intval($price_after))); ?></span>
-                    <?php endif; ?>
-                  </div>
+                  <?php if ( $price_after ) : ?>
+                    <span class="plans-card__price-after plans-card__price-after--blog-page">&yen;<?php echo esc_html( number_format( intval( $price_after ) ) ); ?></span>
+                  <?php endif; ?>
                 </div>
-              </a>
-            </li>
-          <?php endwhile; endif; wp_reset_postdata(); ?>
-        </ul>
-        <div class="column-aside__btn-2">
-          <!-- get_post_type_archive_link()：キャンペーンのカスタム投稿タイプ（plans）のアーカイブページ（一覧ページ）へのリンクを生成 -->
-          <a href="<?php echo esc_url(get_post_type_archive_link('plans')); ?>" class="button"><span class="button__text">View&nbsp;more</span></a>
-        </div>
+              </div>
+            </a>
+          </li>
+        <?php endwhile; endif; wp_reset_postdata(); ?>
+      </ul>
+      <div class="column-aside__btn-2">
+        <!-- get_post_type_archive_link()：ご提供プランのカスタム投稿タイプ（plans）のアーカイブページ（一覧ページ）へのリンクを生成 -->
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="button">
+          <span class="button__text">View&nbsp;more</span>
+        </a>
       </div>
-      <div class="column-aside__archive">
-        <h2 class="column-aside__title">アーカイブ</h2>
-        <div class="column-aside__items">
-          <?php
-          // 年ごとに月別アーカイブを表示する（データベースにアクセスして公開されている投稿の年と月を取得し、その年・月ごとの投稿数も集計する）
-          // $wpdb->get_results()：直接データベースに問い合わせを行い（指定されたSQLクエリを実行し）、結果を配列の形で取得する関数
-          // SELECT：データベースから特定の情報を取得する  DISTINCT：重複を除いて、一意な結果を取得する  YEAR(post_date)：投稿の日付（post_date）から年だけを抽出する関数
-          // AS year：抽出された年に対して、yearという名前を付ける  COUNT(ID)：投稿のIDをカウント  post_countという名前を付けて結果を保存
-          // FROM：どのテーブル（データの集まり）から情報を取得するのかを指定  $wpdb->posts：WordPressの投稿（post）データを管理するデフォルトのデータベーステーブル
-          // WHERE：データを絞り込む条件を指定。つまり、どのデータを取得するかの基準  post_status = 'publish'：この条件は、公開済みの投稿だけを対象にしている
-          // post_type = 'post'：この条件は、通常の投稿（post）のみを対象としている  GROUP BY：この部分は、同じ年・月ごとにデータをグループ化している
-          // year, month：このグループ化を行う基準は「年」と「月」  ORDER BY：取得したデータを特定の順番で並び替える（ここでは、投稿の日付（post_date）を基準に並び替えている）
-          $years = $wpdb->get_results("
-            SELECT DISTINCT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(ID) as post_count
-            FROM $wpdb->posts
-            WHERE post_status = 'publish' AND post_type = 'post'
-            GROUP BY year, month
-            ORDER BY post_date DESC
-          "); // 重複なしで各月の投稿数をカウントし、公開済みの通常の投稿のみを対象にして降順(最新の投稿を先に表示)で並べ替えられる
-          $previous_year = null; // 前のループでの年を記録
-          $is_first_year = true; // 最初の年かどうかを判定するフラグ
-          if ( $years ) :
-            foreach ( $years as $year ) :
-              // 年が変わったときにのみ年のトグルを作成
-              if ( $previous_year !== $year->year ) {
-                if ( $previous_year !== null ) {
-                  // 前の年のリストが終わったときに閉じタグを入れる
-                  echo '</ul></div>';
-                }
-                // is-openクラスを最初の年の<h3>タグにのみ追加
-                $is_open_class = $is_first_year ? ' is-open' : '';  // 三項演算子：（変数） = （評価） ? （評価がtrueの場合の値） : （評価がfalseの場合の値）;
-                // $is_first_yearの評価が「真（true）」の場合は、「 is-open」が$is_open_classに代入される。よって、最初に例えば「$is_first_year = 2」と定義してもOK
-                // $is_first_yearの評価が「偽（false）」の場合は、空文字列が$is_open_classに代入される。よって、最初に「$is_first_year = 0(またはnull)」と定義すると評価は偽となる
-          ?>
-          <div class="column-aside__item-archive archive-toggle js-archive-toggle">
-            <h3 class="archive-toggle__year-title js-archive-toggle-title<?php echo $is_open_class; ?>"><?php echo esc_html($year->year); ?></h3>
-            <ul class="archive-toggle__items js-archive-toggle-items">
+    </div>
+
+    <div class="column-aside__archive">
+      <h2 class="column-aside__title">アーカイブ</h2>
+      <div class="column-aside__items">
+        <?php
+        // 年ごとに月別アーカイブを表示する（データベースにアクセスして公開されている投稿の年と月を取得し、その年・月ごとの投稿数も集計する）
+        // $wpdb->get_results( "ここに書かれたSQLクエリ" );：直接データベースに問い合わせを行い（指定されたSQLクエリを実行し）、結果を配列の形で取得する関数
+        // SELECT：データベースから特定の情報を取得する  DISTINCT：重複を除いて、一意な結果を取得する → 不要、「GROUP BY year, month」を書いた時点で、結果セットは「年 × 月」の組み合わせごとに1行にまとめられる。つまり、year, monthの組み合わせは必ずユニークになる  YEAR(post_date)：投稿の日付（post_date）から年だけを抽出する関数
+        // AS year：抽出された年に対して、yearという名前を付ける  COUNT(ID)：投稿のIDをカウント  post_countという名前を付けて結果を保存
+        // FROM：どのテーブル（データの集まり）から情報を取得するのかを指定  $wpdb->posts：WordPressの投稿（post）データを管理するデフォルトのデータベーステーブル
+        // WHERE：データを絞り込む条件を指定。つまり、どのデータを取得するかの基準  post_status = 'publish'：この条件は、公開済みの投稿だけを対象にしている
+        // post_type = 'post'：この条件は、通常の投稿（post）のみを対象としている  GROUP BY：この部分は、同じ年・月ごとにデータをグループ化している
+        // year, month：このグループ化を行う基準は「年」と「月」  ORDER BY：取得したデータを特定の順番で並び替える（ここでは、投稿の日付（post_date）を基準に並び替えている）
+
+        $sql = "
+          SELECT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(ID) AS post_count
+          FROM $wpdb->posts
+          WHERE post_status = 'publish' AND post_type = 'post'
+          GROUP BY year, month
+          ORDER BY post_date DESC
+        ";
+
+        // 重複なしで各月の投稿数をカウントし、公開済みの通常の投稿のみを対象にして降順(最新の投稿を先に表示)で並べ替えられる
+        $years         = $wpdb->get_results( $sql );
+        $previous_year = null; // 前のループでの年を記録
+        $is_first_year = true; // 最初の年かどうかを判定するフラグ
+
+        if ( $years ) :
+          foreach ( $years as $year ) :
+            if ( $previous_year !== $year->year ) : // 年が変わったときにのみ年のトグルを作成
+              if ( $previous_year !== null ) :  // 前の年のリストが終わったときに閉じタグを入れる
+        ?>
+                </ul>
+              </div>
+              <?php endif; ?>
+
               <?php
-              $is_first_year = false; // 2番目以降の年にはis-openクラスを付けない（falseを0やnullにしてもOK）
-            }
-            // 各月のアーカイブリンク
-            $archive_link = get_month_link($year->year, $year->month);  // 指定された年と月のアーカイブページへのリンクを生成
+              // is-openクラスを最初の年の<h3>タグにのみ追加
+              $is_open_class = $is_first_year ? ' is-open' : '';  // 三項演算子：（変数） = （評価） ? （評価がtrueの場合の値） : （評価がfalseの場合の値）;
               ?>
-              <li class="archive-toggle__item">
-                <h4 class="archive-toggle__month-title">
-                  <a href="<?php echo esc_url($archive_link); ?>">
-                    <?php echo esc_html($year->month . '月'); ?>（<?php echo esc_html($year->post_count); ?>）
-                  </a>
-                </h4>
-              </li>
-              <?php
-              $previous_year = $year->year; // 今回の年を記録
-            endforeach;
-            // 最後の年の閉じタグ
-            echo '</ul></div>';
-          endif; ?>
-        </div>
+              <div class="column-aside__item-archive archive-toggle js-archive-toggle">
+                <h3 class="archive-toggle__year-title js-archive-toggle-title<?php echo esc_attr( $is_open_class ); ?>">
+                  <?php echo esc_html( $year->year ); ?>
+                </h3>
+                <ul class="archive-toggle__items js-archive-toggle-items">
+              <?php $is_first_year = false; ?>  <!-- 2番目以降の年にはis-openクラスを付けない（falseを0やnullにしてもOK） -->
+            <?php endif; ?>
+
+            <?php
+            // 指定された年と月のアーカイブページへのリンクを生成
+            $archive_link = get_month_link( $year->year, $year->month );
+            ?>
+            <li class="archive-toggle__item">
+              <h4 class="archive-toggle__month-title">
+                <a href="<?php echo esc_url( $archive_link ); ?>">
+                  <?php echo esc_html( $year->month . '月' ); ?>（<?php echo esc_html( $year->post_count ); ?>）
+                </a>
+              </h4>
+            </li>
+            <?php $previous_year = $year->year; ?>  <!-- 今回の年を記録 -->
+          <?php endforeach; ?>
+            </ul>
+          </div>  <!-- 最後の年の閉じタグ -->
+        <?php endif; ?>
       </div>
     </div>
   </div>
+</div>

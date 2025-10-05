@@ -208,7 +208,11 @@ function display_views_column($column_name, $post_id) {
   if ( $column_name === 'post_views' ) {  // もしカラムが「閲覧数（post_views）」なら、その投稿のIDを使ってget_post_views()で取得した閲覧数を表示
     echo esc_html( get_post_views( $post_id ) );
   } elseif ( $column_name === 'thumbnail' ) { // もしカラムが「アイキャッチ（thumbnail）」なら、その投稿のIDを使ってアイキャッチを表示
-    echo get_the_post_thumbnail( $post_id, [ 100, 100 ], 'thumbnail' );
+    if ( has_post_thumbnail( $post_id ) ) {
+      echo get_the_post_thumbnail( $post_id, [ 100, 100 ] ); // 100x100サイズでアイキャッチを表示
+    } else {
+      echo 'なし'; // アイキャッチ未設定時は「なし」と表示
+    }
   }
 }
 // manage_posts_custom_columnアクションを使って、display_views_column関数を実行する → カラムに閲覧数とアイキャッチが表示される
@@ -240,13 +244,13 @@ function order_by_views( $query ) { // 投稿のクエリ（データベース�
 add_action( 'pre_get_posts', 'order_by_views' );
 
 // アーカイブタイトルの「月: 」や「年: 」などのプレフィックスを削除
-add_filter('get_the_archive_title', function ($title) {
-  if ( is_day()) {
-    $title = get_the_date('Y年n月j日'); // 年月日を「2024年8月31日」の形式で表示
+add_filter( 'get_the_archive_title', function ( $title ) {
+  if ( is_day() ) {
+    $title = get_the_date( 'Y年n月j日' ); // 年月日を「2024年8月31日」の形式で表示
   } elseif ( is_month() ) {
-    $title = get_the_date('Y年n月'); // 年月を「2024年8月」の形式で表示
+    $title = get_the_date( 'Y年n月' ); // 年月を「2024年8月」の形式で表示
   } elseif ( is_year() ) {
-    $title = get_the_date('Y年'); // 年を「2024年」の形式で表示
+    $title = get_the_date( 'Y年' ); // 年を「2024年」の形式で表示
   }
   return $title;
 });
@@ -538,3 +542,38 @@ function custom_wpcf7_select_filter( $tag ) {
 }
 // add_filter()を使って、CF7のフォームタグをカスタマイズする処理を追加（'wpcf7_form_tag'はCF7 のフォームタグを変更するためのフィルターフック）
 add_filter( 'wpcf7_form_tag', 'custom_wpcf7_select_filter', 10, 2 );
+
+// 管理画面のカスタム投稿一覧にもカラムを追加（順番を調整）
+function add_custom_post_thumbnail_columns( $columns ) {
+  $new_columns = []; // 新しいカラムの順序を保持するための配列を準備
+
+  foreach ( $columns as $key => $value ) {
+      if ( $key === 'title' ) {
+          $new_columns['thumbnail_custom'] = 'アイキャッチ';
+      }
+      $new_columns[ $key ] = $value; // 既存のカラムをそのまま追加
+  }
+
+  return $new_columns; // 新しく並べ替えたカラムを返す。これにより、「アイキャッチ」がタイトルの左側に追加される
+}
+
+// plans用
+add_filter( 'manage_plans_posts_columns', 'add_custom_post_thumbnail_columns' );
+// voice用
+add_filter( 'manage_voice_posts_columns', 'add_custom_post_thumbnail_columns' );
+
+// カラムの中身を出力
+function add_custom_post_thumbnail_column_content( $column_name, $post_id ) {
+  if ( $column_name === 'thumbnail_custom' ) {
+      if ( has_post_thumbnail( $post_id ) ) {
+          echo get_the_post_thumbnail( $post_id, [ 100, 100 ] ); // 100x100サイズでアイキャッチを表示
+      } else {
+          echo 'なし'; // アイキャッチ未設定時は「なし」と表示
+      }
+  }
+}
+
+// plans用
+add_action( 'manage_plans_posts_custom_column', 'add_custom_post_thumbnail_column_content', 10, 2 );
+// voice用
+add_action( 'manage_voice_posts_custom_column', 'add_custom_post_thumbnail_column_content', 10, 2 );

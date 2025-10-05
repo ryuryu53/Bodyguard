@@ -8,7 +8,7 @@
   </section>
 
   <!-- パンくず -->
-  <?php get_template_part('parts/breadcrumbs'); ?>
+  <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- ブログ一覧 -->
   <div class="layout-lower-head two-column">
@@ -32,20 +32,20 @@
                     <h3 class="blog-card__title text--medium"><?php the_title(); ?></h3>
                     <p class="blog-card__text text--black-pc">
                       <?php
-                        // 投稿本文を取得
-                        $content = $post->post_content;
+                      // 投稿本文を取得
+                      $content = get_the_content();
 
-                        // 文字数を制限
-                        if ( mb_strlen( $content, 'UTF-8' ) > 110 ) {
-                          // 110文字で切り取る
-                          $content = mb_substr( $content, 0, 110, 'UTF-8' ) . '...';
-                        }
+                      // コメントや不要なタグを削除
+                      $content = strip_tags( $content, '<br>' );  // 改行するときは「Shift+Enter」を押して改行
 
-                        // コメントや不要なタグを削除
-                          $content = strip_tags( $content );
+                      // 文字数を制限
+                      if ( mb_strlen( $content, 'UTF-8' ) > 85 ) :
+                        // 85文字で切り取る
+                        $content = mb_substr( $content, 0, 85, 'UTF-8' ) . '...';
+                      endif;
 
-                        // 整形したコンテンツを出力
-                        echo $content;
+                      // 整形したコンテンツを出力
+                      echo wp_kses_post( $content );
                       ?>
                     </p>
                   </div>

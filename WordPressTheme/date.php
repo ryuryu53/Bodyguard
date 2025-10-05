@@ -9,7 +9,7 @@
   </section>
 
   <!-- パンくず -->
-  <?php get_template_part('parts/breadcrumbs'); ?>
+  <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- ブログ一覧 -->
   <div class="layout-lower-head two-column">
@@ -21,17 +21,34 @@
               <article class="blog-cards__item blog-card">
                 <a href="<?php the_permalink(); ?>" class="blog-card__link">
                   <picture class="blog-card__img">
-                    <?php if ( (get_the_post_thumbnail()) ) : ?>
-                      <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                      <img src="<?php the_post_thumbnail_url('full'); ?>" class="blog-card__image" loading="lazy" alt="">
+                    <?php if ( get_the_post_thumbnail() ) : ?>
+                      <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
+                      <img src="<?php the_post_thumbnail_url( 'full'); ?>" class="blog-card__image" loading="lazy" alt="">
                     <?php else : ?>
-                      <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                      <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
                     <?php endif; ?>
                   </picture>
                   <div class="blog-card__body">
-                    <time datetime="<?php the_time('c'); ?>" class="blog-card__date"><?php the_time('Y.m.d'); ?></time>
+                    <time datetime="<?php the_time( 'c' ); ?>" class="blog-card__date"><?php the_time( 'Y.m.d' ); ?></time>
                     <h3 class="blog-card__title text--medium"><?php the_title(); ?></h3>
-                    <p class="blog-card__text text--black-pc">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                    <p class="blog-card__text text--black-pc">
+                      <?php
+                      // 投稿本文を取得
+                      $content = get_the_content();
+
+                      // コメントや不要なタグを削除
+                      $content = strip_tags( $content, '<br>' );  // 改行するときは「Shift+Enter」を押して改行
+
+                      // 文字数を制限
+                      if ( mb_strlen( $content, 'UTF-8' ) > 85 ) :
+                        // 85文字で切り取る
+                        $content = mb_substr( $content, 0, 85, 'UTF-8' ) . '...';
+                      endif;
+
+                      // 整形したコンテンツを出力
+                      echo wp_kses_post( $content );
+                      ?>
+                    </p>
                   </div>
                 </a>
               </article>
