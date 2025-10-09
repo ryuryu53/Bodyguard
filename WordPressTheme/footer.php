@@ -1,19 +1,19 @@
       <?php
-        $home = esc_url( home_url( '/' ) );
-        $plans = esc_url( home_url( '/plans/' ) );
-        $plans_fun_diving = esc_url( home_url( '/plans_category/entry-guard/' ) );
-        $plans_license = esc_url( home_url( '/plans_category/safe-security/' ) );
-        $plans_experience_diving = esc_url( home_url( '/plans_category/protect-plus/' ) );
-        $about = esc_url( home_url( '/about-us/' ) );
-        $information = esc_url( home_url( '/information/' ) );
-        $blog = esc_url( home_url( '/blog/' ) );
-        $voice = esc_url( home_url( '/voice/' ) );
-        $amount = esc_url( home_url( '/price/' ) );
-        $faq = esc_url( home_url( '/faq/' ) );
-        $contact = esc_url( home_url( '/contact/' ) );
-        $sitemap = esc_url( home_url( '/sitemap/' ) );
-        $privacy = esc_url( home_url( '/privacy-policy/' ) );
-        $terms = esc_url( home_url( '/terms-of-service/' ) );
+      $home = esc_url( home_url( '/' ) );
+      $plans = esc_url( home_url( '/plans/' ) );
+      $plans_fun_diving = esc_url( home_url( '/plans_category/entry-guard/' ) );
+      $plans_license = esc_url( home_url( '/plans_category/safe-security/' ) );
+      $plans_experience_diving = esc_url( home_url( '/plans_category/protect-plus/' ) );
+      $about = esc_url( home_url( '/about-us/' ) );
+      $information = esc_url( home_url( '/information/' ) );
+      $blog = esc_url( home_url( '/blog/' ) );
+      $voice = esc_url( home_url( '/voice/' ) );
+      $amount = esc_url( home_url( '/price/' ) );
+      $faq = esc_url( home_url( '/faq/' ) );
+      $contact = esc_url( home_url( '/contact/' ) );
+      $sitemap = esc_url( home_url( '/sitemap/' ) );
+      $privacy = esc_url( home_url( '/privacy-policy/' ) );
+      $terms = esc_url( home_url( '/terms-of-service/' ) );
       ?>
 
       <!-- Contact -->
