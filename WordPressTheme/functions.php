@@ -505,37 +505,47 @@ add_filter('use_block_editor_for_post', function($use_block_editor, $post) {
 
 // 繰り返しフィールドの「＋」「×」ボタンにラベル追加
 function add_custom_button_labels() {
-  echo '
-  <style>
-  /* 「+」ボタンに「追加」ラベルを追加 */
-  .dashicons-plus-alt::after {
-    content: "追加";
-    font-size: 12px;
-    vertical-align: top;
-    margin-left: 5px;
-    padding-right: 10px;
-  }
+  global $pagenow;
 
-  .btn-add-repeat-group.dashicons.dashicons-plus-alt.smart-cf-repeat-btn {
-    color: green;
-  }
+  // 投稿編集画面 or 新規追加画面のとき
+  if ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) {
+    $screen = get_current_screen();
 
-  /* 「×」ボタンに「削除」ラベルを追加 */
-  .dashicons-dismiss::after {
-    content: "削除";
-    font-size: 12px;
-    vertical-align: top;
-    margin-left: 5px;
-    padding-right: 10px;
-  }
+    // 投稿タイプが固定ページのときだけCSSを出力
+    if ( $screen && $screen->post_type === 'page' ) {
+      echo '
+      <style>
+      /* 「+」ボタンに「追加」ラベルを追加 */
+      .dashicons-plus-alt::after {
+        content: "追加";
+        font-size: 12px;
+        vertical-align: top;
+        margin-left: 5px;
+        padding-right: 10px;
+      }
 
-  .btn-remove-repeat-group.dashicons.dashicons-dismiss.smart-cf-repeat-btn {
-    color: blue;
+      .btn-add-repeat-group.dashicons.dashicons-plus-alt.smart-cf-repeat-btn {
+        color: green;
+      }
+
+      /* 「×」ボタンに「削除」ラベルを追加 */
+      .dashicons-dismiss::after {
+        content: "削除";
+        font-size: 12px;
+        vertical-align: top;
+        margin-left: 5px;
+        padding-right: 10px;
+      }
+
+      .btn-remove-repeat-group.dashicons.dashicons-dismiss.smart-cf-repeat-btn {
+        color: blue;
+      }
+      </style>
+      ';
+    }
   }
-  </style>
-  ';
 }
-add_action('admin_head', 'add_custom_button_labels');
+add_action( 'admin_head', 'add_custom_button_labels' );
 
 // GETパラメータを受け取って、フォームのセレクトボックスのデフォルト値として設定
 function custom_wpcf7_select_filter( $tag ) {
