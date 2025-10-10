@@ -453,26 +453,26 @@ add_action('wp_dashboard_setup', 'add_my_custom_dashboard_widget');
 // add_action( 'init' , 'my_remove_post_editor_support' );
 
 // 「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（1）
-// 固定ページに対してブロックエディタを使用するかどうかを制御するフィルターフック
+// 固定ページに対してブロックエディタを使用するかどうかを制御するフィルターフック（このフィルターは、「WordPressが投稿（または固定ページ）を開くときに、ブロックエディタを使うかどうか判断する直前」に呼び出される）
 // $use_block_editor（エディタを使うかどうかのブール値）と$post（現在の投稿情報）を引数として受け取る
-add_filter('use_block_editor_for_post', function($use_block_editor, $post) {
+add_filter( 'use_block_editor_for_post', function( $use_block_editor, $post ) {
   // 投稿のタイプが「固定ページ」であるかどうかをチェックする
   if ( $post->post_type === 'page' ) {
     // 表示するページスラッグのリスト
-    $allowed_pages = ['price', 'faq', 'privacy-policy', 'terms-of-service'];
+    $allowed_pages = [ 'price', 'faq', 'privacy-policy', 'terms-of-service' ];
 
     // スラッグがリストに含まれていなければエディタを非表示にする
     // in_array()関数：指定した値が配列に含まれているかどうかを確認
     // ページスラッグが許可されたリストに含まれていない場合にtrueを返す
-    if ( !in_array($post->post_name, $allowed_pages) ) {  // post_nameはページのスラッグを指す
+    if ( ! in_array( $post->post_name, $allowed_pages ) ) {  // post_nameはページのスラッグを指す
       // 特定の投稿タイプからエディタのサポートを削除する
-      remove_post_type_support('page', 'editor'); // エディタを非表示
+      remove_post_type_support( 'page', 'editor' ); // エディタを非表示
       return false; // ブロックエディタを無効化
     }
   }
   // 条件に該当しない場合は、もともとのブロックエディタの設定を保持するために、この値をそのまま返す
   return $use_block_editor; // それ以外の場合はエディタを使用
-}, 10, 2);
+}, 10, 2 );
 
 // これでもOK！
 // 「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（2）

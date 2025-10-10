@@ -29,7 +29,7 @@ dd {
 }
 
 /* Set core root defaults */
-html { // CSSでのスムーススクロールが必須なのは「information」と「price」
+html { // CSSでのスムーススクロールが必須なのは「price」だけ
   scroll-behavior: smooth;
   scroll-padding-top: rem(90);  // 追加
 }

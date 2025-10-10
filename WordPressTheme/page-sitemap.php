@@ -1,21 +1,21 @@
 <?php get_header(); ?>
 
   <?php
-  $home = esc_url( home_url('/') );
-  $plans = esc_url( home_url('/plans/') );
-  $plans_entry_guard = esc_url( home_url('/plans_category/entry-guard/') );
-  $plans_safe_security = esc_url( home_url('/plans_category/safe-security/') );
-  $plans_protect_plus = esc_url( home_url('/plans_category/protect-plus/') );
-  $about = esc_url( home_url('/about-us/') );
-  $information = esc_url( home_url('/information/') );
-  $blog = esc_url( home_url('/blog/') );
-  $voice = esc_url( home_url('/voice/') );
-  $amount = esc_url( home_url('/price/') );
-  $faq = esc_url( home_url('/faq/') );
-  $contact = esc_url( home_url('/contact/') );
-  $sitemap = esc_url( home_url('/sitemap/') );
-  $privacy = esc_url( home_url('/privacy-policy/') );
-  $terms = esc_url( home_url('/terms-of-service/') );
+  $home = esc_url( home_url( '/' ) );
+  $plans = esc_url( home_url( '/plans/' ) );
+  $plans_entry_guard = esc_url( home_url( '/plans_category/entry-guard/' ) );
+  $plans_safe_security = esc_url( home_url( '/plans_category/safe-security/' ) );
+  $plans_protect_plus = esc_url( home_url( '/plans_category/protect-plus/' ) );
+  $about = esc_url( home_url( '/about-us/' ) );
+  $information = esc_url( home_url( '/information/' ) );
+  $blog = esc_url( home_url( '/blog/' ) );
+  $voice = esc_url( home_url( '/voice/' ) );
+  $amount = esc_url( home_url( '/price/' ) );
+  $faq = esc_url( home_url( '/faq/' ) );
+  $contact = esc_url( home_url( '/contact/' ) );
+  $sitemap = esc_url( home_url( '/sitemap/' ) );
+  $privacy = esc_url( home_url( '/privacy-policy/' ) );
+  $terms = esc_url( home_url( '/terms-of-service/' ) );
   ?>
 
   <!-- 下層ページのメインビュー -->
@@ -26,7 +26,7 @@
   </section>
 
   <!-- パンくず -->
-  <?php get_template_part('parts/breadcrumbs'); ?>
+  <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- サイトマップ -->
   <div class="layout-page-site-map page-site-map">
@@ -57,13 +57,13 @@
               <a href="<?php echo $information; ?>" class="footer-nav__left-link footer-nav__left-link--icon-green">身辺警護についての<br class="u-mobile">情報</a>
               <ul class="footer-nav__left-detail-items">
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $information; ?>#tab1" class="footer-nav__left-detail-link">身体を守る防護壁</a>
+                  <a href="<?php echo $information; ?>?tab=tab1" class="footer-nav__left-detail-link">身体を守る防護壁</a>
                 </li>
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $information; ?>#tab2" class="footer-nav__left-detail-link">安心感のサポート</a>
+                  <a href="<?php echo $information; ?>?tab=tab2" class="footer-nav__left-detail-link">安心感のサポート</a>
                 </li>
                 <li class="footer-nav__left-detail-item">
-                  <a href="<?php echo $information; ?>#tab3" class="footer-nav__left-detail-link">危険察知と回避</a>
+                  <a href="<?php echo $information; ?>?tab=tab3" class="footer-nav__left-detail-link">危険察知と回避</a>
                 </li>
               </ul>
             </li>
