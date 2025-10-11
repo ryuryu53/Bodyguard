@@ -34,7 +34,7 @@
             </div>
           </a>
         <!-- wp_reset_postdata()：ループで使用された投稿データをリセットして、WordPressの通常の投稿データに戻す（サブループで使った投稿データは破棄され、メインクエリの投稿データが復元される） -->
-        <?php endwhile; endif; wp_reset_postdata(); ?>
+        <?php endwhile; wp_reset_postdata(); endif; ?>
       </div>
     </div>
 
@@ -79,7 +79,7 @@
             </span>
             <h3 class="review-card__title"><?php the_title(); ?></h3>
           </div>
-        <?php endwhile; endif; wp_reset_postdata(); ?>
+        <?php endwhile; wp_reset_postdata(); endif; ?>
       </div>
       <div class="column-aside__btn">
         <!-- get_post_type_archive_link()：voiceというカスタム投稿タイプのアーカイブページ（口コミの一覧ページ）へのリンクを作成 -->
@@ -91,7 +91,6 @@
 
     <div class="column-aside__plans">
       <h2 class="column-aside__title">ご提供プラン</h2>
-      <ul class="column-aside__items plans-cards">
         <?php
         // 最新のカスタム投稿（plans）の2件を取得するクエリ
         $latest_plans_args = [  // $latest_plans_args：WP_Queryに渡すための条件を設定
@@ -102,48 +101,53 @@
         ];
         // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからご提供プラン投稿を取得
         $latest_plans_query = new WP_Query( $latest_plans_args );
-        // サブループ開始   while文：投稿がある限り、このループで2件のご提供プラン情報を1件ずつ表示
-        if ( $latest_plans_query->have_posts() ) : while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post();
+        if ( $latest_plans_query->have_posts() ) :
         ?>
-          <li class="plans-cards__item plans-card plans-cards__item--blog-page">
+          <ul class="column-aside__items plans-cards">
             <?php
-            $terms = get_the_terms( get_the_ID(), 'plans_category' ); // 現在の投稿に紐付いた'term'を取得
-            if ( $terms && !is_wp_error( $terms ) ) : // タームが存在し、エラーがない場合のみ処理を実行
-              $term = $terms[0];
-              $term_link = get_term_link( $term ); // タームのリンクを取得
+            // サブループ開始   while文：投稿がある限り、このループで2件のご提供プラン情報を1件ずつ表示
+            while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post();
             ?>
-              <a href="<?php echo esc_url( $term_link ); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
-            <?php endif; ?>
-              <picture class="plans-card__img plans-card__img--blog-page colorbox js-colorbox">
-                <?php if ( get_the_post_thumbnail() ) : ?>
-                  <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
-                  <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
-                <?php else : ?>
-                  <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+              <li class="plans-cards__item plans-card plans-cards__item--blog-page">
+                <?php
+                $terms = get_the_terms( get_the_ID(), 'plans_category' ); // 現在の投稿に紐付いた'term'を取得
+                if ( $terms && !is_wp_error( $terms ) ) : // タームが存在し、エラーがない場合のみ処理を実行
+                  $term = $terms[0];
+                  $term_link = get_term_link( $term ); // タームのリンクを取得
+                ?>
+                  <a href="<?php echo esc_url( $term_link ); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
+                    <picture class="plans-card__img plans-card__img--blog-page colorbox js-colorbox">
+                      <?php if ( get_the_post_thumbnail() ) : ?>
+                        <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
+                        <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
+                      <?php else : ?>
+                        <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                      <?php endif; ?>
+                    </picture>
+                    <div class="plans-card__body plans-card__body--blog-page">
+                      <h3 class="plans-card__title plans-card__title--blog-page text--medium"><?php the_title(); ?></h3>
+                      <p class="plans-card__text plans-card__text--blog-page text--small-sp">お一人様</p>
+                      <!-- ご提供プランの価格 -->
+                      <div class="plans-card__price plans-card__price--blog-page">
+                        <?php
+                        $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
+                        $price_before = $plans_price['plans_1'];  // サブフィールドから通常価格を取得
+                        $price_after = $plans_price['plans_2']; // サブフィールドから割引価格を取得
+                        ?>
+                        <?php if ( $price_before ) : ?>
+                          <span class="plans-card__price-before plans-card__price-before--blog-page">&yen;<?php echo esc_html( number_format( intval( $price_before ) ) ); ?></span>
+                        <?php endif; ?>
+                        <?php if ( $price_after ) : ?>
+                          <span class="plans-card__price-after plans-card__price-after--blog-page">&yen;<?php echo esc_html( number_format( intval( $price_after ) ) ); ?></span>
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                  </a>
                 <?php endif; ?>
-              </picture>
-              <div class="plans-card__body plans-card__body--blog-page">
-                <h3 class="plans-card__title plans-card__title--blog-page text--medium"><?php the_title(); ?></h3>
-                <p class="plans-card__text plans-card__text--blog-page text--small-sp">お一人様</p>
-                <!-- ご提供プランの価格 -->
-                <div class="plans-card__price plans-card__price--blog-page">
-                  <?php
-                  $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
-                  $price_before = $plans_price['plans_1'];  // サブフィールドから通常価格を取得
-                  $price_after = $plans_price['plans_2']; // サブフィールドから割引価格を取得
-                  ?>
-                  <?php if ( $price_before ) : ?>
-                    <span class="plans-card__price-before plans-card__price-before--blog-page">&yen;<?php echo esc_html( number_format( intval( $price_before ) ) ); ?></span>
-                  <?php endif; ?>
-                  <?php if ( $price_after ) : ?>
-                    <span class="plans-card__price-after plans-card__price-after--blog-page">&yen;<?php echo esc_html( number_format( intval( $price_after ) ) ); ?></span>
-                  <?php endif; ?>
-                </div>
-              </div>
-            </a>
-          </li>
-        <?php endwhile; endif; wp_reset_postdata(); ?>
-      </ul>
+              </li>
+            <?php endwhile; wp_reset_postdata(); ?>
+          </ul>
+        <?php endif; ?>
       <div class="column-aside__btn-2">
         <!-- get_post_type_archive_link()：ご提供プランのカスタム投稿タイプ（plans）のアーカイブページ（一覧ページ）へのリンクを生成 -->
         <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="button">

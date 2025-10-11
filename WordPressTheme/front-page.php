@@ -84,68 +84,65 @@
       </hgroup>
       <div class="plans__swiper">
         <div class="swiper js-plans-swiper">
-          <ul class="swiper-wrapper plans__items plans-cards">
-            <?php
-              // 最新のカスタム投稿（plans）の8件を取得するクエリ
-              $latest_plans_args = array(  // $latest_plans_args：WP_Queryに渡すための条件を設定
-                'post_type' => 'plans', // カスタム投稿タイプ「plans」の指定
-                'posts_per_page' => 8, // 最新の8件を表示
-                'orderby' => 'date', // 日付順にソート
-                'order' => 'DESC', // 新しいものを先頭に･･･降順（DESC）
-                'post_status' => 'publish' // 公開済みの投稿のみ取得
-              );
-              // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからキャンペーン投稿を取得
-              $latest_plans_query = new WP_Query($latest_plans_args);
+          <?php
+          // 最新のカスタム投稿（plans）の8件を取得するクエリ
+          $latest_plans_args = [  // $latest_plans_args：WP_Queryに渡すための条件を設定
+            'post_type' => 'plans', // カスタム投稿タイプ「plans」の指定
+            'posts_per_page' => 8, // 最新の8件を表示
+            'orderby' => 'date', // 日付順にソート
+            'order' => 'DESC', // 新しいものを先頭に･･･降順（DESC）
+            'post_status' => 'publish' // 公開済みの投稿のみ取得
+          ];
+          // WP_Query：WordPressのクエリ機能を使って、指定した条件でデータベースからキャンペーン投稿を取得
+          $latest_plans_query = new WP_Query( $latest_plans_args );
 
+          if ( $latest_plans_query->have_posts() ) :
+          ?>
+            <ul class="swiper-wrapper plans__items plans-cards">
+              <?php
               // サブループ開始   while文：投稿がある限り、このループで8件のキャンペーン情報を1件ずつ表示
-              if ( $latest_plans_query->have_posts() ) : while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post();
-            ?>
-              <li class="swiper-slide plans-cards__item plans-card">
-                <?php
-                  $terms = get_the_terms(get_the_ID(), 'plans_category'); // 現在の投稿に紐付いた'term'を取得
-                  if ( $terms && !is_wp_error($terms) ) : // タームが存在し、エラーがない場合のみ処理を実行
-                    foreach ($terms as $term) : // 各タームについて繰り返し処理
-                      $term_link = get_term_link($term); // タームのリンクを取得
-                ?>
-                  <a href="<?php echo esc_url($term_link); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
-                <?php endforeach; endif; ?>
-                  <picture class="plans-card__img">
-                    <?php if ( get_the_post_thumbnail() ) : ?>
-                      <source srcset="<?php the_post_thumbnail_url('full'); ?>" type="image/webp">
-                      <img src="<?php the_post_thumbnail_url('full'); ?>" loading="lazy" alt="">
-                    <?php else : ?>
-                      <img src="<?php echo esc_url(get_theme_file_uri()); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
-                    <?php endif; ?>
-                  </picture>
-                  <div class="plans-card__body">
-                    <?php
-                      // カスタムタクソノミー「plans_category」の取得
-                      $terms = get_the_terms(get_the_ID(), 'plans_category');
-                      if ( $terms && !is_wp_error($terms) ) :
-                    ?>
-                      <p class="plans-card__category"><?php echo esc_html($terms[0]->name); ?></p>
-                    <?php endif; ?>
-                    <h3 class="plans-card__title text--medium"><?php the_title(); ?></h3>
-                    <p class="plans-card__text text--small-sp">お一人様</p>
-                    <!-- ご提供プランの価格 -->
-                    <div class="plans-card__price">
-                      <?php
-                        $plans_price = get_field('plans_price');  // グループフィールドからデータを取得
-                        $price_before = $plans_price['plans_1'];  // サブフィールドから日契約の価格を取得
-                        $price_after = $plans_price['plans_2']; // サブフィールドから月契約の価格を取得
-                      ?>
-                      <?php if ( $price_before ) : ?>
-                        <span class="plans-card__price-before">&yen;<?php echo esc_html(number_format(intval($price_before))); ?>/日</span>
-                      <?php endif; ?>
-                      <?php if ( $price_after ) : ?>
-                        <span class="plans-card__price-after">&yen;<?php echo esc_html(number_format(intval($price_after))); ?>/月</span>
-                      <?php endif; ?>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            <?php endwhile; endif; wp_reset_postdata(); ?>
-          </ul>
+              while ( $latest_plans_query->have_posts() ) : $latest_plans_query->the_post();
+              ?>
+                <li class="swiper-slide plans-cards__item plans-card">
+                  <?php
+                  $terms = get_the_terms( get_the_ID(), 'plans_category' ); // 現在の投稿に紐付いた'term'を取得
+                  if ( $terms && ! is_wp_error( $terms ) ) : // タームが存在し、エラーがない場合のみ処理を実行
+                      $term_link = get_term_link( $terms[0] ); // タームのリンクを取得
+                  ?>
+                    <a href="<?php echo esc_url( $term_link ); ?>" class="plans-card__link">  <!-- 詳細投稿ページはなし → その投稿が属するカテゴリーのタブへ飛ぶ -->
+                      <picture class="plans-card__img">
+                        <?php if ( get_the_post_thumbnail() ) : ?>
+                          <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>" type="image/webp">
+                          <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
+                        <?php else : ?>
+                          <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                        <?php endif; ?>
+                      </picture>
+                      <div class="plans-card__body">
+                        <p class="plans-card__category"><?php echo esc_html( $terms[0]->name ); ?></p>
+                        <h3 class="plans-card__title text--medium"><?php the_title(); ?></h3>
+                        <p class="plans-card__text text--small-sp">お一人様</p>
+                        <!-- ご提供プランの価格 -->
+                        <div class="plans-card__price">
+                          <?php
+                          $plans_price = get_field( 'plans_price' );  // グループフィールドからデータを取得
+                          $price_before = $plans_price['plans_1'];  // サブフィールドから日契約の価格を取得
+                          $price_after = $plans_price['plans_2']; // サブフィールドから月契約の価格を取得
+                          ?>
+                          <?php if ( $price_before ) : ?>
+                            <span class="plans-card__price-before">&yen;<?php echo esc_html( number_format( intval( $price_before ) ) ); ?>/日</span>
+                          <?php endif; ?>
+                          <?php if ( $price_after ) : ?>
+                            <span class="plans-card__price-after">&yen;<?php echo esc_html( number_format( intval( $price_after ) ) ); ?>/月</span>
+                          <?php endif; ?>
+                        </div>
+                      </div>
+                    </a>
+                  <?php endif; ?>
+                </li>
+              <?php endwhile; wp_reset_postdata(); ?>
+            </ul>
+          <?php endif; ?>
         </div>
       </div>
       <div class="plans__swiper-btn">
