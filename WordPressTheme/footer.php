@@ -17,9 +17,9 @@
       ?>
 
       <!-- Contact -->
-      <?php if ( !is_page( array( 'contact', 'thanks' ) ) && !is_404() ) : ?>
+      <?php if ( ! is_page( [ 'contact', 'thanks' ] ) && ! is_404() ) : ?>
         <section class="layout-contact<?php
-          if ( !is_front_page() && !is_page( array( 'sitemap' ) ) ) {
+          if ( ! is_front_page() && ! is_page( [ 'sitemap' ] ) ) {
             echo ' layout-contact--sub-page';
           } elseif ( is_page( 'sitemap' ) ) {
             echo ' layout-contact--site-map-page';
@@ -61,7 +61,7 @@
       <?php endif; ?>
 
       <!-- ページトップへ戻るボタン -->
-      <?php if ( !is_404() ) : ?>
+      <?php if ( ! is_404() ) : ?>
         <div class="to-top js-to-top">
           <a href="#top" class="to-top__link" aria-label="ページトップへ戻る"></a>
         </div>
