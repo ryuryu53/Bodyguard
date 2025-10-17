@@ -693,6 +693,18 @@ a {
 	z-index: 2;
 }
 
+.column-article__heading {
+	border-bottom: 0.0625rem solid #3f72af;
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.44;
+	padding-bottom: 0.1875rem;
+}
+
+.column-article__items {
+	margin-top: 1.5rem;
+}
+
 .column-article__wp-pagenavi {
 	margin-top: 5rem;
 }
@@ -1622,6 +1634,15 @@ a {
 .page-link__archive {
 	margin-top: 2.5rem;
 	text-align: center;
+}
+
+.page-plans__heading {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.page-plans__category {
+	margin-top: 1.5rem;
 }
 
 .page-plans__items {
@@ -3504,6 +3525,15 @@ a[href^="tel:"] {
 	margin-top: 5rem;
 }
 
+.column-article__heading {
+	font-size: 2rem;
+	padding-bottom: 0;
+}
+
+.column-article__items {
+	margin-top: 2.5rem;
+}
+
 .column-aside__container {
 	padding-left: 0;
 	padding-right: 0;
@@ -3900,6 +3930,14 @@ a[href^="tel:"] {
 
 .page-contact__thanks-title {
 	padding-top: 0.75rem;
+}
+
+.page-plans__heading {
+	font-size: 2rem;
+}
+
+.page-plans__category {
+	margin-top: 2.5rem;
 }
 
 .page-plans__items {

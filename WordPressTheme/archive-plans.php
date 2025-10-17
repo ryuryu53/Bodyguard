@@ -13,6 +13,7 @@
   <!-- ご提供プラン -->
   <section class="layout-lower-head page-plans">
     <div class="page-plans__inner inner">
+      <h2 class="page-plans__heading">ご提供プランの一覧</h2>
       <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
         <!-- get_post_type_archive_link('plans') →「キャンペーン」というカスタム投稿タイプのアーカイブページ（一覧ページ）のリンクを取得 -->

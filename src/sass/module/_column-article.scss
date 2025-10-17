@@ -1,5 +1,26 @@
 @use "global" as *;
 
+.column-article__heading {
+  padding-bottom: rem(3);
+  font-size: rem(24);
+  font-weight: $medium;
+  line-height: 1.44;
+  border-bottom: rem(1) solid $blueaccent;
+
+  @include mq(md) {
+    padding-bottom: 0;
+    font-size: rem(32);
+  }
+}
+
+.column-article__items {
+  margin-top: rem(24);
+
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
 .column-article__wp-pagenavi {
   margin-top: rem(80);
 }

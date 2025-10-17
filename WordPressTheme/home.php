@@ -11,9 +11,10 @@
   <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- ブログ一覧 -->
-  <div class="layout-lower-head two-column">
+  <section class="layout-lower-head two-column">
     <div class="two-column__inner inner">
       <div class="two-column__article column-article">
+        <h2 class="column-article__heading">ブログ一覧</h2>
         <?php if ( have_posts() ) : ?>
           <div class="column-article__items blog-cards blog-cards--2col">
             <?php while ( have_posts() ) : the_post(); ?>
@@ -68,6 +69,6 @@
         <?php get_sidebar(); ?>
       </aside>
     </div>
-  </div>
+  </section>
 
 <?php get_footer(); ?>

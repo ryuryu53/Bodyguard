@@ -11,8 +11,9 @@
   <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- お客様の声 -->
-  <div class="layout-lower-head page-plans">
+  <section class="layout-lower-head page-plans">
     <div class="page-plans__inner inner">
+      <h2 class="page-plans__heading">お客様の声一覧</h2>
       <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
         <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="plans-category__link">All</a>
@@ -31,8 +32,10 @@
         </a>
         <?php endforeach; endif; ?>
       </div>
+
+      <!-- お客様の声一覧 -->
       <?php if ( have_posts() ) : ?>
-        <div class="page-plans__items voice-cards">
+        <div class="page-plans__items page-plans__items--voice-page voice-cards">
           <?php while ( have_posts() ) : the_post(); ?>
             <article class="voice-cards__item voice-card">
               <div class="voice-card__link">
@@ -86,7 +89,7 @@
         <p>現在、投稿はありません。</p>
       <?php endif; ?>
     </div>
-  </div>
+  </section>
 
   <div class="layout-pagenavi layout-pagenavi--voice-page">
     <?php wp_pagenavi(); ?>
