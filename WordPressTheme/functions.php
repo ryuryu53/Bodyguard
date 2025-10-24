@@ -778,3 +778,23 @@ function my_login_text_color_adjust() {
   <?php
 }
 add_action( 'login_head', 'my_login_text_color_adjust' );
+
+/* --------------------------------------------
+ *   管理者ログイン中だけ ?internal=internal を自動付与
+ * -------------------------------------------- */
+function add_internal_param_for_logged_in_user() {
+  // WPにログインしているユーザーで管理者（Administrator）のみ対象
+  if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+    // 現在のURLを取得
+    $current_url = home_url( add_query_arg( null, null ) );
+
+    // すでに internal=internal が付いていなければリダイレクト
+    if ( strpos( $current_url, 'internal=internal' ) === false ) {
+      $separator = strpos( $current_url, '?' ) === false ? '?' : '&';
+      wp_safe_redirect( $current_url . $separator . 'internal=internal' );
+      exit;
+    }
+  }
+}
+// template_redirect：WPがテンプレートを読み込む直前（ページのテンプレートが表示される直前）に走るアクションフック
+add_action( 'template_redirect', 'add_internal_param_for_logged_in_user' );
