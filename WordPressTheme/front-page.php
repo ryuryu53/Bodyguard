@@ -68,10 +68,10 @@
           ?>
         </div>
       </div>
-      <div class="mv__header js-mv-header">
+      <hgroup class="mv__header js-mv-header">
         <h2 class="mv__title">stay&nbsp;safe</h2>
         <p class="mv__subtitle">with&nbsp;professional&nbsp;security</p>
-      </div>
+      </hgroup>
     </div>
   </section>
 
