@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .plans {
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .plans__inner {
@@ -28,7 +28,7 @@
 .plans__btn-next,
 .plans__btn-prev {
   position: absolute;
-  top: 23px; // rem(23)だと幅1015px以下で円の頭が切れてくる
+  top: rem(23);
   width: rem(80);
   height: rem(80);
   transition: opacity 0.3s;

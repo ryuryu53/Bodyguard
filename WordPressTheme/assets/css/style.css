@@ -2074,7 +2074,7 @@ a {
 }
 
 .plans {
-	overflow: hidden;
+	overflow-x: clip;
 }
 
 .plans__inner {
@@ -2094,7 +2094,7 @@ a {
 .plans__btn-prev {
 	height: 5rem;
 	position: absolute;
-	top: 23px;
+	top: 1.4375rem;
 	transition: opacity 0.3s;
 	width: 5rem;
 }
