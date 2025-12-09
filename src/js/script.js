@@ -42,6 +42,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       // xマークを三マークにする（.js-hamburgerの要素にクラス名is-activeがあれば削除する）
       $('.js-hamburger').removeClass('is-active');
 
+      // 背景スクロール禁止を解除
+      $('body, html').css('overflow', 'auto');
+
       // .js-sp-navを閉じる（.js-sp-navが表示されていれば非表示にする）
       $('.js-sp-nav').fadeOut(300);
     }
