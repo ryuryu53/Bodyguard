@@ -1067,7 +1067,7 @@ a {
 	margin-top: 2.5rem;
 }
 
-.hamburger {
+.hamburger[type=button] {
 	height: 2rem;
 	outline: revert;
 	padding: 0;

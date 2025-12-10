@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.hamburger {
+.hamburger[type="button"] {
   position: absolute;
   top: rem(23);
   right: rem(14);

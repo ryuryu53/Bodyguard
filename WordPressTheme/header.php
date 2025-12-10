@@ -63,7 +63,7 @@
             <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/hf-logo.svg" alt="Bodyguard">
           </a>
         </<?php echo $tag; ?>>
-        <button class="header__drawer hamburger js-hamburger" aria-label="メニューを開く">
+        <button class="header__drawer hamburger js-hamburger" type="button" aria-label="メニューを開く">
           <span></span>
           <span></span>
           <span></span>
