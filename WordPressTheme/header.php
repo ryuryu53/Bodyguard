@@ -63,12 +63,53 @@
             <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/hf-logo.svg" alt="Bodyguard">
           </a>
         </<?php echo $tag; ?>>
-        <button class="header__drawer hamburger js-hamburger" type="button" aria-label="メニューを開く">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="header__pc-nav pc-nav" aria-label="ヘッダーナビゲーション">
+        <div class="header__hamburger">
+          <button class="hamburger js-hamburger" type="button" aria-controls="drawer-nav" aria-expanded="false">
+            <span class="hamburger__line">
+              <span class="u-visually-hidden">メニューを開閉する</span>
+            </span>
+          </button>
+        </div>
+        <nav class="header__sp-nav sp-nav js-sp-nav" id="drawer-nav" aria-label="ヘッダーナビゲーション" aria-hidden="true">
+          <div class="sp-nav__inner">
+            <ul class="sp-nav__items">
+              <li class="sp-nav__item">
+                <a href="<?php echo $plans; ?>" class="sp-nav__link">ご提供プラン</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $about; ?>" class="sp-nav__link">私たちについて</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $information; ?>" class="sp-nav__link">身辺警護についての情報</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $blog; ?>" class="sp-nav__link">ブログ</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $voice; ?>" class="sp-nav__link">お客様の声</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $amount; ?>" class="sp-nav__link">料金一覧</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $faq; ?>" class="sp-nav__link">よくある質問</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $privacy; ?>" class="sp-nav__link">プライバシーポリシー</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $terms; ?>" class="sp-nav__link">利用規約</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $contact; ?>" class="sp-nav__link">お問い合わせ</a>
+              </li>
+              <li class="sp-nav__item">
+                <a href="<?php echo $sitemap; ?>" class="sp-nav__link">サイトマップ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <nav class="header__pc-nav pc-nav js-pc-nav" aria-label="ヘッダーナビゲーション" aria-hidden="true">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="<?php echo $plans; ?>" class="pc-nav__link">
@@ -119,45 +160,6 @@
               </a>
             </li>
           </ul>
-        </nav>
-        <nav class="header__sp-nav sp-nav js-sp-nav" aria-label="モバイル版ヘッダーナビゲーション">
-          <div class="sp-nav__inner">
-            <ul class="sp-nav__items">
-              <li class="sp-nav__item">
-                <a href="<?php echo $plans; ?>" class="sp-nav__link">ご提供プラン</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $about; ?>" class="sp-nav__link">私たちについて</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $information; ?>" class="sp-nav__link">身辺警護についての情報</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $blog; ?>" class="sp-nav__link">ブログ</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $voice; ?>" class="sp-nav__link">お客様の声</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $amount; ?>" class="sp-nav__link">料金一覧</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $faq; ?>" class="sp-nav__link">よくある質問</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $privacy; ?>" class="sp-nav__link">プライバシーポリシー</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $terms; ?>" class="sp-nav__link">利用規約</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $contact; ?>" class="sp-nav__link">お問い合わせ</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="<?php echo $sitemap; ?>" class="sp-nav__link">サイトマップ</a>
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
     </header>

@@ -21,34 +21,83 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
-   *   ドロワーメニュー
+   *  ドロワーメニューの開閉 + ARIA属性の切り替え
    * -------------------------------------------- */
-  $(".js-hamburger, .js-sp-nav").click(function () {
-    if ($(".js-hamburger").hasClass('is-active')) {
-      $(".js-hamburger").removeClass("is-active");
-      $('body, html').css('overflow', 'auto');
-      $(".js-sp-nav").fadeOut(300);
-    } else {
-      $(".js-hamburger").addClass("is-active");
-      $('body, html').css('overflow', 'hidden'); // 動画レビュー：ドロワーを開いたときは後ろがスクロールしないようにする
-      $(".js-sp-nav").fadeIn(300);
-    }
-  });
 
-  // 画面幅のサイズが変わったら
+  var $hamburger = $('.js-hamburger');
+  var $drawer = $('.js-sp-nav');
+  if ($hamburger.length && $drawer.length) {
+    // ハンバーガーとドロワーをどちらをクリックしても同じ動きにする
+    $('.js-hamburger, .js-sp-nav').on('click', function () {
+      // 現在の状態（開いているか閉じているか）を取得
+      var isActive = $hamburger.hasClass('is-active');
+      var isExpanded = $hamburger.attr('aria-expanded') === 'true';
+
+      // 1) is-active クラスの切り替え
+      $hamburger.toggleClass('is-active');
+
+      // 2) ARIA属性の更新（アクセシビリティ対応）
+      $hamburger.attr('aria-expanded', (!isExpanded).toString());
+      $drawer.attr('aria-hidden', isExpanded.toString());
+
+      // 3) スクロール制御とドロワーの表示切り替え
+      if (isActive) {
+        $('body, html').css('overflow', 'auto');
+        $drawer.fadeOut(300);
+      } else {
+        $('body, html').css('overflow', 'hidden'); // 背景スクロール禁止
+        $drawer.fadeIn(300);
+      }
+    });
+  }
+
+  // 画面幅が768px以上になったらドロワーを閉じる（ドロワーを開いたまま画面幅を広げていった場合を想定）
   $(window).on('resize', function () {
-    // FB：追加 ∵iOSでは縦スクロールすると画面幅が変わったと認識してresizeイベントが作動してしまう
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      // xマークを三マークにする（.js-hamburgerの要素にクラス名is-activeがあれば削除する）
-      $('.js-hamburger').removeClass('is-active');
+    // $hamburger と $drawer が存在しない場合は何もしない
+    if (!$hamburger.length || !$drawer.length) return;
 
-      // 背景スクロール禁止を解除
-      $('body, html').css('overflow', 'auto');
+    // 768px以上になったときのみ実行（iOSでは縦スクロールすると画面幅が変わったと認識してresizeイベントが作動してしまう）
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      // 現在の状態（open = true / close = false）
+      var isExpanded = $hamburger.attr('aria-expanded') === 'true';
 
-      // .js-sp-navを閉じる（.js-sp-navが表示されていれば非表示にする）
-      $('.js-sp-nav').fadeOut(300);
+      // メニューが開いているときのみ閉じる処理を実行
+      if (isExpanded || $hamburger.hasClass('is-active')) {
+        // 1) ハンバーガーの状態リセット
+        $hamburger.removeClass('is-active');
+        $hamburger.attr('aria-expanded', 'false');
+
+        // 2) ドロワーナビの状態リセット
+        $drawer.fadeOut(300);
+        $drawer.attr('aria-hidden', 'true');
+
+        // 3) 背景スクロール禁止を解除
+        $('body, html').css('overflow', 'auto');
+      }
     }
   });
+
+  /* --------------------------------------------
+   *   画面幅による aria-hidden の切り替え（SPはドロワーメニューの開閉で切り替えるので、PCのみ）
+   * -------------------------------------------- */
+  var $pcNav = $('.js-pc-nav');
+  // これは（ ↓ ）今、PC表示なのかSP表示なのかを判定する装置
+  var mq = window.matchMedia('(min-width: 768px)');
+  function updateAria(e) {
+    if (e.matches) {
+      // PC表示（768px以上）
+      $pcNav.attr('aria-hidden', 'false');
+    } else {
+      // SP表示（768px未満）
+      $pcNav.attr('aria-hidden', 'true');
+    }
+  }
+
+  // 初回実行（ページ読み込み直後に一度実行）
+  updateAria(mq);
+
+  // リサイズ時（条件（min-width: 768px）をまたいだ瞬間）も実行
+  mq.addEventListener('change', updateAria);
 
   /* --------------------------------------------
    *   mvスワイパー

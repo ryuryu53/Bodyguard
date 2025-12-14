@@ -14,6 +14,21 @@ html {
 
 /* pcの電話番号発信対応（追加 25.8.5） */
 
+/* 表示はしたくないがスクリーンリーダーに読み上げはしてほしいときに使用 */
+
+.u-visually-hidden {
+	-webkit-clip-path: inset(50% 50% 50% 50%);
+	border: 0;
+	clip-path: inset(50% 50% 50% 50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
 *,
 *::before,
 *::after {
@@ -1071,52 +1086,60 @@ a {
 	height: 2rem;
 	outline: revert;
 	padding: 0;
-	position: absolute;
-	right: 0.875rem;
-	top: 1.4375rem;
+	position: relative;
 	width: 2.0625rem;
 	z-index: 100;
 }
 
-.hamburger span {
+.hamburger__line {
 	background-color: #fff;
+	bottom: 0;
 	height: 0.0625rem;
+	left: 0;
+	margin: auto;
 	position: absolute;
 	right: 0;
-	transition: transform 0.3s, top 0.3s, right 0.3s, width 0.3s;
+	top: 0;
+	transition: background-color 0.3s ease-in-out;
 	width: inherit;
 }
 
-.hamburger span:first-child {
-	top: 15%;
+.hamburger__line::before,
+.hamburger__line::after {
+	background-color: #fff;
+	content: "";
+	height: 100%;
+	position: absolute;
+	right: 0;
+	transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, right 0.3s ease-in-out, width 0.3s ease-in-out;
+	width: 100%;
 }
 
-.hamburger span:nth-child(2) {
-	opacity: 1;
-	top: 53%;
-	transition: opacity 0.3s;
+.hamburger__line::before {
+	top: -0.75rem;
 }
 
-.hamburger span:nth-child(3) {
-	top: 91%;
+.hamburger__line::after {
+	top: 0.75rem;
 }
 
-.hamburger.is-active span:first-child {
-	right: -0.25rem;
-	top: 53%;
+.hamburger.is-active .hamburger__line {
+	background-color: transparent;
+}
+
+.hamburger.is-active .hamburger__line::before,
+.hamburger.is-active .hamburger__line::after {
+	right: -0.3125rem;
+	top: 0;
+	width: 2.5625rem;
+}
+
+.hamburger.is-active .hamburger__line::before {
 	transform: rotate(36.87deg);
-	width: 2.5625rem;
 }
 
-.hamburger.is-active span:nth-child(2) {
-	opacity: 0;
-}
-
-.hamburger.is-active span:nth-child(3) {
-	right: -0.25rem;
-	top: 53%;
+.hamburger.is-active .hamburger__line::after {
 	transform: rotate(-36.87deg);
-	width: 2.5625rem;
 }
 
 .header {
@@ -1137,9 +1160,7 @@ a {
 }
 
 .header__logo {
-	align-items: center;
-	display: flex;
-	height: inherit;
+	padding-top: 0.3125rem;
 	position: relative;
 	z-index: 100;
 }
@@ -1155,6 +1176,11 @@ a {
 	-o-object-fit: cover;
 	height: 100%;
 	object-fit: cover;
+}
+
+.header__hamburger {
+	margin-left: auto;
+	padding-top: 0.3125rem;
 }
 
 .header__pc-nav {
@@ -3753,7 +3779,7 @@ a[href^="tel:"] {
 	width: 12.5rem;
 }
 
-.header__drawer {
+.header__hamburger {
 	display: none;
 }
 

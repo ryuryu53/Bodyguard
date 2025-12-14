@@ -1,57 +1,68 @@
 @use "global" as *;
 
 .hamburger[type="button"] {
-  position: absolute;
-  top: rem(23);
-  right: rem(14);
+  position: relative;
   z-index: 100;
   width: rem(33);
   height: rem(32);
   padding: 0;
   outline: revert;  // _reset.scssに outline: none; があるため、ここだけその影響を打ち消しデフォルトのフォーカスリングに戻す
+  // transition: all 0.3s ease-in-out;
 }
 
-// .hamburger:focus {
-//   outline: rem(2) solid #391E88;
-// }
-
-.hamburger span {
+.hamburger__line {
   position: absolute;
+  top: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   width: inherit;
   height: rem(1);
+  margin: auto;
   background-color: $white;
-  transition: transform 0.3s, top 0.3s, right 0.3s, width 0.3s;
+  transition: background-color 0.3s ease-in-out;
+  // transition: inherit;
 }
 
-.hamburger span:first-child {
-  top: 15%;
+.hamburger__line::before,
+.hamburger__line::after {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: $white;
+  transition: transform 0.3s ease-in-out,
+              top 0.3s ease-in-out,
+              right 0.3s ease-in-out,
+              width 0.3s ease-in-out;
+  // transition: inherit;
 }
 
-.hamburger span:nth-child(2) {
-  top: 53%;
-  opacity: 1;
-  transition: opacity 0.3s;
+.hamburger__line::before {
+  top: rem(-12);
 }
 
-.hamburger span:nth-child(3) {
-  top: 91%;
+.hamburger__line::after {
+  top: rem(12);
 }
 
-.hamburger.is-active span:first-child {
-  top: 53%;
-  right: rem(-4);
+.hamburger.is-active .hamburger__line {
+  // opacity: 0;  // ここで0にすると疑似要素は1にしても消えたままになってしまう。よって、transparentを使う
+  background-color: transparent;
+}
+
+.hamburger.is-active .hamburger__line::before,
+.hamburger.is-active .hamburger__line::after {
+  top: 0;
+  right: rem(-5);
   width: rem(41);
+}
+
+.hamburger.is-active .hamburger__line::before {
   transform: rotate(36.87deg);
 }
 
-.hamburger.is-active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.is-active span:nth-child(3) {
-  top: 53%;
-  right: rem(-4);
-  width: rem(41);
+.hamburger.is-active .hamburger__line::after {
   transform: rotate(-36.87deg);
 }

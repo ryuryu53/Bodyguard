@@ -17,8 +17,6 @@
   padding: 0 rem(15);
 
   @include mq(md) {
-    // max-width: rem(1440);  FB：左右にくっつける（max-widthの設定不要）
-    // margin: auto;
     padding: 0 rem(40);
   }
 }
@@ -26,13 +24,14 @@
 .header__logo {
   position: relative;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  height: inherit;
+  // display: flex;
+  // align-items: center;
+  // height: inherit;
+  padding-top: rem(5);
 
   @include mq(md) {
     left: rem(-4);
-    padding-top: rem(7);  // align-items: center;だけではズレが大きいのでpaddingで調整
+    padding-top: rem(7);
   }
 }
 
@@ -53,7 +52,10 @@
   object-fit: cover;
 }
 
-.header__drawer {
+.header__hamburger {
+  margin-left: auto;
+  padding-top: rem(5);
+
   @include mq(md) {
     display: none;
   }
