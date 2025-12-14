@@ -3766,17 +3766,12 @@ a[href^="tel:"] {
 }
 
 .header__inner {
-	padding: 0 2.5rem;
+	padding: 0 1.25rem;
 }
 
 .header__logo {
 	left: -0.25rem;
 	padding-top: 0.4375rem;
-}
-
-.header__logo-link {
-	aspect-ratio: 200/50;
-	width: 12.5rem;
 }
 
 .header__hamburger {
@@ -4542,6 +4537,19 @@ a[href^="tel:"] {
 
 .wp-pagenavi .page.larger.u-desktop {
 	display: inline-flex;
+}
+
+}
+
+@media screen and (min-width: 1024px) {
+
+.header__inner {
+	padding: 0 1.5625rem;
+}
+
+.header__logo-link {
+	aspect-ratio: 200/50;
+	width: 12.5rem;
 }
 
 }
