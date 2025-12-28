@@ -76,7 +76,7 @@ textarea {
 	/*↓↓選択されているときの色*/
 	&:focus {
 		border: 1px solid $border-cr;
-		background-color: #7fffd4;
+		background-color: #e0ffff;
 	}
 }
 [type="tel"] {
@@ -235,6 +235,7 @@ select {
 	background-repeat: no-repeat;
 	&:focus {
 		border: 1px solid $border-cr;
+		background-color: #e0ffff;
 	}
 }
 

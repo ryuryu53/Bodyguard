@@ -2790,7 +2790,7 @@ textarea {
 [type=password]:focus,
 [type=date]:focus,
 textarea:focus {
-	background-color: #7fffd4;
+	background-color: #e0ffff;
 	border: 1px solid #391E88;
 }
 
@@ -2925,6 +2925,7 @@ select {
 }
 
 select:focus {
+	background-color: #e0ffff;
 	border: 1px solid #391E88;
 }
 
