@@ -206,10 +206,10 @@ button,
 
 		}
 	}
-}
 
-[type="checkbox"]:focus + span::before {
-  outline: 1px solid #391E88;
+	&:focus + span::before {
+		border: 1px solid $border-cr;
+	}
 }
 
 select {

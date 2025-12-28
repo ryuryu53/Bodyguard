@@ -45,6 +45,7 @@
   ?>
 
   <body>
+    <?php wp_body_open(); ?>
     <?php if ( strpos( $_SERVER['HTTP_HOST'], 'ryuryu53.cloudfree.jp' ) !== false ) : ?>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4H6P2QP"
