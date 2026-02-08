@@ -21,11 +21,13 @@ jQuery(function ($) {
   });
 
   /* --------------------------------------------
-   *  ドロワーメニューの開閉 + ARIA属性の切り替え
+   *  ドロワーメニューの開閉 + ARIA属性の切り替え + inert属性の設定
    * -------------------------------------------- */
-
   var $hamburger = $('.js-hamburger');
   var $drawer = $('.js-sp-nav');
+  var $pcNav = $('.js-pc-nav');
+  var $main = $('.js-main');
+  var $footer = $('.js-footer');
   if ($hamburger.length && $drawer.length) {
     // ハンバーガーとドロワーをどちらをクリックしても同じ動きにする
     $('.js-hamburger, .js-sp-nav').on('click', function () {
@@ -44,9 +46,19 @@ jQuery(function ($) {
       if (isActive) {
         $('body, html').css('overflow', 'auto');
         $drawer.fadeOut(300);
+
+        // inert属性を削除（フォーカスを有効化）
+        $pcNav.removeAttr('inert');
+        $main.removeAttr('inert');
+        $footer.removeAttr('inert');
       } else {
         $('body, html').css('overflow', 'hidden'); // 背景スクロール禁止
         $drawer.fadeIn(300);
+
+        // inert属性を設定（フォーカスを無効化）
+        $pcNav.attr('inert', '');
+        $main.attr('inert', '');
+        $footer.attr('inert', '');
       }
     });
   }
@@ -73,6 +85,11 @@ jQuery(function ($) {
 
         // 3) 背景スクロール禁止を解除
         $('body, html').css('overflow', 'auto');
+
+        // 4) inert属性を削除（フォーカスを有効化）
+        $pcNav.removeAttr('inert');
+        $main.removeAttr('inert');
+        $footer.removeAttr('inert');
       }
     }
   });
@@ -80,7 +97,6 @@ jQuery(function ($) {
   /* --------------------------------------------
    *   画面幅による aria-hidden の切り替え（SPはドロワーメニューの開閉で切り替えるので、PCのみ）
    * -------------------------------------------- */
-  var $pcNav = $('.js-pc-nav');
   // これは（ ↓ ）今、PC表示なのかSP表示なのかを判定する装置
   var mq = window.matchMedia('(min-width: 768px)');
   function updateAria(e) {

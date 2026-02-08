@@ -12,7 +12,7 @@ html {
 	font-size: 16px;
 }
 
-/* pcの電話番号発信対応（追加 25.8.5） */
+/* pcの電話番号発信対応 */
 
 /* 表示はしたくないがスクリーンリーダーに読み上げはしてほしいときに使用 */
 
@@ -3278,6 +3278,15 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	display: none;
 }
 
+@media (hover: hover) and (pointer: fine) {
+
+a[href^="tel:"] {
+	cursor: default;
+	pointer-events: none;
+}
+
+}
+
 @media (any-hover: hover) {
 
 .article-card:hover .article-card__img img {
@@ -3327,11 +3336,6 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 
 html {
 	font-size: 1.4814814815vw;
-}
-
-a[href^="tel:"] {
-	cursor: default;
-	pointer-events: none;
 }
 
 .layout-about {
