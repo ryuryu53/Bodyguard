@@ -36,26 +36,26 @@
 
   <!-- ギャラリー -->
   <?php
-    // SCFから「gallery」グループ内の繰り返しフィールドを取得（現在の投稿IDに紐付いたデータ）
-    // 「gallery」というグループ名で繰り返しフィールドのデータを取得
-    $gallery_images = SCF::get( 'gallery', get_the_ID() );
+  // SCFから「gallery」グループ内の繰り返しフィールドを取得（現在の投稿IDに紐付いたデータ）
+  // 「gallery」というグループ名で繰り返しフィールドのデータを取得
+  $gallery_images = SCF::get( 'gallery', get_the_ID() );
 
-    // 画像が1枚以上あるかどうかを確認するためのフラグ
-    $has_image = false;
+  // 画像が1枚以上あるかどうかを確認するためのフラグ
+  $has_image = false;
 
-    // 繰り返しフィールドが空でないかをチェック
-    if ( ! empty( $gallery_images ) ) {
-      // 各ギャラリー画像のフィールドを確認し、画像があるかをチェック
-      foreach ( $gallery_images as $image ) {
-        if ( ! empty( $image['image'] ) ) {
-          $has_image = true;
-          break; // 1つでも画像があればループを終了
-        }
+  // 繰り返しフィールドが空でないかをチェック
+  if ( ! empty( $gallery_images ) ) {
+    // 各ギャラリー画像のフィールドを確認し、画像があるかをチェック
+    foreach ( $gallery_images as $image ) {
+      if ( ! empty( $image['image'] ) ) {
+        $has_image = true;
+        break; // 1つでも画像があればループを終了
       }
     }
+  }
 
-    // 画像がある場合のみセクションを表示
-    if ( $has_image ) :
+  // 画像がある場合のみセクションを表示
+  if ( $has_image ) :
   ?>
     <section class="layout-gallery gallery">
       <div class="gallery__inner inner">
@@ -65,7 +65,7 @@
         </hgroup>
         <div class="gallery__items-wrap">
           <div class="gallery__items gallery-photo">
-          <?php
+            <?php
             // 画像が登録されている場合にループで表示
             foreach ( $gallery_images as $image ) :
 
@@ -79,14 +79,14 @@
               // true：一つの値だけが返される（falseだと複数の値が配列として返される）
               $image_alt = get_post_meta( $image['image'], '_wp_attachment_image_alt', true ); // 画像のalt属性
             ?>
-            <div class="gallery-photo__item">
-              <picture class="gallery-photo__img js-modal-open">
-                <!-- WebP画像 -->
-                <!-- <source srcset="<?php echo esc_url( $image_url_webp ); ?>" type="image/webp"> -->
-                <!-- 通常のJPG画像 → webpまたはjpgと分けなくてよい、1種類でOK -->
-                <img src="<?php echo esc_url( $image_url ); ?>" loading="lazy" alt="<?php echo esc_attr( $image_alt ); ?>">
-              </picture>
-            </div>
+              <div class="gallery-photo__item">
+                <picture class="gallery-photo__img js-modal-open">
+                  <!-- WebP画像 -->
+                  <!-- <source srcset="<?php echo esc_url( $image_url_webp ); ?>" type="image/webp"> -->
+                  <!-- 通常のJPG画像 → webpまたはjpgと分けなくてよい、1種類でOK -->
+                  <img src="<?php echo esc_url( $image_url ); ?>" loading="lazy" alt="<?php echo esc_attr( $image_alt ); ?>">
+                </picture>
+              </div>
             <?php endforeach; ?>
           </div>
         </div>

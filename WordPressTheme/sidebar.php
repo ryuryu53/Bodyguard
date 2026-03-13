@@ -25,7 +25,7 @@
                 <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
                 <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
               <?php else : ?>
-                <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
               <?php endif; ?>
             </picture>
             <div class="article-card__body">
@@ -59,7 +59,7 @@
               <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
               <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
             <?php else : ?>
-              <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+              <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
             <?php endif; ?>
           </picture>
           <div class="review-card__body">
@@ -121,7 +121,7 @@
                         <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>">
                         <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
                       <?php else : ?>
-                        <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                        <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
                       <?php endif; ?>
                     </picture>
                     <div class="plans-card__body plans-card__body--blog-page">

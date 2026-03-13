@@ -115,7 +115,7 @@
                           <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>" type="image/webp">
                           <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
                         <?php else : ?>
-                          <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                          <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
                         <?php endif; ?>
                       </picture>
                       <div class="plans-card__body">
@@ -234,7 +234,7 @@
                   <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>" type="image/webp">
                   <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
                 <?php else : ?>
-                  <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                  <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
                 <?php endif; ?>
               </picture>
               <div class="blog-card__body">
@@ -324,13 +324,13 @@
                         <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>" type="image/webp">
                         <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
                       <?php else : ?>
-                        <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                        <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
                       <?php endif; ?>
                     </picture>
                   </div>
                 </div>
                 <?php if ( get_field( 'voice_3' ) ) : ?>
-                  <p class="voice-card__text text--black-sp"><?php the_field( 'voice_3' ); ?></p>
+                  <p class="voice-card__text text--black-sp"><?php echo nl2br( esc_html( get_field( 'voice_3' ) ) ); ?></p>
                 <?php endif; ?>
               </a>
             <?php endif; ?>

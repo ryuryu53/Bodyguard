@@ -47,7 +47,7 @@
                     <source srcset="<?php the_post_thumbnail_url( 'full' ); ?>" type="image/webp">
                     <img src="<?php the_post_thumbnail_url( 'full' ); ?>" loading="lazy" alt="">
                   <?php else : ?>
-                    <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="noimage">
+                    <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/noimage.png" loading="lazy" alt="">
                   <?php endif; ?>
                 </picture>
                 <div class="plans-card__body plans-card__body--sub-page">
@@ -79,7 +79,7 @@
                   <div class="plans-card__information u-desktop">
                     <!-- プランの内容 -->
                     <?php if ( get_field( 'plans_3' ) ) : ?>
-                      <p class="plans-card__information-text"><?php the_field( 'plans_3' ); ?></p>
+                      <p class="plans-card__information-text"><?php echo nl2br( esc_html( get_field( 'plans_3' ) ) ); ?></p>
                     <?php endif; ?>
                     <!-- プランの適用期間 -->
                     <div class="plans-card__information-period">

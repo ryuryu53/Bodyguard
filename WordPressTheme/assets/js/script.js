@@ -8,9 +8,9 @@ jQuery(function ($) {
   var header = $('.js-header');
   var headerheight = $('.js-header').height();
   var height = $('.js-mv-height').height();
-  console.log('ヘッダーの高さ：' + headerheight);
-  console.log('メインビューの高さ：' + height);
-  console.log(height - headerheight);
+  // console.log('ヘッダーの高さ：' + headerheight);
+  // console.log('メインビューの高さ：' + height);
+  // console.log(height - headerheight);
   // ヘッダークラス名付与
   $(window).scroll(function () {
     if ($(this).scrollTop() > height - headerheight) {

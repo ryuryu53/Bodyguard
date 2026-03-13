@@ -7,9 +7,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   let header = $('.js-header');
   let headerheight = $('.js-header').height();
   let height = $('.js-mv-height').height();
-  console.log('ヘッダーの高さ：' + headerheight);
-  console.log('メインビューの高さ：' + height);
-  console.log(height - headerheight);
+  // console.log('ヘッダーの高さ：' + headerheight);
+  // console.log('メインビューの高さ：' + height);
+  // console.log(height - headerheight);
   // ヘッダークラス名付与
   $(window).scroll(function () {
     if ($(this).scrollTop() > (height - headerheight)) {
