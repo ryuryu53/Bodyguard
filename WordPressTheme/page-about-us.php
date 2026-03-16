@@ -80,21 +80,30 @@
               $image_alt = get_post_meta( $image['image'], '_wp_attachment_image_alt', true ); // 画像のalt属性
             ?>
               <div class="gallery-photo__item">
-                <picture class="gallery-photo__img js-modal-open">
-                  <!-- WebP画像 -->
-                  <!-- <source srcset="<?php echo esc_url( $image_url_webp ); ?>" type="image/webp"> -->
-                  <!-- 通常のJPG画像 → webpまたはjpgと分けなくてよい、1種類でOK -->
-                  <img src="<?php echo esc_url( $image_url ); ?>" loading="lazy" alt="<?php echo esc_attr( $image_alt ); ?>">
-                </picture>
+                <button class="gallery-photo__button js-modal-open" type="button">
+                  <picture class="gallery-photo__img">
+                    <!-- WebP画像 -->
+                    <!-- <source srcset="<?php echo esc_url( $image_url_webp ); ?>" type="image/webp"> -->
+                    <!-- 通常のJPG画像 → webpまたはjpgと分けなくてよい、1種類でOK -->
+                    <img src="<?php echo esc_url( $image_url ); ?>" loading="lazy" alt="<?php echo esc_attr( $image_alt ); ?>">
+                  </picture>
+                </button>
               </div>
             <?php endforeach; ?>
           </div>
         </div>
       </div>
       <!-- モーダル -->
-      <div class="gallery__modal modal js-modal">
+      <div
+        class="gallery__modal modal js-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-live="polite"
+        tabindex="-1"
+      >
         <div class="modal__img">
-          <img src="" loading="lazy" alt="モーダル画像">
+          <img class="js-modal-img" src="" loading="lazy" alt="モーダル画像">
         </div>
       </div>
     </section>

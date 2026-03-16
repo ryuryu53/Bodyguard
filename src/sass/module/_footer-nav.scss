@@ -16,6 +16,7 @@
 
 .footer-nav__left-content--width {
   width: 54.2%;
+
   @include mq(md) {
     width: 54.9%;
   }
@@ -33,6 +34,7 @@
 
 .footer-nav__right-content--width {
   width: 43.5%;
+
   @include mq(md) {
     width: 45%;
   }
@@ -46,6 +48,7 @@
 
 .footer-nav__left-items:nth-child(2) {
   margin-top: rem(2);
+
   @include mq(md) {
     width: 47%;
     margin-top: 0;
@@ -74,6 +77,7 @@
 .footer-nav__right-item {
   font-size: rem(14);
   color: $white;
+
   @include mq(md) {
     font-size: rem(16);
   }
@@ -94,6 +98,7 @@
   display: block;
   font-weight: $bold;
   padding: rem(17) 0 rem(15) rem(22);
+
   @include mq(md) {
     padding-top: rem(17);
   }

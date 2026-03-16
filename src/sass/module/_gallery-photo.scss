@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr; // SP版では画像のサイズを同じにする（優劣をつけない）
   gap: rem(8);
+
   @include mq(md) {
     grid-template-columns:492fr 80fr 492fr;
     grid-template-rows: repeat(4, 369fr);
@@ -27,11 +28,18 @@
   }
 }
 
+.gallery-photo__button[type="button"] {
+  display: block;
+  padding: 0;
+  outline: revert;
+}
+
 .gallery-photo__img {
   display: block;
   aspect-ratio: 345 / 219;
   overflow: hidden;
   cursor: pointer;
+
   @include mq(md) {
     aspect-ratio: 580 / 369;
   }
@@ -53,6 +61,7 @@
 .gallery-photo__item:nth-child(6n+1) .gallery-photo__img img,
 .gallery-photo__item:nth-child(6n+6) .gallery-photo__img img {
   object-position: left top;
+
   @include mq(md) {
     object-position: 50% 50%;
   }

@@ -148,12 +148,12 @@ const jsBabel = () => {
           errorHandler: notify.onError("Error: <%= error.message %>"),
         })
       )
-      // Babelでトランスパイル（ES6からES5へ変換）
-      .pipe(
-        babel({
-          presets: ["@babel/preset-env"],
-        })
-      )
+      // Babelでトランスパイル（ES6からES5へ変換）→ Babelの処理を無効化（ES6構文をそのまま出力）
+      // .pipe(
+      //   babel({
+      //     presets: ["@babel/preset-env"],
+      //   })
+      // )
       // 圧縮済みのファイルを出力先に保存
       .pipe(dest(destPath.js))
       .pipe(dest(destWpPath.js))

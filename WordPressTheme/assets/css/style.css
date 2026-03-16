@@ -1055,6 +1055,12 @@ a {
 	grid-template-columns: 1fr 1fr;
 }
 
+.gallery-photo__button[type=button] {
+	display: block;
+	outline: revert;
+	padding: 0;
+}
+
 .gallery-photo__img {
 	aspect-ratio: 345/219;
 	cursor: pointer;

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
   /* --------------------------------------------
@@ -151,8 +151,8 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       disableOnInteraction: false   // falseを設定すると、自動再生はユーザーの操作（スワイプ）後に無効にならず、操作後に毎回再起動される
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
     }
   });
 
@@ -192,7 +192,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   topBtn.hide();
 
   // ボタンの表示設定
-  $(window).scroll(function () {
+  $(window).on('scroll', function () {
     if ($(this).scrollTop() > 70) {
       // 指定px以上のスクロールでボタンを表示
       topBtn.fadeIn();
@@ -203,7 +203,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   });
 
   // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.click(function () {
+  topBtn.on('click', function () {
     $('body,html').animate({
       scrollTop: 0
     }, 300, 'swing');
@@ -273,7 +273,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   $('.js-tab-content:first-child').addClass('is-active');
 
   // タブによる切り替え
-  $('.js-tab-item').click(function () {
+  $('.js-tab-item').on('click', function () {
     // タブのアクティブクラスを切り替え
     $('.js-tab-item').removeClass('is-active');
     $(this).addClass('is-active');
@@ -337,22 +337,74 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   }
 
   /* --------------------------------------------
-   *   モーダル
+   *  モーダル（キーボード対応 + フォーカス制御）
    * -------------------------------------------- */
-  const open = $('.js-modal-open'),
-    modal = $('.js-modal');
-  let scrollTop;
+  // jQueryオブジェクト取得
+  const $open = $('.js-modal-open'),
+    $modal = $('.js-modal'),
+    $modalImg = $('.js-modal-img');
 
-  //   スクロールバーの幅を計算する関数
+  let scrollTop;  // 背景固定解除後に戻すスクロール位置
+  let $lastFocusedElement = null;  // モーダルを開く直前にフォーカスしていた要素（モーダルを閉じたらフォーカスを戻す）
+  let focusTimeoutId = null;  // modal.focus() のタイマーID（closeModal時にキャンセルするため）
+  let clearImgTimeoutId = null;  // src: '' のタイマーID（openModal時にキャンセルするため）
+
+  /**
+   * スクロールバーの幅を計算する関数
+   * モーダル表示時の横ズレを防ぐために使用
+   */
   function getScrollbarWidth() {
     return window.innerWidth - document.documentElement.clientWidth;
   }
 
-  //Gallery画像をクリックしたらモーダルを表示する
-  open.on('click', function () {
-    let imgsrc = $(this).find('img').attr('src');
-    $('.modal__img').children().attr('src', imgsrc);
-    modal.addClass('is-open');
+  /**
+   * モーダル内のフォーカス可能要素を取得する関数
+   * 今後ボタンなどを追加した場合にも再利用できるよう関数化
+   * ※ modal 自身は .find() の対象ではない点に注意
+   */
+  function getFocusableElements($container) {
+    return $container.find(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"]), [contenteditable]'
+    ).filter(':visible');
+  }
+
+  /**
+   * モーダルを開く処理
+   * @param {jQuery} $trigger - 開くきっかけになったボタン要素
+   */
+  function openModal($trigger) {
+    // すでに開いている場合の二重起動を防ぐ
+    if ($modal.hasClass('is-open')) {
+      closeModal();
+      return;
+    }
+
+    // closeModal() が予約した src: '' のタイマーが残っていればキャンセル
+    clearTimeout(clearImgTimeoutId);
+
+    // 閉じたときにフォーカスを戻すため、開いた元の要素を記録
+    $lastFocusedElement = $trigger;
+
+    // トリガー要素内の画像情報を取得
+    const $img = $trigger.find('img'),
+      imgSrc = $img.attr('src'),
+      imgAlt = $img.attr('alt');
+
+    // モーダル内画像を差し替え
+    $modalImg.attr({
+      src: imgSrc,
+      alt: imgAlt,
+      id: 'modal-image',
+    });
+
+    // モーダルのアクセシブルネームを画像要素（id: modal-image）に関連付ける
+    $modal.attr({
+      'aria-labelledby': 'modal-image',
+      'aria-hidden': 'false',
+    });
+
+    // モーダルを表示
+    $modal.addClass('is-open');
 
     // スクロールバーの幅を取得
     const scrollbarWidth = getScrollbarWidth();
@@ -365,24 +417,151 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       top: -scrollTop,
       left: 0,
       // right: 0,
-      width: `calc(100% - ${scrollbarWidth}px)` // スクロールバーの幅を考慮する
+      width: `calc(100% - ${scrollbarWidth}px)`, // スクロールバーの幅を考慮する
     });
-  });
 
-  //モーダルをクリックしたらモーダルを閉じる
-  modal.on("click", function () {
-    modal.removeClass("is-open");
+    // 表示アニメーション後にフォーカスをモーダルへ移す（visibility: hidden → visible のトランジション完了後に実行）
+    focusTimeoutId = setTimeout(function () {
+      $modal.focus(); // tabindex="-1" が付いているので focus() 可能
+    }, 300);  // _modal.scss の transition: 0.3s に合わせる
+  }
 
-    // 背景の固定を解除する
+  /**
+   * モーダルを閉じる処理
+   * （クリック/Enter/ESC すべてここに集約）
+   */
+  function closeModal() {
+    // まだ focus() 予約が残っていればキャンセル（$modal.focus() のタイマーをキャンセル）
+    clearTimeout(focusTimeoutId);
+
+    // モーダルのアクセシビリティ状態を非表示に戻す
+    $modal.attr({
+      'aria-labelledby': '',
+      'aria-hidden': 'true',
+    });
+
+    // モーダルを非表示にする
+    $modal.removeClass('is-open');
+
+    // フェードアウト完了後にモーダル内画像を初期化（transition: 0.3s に合わせる）
+    // ※ is-open 削除と同時に src: '' にすると、transition 中に白い空枠が一瞬表示されるため
+    clearImgTimeoutId = setTimeout(function () {
+      $modalImg.attr({
+        src: '',
+        alt: '',
+        id: '',
+      });
+    }, 300); // _modal.scss の transition: 0.3s に合わせる
+
+    // 背景の固定を解除し、スクロール位置を元に戻す
     $('body').css({
       position: '',
       top: '',
       left: '',
       // right: '',
-      width: ''
+      width: '',
     });
 
     $(window).scrollTop(scrollTop);
+
+    // 開いた元のボタンへフォーカスを戻す
+    if ($lastFocusedElement && $lastFocusedElement.length) {
+      $lastFocusedElement.focus();
+    }
+  }
+
+  // ===============================================
+  //  1) ボタン（Gallery画像）をクリックしてモーダルを開く
+  // ===============================================
+  $open.on('click', function () {
+    openModal($(this));
+  });
+
+  // ===============================================
+  //  2) モーダルをクリックして閉じる
+  // ===============================================
+  $modal.on('click', () => {
+    closeModal();
+  });
+
+  // ===============================================
+  //  3) モーダル表示中、Enter/Spaceで閉じる
+  // ===============================================
+  $modal.on('keydown', (e) => {
+    if (!$modal.hasClass('is-open')) return;  // 現在のコードでは「モーダル表示されているのに is-open がない」状況は基本的には発生しないが、「トランジション中、将来のJS変更、想定外イベント」などを考慮して安全ガードを入れる（この1行を見るだけで「このイベントはモーダルが開いているとき専用」と理解できる）
+
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // ===============================================
+  //  4) モーダル表示中、ESCで閉じる
+  // ===============================================
+  $(document).on('keydown', (e) => {
+    if (e.key === 'Escape' && $modal.hasClass('is-open')) {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // ===============================================
+  //  5) フォーカストラップ
+  // ===============================================
+  /* モーダルが開いている間に Tab / Shift+Tab を押したら、
+   * フォーカスがモーダル外へ逃げないようにする
+   */
+  $(document).on('keydown', function (e) {
+    if (!$modal.hasClass('is-open')) return;
+    if (e.key !== 'Tab') return;
+
+    const $focusableElements = getFocusableElements($modal);
+
+    // 今回のモーダルのように内部にボタンやリンクが無い場合は、モーダルコンテナ自身にフォーカスを固定する
+    if ($focusableElements.length === 0) {
+      e.preventDefault();
+      $modal.focus();
+      return;
+    }
+
+    const firstElement = $focusableElements.get(0);
+    const lastElement = $focusableElements.get($focusableElements.length - 1);
+    const activeElement = document.activeElement;
+
+    // Shift + Tab：先頭にいるときは末尾へ戻す
+    if (e.shiftKey) {
+      if (activeElement === firstElement || activeElement === $modal.get(0)) {
+        e.preventDefault();
+        lastElement.focus();
+      }
+    } else {
+      // Tab：末尾にいる時は先頭へ戻す
+      if (activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+
+      // 万一モーダル外にフォーカスがあれば、モーダルへ戻す
+      if (!$modal.get(0).contains(activeElement)) {
+        // e.preventDefault();  // Tab移動を止める目的だが、「フォーカスが既に外にある」状況の修正なので不要と判断
+        $modal.focus();
+      }
+    }
+  });
+
+  // ===============================================
+  //  6) フォーカス逸脱の保険
+  // ===============================================
+  /* 何らかの理由でモーダル表示中にフォーカスが外へ移動したら
+   * モーダルへ戻す
+   */
+  $(document).on('focusin', function (e) {
+    if (!$modal.hasClass('is-open')) return;
+
+    if (!$modal.get(0).contains(e.target)) {
+      $modal.focus();
+    }
   });
 
   /* --------------------------------------------
@@ -492,11 +671,11 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       var posi = $(this).offset();
       posi_top = posi.top;
       if (current_view > posi_top) {
-        $(".js-fadeInUp:first-child").addClass("is-active");
+        $('.js-fadeInUp:first-child').addClass('is-active');
         setTimeout(function () {  // 「$(".js-fadeInUp:nth-child(2)").addClass("is-active");」の実行タイミングを300ミリ秒（0.3秒）遅らせる
-          $(".js-fadeInUp:nth-child(2)").addClass("is-active");
+          $('.js-fadeInUp:nth-child(2)').addClass('is-active');
           setTimeout(function () {  // 「$(".js-fadeInUp:nth-child(3)").addClass("is-active");」の実行タイミングを600ミリ秒（0.6秒）遅らせる
-            $(".js-fadeInUp:nth-child(3)").addClass("is-active");
+            $('.js-fadeInUp:nth-child(3)').addClass('is-active');
           }, 600);
         }, 300);
       } // アニメーションの時間は「transition-duration: 2s;」で指定。「下からふわっと」はtransform: translateY()を使う
@@ -506,9 +685,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       var posi = $(this).offset();
       posi_top = posi.top;
       if (current_view > posi_top) {
-        $(".js-fadeInUp-v:first-child").addClass("is-active");
+        $('.js-fadeInUp-v:first-child').addClass('is-active');
         setTimeout(function () {
-          $(".js-fadeInUp-v:nth-child(2)").addClass("is-active");
+          $('.js-fadeInUp-v:nth-child(2)').addClass('is-active');
         }, 300);
       }
     });
@@ -518,25 +697,25 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
    *   ローディングアニメーション
    * -------------------------------------------- */
   function runLoadingAnimation() {
-    const $loading = $(".js-loading-white");
-    const $images = $(".js-loading-images");
-    const $imgLeft = $(".js-loading-img-left");
-    const $imgRight = $(".js-loading-img-right");
-    const $title = $(".js-loading-title");
+    const $loading = $('.js-loading-white');
+    const $images = $('.js-loading-images');
+    const $imgLeft = $('.js-loading-img-left');
+    const $imgRight = $('.js-loading-img-right');
+    const $title = $('.js-loading-title');
     // トップページでのみアニメーションを実行
     if ($loading.length === 0) {
       return;
     }
     // ローディングアニメーション開始時にスクロール禁止の処理を実行
-    $("html, body").css("overflow", "hidden");
+    $('html, body').css('overflow', 'hidden');
     // ローディングアニメーションの処理を実行
     $loading.delay(1000).queue(function (next) {  // 1秒待機
       $title.fadeIn(1000, function () { // フェードイン（1秒） → 「50);」の下にあるnext(); を呼ぶ
         $images.delay(1000).queue(function(next) {  // 1秒待機して$images.queue(...) を登録
-          $(this).addClass("appear"); // `.loading__images` に `appear` クラスを追加
+          $(this).addClass('appear'); // `.loading__images` に `appear` クラスを追加
           setTimeout(() => {
-            $imgLeft.addClass("loaded"); // `.loading__img-left` に `loaded` クラスを追加
-            $imgRight.addClass("loaded"); // `.loading__img-right` に `loaded` クラスを追加
+            $imgLeft.addClass('loaded'); // `.loading__img-left` に `loaded` クラスを追加
+            $imgRight.addClass('loaded'); // `.loading__img-right` に `loaded` クラスを追加
             next(); // `$images.queue()` のキューを進める（setTimeout 完了後に呼ぶ）
           }, 50); // 50ミリ秒遅らせる 👉 初期状態（transform: translateY(100%)）をブラウザに認識させてアニメーションが動くようにする 👉 transitionend イベントが発火！
         });
@@ -544,14 +723,14 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       });
     });
 
-    $(document).on("transitionend", ".js-loading-img-right", function () {
-      $loading.addClass("fadeout");
+    $(document).on('transitionend', '.js-loading-img-right', function () {
+      $loading.addClass('fadeout');
       $images.delay(1000).fadeOut(1000);
     });
 
     // ローディングアニメーション終了時にスクロール許可の処理を実行
     setTimeout(function () {
-      $("html, body").css("overflow", "auto");
+      $('html, body').css('overflow', 'auto');
     }, 6000);
   }
 

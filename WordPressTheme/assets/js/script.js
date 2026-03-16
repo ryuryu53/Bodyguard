@@ -1,19 +1,18 @@
-"use strict";
+'use strict';
 
-jQuery(function ($) {
-  // この中であればWordpressでも「$」が使用可能になる
+jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
   /* --------------------------------------------
    *   スクロールしてmvを過ぎたらヘッダーの背景色を変える
    * -------------------------------------------- */
-  var header = $('.js-header');
-  var headerheight = $('.js-header').height();
-  var height = $('.js-mv-height').height();
+  let header = $('.js-header');
+  let headerheight = $('.js-header').height();
+  let height = $('.js-mv-height').height();
   // console.log('ヘッダーの高さ：' + headerheight);
   // console.log('メインビューの高さ：' + height);
   // console.log(height - headerheight);
   // ヘッダークラス名付与
   $(window).scroll(function () {
-    if ($(this).scrollTop() > height - headerheight) {
+    if ($(this).scrollTop() > (height - headerheight)) {
       header.addClass('is-color');
     } else {
       header.removeClass('is-color');
@@ -23,17 +22,19 @@ jQuery(function ($) {
   /* --------------------------------------------
    *  ドロワーメニューの開閉 + ARIA属性の切り替え + inert属性の設定
    * -------------------------------------------- */
-  var $hamburger = $('.js-hamburger');
-  var $drawer = $('.js-sp-nav');
-  var $pcNav = $('.js-pc-nav');
-  var $main = $('.js-main');
-  var $footer = $('.js-footer');
+  const $hamburger = $('.js-hamburger');
+  const $drawer = $('.js-sp-nav');
+  const $pcNav = $('.js-pc-nav');
+  const $main = $('.js-main');
+  const $footer = $('.js-footer');
+
   if ($hamburger.length && $drawer.length) {
     // ハンバーガーとドロワーをどちらをクリックしても同じ動きにする
     $('.js-hamburger, .js-sp-nav').on('click', function () {
+
       // 現在の状態（開いているか閉じているか）を取得
-      var isActive = $hamburger.hasClass('is-active');
-      var isExpanded = $hamburger.attr('aria-expanded') === 'true';
+      const isActive = $hamburger.hasClass('is-active');
+      const isExpanded = $hamburger.attr('aria-expanded') === 'true';
 
       // 1) is-active クラスの切り替え
       $hamburger.toggleClass('is-active');
@@ -65,16 +66,19 @@ jQuery(function ($) {
 
   // 画面幅が768px以上になったらドロワーを閉じる（ドロワーを開いたまま画面幅を広げていった場合を想定）
   $(window).on('resize', function () {
+
     // $hamburger と $drawer が存在しない場合は何もしない
     if (!$hamburger.length || !$drawer.length) return;
 
     // 768px以上になったときのみ実行（iOSでは縦スクロールすると画面幅が変わったと認識してresizeイベントが作動してしまう）
     if (window.matchMedia('(min-width: 768px)').matches) {
+
       // 現在の状態（open = true / close = false）
-      var isExpanded = $hamburger.attr('aria-expanded') === 'true';
+      const isExpanded = $hamburger.attr('aria-expanded') === 'true';
 
       // メニューが開いているときのみ閉じる処理を実行
       if (isExpanded || $hamburger.hasClass('is-active')) {
+
         // 1) ハンバーガーの状態リセット
         $hamburger.removeClass('is-active');
         $hamburger.attr('aria-expanded', 'false');
@@ -98,7 +102,8 @@ jQuery(function ($) {
    *   画面幅による aria-hidden の切り替え（SPはドロワーメニューの開閉で切り替えるので、PCのみ）
    * -------------------------------------------- */
   // これは（ ↓ ）今、PC表示なのかSP表示なのかを判定する装置
-  var mq = window.matchMedia('(min-width: 768px)');
+  const mq = window.matchMedia('(min-width: 768px)');
+
   function updateAria(e) {
     if (e.matches) {
       // PC表示（768px以上）
@@ -118,22 +123,20 @@ jQuery(function ($) {
   /* --------------------------------------------
    *   mvスワイパー
    * -------------------------------------------- */
-  var mv_swiper = new Swiper('.js-mv-swiper', {
+  const mv_swiper = new Swiper('.js-mv-swiper', {
     loop: true,
     effect: 'fade',
-    speed: 3000,
-    // スライド（フェイド）が変わるスピード
-    allowTouchMove: false,
-    // 3秒(delay: 3000)たつ前にマウスでカチャカチャなぞることによって次のスライドへ移るのをさせないようにする（これがないとクリックで自分でスライドできてしまう）
+    speed: 3000, // スライド（フェイド）が変わるスピード
+    allowTouchMove: false, // 3秒(delay: 3000)たつ前にマウスでカチャカチャなぞることによって次のスライドへ移るのをさせないようにする（これがないとクリックで自分でスライドできてしまう）
     autoplay: {
-      delay: 3000 // 3秒後にスライドが変わっていく
-    }
+      delay: 3000, // 3秒後にスライドが変わっていく
+    },
   });
 
   /* --------------------------------------------
    *   plansスワイパー
    * -------------------------------------------- */
-  var plans_swiper = new Swiper('.js-plans-swiper', {
+  const plans_swiper = new Swiper('.js-plans-swiper', {
     slidesPerView: 'auto',
     loop: true,
     speed: 1000,
@@ -145,12 +148,11 @@ jQuery(function ($) {
     },
     autoplay: {
       speed: 1000,
-      disableOnInteraction: false // falseを設定すると、自動再生はユーザーの操作（スワイプ）後に無効にならず、操作後に毎回再起動される
+      disableOnInteraction: false   // falseを設定すると、自動再生はユーザーの操作（スワイプ）後に無効にならず、操作後に毎回再起動される
     },
-
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
     }
   });
 
@@ -163,26 +165,20 @@ jQuery(function ($) {
 
   //.js-colorboxの付いた全ての要素に対して下記の処理を行う
   box.each(function () {
-    $(this).append('<div class="color"></div>');
+    $(this).append('<div class="color"></div>')
     var color = $(this).find($('.color')),
       image = $(this).find('img');
     var counter = 0;
+
     image.css('opacity', '0');
     color.css('width', '0%');
     //inviewを使って背景色が画面に現れたら処理をする
     color.on('inview', function () {
       if (counter == 0) {
-        $(this).delay(200).animate({
-          'width': '100%'
-        }, speed, function () {
+        $(this).delay(200).animate({ 'width': '100%' }, speed, function () {
           image.css('opacity', '1');
-          $(this).css({
-            'left': '0',
-            'right': 'auto'
-          });
-          $(this).animate({
-            'width': '0%'
-          }, speed);
+          $(this).css({ 'left': '0', 'right': 'auto' });
+          $(this).animate({ 'width': '0%' }, speed);
         });
         counter = 1;
       }
@@ -192,11 +188,11 @@ jQuery(function ($) {
   /* --------------------------------------------
    *   スクロールしながらページトップへ戻るボタン
    * -------------------------------------------- */
-  var topBtn = $('.js-to-top');
+  let topBtn = $('.js-to-top');
   topBtn.hide();
 
   // ボタンの表示設定
-  $(window).scroll(function () {
+  $(window).on('scroll', function () {
     if ($(this).scrollTop() > 70) {
       // 指定px以上のスクロールでボタンを表示
       topBtn.fadeIn();
@@ -207,7 +203,7 @@ jQuery(function ($) {
   });
 
   // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.click(function () {
+  topBtn.on('click', function () {
     $('body,html').animate({
       scrollTop: 0
     }, 300, 'swing');
@@ -217,11 +213,11 @@ jQuery(function ($) {
   // Contactセクションの右下でボタンが止まる
   $('.js-to-top').hide();
   $(window).on('scroll', function () {
-    var documentHeight = $(document).height(); // ドキュメント全体の高さ
-    var wHeight = $(window).height(); // ブラウザの表示領域の高さ
-    var scrollAmount = $(window).scrollTop(); // スクロールした距離
-    var footerHeight = $('.js-footer').innerHeight(); // フッターの高さ(padding含む)
-    var browserWidth = window.outerWidth;
+    let documentHeight = $(document).height(); // ドキュメント全体の高さ
+    let wHeight = $(window).height(); // ブラウザの表示領域の高さ
+    let scrollAmount = $(window).scrollTop(); // スクロールした距離
+    let footerHeight = $('.js-footer').innerHeight(); // フッターの高さ(padding含む)
+    let browserWidth = window.outerWidth;
     if (documentHeight - (wHeight + scrollAmount) <= footerHeight) {
       // ページトップへ戻るボタンがフッターの直前に来たら、positionプロパティの値をfixedからabsoluteに変更する
       if (browserWidth < 768) {
@@ -254,9 +250,9 @@ jQuery(function ($) {
    *   ボックスシャドウを更新する関数
    * -------------------------------------------- */
   function updateBoxShadow() {
-    var browserW = window.innerWidth;
-    $('.js-tab-item').each(function () {
-      if (browserW >= 768) {
+    let browserW = window.innerWidth;
+    $('.js-tab-item').each(function() {
+    if (browserW >= 768) {
         if (!$(this).hasClass('is-active')) {
           $(this).css('box-shadow', 'none');
         } else {
@@ -277,7 +273,7 @@ jQuery(function ($) {
   $('.js-tab-content:first-child').addClass('is-active');
 
   // タブによる切り替え
-  $('.js-tab-item').click(function () {
+  $('.js-tab-item').on('click', function () {
     // タブのアクティブクラスを切り替え
     $('.js-tab-item').removeClass('is-active');
     $(this).addClass('is-active');
@@ -300,7 +296,7 @@ jQuery(function ($) {
   updateBoxShadow();
 
   // ウィンドウがリサイズされたときにボックスシャドウを更新
-  $(window).resize(function () {
+  $(window).resize(function() {
     updateBoxShadow();
   });
 
@@ -311,82 +307,261 @@ jQuery(function ($) {
   function getQueryParam(name) {
     // window.location.search は URL の「?」以降の部分（クエリパラメータ）を取得
     // new URLSearchParams(...) でクエリパラメータを簡単に操作できるオブジェクトに変換
-    var params = new URLSearchParams(window.location.search);
+    let params = new URLSearchParams(window.location.search);
     // params.get(name) で、name に対応するパラメータの値を取得
     // 例えば getQueryParam('tab') を呼び出すと、"tab1" などの値が返ってくる
     return params.get(name);
   }
 
   // タブを選択する関数
-  function selectTab(target) {
-    // target（どのタブを選択するかの情報）を受け取る
+  function selectTab(target) {  // target（どのタブを選択するかの情報）を受け取る
     // すべてのタブとタブコンテンツの "is-active" クラスを削除
     $('.js-tab-item').removeClass('is-active');
     $('.js-tab-content').removeClass('is-active');
 
     // data-target属性が target の値と一致するタブを取得し、そのタブに "is-active" クラスを追加
-    $(".js-tab-item[data-target=\"".concat(target, "\"]")).addClass('is-active');
+    $(`.js-tab-item[data-target="${target}"]`).addClass('is-active');
 
     // targetのIDを持つタブのコンテンツを取得し、そのコンテンツに "is-active" クラスを追加
-    $("#".concat(target)).addClass('is-active');
+    $(`#${target}`).addClass('is-active');
   }
 
   // クエリパラメータ "tab" を取得
-  var tabParam = getQueryParam('tab'); // getQueryParam('tab') を呼び出して、URLの ?tab=... の値を取得
+  let tabParam = getQueryParam('tab');  // getQueryParam('tab') を呼び出して、URLの ?tab=... の値を取得
   // tabParamには、tab1、tab2、tab3のどれかが入る
 
   // クエリパラメータが存在すればタブを選択
-  if (tabParam) {
-    // tabParamに値が入っている場合（クエリパラメータがある場合）、selectTab(tabParam); を実行
+  if (tabParam) { // tabParamに値が入っている場合（クエリパラメータがある場合）、selectTab(tabParam); を実行
     selectTab(tabParam);
     updateBoxShadow();
   }
 
   /* --------------------------------------------
-   *   モーダル
+   *  モーダル（キーボード対応 + フォーカス制御）
    * -------------------------------------------- */
-  var open = $('.js-modal-open'),
-    modal = $('.js-modal');
-  var scrollTop;
+  // jQueryオブジェクト取得
+  const $open = $('.js-modal-open'),
+    $modal = $('.js-modal'),
+    $modalImg = $('.js-modal-img');
 
-  //   スクロールバーの幅を計算する関数
+  let scrollTop;  // 背景固定解除後に戻すスクロール位置
+  let $lastFocusedElement = null;  // モーダルを開く直前にフォーカスしていた要素（モーダルを閉じたらフォーカスを戻す）
+  let focusTimeoutId = null;  // modal.focus() のタイマーID（closeModal時にキャンセルするため）
+  let clearImgTimeoutId = null;  // src: '' のタイマーID（openModal時にキャンセルするため）
+
+  /**
+   * スクロールバーの幅を計算する関数
+   * モーダル表示時の横ズレを防ぐために使用
+   */
   function getScrollbarWidth() {
     return window.innerWidth - document.documentElement.clientWidth;
   }
 
-  //Gallery画像をクリックしたらモーダルを表示する
-  open.on('click', function () {
-    var imgsrc = $(this).find('img').attr('src');
-    $('.modal__img').children().attr('src', imgsrc);
-    modal.addClass('is-open');
+  /**
+   * モーダル内のフォーカス可能要素を取得する関数
+   * 今後ボタンなどを追加した場合にも再利用できるよう関数化
+   * ※ modal 自身は .find() の対象ではない点に注意
+   */
+  function getFocusableElements($container) {
+    return $container.find(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"]), [contenteditable]'
+    ).filter(':visible');
+  }
+
+  /**
+   * モーダルを開く処理
+   * @param {jQuery} $trigger - 開くきっかけになったボタン要素
+   */
+  function openModal($trigger) {
+    // すでに開いている場合の二重起動を防ぐ
+    if ($modal.hasClass('is-open')) {
+      closeModal();
+      return;
+    }
+
+    // closeModal() が予約した src: '' のタイマーが残っていればキャンセル
+    clearTimeout(clearImgTimeoutId);
+
+    // 閉じたときにフォーカスを戻すため、開いた元の要素を記録
+    $lastFocusedElement = $trigger;
+
+    // トリガー要素内の画像情報を取得
+    const $img = $trigger.find('img'),
+      imgSrc = $img.attr('src'),
+      imgAlt = $img.attr('alt');
+
+    // モーダル内画像を差し替え
+    $modalImg.attr({
+      src: imgSrc,
+      alt: imgAlt,
+      id: 'modal-image',
+    });
+
+    // モーダルのアクセシブルネームを画像要素（id: modal-image）に関連付ける
+    $modal.attr({
+      'aria-labelledby': 'modal-image',
+      'aria-hidden': 'false',
+    });
+
+    // モーダルを表示
+    $modal.addClass('is-open');
 
     // スクロールバーの幅を取得
-    var scrollbarWidth = getScrollbarWidth();
+    const scrollbarWidth = getScrollbarWidth();
 
     // 背景を固定してスクロールさせない
     scrollTop = $(window).scrollTop();
+
     $('body').css({
       position: 'fixed',
       top: -scrollTop,
       left: 0,
       // right: 0,
-      width: "calc(100% - ".concat(scrollbarWidth, "px)") // スクロールバーの幅を考慮する
+      width: `calc(100% - ${scrollbarWidth}px)`, // スクロールバーの幅を考慮する
     });
-  });
 
-  //モーダルをクリックしたらモーダルを閉じる
-  modal.on("click", function () {
-    modal.removeClass("is-open");
+    // 表示アニメーション後にフォーカスをモーダルへ移す（visibility: hidden → visible のトランジション完了後に実行）
+    focusTimeoutId = setTimeout(function () {
+      $modal.focus(); // tabindex="-1" が付いているので focus() 可能
+    }, 300);  // _modal.scss の transition: 0.3s に合わせる
+  }
 
-    // 背景の固定を解除する
+  /**
+   * モーダルを閉じる処理
+   * （クリック/Enter/ESC すべてここに集約）
+   */
+  function closeModal() {
+    // まだ focus() 予約が残っていればキャンセル（$modal.focus() のタイマーをキャンセル）
+    clearTimeout(focusTimeoutId);
+
+    // モーダルのアクセシビリティ状態を非表示に戻す
+    $modal.attr({
+      'aria-labelledby': '',
+      'aria-hidden': 'true',
+    });
+
+    // モーダルを非表示にする
+    $modal.removeClass('is-open');
+
+    // フェードアウト完了後にモーダル内画像を初期化（transition: 0.3s に合わせる）
+    // ※ is-open 削除と同時に src: '' にすると、transition 中に白い空枠が一瞬表示されるため
+    clearImgTimeoutId = setTimeout(function () {
+      $modalImg.attr({
+        src: '',
+        alt: '',
+        id: '',
+      });
+    }, 300); // _modal.scss の transition: 0.3s に合わせる
+
+    // 背景の固定を解除し、スクロール位置を元に戻す
     $('body').css({
       position: '',
       top: '',
       left: '',
       // right: '',
-      width: ''
+      width: '',
     });
+
     $(window).scrollTop(scrollTop);
+
+    // 開いた元のボタンへフォーカスを戻す
+    if ($lastFocusedElement && $lastFocusedElement.length) {
+      $lastFocusedElement.focus();
+    }
+  }
+
+  // ===============================================
+  //  1) ボタン（Gallery画像）をクリックしてモーダルを開く
+  // ===============================================
+  $open.on('click', function () {
+    openModal($(this));
+  });
+
+  // ===============================================
+  //  2) モーダルをクリックして閉じる
+  // ===============================================
+  $modal.on('click', () => {
+    closeModal();
+  });
+
+  // ===============================================
+  //  3) モーダル表示中、Enter/Spaceで閉じる
+  // ===============================================
+  $modal.on('keydown', (e) => {
+    if (!$modal.hasClass('is-open')) return;  // 現在のコードでは「モーダル表示されているのに is-open がない」状況は基本的には発生しないが、「トランジション中、将来のJS変更、想定外イベント」などを考慮して安全ガードを入れる（この1行を見るだけで「このイベントはモーダルが開いているとき専用」と理解できる）
+
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // ===============================================
+  //  4) モーダル表示中、ESCで閉じる
+  // ===============================================
+  $(document).on('keydown', (e) => {
+    if (e.key === 'Escape' && $modal.hasClass('is-open')) {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // ===============================================
+  //  5) フォーカストラップ
+  // ===============================================
+  /* モーダルが開いている間に Tab / Shift+Tab を押したら、
+   * フォーカスがモーダル外へ逃げないようにする
+   */
+  $(document).on('keydown', function (e) {
+    if (!$modal.hasClass('is-open')) return;
+    if (e.key !== 'Tab') return;
+
+    const $focusableElements = getFocusableElements($modal);
+
+    // 今回のモーダルのように内部にボタンやリンクが無い場合は、モーダルコンテナ自身にフォーカスを固定する
+    if ($focusableElements.length === 0) {
+      e.preventDefault();
+      $modal.focus();
+      return;
+    }
+
+    const firstElement = $focusableElements.get(0);
+    const lastElement = $focusableElements.get($focusableElements.length - 1);
+    const activeElement = document.activeElement;
+
+    // Shift + Tab：先頭にいるときは末尾へ戻す
+    if (e.shiftKey) {
+      if (activeElement === firstElement || activeElement === $modal.get(0)) {
+        e.preventDefault();
+        lastElement.focus();
+      }
+    } else {
+      // Tab：末尾にいる時は先頭へ戻す
+      if (activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+
+      // 万一モーダル外にフォーカスがあれば、モーダルへ戻す
+      if (!$modal.get(0).contains(activeElement)) {
+        // e.preventDefault();  // Tab移動を止める目的だが、「フォーカスが既に外にある」状況の修正なので不要と判断
+        $modal.focus();
+      }
+    }
+  });
+
+  // ===============================================
+  //  6) フォーカス逸脱の保険
+  // ===============================================
+  /* 何らかの理由でモーダル表示中にフォーカスが外へ移動したら
+   * モーダルへ戻す
+   */
+  $(document).on('focusin', function (e) {
+    if (!$modal.hasClass('is-open')) return;
+
+    if (!$modal.get(0).contains(e.target)) {
+      $modal.focus();
+    }
   });
 
   /* --------------------------------------------
@@ -410,19 +585,18 @@ jQuery(function ($) {
    * -------------------------------------------- */
   // `.wp-pagenavi .current` が存在する場合のみイベントリスナーを登録
   if (document.querySelector('.wp-pagenavi .current')) {
-    // ウェブページが完全に読み込まれたときにadjustPaginationという関数を実行するようにブラウザに指示
-    // （documentオブジェクトにアクセスして、addEventListenerメソッドにより、DOMContentLoadedイベント（ページ全体のHTMLが完全に読み込まれ、DOMツリーが構築された後に発生）が発生するとadjustPagination関数が呼び出される）
-    document.addEventListener('DOMContentLoaded', adjustPagination);
-    // ブラウザのウィンドウのサイズが変更されたときにadjustPaginationという関数を実行
-    // （windowオブジェクトにアクセスして、addEventListenerメソッドにより、resizeイベント（ブラウザのウィンドウのサイズが変更されたときに発生）が発生するとadjustPagination関数が呼び出される）
-    window.addEventListener('resize', adjustPagination);
+  // ウェブページが完全に読み込まれたときにadjustPaginationという関数を実行するようにブラウザに指示
+  // （documentオブジェクトにアクセスして、addEventListenerメソッドにより、DOMContentLoadedイベント（ページ全体のHTMLが完全に読み込まれ、DOMツリーが構築された後に発生）が発生するとadjustPagination関数が呼び出される）
+  document.addEventListener('DOMContentLoaded', adjustPagination);
+  // ブラウザのウィンドウのサイズが変更されたときにadjustPaginationという関数を実行
+  // （windowオブジェクトにアクセスして、addEventListenerメソッドにより、resizeイベント（ブラウザのウィンドウのサイズが変更されたときに発生）が発生するとadjustPagination関数が呼び出される）
+  window.addEventListener('resize', adjustPagination);
   }
   // 関数宣言はホイスティングされる → 関数を定義する前にその関数を呼び出すことが可能
-  function adjustPagination() {
-    // adjustPagination() 実行前に currentPageElement の存在を確認
+  function adjustPagination() { // adjustPagination() 実行前に currentPageElement の存在を確認
     // 万が一 adjustPagination() が呼ばれた場合でも、 .wp-pagenavi .current が存在しなければ return で関数を途中で終了
     var currentPageElement = document.querySelector('.wp-pagenavi .current');
-    if (!currentPageElement) return; // ⇒ null.textContent を読み取るエラーを防げる
+    if (!currentPageElement) return;  // ⇒ null.textContent を読み取るエラーを防げる
 
     // ブラウザのウィンドウの幅が768ピクセル未満かどうかをチェックし、その結果をisMobileという変数に保存
     // 768ピクセル未満ならtrue（モバイル）、それ以上ならfalse（PC）になる
@@ -446,19 +620,18 @@ jQuery(function ($) {
     var endPage = Math.min(startPage + perPage - 1, currentPage + Math.floor(perPage / 2));
 
     // 全てのページリンクを一つずつ見ていき、そのページ番号が表示範囲内なら表示し、範囲外なら非表示にする
-    paginationLinks.forEach(function (link) {
-      // 引数 link は、リストの各要素を指す
+    paginationLinks.forEach(function(link) {  // 引数 link は、リストの各要素を指す
       var pageNumber = parseInt(link.textContent, 10);
       // ページ番号 (pageNumber) が有効な数値かどうかを確認し、有効な場合にそのリンクの表示・非表示を制御
       // （isNaN()関数：引数として渡された値が数値でない場合に true を返す）
-      if (!isNaN(pageNumber)) {
+      if ( !isNaN(pageNumber) ) {
         // style.displayプロパティ：指定したHTML要素の表示方法を制御。空文字列 ('') を設定すると、その要素はデフォルトの表示スタイルに従って表示される
-        link.style.display = pageNumber >= startPage && pageNumber <= endPage ? '' : 'none';
+        link.style.display = (pageNumber >= startPage && pageNumber <= endPage) ? '' : 'none';
       }
     });
 
     // 前後のリンクの表示制御を確保（「次へ」と「前へ」のリンクは常に表示されるように設定）
-    document.querySelectorAll('.wp-pagenavi .nextpostslink, .wp-pagenavi .previouspostslink').forEach(function (link) {
+    document.querySelectorAll('.wp-pagenavi .nextpostslink, .wp-pagenavi .previouspostslink').forEach(function(link) {
       link.style.display = ''; // 常に表示
     });
   }
@@ -466,14 +639,14 @@ jQuery(function ($) {
   /* --------------------------------------------
    *   お問い合わせフォーム：エラーメッセージの改行処理
    * -------------------------------------------- */
-  $('.wpcf7').on('submit', function (event) {
+  $('.wpcf7').on('submit', function(event) {
     // 画面幅が767px以下の場合に改行を挿入
-    if (window.innerWidth <= 767) {
+    if ( window.innerWidth <= 767 ) {
       // 送信後、エラーメッセージが出力されるのを監視
-      setTimeout(function () {
+      setTimeout(function() {
         // エラーメッセージのテキストを探す
         var responseOutput = $('.wpcf7-response-output');
-        if (responseOutput.length) {
+        if ( responseOutput.length ) {
           var text = responseOutput.html();
           // 「入力されていません。」の後に改行を追加
           responseOutput.html(text.replace('入力されていません。', '入力されていません。<br>&nbsp;&nbsp;&nbsp;&nbsp;'));
@@ -486,25 +659,23 @@ jQuery(function ($) {
    *   blogおよびvoiceカードを左から順に時間差で下から上にフェードイン
    * -------------------------------------------- */
   var posi_top, wih_half, current_view;
-  $(window).scroll(function () {
-    // ブラウザの表示領域をスクロールした時、{}内の処理が実行される
+  $(window).scroll(function () {  // ブラウザの表示領域をスクロールした時、{}内の処理が実行される
     var wih = window.innerHeight; // ブラウザの表示領域の高さを取得し、その値を変数「wih」に代入
     wih_half = wih / 2;
-    current_view = $(this).scrollTop() + wih_half; // $(this).scrollTop()：ブラウザの表示領域をスクロールした時の位置を取得したもの（$(this)はスクロールイベントが発生した要素だから、$(window)のこと）
+    current_view = $(this).scrollTop() + wih_half;  // $(this).scrollTop()：ブラウザの表示領域をスクロールした時の位置を取得したもの（$(this)はスクロールイベントが発生した要素だから、$(window)のこと）
     set_posi();
   });
+
   function set_posi() {
     $('.js-blog-cards').each(function () {
       var posi = $(this).offset();
       posi_top = posi.top;
       if (current_view > posi_top) {
-        $(".js-fadeInUp:first-child").addClass("is-active");
-        setTimeout(function () {
-          // 「$(".js-fadeInUp:nth-child(2)").addClass("is-active");」の実行タイミングを300ミリ秒（0.3秒）遅らせる
-          $(".js-fadeInUp:nth-child(2)").addClass("is-active");
-          setTimeout(function () {
-            // 「$(".js-fadeInUp:nth-child(3)").addClass("is-active");」の実行タイミングを600ミリ秒（0.6秒）遅らせる
-            $(".js-fadeInUp:nth-child(3)").addClass("is-active");
+        $('.js-fadeInUp:first-child').addClass('is-active');
+        setTimeout(function () {  // 「$(".js-fadeInUp:nth-child(2)").addClass("is-active");」の実行タイミングを300ミリ秒（0.3秒）遅らせる
+          $('.js-fadeInUp:nth-child(2)').addClass('is-active');
+          setTimeout(function () {  // 「$(".js-fadeInUp:nth-child(3)").addClass("is-active");」の実行タイミングを600ミリ秒（0.6秒）遅らせる
+            $('.js-fadeInUp:nth-child(3)').addClass('is-active');
           }, 600);
         }, 300);
       } // アニメーションの時間は「transition-duration: 2s;」で指定。「下からふわっと」はtransform: translateY()を使う
@@ -514,9 +685,9 @@ jQuery(function ($) {
       var posi = $(this).offset();
       posi_top = posi.top;
       if (current_view > posi_top) {
-        $(".js-fadeInUp-v:first-child").addClass("is-active");
+        $('.js-fadeInUp-v:first-child').addClass('is-active');
         setTimeout(function () {
-          $(".js-fadeInUp-v:nth-child(2)").addClass("is-active");
+          $('.js-fadeInUp-v:nth-child(2)').addClass('is-active');
         }, 300);
       }
     });
@@ -526,45 +697,42 @@ jQuery(function ($) {
    *   ローディングアニメーション
    * -------------------------------------------- */
   function runLoadingAnimation() {
-    var $loading = $(".js-loading-white");
-    var $images = $(".js-loading-images");
-    var $imgLeft = $(".js-loading-img-left");
-    var $imgRight = $(".js-loading-img-right");
-    var $title = $(".js-loading-title");
+    const $loading = $('.js-loading-white');
+    const $images = $('.js-loading-images');
+    const $imgLeft = $('.js-loading-img-left');
+    const $imgRight = $('.js-loading-img-right');
+    const $title = $('.js-loading-title');
     // トップページでのみアニメーションを実行
     if ($loading.length === 0) {
       return;
     }
     // ローディングアニメーション開始時にスクロール禁止の処理を実行
-    $("html, body").css("overflow", "hidden");
+    $('html, body').css('overflow', 'hidden');
     // ローディングアニメーションの処理を実行
-    $loading.delay(1000).queue(function (next) {
-      // 1秒待機
-      $title.fadeIn(1000, function () {
-        // フェードイン（1秒） → 「50);」の下にあるnext(); を呼ぶ
-        $images.delay(1000).queue(function (next) {
-          // 1秒待機して$images.queue(...) を登録
-          $(this).addClass("appear"); // `.loading__images` に `appear` クラスを追加
-          setTimeout(function () {
-            $imgLeft.addClass("loaded"); // `.loading__img-left` に `loaded` クラスを追加
-            $imgRight.addClass("loaded"); // `.loading__img-right` に `loaded` クラスを追加
+    $loading.delay(1000).queue(function (next) {  // 1秒待機
+      $title.fadeIn(1000, function () { // フェードイン（1秒） → 「50);」の下にあるnext(); を呼ぶ
+        $images.delay(1000).queue(function(next) {  // 1秒待機して$images.queue(...) を登録
+          $(this).addClass('appear'); // `.loading__images` に `appear` クラスを追加
+          setTimeout(() => {
+            $imgLeft.addClass('loaded'); // `.loading__img-left` に `loaded` クラスを追加
+            $imgRight.addClass('loaded'); // `.loading__img-right` に `loaded` クラスを追加
             next(); // `$images.queue()` のキューを進める（setTimeout 完了後に呼ぶ）
           }, 50); // 50ミリ秒遅らせる 👉 初期状態（transform: translateY(100%)）をブラウザに認識させてアニメーションが動くようにする 👉 transitionend イベントが発火！
         });
-
         next(); // next(); を呼んで $loading.queue() の次の処理へ進める
       });
     });
 
-    $(document).on("transitionend", ".js-loading-img-right", function () {
-      $loading.addClass("fadeout");
+    $(document).on('transitionend', '.js-loading-img-right', function () {
+      $loading.addClass('fadeout');
       $images.delay(1000).fadeOut(1000);
     });
 
     // ローディングアニメーション終了時にスクロール許可の処理を実行
     setTimeout(function () {
-      $("html, body").css("overflow", "auto");
+      $('html, body').css('overflow', 'auto');
     }, 6000);
   }
+
   runLoadingAnimation();
 });

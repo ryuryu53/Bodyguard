@@ -21,7 +21,6 @@
   opacity: 1;
 }
 
-// 最終_FB：画像を2ヶ所で抑え込まなくてよい
 .modal__img {
   width: 100%;
   padding-right: $padding-sp;
@@ -44,6 +43,7 @@
   height: 100%;
   object-fit: cover;
   object-position: left top;
+
   @include mq(md) {
     object-fit: contain;
     object-position: 50% 50%;
