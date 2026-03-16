@@ -1080,10 +1080,6 @@ a {
 	object-position: left top;
 }
 
-.gallery {
-	position: relative;
-}
-
 .gallery__items-wrap {
 	margin-top: 2.5rem;
 }
@@ -3757,19 +3753,6 @@ html {
 .gallery-photo__item:nth-child(6n+6) .gallery-photo__img img {
 	-o-object-position: 50% 50%;
 	object-position: 50% 50%;
-}
-
-.gallery::before {
-	background-image: url(../images/common/contact-goldfish-pc.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	height: 9.125rem;
-	position: absolute;
-	right: calc(50% - min(48%, 40.25rem));
-	top: -5rem;
-	width: 19.3125rem;
 }
 
 .gallery__items-wrap {
