@@ -1096,13 +1096,13 @@ a {
 .hamburger__line {
 	background-color: #fff;
 	bottom: 0;
-	height: 0.0625rem;
+	height: 0.125rem;
 	left: 0;
 	margin: auto;
 	position: absolute;
 	right: 0;
 	top: 0;
-	transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s;
 	width: inherit;
 }
 
@@ -1113,7 +1113,7 @@ a {
 	height: 100%;
 	position: absolute;
 	right: 0;
-	transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, right 0.3s ease-in-out, width 0.3s ease-in-out;
+	transition: transform 0.3s, top 0.3s, right 0.3s, width 0.3s;
 	width: 100%;
 }
 
