@@ -10,17 +10,52 @@
   <!-- パンくず -->
   <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
-  <!-- ダイビング情報 -->
+  <!-- 身辺警護についての情報 -->
   <section class="layout-lower-head page-information">
     <div class="page-information__inner inner">
-      <div class="page-information__container tab">
-        <ul class="tab__list">
-          <li data-target="tab1" class="tab__item js-tab-item"><span>身体を守る<br class="u-mobile">防護壁</span></li>
-          <li data-target="tab2" class="tab__item js-tab-item"><span>安心感の<br class="u-mobile">サポート</span></li>
-          <li data-target="tab3" class="tab__item js-tab-item"><span>危険察知と<br class="u-mobile">回避</span></li>
-        </ul>
-        <ul class="tab__cards information-cards">
-          <li id="tab1" class="information-cards__item information-card js-tab-content">
+      <div class="page-information__container tab js-tab">
+        <div class="tab__list" role="tablist">
+          <button
+            class="tab__button js-tab-button"
+            id="tab-1"
+            type="button"
+            data-target="panel-1"
+            role="tab"
+            aria-controls="panel-1"
+            aria-selected="true"
+          >
+            <span>身体を守る<br class="u-mobile">防護壁</span>
+          </button>
+          <button
+            class="tab__button js-tab-button"
+            id="tab-2"
+            type="button"
+            data-target="panel-2"
+            role="tab"
+            aria-controls="panel-2"
+            aria-selected="false"
+          >
+            <span>安心感の<br class="u-mobile">サポート</span>
+          </button>
+          <button
+            class="tab__button js-tab-button"
+            id="tab-3"
+            type="button"
+            data-target="panel-3"
+            role="tab"
+            aria-controls="panel-3"
+            aria-selected="false"
+          >
+            <span>危険察知と<br class="u-mobile">回避</span>
+          </button>
+        </div>
+        <div class="tab__cards information-cards">
+          <div
+            class="information-cards__item information-card js-tab-content"
+            id="panel-1"
+            role="tabpanel"
+            aria-labelledby="tab-1"
+          >
             <div class="information-card__content">
               <div class="information-card__body">
                 <h2 class="information-card__title">身体を守る防護壁</h2>
@@ -31,8 +66,14 @@
                 <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/info-body.jpg" loading="lazy" alt="">
               </picture>
             </div>
-          </li>
-          <li id="tab2" class="information-cards__item information-card js-tab-content">
+          </div>
+          <div
+            class="information-cards__item information-card js-tab-content"
+            id="panel-2"
+            role="tabpanel"
+            aria-labelledby="tab-2"
+            hidden
+          >
             <div class="information-card__content">
               <div class="information-card__body">
                 <h2 class="information-card__title">安心感のサポート</h2>
@@ -43,8 +84,14 @@
                 <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/info-support.jpg" loading="lazy" alt="">
               </picture>
             </div>
-          </li>
-          <li id="tab3" class="information-cards__item information-card js-tab-content">
+          </div>
+          <div
+            class="information-cards__item information-card js-tab-content"
+            id="panel-3"
+            role="tabpanel"
+            aria-labelledby="tab-3"
+            hidden
+          >
             <div class="information-card__content">
               <div class="information-card__body">
                 <h2 class="information-card__title">危険察知と回避</h2>
@@ -55,8 +102,8 @@
                 <img src="<?php echo esc_url( get_theme_file_uri() ); ?>/assets/images/common/info-dager.jpg" loading="lazy" alt="">
               </picture>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>

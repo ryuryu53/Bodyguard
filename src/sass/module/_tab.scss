@@ -6,110 +6,111 @@
   gap: rem(20);
 
   @include mq(md) {
-    gap: rem(90);
+    gap: rem(80);
     width: 100%;
     max-width: 100%;
   }
 }
 
-.tab__item {
+.tab__button[type="button"] {
   font-size: rem(14);
   font-weight: $normal;
   line-height: 1.44;
   color: $blueaccent;
   text-align: center;
   background-color: $blue2;
-  padding: rem(10) 0;
+  padding: rem(10) rem(5);
   box-shadow: rem(2) rem(2) rem(4) rgba($color: $black, $alpha: 25%);
-  cursor: pointer;
   transition: background-color 0.3s;
+  outline: revert;
 
   @include mq(md) {
     position: relative;
     font-size: rem(24);
-    padding: rem(29) 0 rem(26) rem(75);
+    padding: rem(29) rem(10) rem(26) rem(60);
   }
 }
 
-.tab__item:hover {
+.tab__button:hover {
   color: $white;
   background-color: $blueaccent;
 }
 
-.tab__item::before {
+.tab__button::before {
   @include mq(md) {
     content: "";
     position: absolute;
-    left: rem(20);
+    top: 50%;
+    left: rem(15);
+    transform: translateY(-50%);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
   }
 }
 
-.tab__item:first-child::before {
+.tab__button:first-child::before {
   @include mq(md) {
     background-image: url(../images/common/agent.svg);
-    top: rem(19);
     width: rem(56);
     height: rem(56);
   }
 }
 
-.tab__item:nth-child(2)::before {
+.tab__button:nth-child(2)::before {
   @include mq(md) {
     background-image: url(../images/common/transceiver-logo.svg);
-    top: rem(11);
+    left: rem(10);
     width: rem(64);
     height: rem(64);
   }
 }
 
-.tab__item:nth-child(3)::before {
+.tab__button:nth-child(3)::before {
   @include mq(md) {
     background-image: url(../images/common/bodyguard-logo.svg);
-    top: rem(11);
+    left: rem(8);
     width: rem(72);
     height: rem(72);
   }
 }
 
-.tab__item:first-child:hover::before {
+.tab__button:first-child:hover::before {
   @include mq(md) {
     background-image: url(../images/common/agent-white.svg);
   }
 }
 
-.tab__item:nth-child(2):hover::before {
+.tab__button:nth-child(2):hover::before {
   @include mq(md) {
     background-image: url(../images/common/transceiver-logo-white.svg);
   }
 }
 
-.tab__item:nth-child(3):hover::before {
+.tab__button:nth-child(3):hover::before {
   @include mq(md) {
     background-image: url(../images/common/bodyguard-logo-white.svg);
   }
 }
 
-.tab__item.is-active {
+.tab__button.is-active {
   color: $white;
   background-color: $blueaccent;
 }
 
-.tab__item:first-child.is-active::before {
+.tab__button:first-child.is-active::before {
   @include mq(md) {
     background-image: url(../images/common/agent-white.svg);
   }
 }
 
-.tab__item:nth-child(2).is-active::before {
+.tab__button:nth-child(2).is-active::before {
   @include mq(md) {
     background-image: url(../images/common/transceiver-logo-white.svg);
   }
 }
 
-.tab__item:nth-child(3).is-active::before {
+.tab__button:nth-child(3).is-active::before {
   @include mq(md) {
     background-image: url(../images/common/bodyguard-logo-white.svg);
   }
@@ -117,6 +118,7 @@
 
 .tab__cards {
   margin-top: rem(16);
+
   @include mq(md) {
     margin-top: rem(24);
   }

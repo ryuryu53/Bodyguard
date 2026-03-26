@@ -369,7 +369,7 @@ a {
 	opacity: 1;
 }
 
-.accordion__title:focus {
+.accordion__title:focus-visible {
 	outline: 0.125rem solid #391E88;
 }
 
@@ -500,8 +500,8 @@ a {
 
 .blog-card--js {
 	opacity: 0;
-	transform: translateY(18.75rem);
-	transition-duration: 2s;
+	transform: translateY(12.5rem);
+	transition: opacity 1s, transform 1s;
 }
 
 .blog-card--js.is-active {
@@ -1222,14 +1222,6 @@ a {
 	-o-object-fit: cover;
 	height: 100%;
 	object-fit: cover;
-}
-
-.information-cards__item {
-	display: none;
-}
-
-.information-cards__item.is-active {
-	display: block;
 }
 
 .information {
@@ -2558,25 +2550,25 @@ a {
 	grid-template-columns: repeat(3, 1fr);
 }
 
-.tab__item {
+.tab__button[type=button] {
 	background-color: #dbe2ef;
 	box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 	color: #3f72af;
-	cursor: pointer;
 	font-size: 0.875rem;
 	font-weight: 400;
 	line-height: 1.44;
-	padding: 0.625rem 0;
+	outline: revert;
+	padding: 0.625rem 0.3125rem;
 	text-align: center;
 	transition: background-color 0.3s;
 }
 
-.tab__item:hover {
+.tab__button:hover {
 	background-color: #3f72af;
 	color: #fff;
 }
 
-.tab__item.is-active {
+.tab__button.is-active {
 	background-color: #3f72af;
 	color: #fff;
 }
@@ -2662,8 +2654,8 @@ a {
 
 .voice-card--js {
 	opacity: 0;
-	transform: translateY(18.75rem);
-	transition-duration: 2s;
+	transform: translateY(12.5rem);
+	transition: opacity 1s, transform 1s;
 }
 
 .voice-card--js.is-active {
@@ -4267,68 +4259,69 @@ html {
 }
 
 .tab__list {
-	gap: 5.625rem;
+	gap: 5rem;
 	max-width: 100%;
 	width: 100%;
 }
 
-.tab__item {
+.tab__button[type=button] {
 	font-size: 1.5rem;
-	padding: 1.8125rem 0 1.625rem 4.6875rem;
+	padding: 1.8125rem 0.625rem 1.625rem 3.75rem;
 	position: relative;
 }
 
-.tab__item::before {
+.tab__button::before {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	content: "";
-	left: 1.25rem;
+	left: 0.9375rem;
 	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-.tab__item:first-child::before {
+.tab__button:first-child::before {
 	background-image: url(../images/common/agent.svg);
 	height: 3.5rem;
-	top: 1.1875rem;
 	width: 3.5rem;
 }
 
-.tab__item:nth-child(2)::before {
+.tab__button:nth-child(2)::before {
 	background-image: url(../images/common/transceiver-logo.svg);
 	height: 4rem;
-	top: 0.6875rem;
+	left: 0.625rem;
 	width: 4rem;
 }
 
-.tab__item:nth-child(3)::before {
+.tab__button:nth-child(3)::before {
 	background-image: url(../images/common/bodyguard-logo.svg);
 	height: 4.5rem;
-	top: 0.6875rem;
+	left: 0.5rem;
 	width: 4.5rem;
 }
 
-.tab__item:first-child:hover::before {
+.tab__button:first-child:hover::before {
 	background-image: url(../images/common/agent-white.svg);
 }
 
-.tab__item:nth-child(2):hover::before {
+.tab__button:nth-child(2):hover::before {
 	background-image: url(../images/common/transceiver-logo-white.svg);
 }
 
-.tab__item:nth-child(3):hover::before {
+.tab__button:nth-child(3):hover::before {
 	background-image: url(../images/common/bodyguard-logo-white.svg);
 }
 
-.tab__item:first-child.is-active::before {
+.tab__button:first-child.is-active::before {
 	background-image: url(../images/common/agent-white.svg);
 }
 
-.tab__item:nth-child(2).is-active::before {
+.tab__button:nth-child(2).is-active::before {
 	background-image: url(../images/common/transceiver-logo-white.svg);
 }
 
-.tab__item:nth-child(3).is-active::before {
+.tab__button:nth-child(3).is-active::before {
 	background-image: url(../images/common/bodyguard-logo-white.svg);
 }
 
