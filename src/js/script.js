@@ -288,13 +288,13 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         .attr('aria-selected', 'true');
 
       $tabContent
-        .prop('hidden', true)
-        .removeClass('is-active');
+        .removeClass('is-active')
+        .prop('hidden', true);
 
       $tabContent
         .eq(index)
-        .prop('hidden', false)
-        .addClass('is-active');
+        .addClass('is-active')
+        .prop('hidden', false);
     }
 
     // -----------------------------
@@ -375,15 +375,23 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
   // タブを選択する関数
   function selectTab(target) {  // target（どのタブを選択するかの情報）を受け取る
-    // すべてのタブとタブコンテンツの "is-active" クラスを削除
-    $('.js-tab-button').removeClass('is-active');
-    $('.js-tab-content').removeClass('is-active');
+    // すべてのタブボタンを非選択状態にし、タブコンテンツを非表示にする
+    $('.js-tab-button')
+      .removeClass('is-active')
+      .attr('aria-selected', 'false');
+    $('.js-tab-content')
+      .removeClass('is-active')
+      .prop('hidden', true);
 
-    // data-target属性が target の値と一致するタブを取得し、そのタブに "is-active" クラスを追加
-    $(`.js-tab-button[data-target="${target}"]`).addClass('is-active');
+    // data-target属性が target の値と一致するタブボタンを選択状態にする
+    $(`.js-tab-button[data-target="${target}"]`)
+      .addClass('is-active')
+      .attr('aria-selected', 'true');
 
-    // targetのIDを持つタブのコンテンツを取得し、そのコンテンツに "is-active" クラスを追加
-    $(`#${target}`).addClass('is-active');
+    // targetのIDを持つタブコンテンツを表示する
+    $(`#${target}`)
+      .addClass('is-active')
+      .prop('hidden', false);
   }
 
   // クエリパラメータ "tab" を取得
