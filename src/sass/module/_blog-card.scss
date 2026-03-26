@@ -7,8 +7,8 @@
 
 .blog-card--js {
   opacity: 0;
-  transform: translateY(rem(300));
-  transition-duration: 2s
+  transform: translateY(rem(200));
+  transition: opacity 1s, transform 1s;
 }
 
 .blog-card--js.is-active {

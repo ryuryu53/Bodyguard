@@ -10,8 +10,8 @@
 
 .voice-card--js {
   opacity: 0;
-  transform: translateY(rem(300));
-  transition-duration: 2s
+  transform: translateY(rem(200));
+  transition: opacity 1s, transform 1s;
 }
 
 .voice-card--js.is-active {
@@ -22,6 +22,7 @@
 .voice-card__link {
   display: block;
   padding: rem(10) rem(16) rem(24);
+
   @include mq(md) {
     padding: rem(24);
   }
