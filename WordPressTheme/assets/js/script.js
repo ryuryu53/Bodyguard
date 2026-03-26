@@ -277,20 +277,28 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     $tabButton.first().addClass('is-active');
     $tabContent.first().addClass('is-active');
 
+    /**
+     * 指定インデックスのタブをアクティブ状態に切り替える
+     * @param {number} index - アクティブにするタブの0始まりのインデックス
+     */
     function activateTab(index) {
+      // 全ボタンの選択状態をリセット（スタイルとスクリーンリーダー向けの状態を両方解除）
       $tabButton
         .removeClass('is-active')
         .attr('aria-selected', 'false');
 
+      // 指定されたボタンを選択中としてマーク
       $tabButton
         .eq(index)
         .addClass('is-active')
         .attr('aria-selected', 'true');
 
+      // 全コンテンツを非表示（hidden属性でDOMからも隠してスクリーンリーダーに読み上げさせない）
       $tabContent
         .removeClass('is-active')
         .prop('hidden', true);
 
+      // 対応するコンテンツだけを表示
       $tabContent
         .eq(index)
         .addClass('is-active')
