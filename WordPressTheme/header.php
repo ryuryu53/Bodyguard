@@ -71,7 +71,7 @@
             </span>
           </button>
         </div>
-        <nav class="header__sp-nav sp-nav js-sp-nav" id="drawer-nav" aria-label="ヘッダーナビゲーション" aria-hidden="true">
+        <nav class="header__sp-nav sp-nav js-sp-nav" id="drawer-nav" aria-label="ヘッダーのメインメニュー" aria-hidden="true">
           <div class="sp-nav__inner">
             <ul class="sp-nav__items">
               <li class="sp-nav__item">
@@ -110,7 +110,7 @@
             </ul>
           </div>
         </nav>
-        <nav class="header__pc-nav pc-nav js-pc-nav" aria-label="ヘッダーナビゲーション" aria-hidden="false">
+        <nav class="header__pc-nav pc-nav js-pc-nav" aria-label="ヘッダーのメインメニュー" aria-hidden="false">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="<?php echo $plans; ?>" class="pc-nav__link">

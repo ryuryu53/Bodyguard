@@ -83,7 +83,7 @@
       </div>
       <div class="column-aside__btn">
         <!-- get_post_type_archive_link()：voiceというカスタム投稿タイプのアーカイブページ（口コミの一覧ページ）へのリンクを作成 -->
-        <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="button">
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="button" aria-label="お客様の声一覧を見る">
           <span class="button__text">View&nbsp;more</span>
         </a>
       </div>
@@ -150,7 +150,7 @@
         <?php endif; ?>
       <div class="column-aside__btn-2">
         <!-- get_post_type_archive_link()：ご提供プランのカスタム投稿タイプ（plans）のアーカイブページ（一覧ページ）へのリンクを生成 -->
-        <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="button">
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="button" aria-label="ご提供プランの一覧を見る">
           <span class="button__text">View&nbsp;more</span>
         </a>
       </div>
