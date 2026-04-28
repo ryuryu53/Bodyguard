@@ -1,14 +1,13 @@
 @use "global" as *;
 
 .column-article__heading {
-  padding-bottom: rem(3);
+  padding-bottom: rem(8);
   font-size: rem(24);
   font-weight: $medium;
-  line-height: 1.44;
+  line-height: 1;
   border-bottom: rem(1) solid $blueaccent;
 
   @include mq(md) {
-    padding-bottom: 0;
     font-size: rem(32);
   }
 }
