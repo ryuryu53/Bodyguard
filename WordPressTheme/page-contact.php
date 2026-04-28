@@ -13,6 +13,7 @@
   <!-- お問い合わせ -->
   <div class="layout-lower-head page-contact">
     <div class="page-contact__inner inner">
+      <h2 class="page-contact__heading">お気軽にご相談ください</h2>
       <div class="page-contact__content form">
         <?php echo do_shortcode('[contact-form-7 id="3c0f69b" title="お問い合わせ"]'); ?>
       </div>
