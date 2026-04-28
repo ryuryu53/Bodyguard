@@ -218,7 +218,7 @@ a {
 }
 
 .layout-lower-head {
-	margin-top: 3.1875rem;
+	margin-top: 3.25rem;
 }
 
 .layout-mv {
@@ -712,8 +712,8 @@ a {
 	border-bottom: 0.0625rem solid #3f72af;
 	font-size: 1.5rem;
 	font-weight: 500;
-	line-height: 1.44;
-	padding-bottom: 0.1875rem;
+	line-height: 1;
+	padding-bottom: 0.5rem;
 }
 
 .column-article__items {
@@ -1224,6 +1224,10 @@ a {
 	object-fit: cover;
 }
 
+.information-cards__item[hidden] {
+	display: none;
+}
+
 .information {
 	background-color: #dbe2ef;
 	padding-bottom: 5.25rem;
@@ -1555,6 +1559,16 @@ a {
 	max-width: 46.875rem;
 }
 
+.page-contact__heading {
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1;
+}
+
+.page-contact__content {
+	margin-top: 1.5rem;
+}
+
 .page-contact__thanks-title {
 	font-size: 1rem;
 	font-weight: 400;
@@ -1656,6 +1670,7 @@ a {
 .page-plans__heading {
 	font-size: 1.5rem;
 	font-weight: 500;
+	line-height: 1;
 }
 
 .page-plans__category {
@@ -1750,8 +1765,7 @@ a {
 
 .page-privacy-policy__title {
 	font-size: 1.5rem;
-	position: relative;
-	z-index: 10;
+	font-weight: 500;
 }
 
 .page-privacy-policy__content {
@@ -1798,8 +1812,7 @@ a {
 
 .page-terms-of-service__title {
 	font-size: 1.5rem;
-	position: relative;
-	z-index: 10;
+	font-weight: 500;
 }
 
 .page-terms-of-service__content {
@@ -3374,7 +3387,7 @@ html {
 }
 
 .layout-lower-head {
-	margin-top: 9.3125rem;
+	margin-top: 9rem;
 }
 
 .layout-page-404 {
@@ -3550,7 +3563,6 @@ html {
 
 .column-article__heading {
 	font-size: 2rem;
-	padding-bottom: 0;
 }
 
 .column-article__items {
@@ -3931,6 +3943,14 @@ html {
 
 .page-about__text {
 	background-image: radial-gradient(rgba(17, 45, 78, 0.5), rgba(17, 45, 78, 0.2));
+}
+
+.page-contact__heading {
+	font-size: 2rem;
+}
+
+.page-contact__content {
+	margin-top: 2.5rem;
 }
 
 .page-contact__thanks-title {
