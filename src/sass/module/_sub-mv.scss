@@ -85,12 +85,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
   background-image: radial-gradient(rgba($color: $blue, $alpha: 50%), rgba($color: $blue, $alpha: 20%));
   padding: 0 rem(8);
   border-radius: rem(12);
-  text-align: center;
   transform: translate(-50%, -50%);
+  white-space: nowrap;
 
   @include mq(md) {
     top: 59.2%;
