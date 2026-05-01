@@ -102,9 +102,15 @@
         aria-live="polite"
         tabindex="-1"
       >
+        <button class="modal__nav modal__nav--prev js-modal-prev" type="button" aria-label="前の画像">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
         <div class="modal__img">
           <img class="js-modal-img" src="" loading="lazy" alt="モーダル画像">
         </div>
+        <button class="modal__nav modal__nav--next js-modal-next" type="button" aria-label="次の画像">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </section>
   <?php endif; ?>

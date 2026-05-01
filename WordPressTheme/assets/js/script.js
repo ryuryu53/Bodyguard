@@ -418,12 +418,15 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   // jQueryオブジェクト取得
   const $open = $('.js-modal-open'),
     $modal = $('.js-modal'),
-    $modalImg = $('.js-modal-img');
+    $modalImg = $('.js-modal-img'),
+    $prevBtn = $('.js-modal-prev'),
+    $nextBtn = $('.js-modal-next');
 
   let scrollTop;  // 背景固定解除後に戻すスクロール位置
   let $lastFocusedElement = null;  // モーダルを開く直前にフォーカスしていた要素（モーダルを閉じたらフォーカスを戻す）
   let focusTimeoutId = null;  // modal.focus() のタイマーID（closeModal時にキャンセルするため）
   let clearImgTimeoutId = null;  // src: '' のタイマーID（openModal時にキャンセルするため）
+  let currentIndex = 0;  // 現在表示中のギャラリー画像インデックス
 
   /**
    * スクロールバーの幅を計算する関数
@@ -445,6 +448,30 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   }
 
   /**
+   * 指定インデックスのギャラリー画像をモーダルに表示する
+   * openModal・前後ナビ共通で使う
+   */
+  function showImageAt(index) {
+    const $trigger = $open.eq(index);
+    const $img = $trigger.find('img');
+
+    currentIndex = index;
+
+    // 閉じたときにフォーカスを戻すため、開いた元の要素を記録
+    $lastFocusedElement = $trigger;
+
+    // モーダル内画像を差し替え
+    $modalImg.attr({
+      src: $img.attr('src'),
+      alt: $img.attr('alt'),
+      id: 'modal-image',
+    });
+
+    // モーダルのアクセシブルネームを画像要素（id: modal-image）に関連付ける
+    $modal.attr('aria-labelledby', 'modal-image');
+  }
+
+  /**
    * モーダルを開く処理
    * @param {jQuery} $trigger - 開くきっかけになったボタン要素
    */
@@ -458,26 +485,11 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     // closeModal() が予約した src: '' のタイマーが残っていればキャンセル
     clearTimeout(clearImgTimeoutId);
 
-    // 閉じたときにフォーカスを戻すため、開いた元の要素を記録
-    $lastFocusedElement = $trigger;
+    // クリックされたボタンのインデックスを記録し、画像を表示
+    showImageAt($open.index($trigger));
 
-    // トリガー要素内の画像情報を取得
-    const $img = $trigger.find('img'),
-      imgSrc = $img.attr('src'),
-      imgAlt = $img.attr('alt');
-
-    // モーダル内画像を差し替え
-    $modalImg.attr({
-      src: imgSrc,
-      alt: imgAlt,
-      id: 'modal-image',
-    });
-
-    // モーダルのアクセシブルネームを画像要素（id: modal-image）に関連付ける
-    $modal.attr({
-      'aria-labelledby': 'modal-image',
-      'aria-hidden': 'false',
-    });
+    // モーダルのアクセシビリティ状態を表示に切り替える
+    $modal.attr('aria-hidden', 'false');
 
     // モーダルを表示
     $modal.addClass('is-open');
@@ -492,7 +504,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       position: 'fixed',
       top: -scrollTop,
       left: 0,
-      // right: 0,
       width: `calc(100% - ${scrollbarWidth}px)`, // スクロールバーの幅を考慮する
     });
 
@@ -534,7 +545,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       position: '',
       top: '',
       left: '',
-      // right: '',
       width: '',
     });
 
@@ -561,10 +571,46 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   });
 
   // ===============================================
-  //  3) モーダル表示中、Enter/Spaceで閉じる
+  //  3) 前後ナビゲーションボタン
+  // ===============================================
+  // 画像が1枚の場合はボタンを非表示にする
+  if ($open.length <= 1) {
+    $prevBtn.hide();
+    $nextBtn.hide();
+  }
+
+  $prevBtn.on('click', function (e) {
+    e.stopPropagation(); // $modal の click→closeModal を発火させない
+    showImageAt((currentIndex - 1 + $open.length) % $open.length);
+  });
+
+  $nextBtn.on('click', function (e) {
+    e.stopPropagation();
+    showImageAt((currentIndex + 1) % $open.length);
+  });
+
+  // ===============================================
+  //  4) モーダル表示中、左右矢印キーで前後移動
+  // ===============================================
+  $(document).on('keydown', (e) => {
+    if (!$modal.hasClass('is-open') || $open.length <= 1) return;
+
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      showImageAt((currentIndex - 1 + $open.length) % $open.length);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      showImageAt((currentIndex + 1) % $open.length);
+    }
+  });
+
+  // ===============================================
+  //  5) モーダル表示中、Enter/Spaceで閉じる
   // ===============================================
   $modal.on('keydown', (e) => {
     if (!$modal.hasClass('is-open')) return;  // 現在のコードでは「モーダル表示されているのに is-open がない」状況は基本的には発生しないが、「トランジション中、将来のJS変更、想定外イベント」などを考慮して安全ガードを入れる（この1行を見るだけで「このイベントはモーダルが開いているとき専用」と理解できる）
+
+    if (e.target !== $modal.get(0)) return;  // ナビボタンにフォーカスがある時は発火しない
 
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -573,7 +619,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   });
 
   // ===============================================
-  //  4) モーダル表示中、ESCで閉じる
+  //  6) モーダル表示中、ESCで閉じる
   // ===============================================
   $(document).on('keydown', (e) => {
     if (e.key === 'Escape' && $modal.hasClass('is-open')) {
@@ -583,51 +629,38 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   });
 
   // ===============================================
-  //  5) フォーカストラップ
+  //  7) フォーカストラップ
   // ===============================================
-  /* モーダルが開いている間に Tab / Shift+Tab を押したら、
-   * フォーカスがモーダル外へ逃げないようにする
+  /* Tab / Shift+Tab でフォーカスを循環させる
+   * 順序: モーダル自身 → 前ボタン → 次ボタン → モーダル自身 → …
+   * 画像が1枚でボタン非表示の場合はモーダル自身のみに固定
    */
   $(document).on('keydown', function (e) {
     if (!$modal.hasClass('is-open')) return;
     if (e.key !== 'Tab') return;
 
-    const $focusableElements = getFocusableElements($modal);
+    // モーダル自身を先頭に、表示中のボタンを続けたフォーカス対象リストを構築
+    const innerFocusable = getFocusableElements($modal).toArray();
+    const allFocusable = [$modal.get(0), ...innerFocusable];
 
-    // 今回のモーダルのように内部にボタンやリンクが無い場合は、モーダルコンテナ自身にフォーカスを固定する
-    if ($focusableElements.length === 0) {
-      e.preventDefault();
-      $modal.focus();
-      return;
-    }
-
-    const firstElement = $focusableElements.get(0);
-    const lastElement = $focusableElements.get($focusableElements.length - 1);
     const activeElement = document.activeElement;
+    const currentIdx = allFocusable.indexOf(activeElement);
 
-    // Shift + Tab：先頭にいるときは末尾へ戻す
+    e.preventDefault();
+
     if (e.shiftKey) {
-      if (activeElement === firstElement || activeElement === $modal.get(0)) {
-        e.preventDefault();
-        lastElement.focus();
-      }
+      // Shift+Tab：ひとつ前の要素へ（先頭なら末尾へ）
+      const prevIdx = (currentIdx - 1 + allFocusable.length) % allFocusable.length;
+      allFocusable[prevIdx].focus();
     } else {
-      // Tab：末尾にいる時は先頭へ戻す
-      if (activeElement === lastElement) {
-        e.preventDefault();
-        firstElement.focus();
-      }
-
-      // 万一モーダル外にフォーカスがあれば、モーダルへ戻す
-      if (!$modal.get(0).contains(activeElement)) {
-        // e.preventDefault();  // Tab移動を止める目的だが、「フォーカスが既に外にある」状況の修正なので不要と判断
-        $modal.focus();
-      }
+      // Tab：ひとつ次の要素へ（末尾なら先頭へ）
+      const nextIdx = (currentIdx + 1) % allFocusable.length;
+      allFocusable[nextIdx].focus();
     }
   });
 
   // ===============================================
-  //  6) フォーカス逸脱の保険
+  //  8) フォーカス逸脱の保険
   // ===============================================
   /* 何らかの理由でモーダル表示中にフォーカスが外へ移動したら
    * モーダルへ戻す

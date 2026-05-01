@@ -1388,6 +1388,7 @@ a {
 	justify-content: center;
 	left: 0;
 	opacity: 0;
+	padding-bottom: 2.5rem;
 	position: fixed;
 	top: 0;
 	transition: opacity 0.3s, visibility 0.3s;
@@ -1418,6 +1419,44 @@ a {
 	height: 100%;
 	object-fit: cover;
 	object-position: left top;
+}
+
+.modal__nav[type=button] {
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	border: 0.0625rem solid rgba(255, 255, 255, 0.6);
+	bottom: 0.75rem;
+	cursor: pointer;
+	display: flex;
+	height: 2.75rem;
+	justify-content: center;
+	padding: 0;
+	position: absolute;
+	transition: background-color 0.2s, border-color 0.2s;
+	width: 2.75rem;
+}
+
+.modal__nav.modal__nav--prev {
+	right: calc(50% + 2.5rem);
+}
+
+.modal__nav.modal__nav--next {
+	left: calc(50% + 2.5rem);
+}
+
+.modal__nav svg {
+	stroke: #fff;
+	stroke-width: 2;
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	height: 1.25rem;
+	width: 1.25rem;
+}
+
+.modal__nav:focus-visible {
+	background-color: rgba(0, 0, 0, 0.6);
+	border-color: #fff;
 }
 
 .mv__inner {
@@ -3322,6 +3361,11 @@ a[href^="tel:"] {
 	transform: scale(1, 1);
 }
 
+.modal__nav:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+	border-color: #fff;
+}
+
 .form__btn-submit:hover {
 	color: #3f72af;
 }
@@ -3862,6 +3906,10 @@ html {
 	background-image: url("../images/common/mv-pc_1.webp");
 }
 
+.modal {
+	padding-bottom: 0;
+}
+
 .modal__img {
 	height: 80%;
 	max-width: 60.625rem;
@@ -3874,6 +3922,28 @@ html {
 	-o-object-position: 50% 50%;
 	object-fit: contain;
 	object-position: 50% 50%;
+}
+
+.modal__nav[type=button] {
+	bottom: auto;
+	height: 3.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3.5rem;
+}
+
+.modal__nav.modal__nav--prev {
+	left: 1.8%;
+}
+
+.modal__nav.modal__nav--next {
+	left: auto;
+	right: 1.8%;
+}
+
+.modal__nav svg {
+	height: 1.5rem;
+	width: 1.5rem;
 }
 
 .mv__header {
