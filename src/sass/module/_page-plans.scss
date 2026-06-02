@@ -1,15 +1,5 @@
 @use "global" as *;
 
-.page-plans__heading {
-  font-size: rem(24);
-  font-weight: $medium;
-  line-height: 1;
-
-  @include mq(md) {
-    font-size: rem(32);
-  }
-}
-
 .page-plans__category {
   margin-top: rem(24);
 

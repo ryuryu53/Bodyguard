@@ -1380,6 +1380,12 @@ a {
 	transform: translateY(0);
 }
 
+.lower-heading__text {
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1;
+}
+
 .modal {
 	align-items: center;
 	background: rgba(32, 32, 32, 0.8);
@@ -1632,6 +1638,10 @@ a {
 	max-width: 46.875rem;
 }
 
+.page-information__container {
+	margin-top: 1.5rem;
+}
+
 .page-link__flex {
 	display: flex;
 	justify-content: center;
@@ -1708,12 +1718,6 @@ a {
 .page-link__archive {
 	margin-top: 2.5rem;
 	text-align: center;
-}
-
-.page-plans__heading {
-	font-size: 1.5rem;
-	font-weight: 500;
-	line-height: 1;
 }
 
 .page-plans__category {
@@ -3905,6 +3909,10 @@ html {
 	background-image: url("../images/common/mv-pc_1.webp");
 }
 
+.lower-heading__text {
+	font-size: 2rem;
+}
+
 .modal {
 	padding-bottom: 0;
 }
@@ -4030,8 +4038,8 @@ html {
 	padding-top: 0.75rem;
 }
 
-.page-plans__heading {
-	font-size: 2rem;
+.page-information__container {
+	margin-top: 2.5rem;
 }
 
 .page-plans__category {

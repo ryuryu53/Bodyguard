@@ -13,7 +13,9 @@
   <!-- お客様の声 -->
   <section class="layout-lower-head page-plans">
     <div class="page-plans__inner inner">
-      <h2 class="page-plans__heading">お客様の声一覧</h2>
+      <div class="page-plans__heading lower-heading">
+        <h2 class="lower-heading__text">お客様の声一覧</h2>
+      </div>
       <div class="page-plans__category plans-category">
         <!-- タクソノミーのタブを生成 -->
         <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="plans-category__link">All</a>
