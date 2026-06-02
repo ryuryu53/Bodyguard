@@ -13,8 +13,11 @@
   <!-- 身辺警護についての情報 -->
   <section class="layout-lower-head page-information">
     <div class="page-information__inner inner">
+      <div class="page-information__heading lower-heading">
+        <h2 class="lower-heading__text" id="information-tab-title">身辺警護についての情報</h2>
+      </div>
       <div class="page-information__container tab js-tab">
-        <div class="tab__list" role="tablist">
+        <div class="tab__list" role="tablist" aria-labelledby="information-tab-title">
           <button
             class="tab__button js-tab-button"
             id="tab-1"
