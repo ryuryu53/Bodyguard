@@ -79,15 +79,21 @@
 
 .contact__logo-link {
   display: block;
-  aspect-ratio: 174 / 65;
-  width: rem(174);
+  aspect-ratio: 190 / 42;
+  width: 100%;
+  max-width: rem(190);
   overflow: hidden;
   margin: auto;
 
   @include mq(md) {
-    aspect-ratio: 200 / 75;
-    width: rem(200);
+    aspect-ratio: 200 / 44;
+    max-width: rem(200);
   }
+}
+
+.contact__logo-link img {
+  height: 100%;
+  object-fit: contain;
 }
 
 .contact__access {

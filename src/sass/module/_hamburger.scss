@@ -3,6 +3,7 @@
 .hamburger[type="button"] {
   position: relative;
   z-index: 100;
+  display: block;
   width: rem(33);
   height: rem(32);
   padding: 0;
@@ -17,10 +18,10 @@
   bottom: 0;
   left: 0;
   width: inherit;
-  height: rem(2);
+  height: 1px;
   margin: auto;
   background-color: $white;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out;
   // transition: inherit;
 }
 
@@ -32,7 +33,7 @@
   height: 100%;
   content: "";
   background-color: $white;
-  transition: transform 0.3s, top 0.3s, right 0.3s, width 0.3s;
+  transition: transform 0.3s ease-in-out, right 0.3s ease-in-out, width 0.3s ease-in-out; // top を外す
   // transition: inherit;
 }
 
@@ -51,15 +52,15 @@
 
 .hamburger.is-active .hamburger__line::before,
 .hamburger.is-active .hamburger__line::after {
-  top: 0;
+  // top: 0;
   right: rem(-5);
   width: rem(41);
 }
 
 .hamburger.is-active .hamburger__line::before {
-  transform: rotate(36.87deg);
+  transform: translateY(rem(12)) rotate(36.87deg); // 中央へはtranslateで寄せる
 }
 
 .hamburger.is-active .hamburger__line::after {
-  transform: rotate(-36.87deg);
+  transform: translateY(rem(-12)) rotate(-36.87deg); // 中央へはtranslateで寄せる
 }

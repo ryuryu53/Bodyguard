@@ -827,11 +827,18 @@ a {
 }
 
 .contact__logo-link {
-	aspect-ratio: 174/65;
+	aspect-ratio: 190/42;
 	display: block;
 	margin: auto;
+	max-width: 11.875rem;
 	overflow: hidden;
-	width: 10.875rem;
+	width: 100%;
+}
+
+.contact__logo-link img {
+	-o-object-fit: contain;
+	height: 100%;
+	object-fit: contain;
 }
 
 .contact__access {
@@ -1004,16 +1011,17 @@ a {
 }
 
 .footer__logo-link {
-	aspect-ratio: 160/40;
+	aspect-ratio: 160/35;
 	display: block;
+	max-width: 10rem;
 	overflow: hidden;
-	width: 10rem;
+	width: 100%;
 }
 
 .footer__logo-link img {
-	-o-object-fit: cover;
+	-o-object-fit: contain;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .footer__sns {
@@ -1089,6 +1097,7 @@ a {
 }
 
 .hamburger[type=button] {
+	display: block;
 	height: 2rem;
 	outline: revert;
 	padding: 0;
@@ -1100,13 +1109,13 @@ a {
 .hamburger__line {
 	background-color: #fff;
 	bottom: 0;
-	height: 0.125rem;
+	height: 1px;
 	left: 0;
 	margin: auto;
 	position: absolute;
 	right: 0;
 	top: 0;
-	transition: background-color 0.3s;
+	transition: background-color 0.3s ease-in-out;
 	width: inherit;
 }
 
@@ -1117,7 +1126,7 @@ a {
 	height: 100%;
 	position: absolute;
 	right: 0;
-	transition: transform 0.3s, top 0.3s, right 0.3s, width 0.3s;
+	transition: transform 0.3s ease-in-out, right 0.3s ease-in-out, width 0.3s ease-in-out;
 	width: 100%;
 }
 
@@ -1136,16 +1145,15 @@ a {
 .hamburger.is-active .hamburger__line::before,
 .hamburger.is-active .hamburger__line::after {
 	right: -0.3125rem;
-	top: 0;
 	width: 2.5625rem;
 }
 
 .hamburger.is-active .hamburger__line::before {
-	transform: rotate(36.87deg);
+	transform: translateY(0.75rem) rotate(36.87deg);
 }
 
 .hamburger.is-active .hamburger__line::after {
-	transform: rotate(-36.87deg);
+	transform: translateY(-0.75rem) rotate(-36.87deg);
 }
 
 .header {
@@ -1166,27 +1174,26 @@ a {
 }
 
 .header__logo {
-	padding-top: 0.3125rem;
 	position: relative;
 	z-index: 100;
 }
 
 .header__logo-link {
-	aspect-ratio: 160/40;
+	aspect-ratio: 160/35;
 	display: block;
+	max-width: 10rem;
 	overflow: hidden;
-	width: 10rem;
+	width: 100%;
 }
 
 .header__logo-link img {
-	-o-object-fit: cover;
+	-o-object-fit: contain;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .header__hamburger {
 	margin-left: auto;
-	padding-top: 0.3125rem;
 }
 
 .header__pc-nav {
@@ -1900,6 +1907,7 @@ a {
 .pc-nav__items {
 	align-items: center;
 	display: flex;
+	gap: 2.5rem;
 	height: inherit;
 	justify-content: center;
 }
@@ -1915,7 +1923,6 @@ a {
 	flex-direction: column;
 	height: inherit;
 	justify-content: center;
-	padding: 0 1.25rem;
 	position: relative;
 }
 
@@ -1923,24 +1930,13 @@ a {
 	background: currentColor;
 	bottom: 1.3125rem;
 	content: "";
-	height: 0.125rem;
-	left: 15%;
+	height: 2px;
+	left: 0;
 	position: absolute;
 	transform: scale(0, 1);
 	transform-origin: center top;
 	transition: transform 0.3s;
-	width: 70%;
-}
-
-.pc-nav__item:first-child .pc-nav__link::after {
-	left: 0;
-	width: 80%;
-}
-
-.pc-nav__item:last-child .pc-nav__link::after {
-	left: auto;
-	right: 0;
-	width: 80%;
+	width: 100%;
 }
 
 .pc-nav__link:hover {
@@ -1951,14 +1947,6 @@ a {
 	transform: scale(1, 1);
 }
 
-.pc-nav__item:first-child .pc-nav__link {
-	padding-left: 0;
-}
-
-.pc-nav__item:last-child .pc-nav__link {
-	padding-right: 0;
-}
-
 .pc-nav__engtext {
 	font-family: "Gotu", sans-serif;
 	font-size: 1.125rem;
@@ -1967,16 +1955,11 @@ a {
 	position: relative;
 }
 
-.pc-nav__item:not(:nth-child(n+7)) .pc-nav__engtext {
-	right: 0.0625rem;
-}
-
 .pc-nav__jatext {
 	font-size: 0.625rem;
 	font-weight: 400;
 	margin-top: 0.25rem;
 	position: relative;
-	right: 0.0625rem;
 }
 
 .plans-card {
@@ -3671,8 +3654,8 @@ html {
 }
 
 .contact__logo-link {
-	aspect-ratio: 200/75;
-	width: 12.5rem;
+	aspect-ratio: 200/44;
+	max-width: 12.5rem;
 }
 
 .contact__access {
@@ -3753,8 +3736,8 @@ html {
 }
 
 .footer__logo-link {
-	aspect-ratio: 200/50;
-	width: 12.5rem;
+	aspect-ratio: 200/44;
+	max-width: 12.5rem;
 }
 
 .footer__sns {
@@ -3821,7 +3804,6 @@ html {
 
 .header__logo {
 	left: -0.25rem;
-	padding-top: 0.4375rem;
 }
 
 .header__hamburger {
@@ -4637,8 +4619,8 @@ html {
 }
 
 .header__logo-link {
-	aspect-ratio: 200/50;
-	width: 12.5rem;
+	aspect-ratio: 200/44;
+	max-width: 12.5rem;
 }
 
 }
