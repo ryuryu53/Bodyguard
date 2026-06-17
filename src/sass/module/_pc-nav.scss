@@ -38,12 +38,14 @@
   transform-origin: center top; // 上部中央基点
 }
 
-.pc-nav__link:hover {
-  opacity: 1;
-}
-
-.pc-nav__link:hover::after {
-  transform: scale(1, 1); // X方向にスケール拡大
+@media (any-hover: hover) {
+  .pc-nav__link:hover {
+    opacity: 1;
+  }
+  
+  .pc-nav__link:hover::after {
+    transform: scale(1, 1); // X方向にスケール拡大
+  }
 }
 
 .pc-nav__engtext {

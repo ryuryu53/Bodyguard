@@ -1939,14 +1939,6 @@ a {
 	width: 100%;
 }
 
-.pc-nav__link:hover {
-	opacity: 1;
-}
-
-.pc-nav__link:hover::after {
-	transform: scale(1, 1);
-}
-
 .pc-nav__engtext {
 	font-family: "Gotu", sans-serif;
 	font-size: 1.125rem;
@@ -3350,6 +3342,14 @@ a[href^="tel:"] {
 .modal__nav:hover {
 	background-color: rgba(0, 0, 0, 0.6);
 	border-color: #fff;
+}
+
+.pc-nav__link:hover {
+	opacity: 1;
+}
+
+.pc-nav__link:hover::after {
+	transform: scale(1, 1);
 }
 
 .form__btn-submit:hover {
