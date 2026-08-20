@@ -36,7 +36,7 @@
   aspect-ratio: 345 / 219;  // PC版ではボックス（modal__img）のサイズが幅も高さも自動サイズでないため、aspect-ratioは影響しない
   overflow: hidden;
 
-  @include mq("md") {
+  @include mq(md) {
     max-width: rem(970);
     height: 80%;
     padding-right: $padding-pc;
