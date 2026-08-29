@@ -551,56 +551,33 @@ add_action( 'init', function() {
   }
 });
 
-//「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（1）
-// 固定ページに対してブロックエディタを使用するかどうかを制御するフィルターフック（このフィルターは、「WordPressが投稿（または固定ページ）を開くときに、ブロックエディタを使うかどうか判断する直前」に呼び出される）
-// $use_block_editor（エディタを使うかどうかのブール値）と$post（現在の投稿情報）を引数として受け取る
-add_filter( 'use_block_editor_for_post', function( $use_block_editor, $post ) {
-  // 投稿のタイプが「固定ページ」であるかどうかをチェックする
-  if ( $post->post_type === 'page' ) {
-    // 表示するページスラッグのリスト
-    $allowed_pages = [ 'price', 'faq', 'privacy-policy', 'terms-of-service' ];
+// 「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする
+function my_remove_post_editor_support() {
+  // 現在の画面が管理画面であり、編集しているのが固定ページの場合のみ処理を続ける
+  // 今表示している画面の情報を$screenという変数に保存
+  $screen = get_current_screen();
+  // その画面で編集している投稿タイプ（$screen->post_type）が固定ページ（page）、かつ現在の管理画面の「画面タイプ」（$screen->base）が編集画面（post）ならば
+  if ( $screen->post_type === 'page' && $screen->base === 'post' ) {
+    // 編集しているページのIDを取得（現在のページIDを取得（$_GET['post']）し、存在していればそれを整数値に変換して$post_idに保存し、IDがない場合は0を代入）
+    $post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
 
-    // スラッグがリストに含まれていなければエディタを非表示にする
-    // in_array()関数：指定した値が配列に含まれているかどうかを確認
-    // ページスラッグが許可されたリストに含まれていない場合にtrueを返す
-    if ( ! in_array( $post->post_name, $allowed_pages ) ) {  // post_nameはページのスラッグを指す
-      // 特定の投稿タイプからエディタのサポートを削除する
-      remove_post_type_support( 'page', 'editor' ); // エディタを非表示
-      return false; // ブロックエディタを無効化
+    // IDに基づいてページのスラッグを取得し、特定のページならエディタ削除をしない
+    $exclude_slugs = array('price', 'faq', 'privacy-policy', 'terms-of-service');
+    // get_post_field()：指定した投稿IDに関連する特定のフィールド（ここではpost_name、すなわちスラッグ）を取得するための関数
+    $post_slug = get_post_field( 'post_name', $post_id );
+
+    // 除外リストにある場合はエディタ削除を行わない
+    if ( in_array( $post_slug, $exclude_slugs ) ) {
+      return;
     }
+
+    // 条件に合わない場合はエディタを削除
+    // 固定ページからエディター（editor）機能を削除
+    remove_post_type_support( 'page', 'editor' );
   }
-  // 条件に該当しない場合は、もともとのブロックエディタの設定を保持するために、この値をそのまま返す
-  return $use_block_editor; // それ以外の場合はエディタを使用
-}, 10, 2 );
-
-// これでもOK！
-// 「料金一覧」「よくある質問」「プライバシーポリシー」「利用規約」以外の固定ページのブロックエディタを非表示にする（2）
-// function my_remove_post_editor_support() {
-//   // 現在の画面が管理画面であり、編集しているのが固定ページの場合のみ処理を続ける
-//   // 今表示している画面の情報を$screenという変数に保存
-//   $screen = get_current_screen();
-//   // その画面で編集している投稿タイプ（$screen->post_type）が固定ページ（page）、かつ現在の管理画面の「画面タイプ」（$screen->base）が編集画面（post）ならば
-//   if ( $screen->post_type === 'page' && $screen->base === 'post' ) {
-//     // 編集しているページのIDを取得（現在のページIDを取得（$_GET['post']）し、存在していればそれを整数値に変換して$post_idに保存し、IDがない場合は0を代入）
-//     $post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
-
-//     // IDに基づいてページのスラッグを取得し、特定のページならエディタ削除をしない
-//     $exclude_slugs = array('price', 'faq', 'privacy-policy', 'terms-of-service');
-//     // get_post_field()：指定した投稿IDに関連する特定のフィールド（ここではpost_name、すなわちスラッグ）を取得するための関数
-//     $post_slug = get_post_field( 'post_name', $post_id );
-
-//     // 除外リストにある場合はエディタ削除を行わない
-//     if ( in_array( $post_slug, $exclude_slugs ) ) {
-//       return;
-//     }
-
-//     // 条件に合わない場合はエディタを削除
-//     // 固定ページからエディター（editor）機能を削除
-//     remove_post_type_support( 'page', 'editor' );
-//   }
-// }
-// // current_screen：現在の管理画面の画面情報が利用可能になるタイミングでフックされるアクションフック
-// add_action( 'current_screen', 'my_remove_post_editor_support' );
+}
+// current_screen：現在の管理画面の画面情報が利用可能になるタイミングでフックされるアクションフック
+add_action( 'current_screen', 'my_remove_post_editor_support' );
 
 /* --------------------------------------------
  *   管理画面のカスタム投稿一覧にもカラムを追加（順番を調整）
