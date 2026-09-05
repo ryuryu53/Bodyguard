@@ -56,9 +56,9 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
    * -------------------------------------------- */
   const $hamburger = $('.js-hamburger');
   const $drawer = $('.js-sp-nav');
-  const $pcNav = $('.js-pc-nav');
   const $main = $('.js-main');
   const $footer = $('.js-footer');
+  const $topBtn = $('.js-to-top');
 
   if ($hamburger.length && $drawer.length) {
     // ハンバーガーとドロワーをどちらをクリックしても同じ動きにする
@@ -82,17 +82,17 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         $drawer.fadeOut(300);
 
         // inert属性を削除（フォーカスを有効化）
-        $pcNav.removeAttr('inert');
         $main.removeAttr('inert');
         $footer.removeAttr('inert');
+        $topBtn.removeAttr('inert');
       } else {
         lockBodyScroll(); // 背景スクロール禁止
         $drawer.fadeIn(300);
 
         // inert属性を設定（フォーカスを無効化）
-        $pcNav.attr('inert', '');
         $main.attr('inert', '');
         $footer.attr('inert', '');
+        $topBtn.attr('inert', '');
       }
     });
   }
@@ -124,34 +124,12 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         unlockBodyScroll();
 
         // 4) inert属性を削除（フォーカスを有効化）
-        $pcNav.removeAttr('inert');
         $main.removeAttr('inert');
         $footer.removeAttr('inert');
+        $topBtn.removeAttr('inert');
       }
     }
   });
-
-  /* --------------------------------------------
-   *   画面幅による aria-hidden の切り替え（SPはドロワーメニューの開閉で切り替えるので、PCのみ）
-   * -------------------------------------------- */
-  // これは（ ↓ ）今、PC表示なのかSP表示なのかを判定する装置
-  const mq = window.matchMedia('(min-width: 768px)');
-
-  function updateAria(e) {
-    if (e.matches) {
-      // PC表示（768px以上）
-      $pcNav.attr('aria-hidden', 'false');
-    } else {
-      // SP表示（768px未満）
-      $pcNav.attr('aria-hidden', 'true');
-    }
-  }
-
-  // 初回実行（ページ読み込み直後に一度実行）
-  updateAria(mq);
-
-  // リサイズ時（条件（min-width: 768px）をまたいだ瞬間）も実行
-  mq.addEventListener('change', updateAria);
 
   /* --------------------------------------------
    *   mvスワイパー
@@ -221,62 +199,69 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   /* --------------------------------------------
    *   スクロールしながらページトップへ戻るボタン
    * -------------------------------------------- */
-  let topBtn = $('.js-to-top');
-  topBtn.hide();
+  $topBtn.hide();
 
   // ボタンの表示設定
   $(window).on('scroll', function () {
     if ($(this).scrollTop() > 70) {
       // 指定px以上のスクロールでボタンを表示
-      topBtn.fadeIn();
+      $topBtn.fadeIn();
     } else {
       // 画面が指定pxより上ならボタンを非表示
-      topBtn.fadeOut();
+      $topBtn.fadeOut();
     }
   });
 
   // ボタンをクリックしたらスクロールして上に戻る
-  topBtn.on('click', function () {
-    $('body,html').animate({
+  $topBtn.on('click', function () {
+    $('body, html').animate({
       scrollTop: 0
     }, 300, 'swing');
     return false;
   });
 
   // Contactセクションの右下でボタンが止まる
-  $('.js-to-top').hide();
   $(window).on('scroll', function () {
-    let documentHeight = $(document).height(); // ドキュメント全体の高さ
-    let wHeight = $(window).height(); // ブラウザの表示領域の高さ
-    let scrollAmount = $(window).scrollTop(); // スクロールした距離
-    let footerHeight = $('.js-footer').innerHeight(); // フッターの高さ(padding含む)
-    let browserWidth = window.outerWidth;
+    const documentHeight = $(document).height(); // ドキュメント全体の高さ
+    const wHeight = $(window).height(); // ブラウザの表示領域の高さ
+    const scrollAmount = $(window).scrollTop(); // スクロールした距離
+    const footerHeight = $('.js-footer').innerHeight(); // フッターの高さ(padding含む)
+    const browserWidth = window.outerWidth;
     if (documentHeight - (wHeight + scrollAmount) <= footerHeight) {
       // ページトップへ戻るボタンがフッターの直前に来たら、positionプロパティの値をfixedからabsoluteに変更する
       if (browserWidth < 768) {
-        $('.js-to-top').css({
+        $topBtn.css({
           position: 'absolute',
           bottom: footerHeight + 16
         });
       } else {
-        $('.js-to-top').css({
+        $topBtn.css({
           position: 'absolute',
           bottom: footerHeight + 20
         });
       }
     } else {
       if (browserWidth < 768) {
-        $('.js-to-top').css({
+        $topBtn.css({
           position: 'fixed',
           bottom: '16px'
         });
       } else {
-        $('.js-to-top').css({
+        $topBtn.css({
           position: 'fixed',
           bottom: '20px'
         });
       }
     }
+  });
+
+  // 読み込み直後にすでにスクロールされている場合（リロード・アンカー付きURLでの遷移など）、
+  // ユーザーがスクロールするまでボタンが非表示・初期位置のままになるため、コード側から発火させる。
+  // DOM readyの時点では画像の読み込みやブラウザのスクロール位置復元が終わっておらず、
+  // ドキュメント全体の高さを正しく取得できずボタンが一瞬フッター内に表示されてしまうため、loadまで待つ。
+  // pageshowも指定しているのは、ブラウザバック時（bfcacheからの復帰）はloadが発火しないため。 26.9.5
+  $(window).on('load pageshow', function () {
+    $(window).trigger('scroll');
   });
 
   /* --------------------------------------------

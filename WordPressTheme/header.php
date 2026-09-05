@@ -110,7 +110,7 @@
             </ul>
           </div>
         </nav>
-        <nav class="header__pc-nav pc-nav js-pc-nav" aria-label="ヘッダーのメインメニュー" aria-hidden="false">
+        <nav class="header__pc-nav pc-nav" aria-label="ヘッダーのメインメニュー">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="<?php echo $plans; ?>" class="pc-nav__link">

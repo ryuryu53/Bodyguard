@@ -1,6 +1,10 @@
 @use "global" as *;
 
 .to-top {
+  // script.jsはフッター読み込みのため、JSが実行されるまでの一瞬だけボタンが描画されてしまう。
+  // ページ下部でリロードするとフッター内に表示されてから正しい位置へ移動して見えるため、
+  // 初期状態はCSSで非表示にしておき、表示はJS側のfadeIn()に任せる  26.9.5
+  display: none;
   position: fixed;
   right: rem(15);
   bottom: rem(16);
@@ -27,6 +31,8 @@
   width: rem(46);
   height: rem(46);
   background-color: $white;
+  border-radius: 50%; // フォーカスリングを円形にするため追加  26.9.5
+  outline-offset: 0;  // フォーカスリングを見えるようにするため追加  26.9.5
 
   @include mq(md) {
     width: rem(78);
