@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<?php if ( is_page( 'about-us' ) ) : ?>
-  <html class="html1" lang="ja">
-<?php else : ?>
-  <html lang="ja">
-<?php endif; ?>
+<html lang="ja">
 
   <head>
     <meta charset="UTF-8" />

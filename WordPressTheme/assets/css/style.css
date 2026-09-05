@@ -62,12 +62,7 @@ dd {
 /* Set core root defaults */
 
 html {
-	scroll-behavior: smooth;
 	scroll-padding-top: 5.625rem;
-}
-
-.html1 {
-	scroll-behavior: auto;
 }
 
 /* Set core body defaults */

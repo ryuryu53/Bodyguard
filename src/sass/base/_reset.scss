@@ -29,14 +29,14 @@ dd {
 }
 
 /* Set core root defaults */
-html { // CSSでのスムーススクロールが必須なのは「price」だけ
-  scroll-behavior: smooth;
+html { // CSSでのスムーススクロールが必須なのは「price」だけ → 不要と判断 26.9.5
+  // scroll-behavior: smooth;
   scroll-padding-top: rem(90);  // 追加
 }
 
-.html1 {  // モーダルのあるページに上記CSSがあるとモーダルを閉じたとき背景がスムーススクロールされてしまう →「about」では以下の処理
-  scroll-behavior: auto;
-}
+// .html1 {  // モーダルのあるページに上記CSSがあるとモーダルを閉じたとき背景がスムーススクロールされてしまう →「about」では以下の処理 → 全ページ auto
+//   scroll-behavior: auto;
+// }
 
 /* Set core body defaults */
 body {
