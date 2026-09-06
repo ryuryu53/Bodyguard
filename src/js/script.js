@@ -60,40 +60,80 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   const $footer = $('.js-footer');
   const $topBtn = $('.js-to-top');
 
+  /**
+   * ドロワーを開く共通処理
+   */
+  const openDrawer = () => {
+    // 1) ハンバーガーの状態更新
+    $hamburger.addClass('is-active');
+    $hamburger.attr('aria-expanded', 'true');
+
+    // 2) ドロワーナビの状態更新
+    $drawer.fadeIn(300);
+    $drawer.attr('aria-hidden', 'false');
+
+    // 3) 背景スクロール禁止
+    // iOSでoverflow:hiddenが効かないため、position:fixed方式の lockBodyScroll() に変更  26.6.25
+    lockBodyScroll();
+
+    // 4) inert属性を設定（背景のフォーカスを無効化）
+    $main.attr('inert', '');
+    $footer.attr('inert', '');
+    $topBtn.attr('inert', '');
+  };
+
+  /**
+   * ドロワーを閉じる共通処理
+   * クリック / Escキー / リサイズ の3か所から呼ぶため関数化
+   */
+  const closeDrawer = () => {
+    // 1) ハンバーガーの状態リセット
+    $hamburger.removeClass('is-active');
+    $hamburger.attr('aria-expanded', 'false');
+
+    // 2) ドロワーナビの状態リセット
+    $drawer.fadeOut(300);
+    $drawer.attr('aria-hidden', 'true');
+
+    // 3) 背景スクロール禁止を解除（iOS対応のため lockBodyScroll() と対になる解除処理に変更  26.6.25）
+    unlockBodyScroll();
+
+    // 4) inert属性を削除（フォーカスを有効化）
+    $main.removeAttr('inert');
+    $footer.removeAttr('inert');
+    $topBtn.removeAttr('inert');
+  };
+
+  /**
+   * ドロワー内、またはハンバーガーにフォーカスがあるかを判定する関数
+   * 閉じるとフォーカスを見失う位置かどうかを、閉じる前に調べるために使う
+   */
+  const hasFocusInDrawer = () => {
+    const activeElement = document.activeElement;
+    if (!activeElement) return false;
+    return $drawer.get(0).contains(activeElement) || $hamburger.get(0) === activeElement;
+  };
+
   if ($hamburger.length && $drawer.length) {
-    // ハンバーガーとドロワーをどちらをクリックしても同じ動きにする
+    // ハンバーガーとドロワーのどちらをクリックしても同じ動きにする
     $('.js-hamburger, .js-sp-nav').on('click', function () {
-
-      // 現在の状態（開いているか閉じているか）を取得
-      const isActive = $hamburger.hasClass('is-active');
-      const isExpanded = $hamburger.attr('aria-expanded') === 'true';
-
-      // 1) is-active クラスの切り替え
-      $hamburger.toggleClass('is-active');
-
-      // 2) ARIA属性の更新（アクセシビリティ対応）
-      $hamburger.attr('aria-expanded', (!isExpanded).toString());
-      $drawer.attr('aria-hidden', isExpanded.toString());
-
-      // 3) スクロール制御とドロワーの表示切り替え
-      // iOSでoverflow:hiddenが効かないため、position:fixed方式の lockBodyScroll() / unlockBodyScroll() に変更  26.6.25
-      if (isActive) {
-        unlockBodyScroll(); // 背景スクロール禁止を解除
-        $drawer.fadeOut(300);
-
-        // inert属性を削除（フォーカスを有効化）
-        $main.removeAttr('inert');
-        $footer.removeAttr('inert');
-        $topBtn.removeAttr('inert');
+      if ($hamburger.hasClass('is-active')) {
+        closeDrawer();
       } else {
-        lockBodyScroll(); // 背景スクロール禁止
-        $drawer.fadeIn(300);
-
-        // inert属性を設定（フォーカスを無効化）
-        $main.attr('inert', '');
-        $footer.attr('inert', '');
-        $topBtn.attr('inert', '');
+        openDrawer();
       }
+    });
+
+    // ドロワー表示中、ESCで閉じる
+    $(document).on('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if ($hamburger.attr('aria-expanded') !== 'true') return;
+
+      e.preventDefault();
+      closeDrawer();
+
+      // 閉じたあとは開閉ボタンへフォーカスを戻す（フォーカスがドロワー内に取り残されるのを防ぐ）
+      $hamburger.focus();
     });
   }
 
@@ -112,21 +152,19 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       // メニューが開いているときのみ閉じる処理を実行
       if (isExpanded || $hamburger.hasClass('is-active')) {
 
-        // 1) ハンバーガーの状態リセット
-        $hamburger.removeClass('is-active');
-        $hamburger.attr('aria-expanded', 'false');
+        // 閉じるとフォーカスを見失う位置にいるかどうかを、閉じる前に判定しておく
+        const needsFocusFallback = hasFocusInDrawer();
 
-        // 2) ドロワーナビの状態リセット
-        $drawer.fadeOut(300);
-        $drawer.attr('aria-hidden', 'true');
+        closeDrawer();
 
-        // 3) 背景スクロール禁止を解除（iOS対応のため lockBodyScroll() と対になる解除処理に変更  26.6.25）
-        unlockBodyScroll();
-
-        // 4) inert属性を削除（フォーカスを有効化）
-        $main.removeAttr('inert');
-        $footer.removeAttr('inert');
-        $topBtn.removeAttr('inert');
+        // 768px以上ではハンバーガー自体も display: none になるため、フォーカスの戻し先にできない
+        // よって、ヘッダー内で最初にフォーカス可能な要素（ロゴ）へ退避させる
+        // ※ getFocusableElements() は下の「モーダル（キーボード対応 + フォーカス制御）」内で
+        //    定義している共通関数（関数宣言なので巻き上げにより、ここから呼び出せる）
+        // ※ ドロワーはフェードアウト中でまだ :visible 判定になるため、除外してから取得する
+        if (needsFocusFallback) {
+          getFocusableElements($header).not($drawer.find('*')).first().focus();
+        }
       }
     }
   });
