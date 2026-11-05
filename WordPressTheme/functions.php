@@ -784,3 +784,11 @@ function add_internal_param_for_logged_in_user() {
 }
 // template_redirect：WPがテンプレートを読み込む直前（ページのテンプレートが表示される直前）に走るアクションフック
 add_action( 'template_redirect', 'add_internal_param_for_logged_in_user' );
+
+/* --------------------------------------------
+ *  「リンクなし」テンプレートで使う <span> に bcn-aria-current 属性を許可  26.11.6
+ * -------------------------------------------- */
+add_filter( 'bcn_allowed_html', function( $tags ) {
+  $tags['span']['bcn-aria-current'] = true;
+  return $tags;
+});
