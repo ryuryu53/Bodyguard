@@ -11,14 +11,14 @@
   <?php get_template_part( 'parts/breadcrumbs' ); ?>
 
   <!-- お客様の声 -->
-  <section class="layout-lower-head page-plans">
-    <div class="page-plans__inner inner">
-      <div class="page-plans__heading lower-heading">
+  <section class="layout-lower-head page-voice">
+    <div class="page-voice__inner inner">
+      <div class="page-voice__heading lower-heading">
         <h2 class="lower-heading__text">お客様の声一覧</h2>
       </div>
-      <div class="page-plans__category plans-category">
+      <div class="page-voice__category archive-category">
         <!-- タクソノミーのタブを生成 -->
-        <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="plans-category__link">All</a>
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'voice' ) ); ?>" class="archive-category__link">All</a>
         <?php
         $terms = get_terms( [
           'taxonomy' => 'voice_category',
@@ -29,7 +29,7 @@
           foreach ( $terms as $term ) :
             $term_link = get_term_link( $term );
         ?>
-        <a href="<?php echo esc_url( $term_link ); ?>" class="plans-category__link <?php echo ( is_tax( 'voice_category', $term->slug ) ? 'is-active' : '' ); ?>">
+        <a href="<?php echo esc_url( $term_link ); ?>" class="archive-category__link <?php echo ( is_tax( 'voice_category', $term->slug ) ? 'is-active' : '' ); ?>">
           <?php echo esc_html( $term->name ); ?>
         </a>
         <?php endforeach; endif; ?>
@@ -37,7 +37,7 @@
 
       <!-- お客様の声一覧 -->
       <?php if ( have_posts() ) : ?>
-        <div class="page-plans__items page-plans__items--voice-page voice-cards">
+        <div class="page-voice__items voice-cards">
           <?php while ( have_posts() ) : the_post(); ?>
             <article class="voice-cards__item voice-card">
               <div class="voice-card__link">
@@ -93,7 +93,7 @@
     </div>
   </section>
 
-  <div class="layout-pagenavi layout-pagenavi--voice-page">
+  <div class="layout-pagenavi layout-pagenavi--narrow">
     <?php wp_pagenavi(); ?>
   </div>
 

@@ -16,10 +16,10 @@
       <div class="page-plans__heading lower-heading">
         <h2 class="lower-heading__text">ご提供プランの一覧</h2>
       </div>
-      <div class="page-plans__category plans-category">
+      <div class="page-plans__category archive-category">
         <!-- タクソノミーのタブを生成 -->
         <!-- get_post_type_archive_link('plans') →「キャンペーン」というカスタム投稿タイプのアーカイブページ（一覧ページ）のリンクを取得 -->
-        <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="plans-category__link">All</a>
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'plans' ) ); ?>" class="archive-category__link">All</a>
         <?php
         $terms = get_terms( [ // get_terms：特定のタクソノミー（plans_category）のカテゴリ情報を取得する関数
           'taxonomy' => 'plans_category',
@@ -31,7 +31,7 @@
             $term_link = get_term_link( $term );  // 各カテゴリ（タクソノミー）のリンク先URLを取得
             // is_tax('plans_category', $term->slug)：「今表示しているページが、このループで処理しているカテゴリ（$term->slug）かどうか？」を判定
         ?>
-        <a href="<?php echo esc_url( $term_link ); ?>" class="plans-category__link <?php echo ( is_tax( 'plans_category', $term->slug ) ? 'is-active' : '' ); ?>">
+        <a href="<?php echo esc_url( $term_link ); ?>" class="archive-category__link <?php echo ( is_tax( 'plans_category', $term->slug ) ? 'is-active' : '' ); ?>">
           <?php echo esc_html( $term->name ); ?>
         </a>
         <?php endforeach; endif; ?>
