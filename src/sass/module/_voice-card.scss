@@ -10,8 +10,8 @@
 
 .voice-card--js {
   opacity: 0;
-  transform: translateY(rem(200));
-  transition: opacity 1s, transform 1s;
+  transform: translateY(rem(40));
+  transition: opacity 0.6s, transform 0.6s;
 }
 
 .voice-card--js.is-active {

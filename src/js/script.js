@@ -879,12 +879,12 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
       $container.data('animated', true); // 発火済みの目印を付ける
       // コンテナ内のカードを左から順に、indexに応じて時間差でフェードイン
-      // （アニメーションの時間は「transition-duration: 2s;」で指定。「下からふわっと」はtransform: translateY()を使う）
+      // （アニメーションの時間は「transition-duration: 0.6s;」で指定。「下からふわっと」はtransform: translateY()を使う）
       $container.find('.js-fadeInUp, .js-fadeInUp-v').each(function (i) {
         const $card = $(this);
         setTimeout(function () {
           $card.addClass('is-active');
-        }, i * 300); // 1枚目:0ms / 2枚目:300ms / 3枚目:600ms …
+        }, i * 150); // 1枚目:0ms / 2枚目:150ms / 3枚目:300ms …
       });
     });
   }
