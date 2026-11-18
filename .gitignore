@@ -5,3 +5,4 @@ _gulp/package-lock.json
 dist
 .claude/
 QUALITY_REPORT.md
+.codex/
